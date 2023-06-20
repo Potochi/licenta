@@ -1,0 +1,564 @@
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{matrix,shapes,arrows,positioning,decorations.pathreplacing}
+\usepackage{comment}
+\usepackage{marginnote}
+\usepackage{pgf}
+\usepackage{xstring}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstset{
+    language=C,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue}\ttfamily,
+    stringstyle=\color{red}\ttfamily,
+    commentstyle=\color{green}\ttfamily,
+    morecomment=[l][\color{magenta}]{\#},
+    breaklines=true
+}
+
+\begin{document}
+
+\section{Abstract}%
+
+Software exploitation continues to pose a significant threat to global
+cybersecurity, with vulnerabilities in software systems offering fertile ground
+for cyberattacks. The expanding complexity of contemporary software and the
+incessantly evolving threat landscape only accentuates the magnitude of the
+problem. This paper will discuss the concept of software exploitation,
+elaborating on how attackers leverage vulnerability in software systems,
+illustrating some common exploitation techniques including buffer overflows,
+code injection, heap corruption, among others, while also exploring contemporary
+exploit detection and prevention methodologies, from static and dynamic analysis
+techniques to machine learngin and artificial intelligence-based approaches,
+critically evaluating theirs strengths and weaknesses. Finally showcasing the
+necessity for a proactive approach towards software security, outlining the
+importance of secure coding practices and threat modeling in the early stages of
+software development lifecycle. In conclusion this paper aims to offer an
+in-depth review of the current landscape of exploitation, detection and
+mitigation methodologies and techniques, emphasizing the criticality of these
+techniques in fortifying software against threats.
+
+\section{Motivation}%
+
+Ever since my first encounter with the intricacies of reverse engineering and
+binary exploitation, I've been completely engrossed in the enigmatic and
+thrilling world of low-level computing. Each compiled binary, to me, is an
+intricate puzzle waiting to be deciphered. Every line of assembly, every opcode,
+and every bit is a brushstroke in an abstract painting that only a trained eye
+can understand and appreciate. This appreciation for the art of reverse
+engineering started when I participated in my first major CTF (Capture The Flag)
+event called X-MAS CTF, which was organized by the Hecarii Tuica si Paunii team.
+Having spent countless hours trying to reverse algorithms in binaries, writing
+two emulators for custom made platforms in the span of a week and bending
+innocuous binaries to do my bidding and execute arbitrary commands revealed to
+me how awesome an expansive this field of software security is. This paper will
+only cover a small area of this large field and I urge the readers to explore
+all of the fields of CyberSec.
+
+\section{Background}%
+
+%   Explain how the Von-Newmann architecture works
+%   Give some explaination about the stack and heap
+%   Explain how virtualization works
+\subsection{What is a Software Exploit?}%
+
+In layman's terms, a Software Exploit is a series of steps taken by an attacker
+(be it a human or computer) against another software system in order to trigger
+some unintended functionality in that software system. Unintended functionality
+could mean being able to execute arbitrary code on the machine running the
+software system, getting access to private information/files, escalating their
+priviledges to become an administrator or root user and even crashing the system.
+
+\subsection{How does this happen?}%
+
+\subsubsection{Not enough guardrails}%
+
+From the perspective of software exploitation, the continuously increasing
+complexity of modern software presents both a challenge and an opportunity. On
+one hand, this complexity implies a vast landscape where vulnerabilities can
+lurk unnoticed, potentially creating an opening for skilled attackers. System
+programming languages, traditionally trusted with the task of creating such
+software, provide programmers with great power but very few guardrails.
+Languages like C and C++, for instance, allow direct memory manipulation without
+inherent safeguards, leading to common vulnerabilities such as buffer overflows
+or memory leaks.
+
+\subsubsection{Improper input sanitization}%
+
+In the majority of scenarios the fundamental mistake that the software
+developers made is the improper validation of user controlled input. For example
+let's take the venerable Buffer Overflow vulnerability, in which an attacker can
+send more data that the application has space to process, resulting in Undefined
+Behaviour. Depending on the scenario this undefined behaviour can be exploited
+to redirect the execution flow of the program into code sent by the attacker (in
+the case of a code injection attack on the stack), or could lead to corrupting
+some important metadata somewhere else in the program (overwriting a password
+variable to one you control, allowing you to login without knowing the real
+password). These simple tehcniques have mostly been mitigated in modern systems
+by employing passive mitigation techniques such as stack canaries and shadow
+stacks (which will be discussed later).
+
+\subsubsection{Dependencies}%
+
+You could be the best programmer in the world, always writing code that stands
+up to the highest standars of security but if you use a dependency that is
+vulnerable to some exploit your program could still be at a high risk. In the
+modern software landscape having a programming language without a package
+manager is pretty much a show stopper. This has allowed developers to more
+easily share and reuse code, undoubtably leading to increased productivity and
+democratization of writing good and useful software, but on the other side the
+ease of using someone else's code led us balloon our dependency graph like never
+before. This poses a security risk not only from the exploitation standpoint but
+also from a supply chain attack standpoint. Only one of the dependencies a
+project uses needs to be compromised in order for the whole application to be
+compromised.
+
+This has happened multiple times in recent years and this article from LunaSec
+showcases really well what happened, but also provides solutions on how to
+mitigate these types of attacks in the future.
+TODO:Make this a reference
+https://www.lunasec.io/docs/blog/node-ipc-protestware/
+
+\subsubsection{Anatomy of the stack on x64 platforms}%
+
+The stack is a fundamental data structure in modern computing systems, and its
+use in x64 systems is particularly interesting due to the specific features and
+operations enabled by the x64 architecture. The stack is typically organized as
+a contiguous region of memory, with two key pointers: the stack base pointer
+(RBP in x64) and the stack pointer (RSP in x64). The stack grows `downward' in
+memory, meaning that as new items are pushed onto the stack, the stack pointer
+decreases in value. A typical function call on an x64 system involves pushing
+the return address onto the stack, followed by the function's parameters
+\footnote{In the most common calling convention the first few parameters are
+passed in registers, not trough the stack}, and finally the local variables.
+Upon function return, these elements are popped from the stack in reverse order,
+ensuring correct program execution. However, the direct memory access afforded
+by the stack also presents a potential vector for exploitation, with techniques
+such as buffer overflow attacks targeting this fundamental structure.
+Consequently, understanding the stack's functioning in x64 systems is crucial
+both for building and for securing software systems.
+
+Variables stored on the stack usually have their size known beforehand are not
+really flexible to size requirements, unlike the heap, about which we will talk
+in a later chapter.
+
+\begin{figure}[ht]%
+  \centering
+  \begin{tikzpicture}[node distance=2cm]
+    \tikzstyle{block} = [rectangle, draw, fill=blue!20, text width=5em, text
+    centered, minimum height=2em, text width=3cm,
+               text depth=0.25cm,
+               text height=1em,
+               align=center]
+    \tikzstyle{line} = [draw, -latex']
+
+    % Define matrix
+    \matrix [matrix of nodes,
+      nodes=block,
+      column sep=0cm,
+      row sep=0cm
+    ] (stack) {
+      {0xFF0060} & {...} \\
+      {0xFF0058} & {Return address} \\
+      {0xFF0050} & {Stack canary} \\
+      {0xFF0048} & {Old RBP} \\
+      {0xFF0040} & {foo} \\
+      {0xFF0038} & {bar} \\
+      {0xFF0030} & {...} \\
+    };
+
+    % Draw arrow with two right angles
+    % \draw [red,thick,->] (stack-1-1.east) -- +(2cm,0) |- (stack-5-1.east) node[midway, right, black] {Pointer};
+    \draw [red,thick,->] ([xshift=3cm]stack-6-2.east) --
+    ([xshift=0cm]stack-6-2.east) node[midway, above, black] {Value of rsp};
+
+    \draw [red,thick,->] ([xshift=3cm]stack-4-2.east) --
+    ([xshift=0cm]stack-4-2.east) node[midway, above, black] {Value of rbp};
+
+  % \draw [decorate,decoration={brace,amplitude=10pt}]
+  %     (stack-1-2.north east) -- (stack-3-2.south east)
+  %     node[midway,xshift=1.5cm,] {Group 1};
+
+  \end{tikzpicture}
+  \caption{\label{fig:label} Stack frame of a function with local variables
+    `foo' and `bar'}%
+  \label{fig:stackframe}
+\end{figure}
+
+An example state of the stack during the call~\footnote{This example is used for
+simplicity. In real world scenarios the variables would have been constant
+propagated and the function would have directly returned the result of the
+computation} to the function `example`~\ref{code:example_func} is shown in~\ref{fig:stackframe}.
+
+\begin{lstlisting}
+  int example()
+  {
+    int foo = 3;
+    int bar = 7;
+
+    return foo + bar;
+  }
+\end{lstlisting}%
+\label{code:example_func}
+
+
+We can see that the stack frame contains some interesting `variables' that we
+haven't defined ourselves:
+\begin{itemize}
+  \item \textbf{RBP} -~Base pointer. This has been historically used to keep
+        track of the start (or base) of our function's stack frame. Functions are usually not allowed to modify values above this address (even though there are some exceptions like copy ellision TODO add copy elision ref).
+  \item \textbf{Old RBP} -~Base pointer of the caller.
+  \item \textbf{Stack canary} -~This will be explained in the mitigations section TODO add mitigations ref, we will ignore it for this example.
+  \item \textbf{Return address} -~For our purposes this is the most important variable. This value is used by the callee to return (hence return address) the execution flow back to the caller when the function finished executing. Another important fact is that this value is stored in the same area as our variables.
+\end{itemize}
+
+Now that we have an understanding of how a stack frame looks we can move on to
+how stack frames are linked together. The example below shows the state of the
+stack while executing the following nested function call chain~\footnote{Here foo is assumed to be a function that does not return} (the
+`calls' operation is denoted by $\Rightarrow$):
+
+\begin{equation}
+  foo \Rightarrow bar \Rightarrow baz \Rightarrow qux
+\end{equation}
+
+This structure is basically a singly linked list of stack frames, with \emph{RBP} as their forward pointer. The function the processor is currently executing is at the head of the list, and the first function called by the program is situated at the tail. Because user variables are mixed with control structures, we can imagine what the outcome would be if we managed to corrupt the \emph{forward} pointer in this linked list.
+
+\begin{figure}[ht]%
+  \centering
+  \begin{tikzpicture}[node distance=2cm]
+    \tikzstyle{block} = [rectangle, draw, fill=blue!20, text width=12em, text
+    centered, minimum height=2em,
+               text depth=0.25cm,
+               text height=1em,
+               align=center]
+    \tikzstyle{line} = [draw, -latex']
+
+    % Define matrix
+    \matrix [matrix of nodes,
+      nodes=block,
+      column sep=0cm,
+      row sep=0cm
+    ] (stack) {
+       |[fill=gray!20   ]| {Start of stack}\\
+       |[fill=red!20    ]| {vars} \\
+       |[fill=green!20  ]| {return address} \\
+       |[fill=green!20  ]| {old rbp} \\
+       |[fill=green!20  ]| {vars} \\
+       |[fill=blue!20   ]| {return address} \\
+       |[fill=blue!20   ]| {old rbp} \\
+       |[fill=blue!20   ]| {vars} \\
+       |[fill=orange!20 ]| {return address} \\
+       |[fill=orange!20 ]| {old rbp} \\
+       |[fill=orange!20 ]| {vars} \\
+       |[fill=gray!20   ]| {End of stack}\\
+    };
+
+    Draw arrow with two right angles
+    \draw [green,thick,->] (stack-4-1.east) -- +(2cm,0) |- (stack-2-1.north east) node[midway, right, black] {};
+
+    \draw [blue,thick,->] (stack-7-1.east) -- +(2cm,0) |- (stack-5-1.north east) node[midway, right, black] {};
+
+    \draw [orange,thick,->] (stack-10-1.east) -- +(2cm,0) |- (stack-8-1.north east) node[midway, right, black] {};
+
+    \draw [decorate,decoration={brace,amplitude=10pt,mirror}]
+    (stack-2-1.north west) -- (stack-2-1.south west)
+    node[midway,xshift=-1.5cm,] { \emph{foo}'s frame};
+
+    \draw [decorate,decoration={brace,amplitude=10pt,mirror}]
+    (stack-3-1.north west) -- (stack-5-1.south west)
+    node[midway,xshift=-1.5cm,] { \emph{bar}'s frame};
+
+    \draw [decorate,decoration={brace,amplitude=10pt,mirror}]
+    (stack-6-1.north west) -- (stack-8-1.south west)
+    node[midway,xshift=-1.5cm,] { \emph{baz}'s frame};
+
+    \draw [decorate,decoration={brace,amplitude=10pt,mirror}]
+    (stack-9-1.north west) -- (stack-11-1.south west)
+    node[midway,xshift=-1.5cm,] { \emph{qux}'s frame};
+
+  \end{tikzpicture}
+  \caption{\label{fig:label} Stack state when executing 3 nested calls}%
+  \label{fig:stackframe}
+\end{figure}
+
+\subsubsection{Anatomy of the Heap}
+Here we will take a small departure
+from the world of semi-standardized calling conventions and venture in the
+implementation defined lands of \emph{malloc} and \emph{free}. Ever since it's
+inception, this api has been the bane of every C programmer's existence when
+they started out programming. We will now examine in depth this API.\@
+
+\subsubsection{malloc}
+TODO add ref to standards
+The malloc function is a part of the C Standard Library, as specified by both
+the ANSI C and ISO C standards. It is used for dynamic memory allocation in C
+programs, allowing the programmer to request a specific amount of memory space
+at runtime. The malloc function, defined in the stdlib.h header file, takes a
+single argument: the number of bytes to be allocated, and it returns a pointer
+to the first byte of the allocated space.
+
+The behavior of malloc is strictly defined by the C standard. Upon successful
+execution, malloc provides a block of memory that is suitably aligned for any
+kind of variable. The allocated memory is uninitialized, meaning it contains
+indeterminate values. If the function fails to allocate the requested memory,
+perhaps due to insufficient memory space, it returns a NULL pointer.
+Importantly, the standard guarantees that malloc will not modify the content of
+the allocated memory, which differentiates it from similar functions like
+calloc, which sets the allocated memory to zero. The pointer returned by malloc
+is always a unique address that is not being used elsewhere in the program,
+until it is freed by the \emph{free} function.
+
+\subsubsection{free}
+Thre \emph{free} function pretty much does the inverse of what malloc does. It
+marks the memory allocation starting at the address given as a parameter as free
+for use by the allocator. The algorithm behind the dynamic memory allocation API
+is left to be implementation defined. We will dig deeper into the
+allocator used by LibC on the GNU/Linux operating system.
+
+
+\subsection{Allocating memory in Linux}
+The allocator used by the C standard library on linux is a variation of
+\emph{ptmalloc}. There are two main ways to allocate memory using this
+allocator. The allocator automatically chooses which technique to use based on
+the size of the requested allocation\footnote{We will be referring to
+allocations with a size $<$ {M\_MMAP\_THRESHOLD} as \emph{small} and to
+allocations larger than that as \emph{big}}\footnote{{M\_MMAP\_THRESHOLD} is set
+to 127k bytes by default}:
+\begin{itemize}
+  \item \emph{small}~-~served by the allocation algorithm
+  \item \emph{large}~-~served by a call to \emph{mmap}
+\end{itemize}
+
+Large allocations bypass the allocation algorithm entirely (and will not be the
+focus for our exploitation scenarios), unlike small allocations which pass
+trough a pretty complex set of steps before the memory is actually given to us.
+We will now discuss this algorithm in detail, pointing out areas of interest
+that will help us develop exploits and mitigations later.
+
+\subsection{GLibc allocation algorithm}
+\subsubsection{Background}
+\begin{itemize}
+  \item \emph{Arena}~-~An arena is a structure accessible by one or multiple
+threads, holding references to one or several heaps. It also includes linked
+lists of unallocated `chunks' within these heaps. Threads associated with a
+specific arena draw their memory from the free lists of that arena.
+  \item \emph{Heap}~-~A heap is a sequential memory region divided into smaller
+units, known as chunks, for allocation purposes. Each heap is uniquely
+associated with a single arena.
+  \item \emph{Chunk}~-~A chunk represents a small, allocatable memory section.
+This memory can be allocated (controlled by the application), freed (controlled
+by glibc), or merged with nearby chunks to create larger sections. Importantly,
+a chunk essentially serves as a shell encompassing the block of memory delivered
+to the application. Every chunk is part of one heap and linked to a single
+arena.
+  \item \emph{Memory}~-~Memory refers to a segment of the application's address
+space, generally supported by RAM or swap
+\end{itemize}
+
+\subsubsection{Allocation}
+The operation of the \texttt{malloc} function can be succinctly described as
+follows:
+
+\begin{enumerate}
+\item In case a chunk with an exact match is available in the \texttt{tcache},
+it is returned. Note that no attempts are made to utilize an existing chunk from
+a bin of a larger size.
+
+\item For sufficiently large requests, memory is directly acquired from the
+operating system using the \texttt{mmap()} function. It is noteworthy that the
+threshold for triggering \texttt{mmap()} is dynamic, subject to the
+\texttt{M\_MMAP\_THRESHOLD} parameter (refer to the \texttt{mallopt()}
+documentation), and there may exist a constraint on the number of mappings
+permissible concurrently.
+
+\item If an adequate chunk exists in the appropriate \texttt{fastbin}, it is
+used. If additional chunks are available, the \texttt{tcache} is prefilled.
+
+\item In the scenario where the appropriate \texttt{smallbin} contains a chunk,
+it is used, with the possibility of \texttt{tcache} being prefilled.
+
+\item For "large" requests, the function executes a routine to transfer all
+elements in the \texttt{fastbins} to the unsorted bin while coalescing them.
+
+\item The function then starts retrieving chunks from the unsorted list,
+subsequently placing them into small/large bins, again coalescing in the
+process. The function uses a chunk if it is of the required size. This is the
+only point in the code where chunks are inserted into small/large bins.
+
+\item In the case of "large" requests, the function searches the appropriate
+large bin and subsequently larger bins until a sufficiently large chunk is
+found.
+
+\item If chunks remain in the \texttt{fastbins} (which could occur for "small"
+requests), these are consolidated, and the previous two steps are repeated.
+
+\item Part of the "top" chunk is split off, with a possibility of enlarging the
+"top" chunk prior to this.
+
+\item For requests requiring over-aligned \texttt{malloc}, such as
+\texttt{valloc}, \texttt{pvalloc}, or \texttt{memalign}, an overly-large chunk
+is located using the above \texttt{malloc} algorithm. This chunk is then divided
+into two or more chunks such that the majority of the chunk is suitably aligned
+and returned to the caller. The excess portions before and after this chunk are
+returned to the unsorted list for future usage.
+\end{enumerate}
+
+\subsubsection{Free} Generally, the act of "freeing" memory does not entail
+returning it to the operating system for alternative applications' use. A
+\texttt{free()} call designates a memory chunk as "available for reuse" by the
+application; from the perspective of the operating system, the memory still
+"belongs" to the application. However, should the top chunk in a heap -- the
+section adjacent to unmapped memory -- grow significantly, some of the memory
+could potentially be unmapped and returned to the operating system.
+
+To summarize, the \texttt{free()} function operates as follows:
+
+\begin{enumerate}
+\item If space is available in the \texttt{tcache}, the chunk is stored there,
+and the function returns.
+
+\item If the chunk's size is sufficiently small, it is placed in the
+corresponding \texttt{fastbin}.
+
+\item If the chunk was allocated using \texttt{mmap()}, it is deallocated with
+\texttt{munmap()}.
+
+\item The function checks whether the chunk is adjacent to another free chunk
+and coalesces the two if possible.
+
+\item The chunk is positioned in the unsorted list, except if it has become the
+"top" chunk.
+
+\item For sufficiently large chunks, any \texttt{fastbins} are coalesced, and
+the function checks if the top chunk is large enough to return some memory to
+the system. It's worth noting that this step may be deferred due to performance
+considerations and could occur during a \texttt{malloc} or another call.
+\end{enumerate}
+
+\subsubsection{Detecting heap corruption}
+The \texttt{malloc} subsystem implements a series of measures aimed at detecting
+heap corruption throughout its codebase. Certain checks can consistently
+identify errors (for instance, passing an insufficiently aligned pointer to
+\texttt{free()}). However, the majority of these checks are heuristic and may
+not identify contrived, false chunks that mimic legitimate ones (for instance,
+checks for forward/backward linking of chunks). Consequently, heap corruption
+may persist undetected for an extended duration, or might not be reported
+altogether.
+
+Common forms of corruption are managed via calls to \texttt{malloc\_printerr};
+these checks are invariably included in the code. Additional checks utilize
+\texttt{assert} and can thus be disabled by building \texttt{glibc} with the
+\texttt{-DNDEBUG} flag. In the current \texttt{glibc} version, both types of
+checks terminate the process via a call to \texttt{\_\_libc\_message}, which
+ultimately invokes \texttt{abort}. Note that although very old versions of
+\texttt{glibc} offered the ability to continue execution in the presence of heap
+corruption, this feature has since been discontinued.
+
+In the following chapter we will be exploring ways to the bypass corruption checks
+in order to achieve arbitrary code execution.
+
+% ASDASD pe ast il punem la case studies
+% The pervasive nature and potential harm of software exploits have catalyzed the
+% establishment of critical global standards for vulnerability tracking and
+% response. One such prominent standard is the Common Vulnerabilities and
+% Exposures (CVE) system. Launched in 1999 by the MITRE Corporation, a
+% not-for-profit organization, the CVE provides a standardized method for
+% identifying and cataloging known vulnerabilities. Each identified vulnerability
+% is assigned a unique CVE Identifier (CVE-ID), allowing cybersecurity experts
+% worldwide to share information using a common language. By providing a universal
+% reference, the CVE system streamlines the process of discussing, researching,
+% and resolving known exploits, and assists in the broader efforts of
+% vulnerability management and mitigation. The creation and widespread adoption of
+% the CVE standard underscore the recognition within the global tech community of
+% the critical need for coordinated, standardized responses to the persistent
+% threat of software exploitation.
+
+% In contrast, this complexity also inspires
+% and necessitates the evolution of more secure programming practices and
+% languages. One such notable example is Rust, a systems programming language that
+% promises memory safety without sacrificing performance. Rust's borrowing
+% mechanism provides a robust guardrail, enforcing access controls to memory at
+% compile-time, thus inherently mitigating a class of exploits. However, not all
+% software can or will be rewritten in Rust or similar languages, and the majority
+% of systems today still run on code written in languages with fewer safety
+% features. As such, the balance between software complexity, performance, and
+% security continues to be a critical and fascinating aspect of the software
+% exploitation landscape.
+
+\section{Software Exploitation Techniques}%
+Software exploitation has been a prevalent issue almost as early as the
+inception of software itself, underpinning the need for constant vigilance and
+innovation in the field of software security. Early instances of software
+exploitation can be traced back to the late 1980s with the advent of the Morris
+Worm. Considered as one of the first computer worms distributed via the
+Internet, the Morris Worm infected approximately 6,000 computers, causing
+significant slowdowns or even rendering them unusable
+\cite{spafford1989internet}. Since then, various forms of software
+vulnerabilities have been exploited, including buffer overflows, injection
+attacks, and privilege escalation, leading to massive data breaches, disruptions
+in services, and significant financial losses \cite{owasp2017}. The history of
+software exploitation elucidates the perpetual arms race between attackers
+seeking to exploit vulnerabilities and defenders striving to secure systems, a
+dynamic that continues to define the software security landscape today.
+
+\subsection{Early stage}
+\begin{comment}
+  shellcoding
+  reference smashing the stack for fun and profit
+\end{comment}
+One of the earliest vulnerability that was exploited was the venerable bufffer
+overflow. A Buffer overflow represents a crucial class of software
+vulnerabilities that can serve as a launching pad for a myriad of complex
+exploits, one of which includes shellcode injection. This vulnerability arises
+when more data is written to a buffer than it can hold, thereby allowing an
+attacker to overwrite adjacent memory locations \cite{seacord2013}. If exploited
+judiciously, this can lead to the alteration of program's control flow, enabling
+an attacker to execute arbitrary code. One manifestation of this is shellcoding,
+where an attacker injects a sequence of bytes, often encoding command-line shell
+instructions, into the memory and manipulates the program's execution flow to
+execute this code \cite{one1996smashing}. This capability to execute arbitrary
+code gives the attacker full control over the compromised system, thereby
+illustrating the severity and implications of buffer overflow vulnerabilities.
+
+\begin{lstlisting}[caption={Program vulnerable to a buffer  overflow}
+      ,label={lst:label}
+      ,language=Java]
+
+\end{lstlisting}
+
+\subsection{Evolution}
+\begin{comment}
+  ret2libc
+  Mention the lack of mitigation
+  Rise of heap based exploits due to browsers and JS
+  Research some linux&windows kernel exploits
+\end{comment}
+\subsection{State of the art}
+\begin{comment}
+  Rise of the hypervizor exploits (showcase some virtualbox exploits, maybe
+  vmware hyperv) RCE Exploits mostly slowing down Common techniques no longer
+  being effective (check offbyonesec talk about windows kernel exploitation, talk
+  about)
+\end{comment}
+
+\section{Detection techniques}%
+
+
+\section{Mitigation Techniques}%
+
+
+\section{Case studies}%
+
+
+\section{Future trends}%
+
+
+\section{Conclusion}%
+
+
+\section{References}%
+
+
+\end{document}
