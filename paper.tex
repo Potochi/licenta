@@ -1,12 +1,13 @@
 \documentclass{article}
 \usepackage{tikz}
-\usetikzlibrary{matrix,shapes,arrows,positioning,decorations.pathreplacing}
+\usetikzlibrary{matrix,shapes,arrows,positioning,decorations.pathreplacing,arrows.meta}
 \usepackage{comment}
 \usepackage{marginnote}
 \usepackage{pgf}
 \usepackage{xstring}
 \usepackage{listings}
 \usepackage{xcolor}
+
 
 \lstset{
     basicstyle=\ttfamily\small,
@@ -19,6 +20,8 @@
 
 \begin{document}
 
+\title{Exploatarea Software și Mai Departe: Dezvăluirea Vectorilor de Atac și Contra-Măsurilor în Calculul Modern / Software Exploitation and Beyond: Unveiling Attack Vectors and Countermeasures in Modern Computing}
+\maketitle
 \section{Abstract}%
 
 Software exploitation continues to pose a significant threat to global
@@ -30,7 +33,7 @@ elaborating on how attackers leverage vulnerability in software systems,
 illustrating some common exploitation techniques including buffer overflows,
 code injection, heap corruption, among others, while also exploring contemporary
 exploit detection and prevention methodologies, from static and dynamic analysis
-techniques to machine learngin and artificial intelligence-based approaches,
+techniques to machine learning and artificial intelligence-based approaches,
 critically evaluating theirs strengths and weaknesses. Finally showcasing the
 necessity for a proactive approach towards software security, outlining the
 importance of secure coding practices and threat modeling in the early stages of
@@ -752,9 +755,13 @@ the programming environment.
 
 We will be walking through the following\ref{veziphpbapula} vulnerable PHP app.
 The application lacks proper input validation and allows an attacker to execute
-arbitrary commands. The use of the \emph{system} function will cause the following
-process to execute \texttt{sh -c ``echo Hello <username>''}. Our\ref{poggeroni}
-malicious request sets the \emph{username} parameter to \verb|$(id)|. Because
+arbitrary commands. The use of the \emph{system} function will cause the
+following process to execute \texttt{sh -c ``echo Hello
+<username>''}\footnote{There are situations where we are not able to inject
+parameters into a command that will be directly reflected in the page. In these
+situations we can try to end the intended command by using a \emph{;} character
+and then write our own malicious command after.}. Our\ref{poggeroni} malicious
+request sets the \emph{username} parameter to \verb|$(id)|. Because
 the original command executes in a shell environment, the shell will interpret
 this string by forking itself and executing the string in between the braces and
 replacing the original string with the result of the command. We can imagine that
@@ -780,18 +787,172 @@ d58498277e1194cc46dac4009f8fca1c84ce02bea21008075ad53f77bd63202f
 $ curl http://127.0.0.1:8080/hello\?username\=$\(id\)
 Hello uid=33(www-data) gid=33(www-data) groups=33(www-data)
 \end{lstlisting}
+Command injection vulnerabilities can drastically undermine security measures.
+They enable attackers to bypass reverse proxies, offering unauthorized access to
+protected internal services. Moreover, such vulnerabilities can assist in
+creating botnets by allowing threat actors to inject commands to download and
+install malicious software, leading to potential large-scale cyber threats such
+as Distributed Denial of Service (DDoS) attacks.
 
-Command injection vulnerabilities can drastically undermine security measures. They enable attackers to bypass reverse proxies, offering unauthorized access to protected internal services. Moreover, such vulnerabilities can assist in creating botnets by allowing threat actors to inject commands to download and install malicious software, leading to potential large-scale cyber threats such as Distributed Denial of Service (DDoS) attacks.
-
-The situation is similar in the systems programming space. The example for how 
-a vulnerable program might look is left as an exercise to the reader.
+The situation is similar in the systems programming space. The example for how a vulnerable program might look is left as an exercise to the reader.
 \subsection{Evolution}
-\begin{comment}
-  ret2libc
+\begin{comment} ret2libc
+
   Mention the lack of mitigation
   Rise of heap based exploits due to browsers and JS
   Research some linux&windows kernel exploits
 \end{comment}
+As mitigation strategies have advanced in both hardware and software to
+counteract software exploitation, so too have the techniques used by threat
+actors, resulting in a continual escalation of sophistication. In response to
+hardening mechanisms such as stack canaries and NX bits, novel exploitation
+techniques have been developed to circumvent these defenses. Prominent among
+these are Return Oriented Programming (ROP) and heap corruption exploits. ROP is
+a technique that leverages existing code fragments, known as "gadgets", in the
+binary to perform arbitrary computations, effectively sidestepping the
+constraints enforced by the NX bit. Heap corruption exploits, on the other hand,
+involve manipulating the metadata of memory management structures to induce
+undefined behavior, providing the means to execute arbitrary code or escalate
+privileges. This evolutionary process underscores the dynamic nature of the
+cybersecurity landscape and the perpetual challenge of maintaining software
+security in the face of evolving threats.
+
+\subsubsection{ret2libc}
+\emph{ret2libc} or \emph{Return to LibC} is a countermove against the
+NX bit mitigation, which marks certain areas of memory as non-executable,
+thereby prohibiting the execution of injected code. The essence of ret2libc lies
+in its ingenious manipulation of the control flow of the program to call
+existing code, typically functions residing in standard libraries (hence
+'libc'), rather than introducing new code to be executed. By returning into
+standard, broadly-used functions like 'system()' or 'exec()', an attacker can
+execute arbitrary commands in the context of the vulnerable program, effectively
+bypassing the NX bit defense. Ret2libc exemplifies the continually evolving
+landscape of software exploitation techniques that repurposes legitimate elements
+of the program to nefarious ends, circumventing protective mechanisms and
+illustrating the challenges of
+developing robust and enduring defenses against software vulnerabilities.
+
+The entry mechanism behind this technique is the same as in the code injection
+case. We overwrite the return address of the program with an address we control,
+but this time instead of providing our own shellcode we use existing code mapped
+inside the address space of the vulnerable process (usually from within the
+binary itself or LibC\footnote{LibC is mapped in almost all processes running on
+a system}).
+
+For example we could overwrite the return address of a function with the address
+of the \emph{system} function. When actually implementing this kind of attack
+we face 2 difficult problems:
+\begin{enumerate}
+  \item At what address is the function we want to call located
+  \item How can we control the parameters that we pass to the function.
+\end{enumerate}
+
+We will assume that we already identified an exploitable buffer overflow and a
+way to leak an known arbitrary address from within LibC. Now we want to call
+the \emph{system} function with the `sh' string to grant us a foothold on the
+machine. Here\ref{memes} is an example of how the virtual memory space looks
+when executing a binary. The \emph{system} function is located in the text
+section\footnote{Briefly explain sections} of LibC. If LibC is compiled with PIC
+and ASLR is enabled on the target system, sections will be placed offset
+relative to a randomly selected base address. Using the information disclosure
+vulnerability to leak an address\footnote{Libc meme} we can compute the base
+address of the library and from there be able to get addresses for any byte
+in the library.
+
+Let's say that we managed to leak the address of the \emph{printf} function and
+have the LibC binary that is running on the system. We can get the base address at
+which the library is mapped using this formula.
+\begin{equation}
+  libc\_{base} = printf\_leak - offset\_{of}\_{printf}\_{in}\_{libc}
+\end{equation}
+
+Now that we have the first issue fixed, how do we pass parameters to the functions
+we want to call? Because the NX (No-Execute) bit
+
+\begin{figure}[ht]%
+  \centering
+  \begin{tikzpicture}[node distance=2cm]
+    \tikzstyle{block} = [rectangle, draw, fill=blue!20, text width=5em, text
+    centered, minimum height=2em, text width=5cm,
+               text depth=0.25cm,
+               text height=1em,
+               align=center]
+    \tikzstyle{line} = [draw, -latex']
+
+    % Define matrix
+    \matrix [matrix of nodes,
+      nodes=block,
+      column sep=0cm,
+      row sep=0cm
+    ] (stack) {
+      {\verb|<unmapped space>|}\\
+      |[fill=red!20]|
+      {binary.rodata} \\
+      {binary.text} \\
+      {binary.bss} \\
+      {\verb|<unmapped space>|} \\
+      |[fill=red!20]|
+      {libc.rodata} \\
+      {libc.text} \\
+      {libc.bss} \\
+      {\verb|<unmapped space>|} \\
+      |[fill=red!20]|
+      {ld.rodata} \\
+      {ld.text} \\
+      {ld.bss} \\
+      {\verb|<unmapped space>|}\\
+    };
+
+    \draw [blue,thick,->] ([xshift=-3cm]stack-1-1.north west) --
+    ([xshift=0cm]stack-1-1.north west) node[midway, below, black] {0x00000000};
+
+    \draw [blue,thick,->] ([xshift=-3cm]stack-13-1.south west) --
+    ([xshift=0cm]stack-13-1.south west) node[midway, below, black] {0xFFFFFFFF};
+
+  \end{tikzpicture}
+  \caption{\label{fig:label} Virtual memory map}%
+  \label{fig:stackframe}
+\end{figure}
+
+
+\subsection{Exploit chains}
+At this point in time the mitigation strategies employed by hardware and
+software designers have limited the impact we have when executing a single
+exploit. This has given the rise to \emph{exploit chains}. In this scenario
+multiple vulnerabilities or oversights are exploited in order to gain more and
+more information about the system. Here\ref{memes} is how an attacker would
+approach the task of exploiting a system.
+
+\begin{minipage}{\textwidth}
+  \centering
+  \begin{tikzpicture}[
+    node distance = 2.5cm,
+    auto,
+    decision/.style={diamond, draw, fill=blue!20, text width=4.5em, text badly centered, node distance=3cm, inner sep=0pt, minimum width=5},
+    block/.style={rectangle, draw, fill=blue!20, text width=5em, text centered, rounded corners, minimum height=4em},
+    line/.style={draw, -Latex, rounded corners=5mm}
+    ]
+
+    \node [block] (entrypoint) {Entrypoint};
+    \node [block, below of=entrypoint] (information) {Gain more information about the system};
+    \node [decision, below of=information] (decision) {Enough info?};
+    \node [block, below of=decision] (rce) {Goal};
+
+    \path [line] (entrypoint) -- (information);
+    \path [line] (information) -- (decision);
+    \path [line] (decision) -- node {yes} (rce);
+    \path [line] (decision) -- ++(-2,0) -- ++(0,2) node [midway, above, sloped,
+    rotate=270, above=0.3cm] {no} -- (information);
+  \end{tikzpicture}
+\end{minipage}
+
+\subsection{Browser exploits}
+
+
+\begin{comment}
+Cool decision tree
+\end{comment}
+
 \subsection{State of the art}
 \begin{comment}
   Rise of the hypervizor exploits (showcase some virtualbox exploits, maybe

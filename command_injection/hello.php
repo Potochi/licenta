@@ -1,4 +1,3 @@
 <?php
-    $username = $_GET['username'];
-    system("echo Hello " . $username);
-?>
+$username = $_GET['username'];
+system("echo Hello " . $username);
