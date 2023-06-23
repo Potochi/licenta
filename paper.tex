@@ -867,7 +867,10 @@ which the library is mapped using this formula.
 \end{equation}
 
 Now that we have the first issue fixed, how do we pass parameters to the functions
-we want to call? Because the NX (No-Execute) bit
+we want to call? Because the NX (No-Execute) bit is enabled and all executable
+regions of code are read-only in order to prevent shellcode, we are going to chain
+together multiple addresses that point to small code chunks ending in the
+\emph{ret} instruction
 
 \begin{figure}[ht]%
   \centering
@@ -947,11 +950,88 @@ approach the task of exploiting a system.
 \end{minipage}
 
 \subsection{Browser exploits}
+In the contemporary computing landscape, a notable surge in interest surrounding
+browser exploitation has emerged, predominantly attributed to the increasing
+ubiquity of JavaScript and the inherent security implications of executing
+foreign code on local machines. As web applications have become more complex and
+feature-rich, JavaScript's role has evolved from simple client-side scripting to
+powering extensive, intricate software systems. This growth presents an enticing
+target for threat actors, as virtually every user who interacts with a web
+application is running potentially untrusted code within their local execution
+context. The browser environment thus turns into a frontline for cybersecurity,
+demanding rigorous scrutiny and sophisticated mitigation techniques.
+Furthermore, the heterogeneous nature of browser architecture and JavaScript
+engine implementations across different vendors adds a layer of complexity to
+securing these environments. This highlights the criticality of understanding
+and countering browser-based exploits, forming an essential dimension of
+comprehensive cybersecurity strategies.
+
+\subsubsection{How does JavaScript get exploited?}
+Within the context of JavaScript, a dynamic and interpreted language primarily
+executed within the confines of web browsers, a unique vulnerability surface
+emerges, closely tied to its heap-based memory management and dynamic typing
+semantics. The vast majority of JavaScript objects are allocated on the heap,
+the malleability of which introduces inherent susceptibilities to heap overflow
+attacks. The manipulation of an object's memory layout, made possible through an
+overflow, can fundamentally alter an object's behaviour, given JavaScript's
+dynamic typing system.
 
 
-\begin{comment}
-Cool decision tree
-\end{comment}
+This means that a successfully exploited heap overflow
+could potentially morph an innocuous object into a malicious entity with
+escalated privileges or unintended functionalities. As such, heap overflow
+vulnerabilities within JavaScript engines pose a significant security concern,
+mandating careful consideration and robust mitigation strategies in the design
+and implementation of modern JavaScript engines and runtime environments.
+
+
+We will continue by looking at the structure of how Javascript values (or
+JSValues) are encoded into memory:
+
+\begin{figure}[ht]%
+  \centering
+  \begin{tikzpicture}[node distance=2cm]
+    \tikzstyle{block} = [rectangle, draw, fill=blue!20, text width=5em, text
+    centered, minimum height=2em, text width=5cm,
+    text depth=0.25cm,
+    text height=1em,
+    align=center]
+    \tikzstyle{line} = [draw, -latex']
+
+    % Define matrix
+    \matrix [matrix of nodes,
+    nodes=block,
+    column sep=0cm,
+    row sep=0cm
+    ] (stack) {
+      {\verb|0000:PPPP:PPPP:PPPP|\footnotemark} \\
+      {\verb|0001:DDDD:DDDD:DDDD|\footnotemark} \\
+      {...} \\
+      {\verb|FFFE:DDDD:DDDD:DDDD|} \\
+      {\verb|FFFF:0000:IIII:IIII|\footnotemark} \\
+    };
+
+  \end{tikzpicture}
+  \caption{\label{fig:label} Virtual memory map}%
+  \label{fig:stackframe}
+\end{figure}
+
+\footnotetext{Pulel}
+\footnotetext{Pulel}
+\footnotetext{Pulel}
+This behaviour also extends to more complex and interesting objects such as
+arrays. JavaScriptCore (at least the versions from around 2016) describe arrays
+as ``exotic'' objects which contain their properties. An in detail explanation
+of how these objects are laid out in memory and how to exploit them in\cite{paper
+frakck}
+
+Due to the high impact that a vulnerability in a JavaScript runtime would have
+on the security of computers all over the world, properly isolating the JS runtime
+from the host machine is paramount. In modern browsers this is achieved by
+employing the least privilege principle. The browser itself is separated into
+multiple processes that use a well defined IPC mechanism to communicate, limiting
+what attackers can do by exploiting a single process and requiring an exploit
+chain to gain increasingly more privileges as desired.
 
 \subsection{State of the art}
 \begin{comment}
@@ -960,10 +1040,22 @@ Cool decision tree
   being effective (check offbyonesec talk about windows kernel exploitation, talk
   about)
 \end{comment}
-
+In recent years, virtualization technologies have witnessed an unprecedented
+surge in their adoption, largely driven by advancements in datacenter and
+cloud-based applications. These technologies allow multiple virtual machines or
+containers, each encapsulating an entire execution environment, to coexist on
+the same physical hardware, thereby promoting efficient resource utilization,
+simplified management, and scalability. More than just a cost-effective solution
+for large-scale computations, virtualization has also garnered considerable
+attention as a robust approach for isolating the execution of untrusted code. In
+this context, it serves as a defensive boundary, segregating potentially harmful
+operations within a contained environment, thereby limiting their ability to
+adversely affect the larger system. Consequently, the evolution of
+virtualization technologies has profoundly impacted the modern computing
+landscape, opening new possibilities for efficient, scalable, and secure
+computing, but also posing new challenges for cybersecurity.
 
 \section{Detection techniques}%
-
 
 \section{Mitigation Techniques}%
 
