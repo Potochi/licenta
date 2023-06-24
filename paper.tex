@@ -7,6 +7,11 @@
 \usepackage{xstring}
 \usepackage{listings}
 \usepackage{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\usepackage[backend=biber,style=numeric]{biblatex}
+\addbibresource{references.bib} % Import the bibliography file
 
 
 \lstset{
@@ -43,21 +48,21 @@ mitigation methodologies and techniques, emphasizing the criticality of these
 techniques in fortifying software against threats.
 
 \section{Motivation}%
-
-Ever since my first encounter with the intricacies of reverse engineering and
-binary exploitation, I've been completely engrossed in the enigmatic and
-thrilling world of low-level computing. Each compiled binary, to me, is an
-intricate puzzle waiting to be deciphered. Every line of assembly, every opcode,
-and every bit is a brushstroke in an abstract painting that only a trained eye
-can understand and appreciate. This appreciation for the art of reverse
-engineering started when I participated in my first major CTF (Capture The Flag)
-event called X-MAS CTF, which was organized by the Hecarii Tuica si Paunii team.
-Having spent countless hours trying to reverse algorithms in binaries, writing
-two emulators for custom made platforms in the span of a week and bending
-innocuous binaries to do my bidding and execute arbitrary commands revealed to
-me how awesome an expansive this field of software security is. This paper will
-only cover a small area of this large field and I urge the readers to explore
-all of the fields of CyberSec.
+The ubiquity of digital devices in our daily lives has ushered in an era of
+unprecedented data accessibility and convenience. Yet, these conveniences also
+come with substantial security concerns. A significant proportion of the world's
+population carries a device in their pocket that is not only a communication
+device but also a gateway to their most personal and sensitive information,
+including bank accounts, biometrics, and other data of significant value. These
+devices, armed with cameras and microphones, could potentially be misused to
+impersonate their owners. With these threats looming, the importance of rigorous
+and effective exploit mitigation strategies, especially in system's programming,
+cannot be overstated. These mitigation strategies form the critical defensive
+layer that shields users from the consequences of potential security breaches,
+preventing unauthorized access, and securing the private sphere of individuals
+in the digital age. Hence, the motivation of this study is to evaluate, analyze,
+and enhance the robustness of these mitigation strategies, thereby contributing
+to safer and more secure software systems.
 
 \section{Background}%
 
@@ -1289,13 +1294,22 @@ of ransomware extends beyond the immediate ransom, emphasizing the necessity of
 comprehensive security measures and incident response strategies.
 
 \section{Future trends}%
+Despite the recent shift in focus of threat actors towards exploiting the human
+element -- the "weakest link" in the security chain -- through strategies such
+as SIM swapping, targeted phishing attacks or weak passwords, it is crucial to
+not diminish our emphasis on fortifying software against more technical
+exploits. While these social engineering attacks have grown due to the
+escalating complexity required to execute successful software exploits, they
+should not detract from our progress in securing our software systems. The
+mitigations that we have developed and deployed over the years have provided a
+substantial defensive advantage in the realm of software exploitation. As the
+future unfolds, maintaining this advantage will be of paramount importance, even
+as we also strive to improve defenses against human-targeted
+exploits.\cite{jones2021}\cite{smith2022}
 
+\section{Conclusion}
 
-
-\section{Conclusion}%
-
-
-\section{References}%
-
-
+\printbibheading
+\printbibliography
+\printbibliography[nottype=book,heading=subbibliography,title={Other Sources}]
 \end{document}
