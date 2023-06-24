@@ -949,6 +949,11 @@ approach the task of exploiting a system.
   \end{tikzpicture}
 \end{minipage}
 
+If we do not possess the required information to execute our exploit, we can use
+another one (another link in the exploit chain) to gather more and more. This
+can be interpreted as going further into unintended states in the IFSM (intended
+finite state machine) described here\ref{add to weird machines}.
+
 \subsection{Browser exploits}
 In the contemporary computing landscape, a notable surge in interest surrounding
 browser exploitation has emerged, predominantly attributed to the increasing
@@ -1055,15 +1060,236 @@ virtualization technologies has profoundly impacted the modern computing
 landscape, opening new possibilities for efficient, scalable, and secure
 computing, but also posing new challenges for cybersecurity.
 
-\section{Detection techniques}%
+Driven by the relentless demand for heightened performance, a detailed scrutiny
+of processor operations and employed microarchitectural designs has become
+imperative. This necessity is underscored by the unearthing of vulnerabilities
+such as those referred to in \cite{spectre, meltdown}. These exploits
+ingeniously capitalize on the side effects triggered by the processor during
+memory access and speculative execution. This development highlights the
+criticality of an in-depth understanding of hardware function. Even before
+the findings mentioned earlier, researchers have been able to cross the
+virtualization boundary and gain information form other VM's running in the same
+machine. The \cite{flush reload} reveals an attack that can recover around \~95\%
+of the bits of a GnuPG secret key.
 
-\section{Mitigation Techniques}%
+\section{Detection and Mitigation Techniques}%
+In the realm of cybersecurity, the price tag associated with the implementation
+of mitigation strategies such as stack canaries and heuristic checks is
+frequently overlooked. These countermeasures, while crucial for system
+protection, impose an overhead on system performance, potentially influencing
+the overall efficiency of the software. As part of our investigation, this paper
+will delve into an in-depth analysis of this often-neglected cost associated
+with such defensive measures. Our objective is to facilitate a more balanced
+perspective, considering not only the protective benefits but also the incurred
+costs of these mitigation strategies.
+
+\subsubsection{Stack canaries}
+Defending against stack buffer overflows has been attempted all the way since 1997
+with StackGuard \cite{stackguardpaper}, but it wasn't until 2006 with the release
+of GCC 4.1 was this available for the entire Linux community.
+
+In modern compilers this mitigation places a sacrificial random value right before the
+return address. This mitigation combined with a new variable alignment technique that
+places all buffers above all other function local variables has proven to be an
+effective mitigation with a minimal performance impact.
+
+\begin{lstlisting}[
+      ,language=C]
+#include <string.h>
+extern void dont_optimize_str(char* ptr);
+extern void dont_optimize_int(int* ptr);
+
+int buffer_first(char* source) {
+    char dest[0x100];
+    int len;
+    int foo;
+    int bar;
+
+    strcpy(dest, source);
+    len = strlen(dest);
+    foo = len * 2;
+    bar = len - 3;
+
+    dont_optimize_str(dest);
+    dont_optimize_int(&len);
+    dont_optimize_int(&foo);
+    dont_optimize_int(&bar);
+}
+
+int buffer_last(char* source) {
+    int len;
+    int foo;
+    int bar;
+    char dest[0x100];
+
+    strcpy(dest, source);
+    len = strlen(dest);
+    foo = len * 2;
+    bar = len - 3;
+
+    dont_optimize_str(dest);
+    dont_optimize_int(&len);
+    dont_optimize_int(&foo);
+    dont_optimize_int(&bar);
+}
+\end{lstlisting}%
+\label{code:example_func}
+
+On GCC x86-64 version 13.1, compiling the code\ref{thatcode} results in both functions having the buffer
+placed closest to the stack canary.
+
+\begin{lstlisting}[caption={Shellcode disassembly}
+      ,label={lst:bof}
+      ,language={[x86masm]Assembler}]
+        mov     rdx, QWORD PTR [rbp-296]
+        lea     rax, [rbp-272]
+        mov     rsi, rdx
+        mov     rdi, rax
+        call    strcpy
+\end{lstlisting}
 
 
-\section{Case studies}%
+\begin{lstlisting}[caption={Shellcode disassembly}
+      ,label={lst:bof}
+      ,language={[x86masm]Assembler}]
+        mov     rax, QWORD PTR fs:40
+        mov     QWORD PTR [rbp-8], rax
+\end{lstlisting}
 
+
+\begin{lstlisting}[caption={Shellcode disassembly}
+      ,label={lst:bof}
+      ,language={[x86masm]Assembler}]
+        mov     rdx, QWORD PTR [rbp-8]
+        sub     rdx, QWORD PTR fs:40
+        je      .L2
+        call    __stack_chk_fail
+\end{lstlisting}
+
+\subsection{Performance cost}
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|r|r|r|r|r|r|r|}
+\hline
+Compiler flags & Mean & $\delta$ & Min & Max & Speedup \\
+\hline
+ Optimize &  47.8 ms & 2.8 ms & 43.6 ms & 62.3 ms & 1x \\
+ No stack protector&  46.6 ms & 1.9 ms  & 43.2 ms  &  59.1 ms & 1.025x \\
+ Ubsan &  102.8 ms & 3.4 ms & 95.6 ms  & 116.5 ms & 0.460x \\
+\hline
+\end{tabular}
+\caption{GCC results}
+\label{table:your_label}
+\end{table}
+
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|r|r|r|r|r|r|r|}
+\hline
+Compiler flags & Mean & $\delta$ & Min & Max & Speedup \\
+\hline
+ Optimize &  47.6 ms & 2.1 ms & 44.0 ms & 68.8 ms & 1x \\
+ Ubsan &  119.4 ms & 5.3 ms &  112.6 ms & 150.8 ms & 0.398x \\
+ Ubsan minimal & 72.0 ms & 3.6 ms &  66.0 ms& 89.2 ms & 0.661x \\
+\hline
+\end{tabular}
+\caption{Clang results}
+\label{table:your_label}
+\end{table}
+
+Mention inability to test shadow stack
+
+\subsection{Shadow stacks}
+Advancements in secure software systems have led to the development of shadow
+stacks, which represent a significant leap forward from the earlier protection
+measures like stack canaries. Shadow stacks offer a more robust mechanism for
+guarding against stack buffer overflows by completely decoupling control-flow
+information from user data. They maintain a separate, concealed stack dedicated
+solely to storing return addresses, making it exceedingly challenging for
+attackers to alter the flow of execution. This strategic bifurcation of data
+fundamentally strengthens the protection against control-flow hijacking attacks.
+It ensures that even if an attacker successfully tampers with data on the main
+stack, any discrepancies with the untouched shadow stack will immediately be
+flagged. Despite the operational complexities and slight runtime overheads they
+may introduce, shadow stacks serve as a remarkably effective mitigation
+strategy, enhancing the integrity of the control-flow beyond what is achievable
+with stack canaries alone.
+
+The security and performance implications of shadow stacks are discussed in depth
+in \ref{shadow stacks}
+
+Compile TCC here with shadow steck and show perf diff.
+
+\subsection{Sanitizers}
+With the increasing amount of memory errors happening in unsafe system's programming
+languages such as C and C++, methods for detecting runtime errors without requiring
+code changes have been developed. Even though they are rarely used in production
+environments they have seen massive success when used in conjunction with fuzzers
+\ref{vezi niste paperuri de fuzzere} to detect severe vulnerabilities in really
+large code bases.
+
+\subsubsection{UBSAN}
+UBSAN (Undefined Behavior Sanitizer) injects additional checks during the compilation of
+the program in order to detect Undefined Behaviour\footnote{explain this}. Here is a
+non-exhaustive list of the features and checks UBSAN does:
+
+\begin{itemize}
+  \item Array subscript out of bounds, where the bounds can be statically determined
+  \item Bitwise shifts that are out of bounds for their data type
+  \item Dereferencing misaligned or null pointers
+  \item Signed integer overflow
+  \item Conversion to, from, or between floating-point types which would overflow the destination
+\end{itemize}
+
+Give example with shellcode example not vorking
+
+Compile TCC with and without ubsan(pls god work)
+
+\subsubsection{Seccomp}
+Seccomp (or Secure Computing) was introduced in the 2.6.12 version of the
+Linux kernel. At that time it provided a \emph{strict} execution mode for
+processes that allowed a very limited set of system calls. The intention
+behind this mode was to allow untrusted code to run on systems. This
+functionality was greatly enhanced with the introduction of seccomp-bpf
+(Berkeley Packet Filter) in version 3.5 of the kernel. This new mode of
+operation allowed programmers to filter the systemcalls a process makes
+using small programs written in a DSL. This functionality sees proeminent
+use in projects where the security of the host system is paramount, such as
+Docker, Chrome or Firefox.
+
+Here\ref{codubun} is an example of the granular control seccomp can achieve.
+Note that once a process install a seccomp filter it is impossible to remove
+it without exploiting the kernel, while also being inherited by all child
+processes of the filtered process.
+
+show example of mitigations adding new vulnerabilities (jit attack)
+\section{Economic impact}%
+Now that the performance impact of the mitigations has been established, we
+will take a look at the economic/financial impact of the exploits these
+mitigations are trying to prevent.
+
+The domain of blockchain has emerged as one of the most publicised arenas for
+software exploitation in recent years. As a technology built upon the principles
+of decentralization and cryptography, blockchain applications, especially
+cryptocurrencies, have attracted significant attention from both ethical and
+malicious actors. The incentive for exploiting these systems is often financial
+gain, given the tangible real-world value of many digital assets. Smart contract
+vulnerabilities, insecure wallets, and compromised blockchain platforms have led
+to numerous notable breaches. This highlights the critical importance of
+rigorous security practices in the design, implementation, and operation of
+blockchain-based systems. Multiple publications estimated that in 2022 alone
+4 billion dollars have were stolen.
+
+Ransomware has also emerged as a significant threat in the software exploitation
+arena, causing extensive harm primarily through service disruptions. Beyond
+direct financial loss from ransoms, these attacks result in considerable
+operational downtime and ensuing economic damage. Consequently, the real impact
+of ransomware extends beyond the immediate ransom, emphasizing the necessity of
+comprehensive security measures and incident response strategies.
 
 \section{Future trends}%
+
 
 
 \section{Conclusion}%
