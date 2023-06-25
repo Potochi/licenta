@@ -29,40 +29,10 @@
 \maketitle
 \section{Abstract}%
 
-Software exploitation continues to pose a significant threat to global
-cybersecurity, with vulnerabilities in software systems offering fertile ground
-for cyberattacks. The expanding complexity of contemporary software and the
-incessantly evolving threat landscape only accentuates the magnitude of the
-problem. This paper will discuss the concept of software exploitation,
-elaborating on how attackers leverage vulnerability in software systems,
-illustrating some common exploitation techniques including buffer overflows,
-code injection, heap corruption, among others, while also exploring contemporary
-exploit detection and prevention methodologies, from static and dynamic analysis
-techniques to machine learning and artificial intelligence-based approaches,
-critically evaluating theirs strengths and weaknesses. Finally showcasing the
-necessity for a proactive approach towards software security, outlining the
-importance of secure coding practices and threat modeling in the early stages of
-software development lifecycle. In conclusion this paper aims to offer an
-in-depth review of the current landscape of exploitation, detection and
-mitigation methodologies and techniques, emphasizing the criticality of these
-techniques in fortifying software against threats.
+Software exploitation continues to pose a significant threat to global cybersecurity, with vulnerabilities in software systems offering fertile ground for cyberattacks. The expanding complexity of contemporary software and the incessantly evolving threat landscape only accentuates the magnitude of the problem. This paper will discuss the concept of software exploitation, elaborating on how attackers leverage vulnerabilities in software systems, illustrating some standard exploitation techniques, including buffer overflows, code injection, heap corruption, among others, while also exploring contemporary exploit detection and prevention methodologies, from static and dynamic analysis techniques to machine learning and artificial intelligence-based approaches, critically evaluating their strengths and weaknesses. Finally showcasing the necessity for a proactive approach toward software security, outlining the importance of secure coding practices and threat modeling in the early stages of software development lifecycle. In conclusion, this paper aims to offer an in-depth review of the current landscape of exploitation, detection and mitigation methodologies and techniques, emphasizing the criticality of these techniques in fortifying software against threats.
 
 \section{Motivation}%
-The ubiquity of digital devices in our daily lives has ushered in an era of
-unprecedented data accessibility and convenience. Yet, these conveniences also
-come with substantial security concerns. A significant proportion of the world's
-population carries a device in their pocket that is not only a communication
-device but also a gateway to their most personal and sensitive information,
-including bank accounts, biometrics, and other data of significant value. These
-devices, armed with cameras and microphones, could potentially be misused to
-impersonate their owners. With these threats looming, the importance of rigorous
-and effective exploit mitigation strategies, especially in system's programming,
-cannot be overstated. These mitigation strategies form the critical defensive
-layer that shields users from the consequences of potential security breaches,
-preventing unauthorized access, and securing the private sphere of individuals
-in the digital age. Hence, the motivation of this study is to evaluate, analyze,
-and enhance the robustness of these mitigation strategies, thereby contributing
-to safer and more secure software systems.
+The ubiquity of digital devices in our daily lives has ushered in an era of unprecedented data accessibility and convenience. Yet, these conveniences also come with substantial security concerns. A significant proportion of the world's population carries a device in their pocket that is not only a communication device but also a gateway to their most personal and sensitive information, including bank accounts, biometrics, and other data of significant value. These devices, armed with cameras and microphones, could potentially be misused to impersonate their owners. With these threats looming, the importance of rigorous and effective exploit mitigation strategies, especially in system's programming, cannot be overstated. These mitigation strategies form the critical defensive layer that shields users from the consequences of potential security breaches, preventing unauthorized access, and securing the private sphere of individuals in the digital age. Hence, the motivation of this study is to evaluate, analyze, and enhance the robustness of these mitigation strategies, thereby contributing to safer and more secure software systems.
 
 \section{Background}%
 
@@ -70,86 +40,25 @@ to safer and more secure software systems.
 %   Give some explaination about the stack and heap
 %   Explain how virtualization works
 \subsection{What is a Software Exploit?}%
-
-In layman's terms, a Software Exploit is a series of steps taken by an attacker
-(be it a human or computer) against another software system in order to trigger
-some unintended functionality in that software system. Unintended functionality
-could mean being able to execute arbitrary code on the machine running the
-software system, getting access to private information/files, escalating their
-priviledges to become an administrator or root user and even crashing the system.
+In layperson's terms, a Software Exploit is a series of steps taken by an attacker (be it a human or computer) against another software system to trigger some unintended functionality. Unintended functionality could mean being able to execute arbitrary code on the machine running the software system, getting access to private information/files, escalating their privileges to become an administrator or root user, and even crashing the system.
 
 \subsection{How does this happen?}%
-
 \subsubsection{Not enough guardrails}%
+From the perspective of software exploitation, the continuously increasing complexity of modern software presents both a challenge and an opportunity. On the one hand, this complexity implies a vast landscape where vulnerabilities can lurk unnoticed, potentially creating an opening for skilled attackers. System programming languages, traditionally trusted to create such software, provide programmers with great power but few guardrails. For instance, languages like C and C++ allow direct memory manipulation without inherent safeguards, leading to common vulnerabilities such as buffer overflows or memory leaks.
 
-From the perspective of software exploitation, the continuously increasing
-complexity of modern software presents both a challenge and an opportunity. On
-one hand, this complexity implies a vast landscape where vulnerabilities can
-lurk unnoticed, potentially creating an opening for skilled attackers. System
-programming languages, traditionally trusted with the task of creating such
-software, provide programmers with great power but very few guardrails.
-Languages like C and C++, for instance, allow direct memory manipulation without
-inherent safeguards, leading to common vulnerabilities such as buffer overflows
-or memory leaks.
 
 \subsubsection{Improper input sanitization}%
-
-In the majority of scenarios the fundamental mistake that the software
-developers made is the improper validation of user controlled input. For example
-let's take the venerable Buffer Overflow vulnerability, in which an attacker can
-send more data that the application has space to process, resulting in Undefined
-Behaviour. Depending on the scenario this undefined behaviour can be exploited
-to redirect the execution flow of the program into code sent by the attacker (in
-the case of a code injection attack on the stack), or could lead to corrupting
-some important metadata somewhere else in the program (overwriting a password
-variable to one you control, allowing you to login without knowing the real
-password). These simple tehcniques have mostly been mitigated in modern systems
-by employing passive mitigation techniques such as stack canaries and shadow
-stacks (which will be discussed later).
+In most scenarios, the fundamental mistake the software developers make is the improper validation of user-controlled input. For example, let us take the venerable Buffer Overflow vulnerability, in which an attacker can send more data than the application has space to process, resulting in Undefined Behaviour. Depending on the scenario, this undefined behavior can be exploited to redirect the execution flow of the program into code sent by the attacker (in the case of a code injection attack on the stack) or could lead to corrupting some necessary metadata somewhere else in the program (overwriting a password variable to one you control, allowing you to login without knowing the actual password). These simple techniques have mainly been mitigated in modern systems by employing passive mitigation techniques such as stack canaries and shadow stacks (which will be discussed later).
 
 \subsubsection{Dependencies}%
+Someone could be the best programmer in the world, always writing code that stands up to the highest security standards, but if they use a dependency that is vulnerable to some exploit, their program could still be at high risk. In modern software, having a programming language without a package manager is a show-stopper. Package managers have allowed developers to share and reuse code more efficiently, increasing productivity and democratization of writing excellent and valuable software. However, on the other side, the ease of using someone else's code led us to balloon our dependency graph like never before. Running someone else's code poses a security risk not only from the exploitation standpoint but also from a supply chain attack standpoint. Only one of the dependencies a project uses must be compromised for the whole application to be compromised.
 
-You could be the best programmer in the world, always writing code that stands
-up to the highest standars of security but if you use a dependency that is
-vulnerable to some exploit your program could still be at a high risk. In the
-modern software landscape having a programming language without a package
-manager is pretty much a show stopper. This has allowed developers to more
-easily share and reuse code, undoubtably leading to increased productivity and
-democratization of writing good and useful software, but on the other side the
-ease of using someone else's code led us balloon our dependency graph like never
-before. This poses a security risk not only from the exploitation standpoint but
-also from a supply chain attack standpoint. Only one of the dependencies a
-project uses needs to be compromised in order for the whole application to be
-compromised.
+Recent years have witnessed an uptick in supply chain attacks, increasingly propelled by malicious intent and used as a protest. The abuse of the inherent trust in software development and delivery chains to spread narratives or cause disruption highlights the crucial need for encompassing security measures to ensure digital infrastructure integrity. An example of this modern method of protest is the case of the \emph{NPM} package \emph{node-ipc}\cite{LunaSec}. In this case, a disgruntled package maintainer added malicious code to this package, causing the program to delete all the files on the machine if its public IP address was detected to be from Russia or Belarus.
 
-This has happened multiple times in recent years and this article from LunaSec
-showcases really well what happened, but also provides solutions on how to
-mitigate these types of attacks in the future.
-TODO:Make this a reference
-https://www.lunasec.io/docs/blog/node-ipc-protestware/
+In~\cite{LunaSec}, the authors discuss methods of preventing these kinds of attacks in the future. The one that is the most interesting to us \emph{Dependency Sandboxes}. This strategy would limit the capabilities of software packages to the minimum they require to function. It would allow for a more streamlined auditing pipeline by focusing the audits on packages with destructive capabilities, such as system-wide file access.
 
-\subsubsection{Anatomy of the stack on x64 platforms}%
-
-The stack is a fundamental data structure in modern computing systems, and its
-use in x64 systems is particularly interesting due to the specific features and
-operations enabled by the x64 architecture. The stack is typically organized as
-a contiguous region of memory, with two key pointers: the stack base pointer
-(RBP in x64) and the stack pointer (RSP in x64). The stack grows `downward' in
-memory, meaning that as new items are pushed onto the stack, the stack pointer
-decreases in value. A typical function call on an x64 system involves pushing
-the return address onto the stack, followed by the function's parameters
-\footnote{In the most common calling convention the first few parameters are
-passed in registers, not trough the stack}, and finally the local variables.
-Upon function return, these elements are popped from the stack in reverse order,
-ensuring correct program execution. However, the direct memory access afforded
-by the stack also presents a potential vector for exploitation, with techniques
-such as buffer overflow attacks targeting this fundamental structure.
-Consequently, understanding the stack's functioning in x64 systems is crucial
-both for building and for securing software systems.
-
-Variables stored on the stack usually have their size known beforehand are not
-really flexible to size requirements, unlike the heap, about which we will talk
-in a later chapter.
+\subsubsection{Mixing control data with user data}
+The stack is a fundamental data structure in modern computing systems, and its use in x64 systems is exciting due to the specific features and operations enabled by the x64 architecture. The stack is typically organized as a contiguous memory region with two key pointers: the stack base pointer (RBP in x64) and the stack pointer (RSP in x64). The stack grows `downward' in memory, meaning that as new items are pushed onto the stack, the stack pointer decreases in value. A typical function call on an x64 system involves pushing the return address onto the stack, followed by the function's parameters \footnote{In the most common calling convention, the first few parameters are passed in registers, not through the stack}, and finally, the local variables. These elements are popped from the stack in reverse order upon function return, ensuring correct program execution. However, the direct memory access afforded by the stack also presents a potential vector for exploitation, with techniques such as buffer overflow attacks targeting this fundamental structure. Consequently, understanding the stack's functioning in x64 systems is crucial for building and securing software systems.
 
 \begin{figure}[ht]%
   \centering
@@ -189,17 +98,15 @@ in a later chapter.
   %     node[midway,xshift=1.5cm,] {Group 1};
 
   \end{tikzpicture}
-  \caption{\label{fig:label} Stack frame of a function with local variables
+  \caption{\label{fig:stackfame-example} Stack frame of a function with local variables
     `foo' and `bar'}%
-  \label{fig:stackframe}
 \end{figure}
 
-An example state of the stack during the call~\footnote{This example is used for
-simplicity. In real world scenarios the variables would have been constant
-propagated and the function would have directly returned the result of the
-computation} to the function `example`~\ref{code:example_func} is shown in~\ref{fig:stackframe}.
+An example state of the stack during the call~\footnote{This example is used for simplicity. In real world scenarios the variables would have been constant propagated and the function would have directly returned the result of the computation} to the function `example`~\ref{code:example_func} is shown in~\ref{fig:stackfame-example}.
 
-\begin{lstlisting}
+\begin{lstlisting}[
+      ,label={lst:examplefn}
+      ,language=C]
   int example()
   {
     int foo = 3;
@@ -210,26 +117,14 @@ computation} to the function `example`~\ref{code:example_func} is shown in~\ref{
 \end{lstlisting}%
 \label{code:example_func}
 
-We can see that the stack frame contains some interesting `variables' that we
-haven't defined ourselves:
+We can see that the stack frame contains some interesting values that we haven't defined ourselves:
 \begin{itemize}
   \item \textbf{RBP} -~Base pointer. This has been historically used to keep
-        track of the start (or base) of our function's stack frame. Functions are usually not allowed to modify values above this address (even though there are some exceptions like copy ellision TODO add copy elision ref).
+        track of the start (or base) of our function's stack frame. Functions are usually not allowed to modify values above this address.
   \item \textbf{Old RBP} -~Base pointer of the caller.
-  \item \textbf{Stack canary} -~This will be explained in the mitigations section TODO add mitigations ref, we will ignore it for this example.
+  \item \textbf{Stack canary} -~A random value. The purpose of this is discussed in a later chapter.
   \item \textbf{Return address} -~For our purposes this is the most important variable. This value is used by the callee to return (hence return address) the execution flow back to the caller when the function finished executing. Another important fact is that this value is stored in the same area as our variables.
 \end{itemize}
-
-Now that we have an understanding of how a stack frame looks we can move on to
-how stack frames are linked together. The example below shows the state of the
-stack while executing the following nested function call chain~\footnote{Here foo is assumed to be a function that does not return} (the
-`calls' operation is denoted by $\Rightarrow$):
-
-\begin{equation}
-  foo \Rightarrow bar \Rightarrow baz \Rightarrow qux
-\end{equation}
-
-This structure is basically a singly linked list of stack frames, with \emph{RBP} as their forward pointer. The function the processor is currently executing is at the head of the list, and the first function called by the program is situated at the tail. Because user variables are mixed with control structures, we can imagine what the outcome would be if we managed to corrupt the \emph{forward} pointer in this linked list.
 
 \begin{figure}[ht]%
   \centering
@@ -285,9 +180,17 @@ This structure is basically a singly linked list of stack frames, with \emph{RBP
     node[midway,xshift=-1.5cm,] { \emph{qux}'s frame};
 
   \end{tikzpicture}
-  \caption{\label{fig:label} Stack state when executing 3 nested calls}%
-  \label{fig:stackframe}
+  \caption{\label{fig:stacksample} Stack state when executing 3 nested calls}%
 \end{figure}
+
+Now that we understand how a stack frame looks, we can move on to how stack frames are linked together. This\ref{fig:stacksample} example below shows the state of the stack while executing the following nested function call chain~\footnote{Assuming that foo does not return} (the `calls' operation is denoted by '$\Rightarrow$`):
+
+\begin{equation}
+  foo \Rightarrow bar \Rightarrow baz \Rightarrow qux
+\end{equation}
+
+This structure is a singly linked list of stack frames, with \emph{RBP} as their forward pointer. The function the processor executes is at the head of the list, and the first function called by the program is situated at the tail. Because user variables are mixed with control structures, we can imagine the outcome if we managed to corrupt the \emph{forward} pointer in this linked list.
+
 
 \subsubsection{Anatomy of the Heap}
 Here we will take a small departure
@@ -343,8 +246,7 @@ trough a pretty complex set of steps before the memory is actually given to us.
 We will now discuss this algorithm in detail, pointing out areas of interest
 that will help us develop exploits and mitigations later.
 
-\subsection{GLibc allocation algorithm}
-\subsubsection{Background}
+\subsubsection{GLibc allocation algorithm}
 \begin{itemize}
   \item \emph{Arena}~-~An arena is a structure accessible by one or multiple
 threads, holding references to one or several heaps. It also includes linked
@@ -1305,11 +1207,10 @@ mitigations that we have developed and deployed over the years have provided a
 substantial defensive advantage in the realm of software exploitation. As the
 future unfolds, maintaining this advantage will be of paramount importance, even
 as we also strive to improve defenses against human-targeted
-exploits.\cite{jones2021}\cite{smith2022}
+exploits.
 
 \section{Conclusion}
 
 \printbibheading
 \printbibliography
-\printbibliography[nottype=book,heading=subbibliography,title={Other Sources}]
 \end{document}
