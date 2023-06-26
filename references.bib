@@ -4,3 +4,105 @@
   year = 2022
   note = {Accessed: 2023-06-12}
 }
+
+@misc{TorvaldsVLA,
+  title = {LKML: VLA removal (was Re: [RFC 2/2] lustre: use VLA_SAFE)},
+  author = {Linus Torvalds}
+  year = 2018
+  note = {Accessed: 2023-06-13}
+}
+
+@book{ANSI_C,
+    author = "{American National Standards Institute}",
+    title = "{Programming Language C}",
+    year = "{1989}",
+    publisher = "{American National Standards Institute}",
+    note = "{ANSI X3.159-1989}"
+}
+
+@misc{MallocInternals,
+  title = {Malloc Internals},
+  author = {Sourceware},
+  howpublished = {\url{https://sourceware.org/glibc/wiki/MallocInternals}},
+  note = {Accessed: 2023-06-19}
+}
+
+@article{WeirdMachines,
+  author = {Dullien, Thomas},
+  year = {2017},
+  month = {12},
+  pages = {1-1},
+  title = {Weird Machines, Exploitability, and Provable Unexploitability},
+  volume = {PP},
+  journal = {IEEE Transactions on Emerging Topics in Computing},
+  doi = {10.1109/TETC.2017.2785299}
+}
+
+@misc{saelo2016,
+  title = {{The Art of Exploitation: Attacking JavaScript Engines - A case study of JavaScriptCore and CVE-2016-4622}},
+  author = {saelo},
+  year = {2016},
+  howpublished = {\url{http://www.phrack.org/issues/70/3.html}},
+  note = {Accessed: 2023-06-19}
+}
+
+@inproceedings{spectre,
+  author={Kocher, Paul and Horn, Jann and Fogh, Anders and Genkin, Daniel and Gruss, Daniel and Haas, Werner and Hamburg, Mike and Lipp, Moritz and Mangard, Stefan and Prescher, Thomas and Schwarz, Michael and Yarom, Yuval},
+  booktitle={2019 IEEE Symposium on Security and Privacy (SP)},
+  title={Spectre Attacks: Exploiting Speculative Execution},
+  year={2019},
+  volume={},
+  number={},
+  pages={1-19},
+  doi={10.1109/SP.2019.00002}}
+
+@inproceedings{meltdown,
+ author = {Moritz Lipp and Michael Schwarz and Daniel Gruss and Thomas Prescher and Werner Haas and Anders Fogh and Jann Horn and Stefan Mangard and Paul Kocher and Daniel Genkin and Yuval Yarom and Mike Hamburg},
+ title = {Meltdown: Reading Kernel Memory from User Space},
+ booktitle = {27th {USENIX} Security Symposium ({USENIX} Security 18)},
+ year = {2018},
+}
+
+@inproceedings {flushreload,
+author = {Yuval Yarom and Katrina Falkner},
+title = {{FLUSH+RELOAD}: A High Resolution, Low Noise, L3 Cache {Side-Channel} Attack},
+booktitle = {23rd USENIX Security Symposium (USENIX Security 14)},
+year = {2014},
+isbn = {978-1-931971-15-7},
+address = {San Diego, CA},
+pages = {719--732},
+url = {https://www.usenix.org/conference/usenixsecurity14/technical-sessions/presentation/yarom},
+publisher = {USENIX Association},
+month = aug,
+}
+
+@inproceedings {stackguard,
+author = {Crispin Cowan and Calton Pu and Dave Maier and Jonathan Walpole and Peat Bakke and Steve Beattie and Aaron Grier and Perry Wagle and Qian Zhang and Heather Hinton},
+title = {{StackGuard}: Automatic Adaptive Detection and Prevention of {Buffer-Overflow} Attacks},
+booktitle = {7th USENIX Security Symposium (USENIX Security 98)},
+year = {1998},
+address = {San Antonio, TX},
+url = {https://www.usenix.org/conference/7th-usenix-security-symposium/stackguard-automatic-adaptive-detection-and-prevention},
+publisher = {USENIX Association},
+month = jan,
+}
+
+@article{csmith,
+author = {Yang, Xuejun and Chen, Yang and Eide, Eric and Regehr, John},
+title = {Finding and Understanding Bugs in C Compilers},
+year = {2011},
+issue_date = {June 2011},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {46},
+number = {6},
+issn = {0362-1340},
+url = {https://doi.org/10.1145/1993316.1993532},
+doi = {10.1145/1993316.1993532},
+abstract = {Compilers should be correct. To improve the quality of C compilers, we created Csmith, a randomized test-case generation tool, and spent three years using it to find compiler bugs. During this period we reported more than 325 previously unknown bugs to compiler developers. Every compiler we tested was found to crash and also to silently generate wrong code when presented with valid input. In this paper we present our compiler-testing tool and the results of our bug-hunting study. Our first contribution is to advance the state of the art in compiler testing. Unlike previous tools, Csmith generates programs that cover a large subset of C while avoiding the undefined and unspecified behaviors that would destroy its ability to automatically find wrong-code bugs. Our second contribution is a collection of qualitative and quantitative results about the bugs we have found in open-source C compilers.},
+journal = {SIGPLAN Not.},
+month = {jun},
+pages = {283–294},
+numpages = {12},
+keywords = {random testing, compiler testing, random program generation, automated testing, compiler defect}
+}
