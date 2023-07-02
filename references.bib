@@ -1,21 +1,21 @@
 @misc{LunaSec,
-  title = {Protestware - How node-ipc turned into malware}
-  author = {Chris Thompson, Free Wortley, Forrest Allison}
-  year = 2022
-  note = {Accessed: 2023-06-12}
+  title = {Protestware - How node-ipc turned into malware},
+  author = {Chris Thompson, Free Wortley, Forrest Allison},
+  year = 2022,
+  note = {Accessed: 2023-06-12},
 }
 
 @misc{TorvaldsVLA,
   title = {LKML: VLA removal (was Re: [RFC 2/2] lustre: use VLA_SAFE)},
-  author = {Linus Torvalds}
-  year = 2018
+  author = {Linus Torvalds},
+  year = 2018,
   note = {Accessed: 2023-06-13}
 }
 
 @book{ANSI_C,
     author = "{American National Standards Institute}",
     title = "{Programming Language C}",
-    year = "{1989}",
+    year = {1989},
     publisher = "{American National Standards Institute}",
     note = "{ANSI X3.159-1989}"
 }
@@ -101,8 +101,101 @@ url = {https://doi.org/10.1145/1993316.1993532},
 doi = {10.1145/1993316.1993532},
 abstract = {Compilers should be correct. To improve the quality of C compilers, we created Csmith, a randomized test-case generation tool, and spent three years using it to find compiler bugs. During this period we reported more than 325 previously unknown bugs to compiler developers. Every compiler we tested was found to crash and also to silently generate wrong code when presented with valid input. In this paper we present our compiler-testing tool and the results of our bug-hunting study. Our first contribution is to advance the state of the art in compiler testing. Unlike previous tools, Csmith generates programs that cover a large subset of C while avoiding the undefined and unspecified behaviors that would destroy its ability to automatically find wrong-code bugs. Our second contribution is a collection of qualitative and quantitative results about the bugs we have found in open-source C compilers.},
 journal = {SIGPLAN Not.},
-month = {jun},
 pages = {283–294},
 numpages = {12},
 keywords = {random testing, compiler testing, random program generation, automated testing, compiler defect}
+}
+
+@misc{KernelUbsan,
+    title = {Using the Undefined Behavior Sanitizer (UBSan)},
+    url = {https://www.kernel.org/doc/html/latest/dev-tools/ubsan.html},
+    note = {Accessed: 2023-06-19},
+    organization = {The Linux Kernel Documentation},
+}
+
+@article{alephone,
+  added-at = {2010-10-27T03:38:06.000+0200},
+  author = {One, Aleph},
+  biburl = {https://www.bibsonomy.org/bibtex/2daff1a97f8fa80ac9e0f9ab58a370b30/liangzk},
+  interhash = {21117a91924854c887f46980360498e8},
+  intrahash = {daff1a97f8fa80ac9e0f9ab58a370b30},
+  journal = {Phrack},
+  keywords = {bufferoverflow},
+  month = {November},
+  number = 49,
+  timestamp = {2010-10-27T03:38:06.000+0200},
+  title = {Smashing the Stack for Fun and Profit},
+  url = {http://www.phrack.com/issues.html?issue=49&id=14},
+  volume = 7,
+  year = 1996
+}
+
+@inproceedings {fuzz2,
+author = {Dominik Maier and Benedikt Radtke and Bastian Harren},
+title = {Unicorefuzz: On the Viability of Emulation for Kernelspace Fuzzing},
+booktitle = {13th USENIX Workshop on Offensive Technologies (WOOT 19)},
+year = {2019},
+address = {Santa Clara, CA},
+url = {https://www.usenix.org/conference/woot19/presentation/maier},
+publisher = {USENIX Association},
+month = aug,
+}
+
+
+@inproceedings{inproceedings,
+author = {Reshetova, Elena and Bonazzi, Filippo and Asokan, N.},
+year = {2017},
+month = {07},
+pages = {233-247},
+title = {Randomization Can’t Stop BPF JIT Spray},
+isbn = {978-3-319-64700-5},
+doi = {10.1007/978-3-319-64701-2_17}
+}
+
+@inproceedings {fuzz3,
+author = {Xiaochen Zou and Guoren Li and Weiteng Chen and Hang Zhang and Zhiyun Qian},
+title = {{SyzScope}: Revealing {High-Risk} Security Impacts of {Fuzzer-Exposed} Bugs in Linux kernel},
+booktitle = {31st USENIX Security Symposium (USENIX Security 22)},
+year = {2022},
+isbn = {978-1-939133-31-1},
+address = {Boston, MA},
+pages = {3201--3217},
+url = {https://www.usenix.org/conference/usenixsecurity22/presentation/zou},
+publisher = {USENIX Association},
+month = aug,
+}
+@inproceedings {fuzz1,
+author = {Kyle Zeng and Yueqi Chen and Haehyun Cho and Xinyu Xing and Adam Doup{\'e} and Yan Shoshitaishvili and Tiffany Bao},
+title = {Playing for {K(H)eaps}: Understanding and Improving Linux Kernel Exploit Reliability},
+booktitle = {31st USENIX Security Symposium (USENIX Security 22)},
+year = {2022},
+isbn = {978-1-939133-31-1},
+address = {Boston, MA},
+pages = {71--88},
+url = {https://www.usenix.org/conference/usenixsecurity22/presentation/zeng},
+publisher = {USENIX Association},
+month = aug,
+}
+
+@inproceedings{loleo,
+author = {Su, Zhendong and Wassermann, Gary},
+year = {2006},
+month = {01},
+pages = {372-382},
+title = {The essence of command injection attacks in web applications},
+volume = {41},
+journal = {Sigplan Notices - SIGPLAN},
+doi = {10.1145/1111320.1111070}
+}
+@misc{clang_ubsan,
+  author = "{Clang Team}",
+  title = "{UndefinedBehaviorSanitizer}",
+  howpublished = "\url{https://clang.llvm.org/docs/UndefinedBehaviorSanitizer.html}",
+  note = "Accessed: 2023-05-12"
+}
+@misc{asan_wiki,
+  author = "{Google Sanitizers}",
+  title = "{AddressSanitizer - Google Sanitizers}",
+  howpublished = "\url{https://github.com/google/sanitizers/wiki/AddressSanitizer}",
+  note = "Accessed: 2023-05-12"
 }

