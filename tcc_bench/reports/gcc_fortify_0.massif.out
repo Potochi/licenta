@@ -1,0 +1,2031 @@
+desc: --stacks=yes --pages-as-heap=yes --massif-out-file=./reports/gcc_fortify_0.massif.out
+cmd: generated/gcc_fortify_0 -I/home/livian/tcc_bench/tinycc/include -c testfiles/speedbench.c
+time_unit: i
+#-----------
+snapshot=0
+#-----------
+time=0
+mem_heap_B=8192
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=1
+#-----------
+time=3999602
+mem_heap_B=9052160
+mem_heap_extra_B=0
+mem_stacks_B=3848
+heap_tree=detailed
+n5: 9052160 (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+ n1: 6250496 0x4026CD7: __mmap64 (mmap64.c:58)
+  n3: 6250496 0x4026CD7: mmap (mmap64.c:46)
+   n1: 3227648 0x4008F1B: _dl_map_segment (dl-map-segments.h:29)
+    n1: 3227648 0x4008F1B: _dl_map_segments (dl-map-segments.h:102)
+     n1: 3227648 0x4008F1B: _dl_map_object_from_fd (dl-load.c:1258)
+      n2: 3227648 0x400A600: _dl_map_object (dl-load.c:2327)
+       n1: 3207168 0x4003494: openaux (dl-deps.c:64)
+        n1: 3207168 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+         n1: 3207168 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+          n1: 3207168 0x40233BF: dl_main (rtld.c:1970)
+           n1: 3207168 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+            n1: 3207168 0x40215B7: _dl_start_final (rtld.c:507)
+             n1: 3207168 0x40215B7: _dl_start (rtld.c:596)
+              n1: 3207168 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+               n1: 3207168 0x3: ???
+                n1: 3207168 0x1FFEFFFFBE: ???
+                 n1: 3207168 0x1FFEFFFFD6: ???
+                  n1: 3207168 0x1FFEFFFFFE: ???
+                   n0: 3207168 0x1FFF000001: ???
+       n0: 20480 in 1 place, below massif's threshold (1.00%)
+   n1: 2949120 0x4009098: _dl_map_segments (dl-map-segments.h:140)
+    n1: 2949120 0x4009098: _dl_map_object_from_fd (dl-load.c:1258)
+     n2: 2949120 0x400A600: _dl_map_object (dl-load.c:2327)
+      n1: 2932736 0x4003494: openaux (dl-deps.c:64)
+       n1: 2932736 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+        n1: 2932736 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+         n1: 2932736 0x40233BF: dl_main (rtld.c:1970)
+          n1: 2932736 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+           n1: 2932736 0x40215B7: _dl_start_final (rtld.c:507)
+            n1: 2932736 0x40215B7: _dl_start (rtld.c:596)
+             n1: 2932736 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+              n1: 2932736 0x3: ???
+               n1: 2932736 0x1FFEFFFFBE: ???
+                n1: 2932736 0x1FFEFFFFD6: ???
+                 n1: 2932736 0x1FFEFFFFFE: ???
+                  n0: 2932736 0x1FFF000001: ???
+      n0: 16384 in 1 place, below massif's threshold (1.00%)
+   n0: 73728 in 3 places, all below massif's threshold (1.00%)
+ n1: 1847296 0x4A51BD7: __mmap64 (mmap64.c:58)
+  n1: 1847296 0x4A51BD7: mmap (mmap64.c:46)
+   n1: 1847296 0x49D5537: sysmalloc_mmap.constprop.0 (malloc.c:2441)
+    n1: 1847296 0x49D630B: sysmalloc (malloc.c:2594)
+     n1: 1847296 0x49D795C: _int_malloc (malloc.c:4407)
+      n1: 1847296 0x49D82E1: malloc (malloc.c:3321)
+       n3: 1847296 0x10C7EC: tcc_malloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+        n1: 790528 0x116EF8: tccpp_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 790528 0x10D409: tcc_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n0: 790528 0x10A916: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+        n1: 790528 0x116F2B: tccpp_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 790528 0x10D409: tcc_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n0: 790528 0x10A916: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+        n1: 266240 0x116F5E: tccpp_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 266240 0x10D409: tcc_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n0: 266240 0x10A916: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+ n0: 679936 0x0: ???
+ n1: 274432 0x4A4D9DB: brk (brk.c:36)
+  n1: 274432 0x4A4DAA3: __sbrk (sbrk.c:74)
+   n1: 274432 0x4A4DAA3: sbrk (sbrk.c:36)
+    n1: 274432 0x49D5645: __glibc_morecore (morecore.c:29)
+     n1: 274432 0x49D6678: sysmalloc (malloc.c:2727)
+      n2: 274432 0x49D795C: _int_malloc (malloc.c:4407)
+       n1: 139264 0x49D7C09: _int_realloc (malloc.c:4878)
+        n1: 139264 0x49D8988: realloc (malloc.c:3485)
+         n1: 139264 0x10C81C: tcc_realloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n1: 139264 0x10F820: tok_alloc_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n1: 139264 0x113105: next_nomacro1 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 139264 0x111F98: preprocess (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n1: 139264 0x113C19: next_nomacro1 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 139264 0x115D83: next (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 139264 0x125FBE: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 139264 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n1: 139264 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                  n1: 139264 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                   n0: 139264 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+       n1: 135168 0x49D7A48: tcache_init.part.0 (malloc.c:3245)
+        n1: 135168 0x49D988D: tcache_init (malloc.c:3241)
+         n1: 135168 0x49D988D: calloc (malloc.c:3645)
+          n1: 135168 0x10D38E: tcc_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n0: 135168 0x10A916: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=2
+#-----------
+time=10445639
+mem_heap_B=9052160
+mem_heap_extra_B=0
+mem_stacks_B=4632
+heap_tree=detailed
+n5: 9052160 (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+ n1: 6250496 0x4026CD7: __mmap64 (mmap64.c:58)
+  n3: 6250496 0x4026CD7: mmap (mmap64.c:46)
+   n1: 3227648 0x4008F1B: _dl_map_segment (dl-map-segments.h:29)
+    n1: 3227648 0x4008F1B: _dl_map_segments (dl-map-segments.h:102)
+     n1: 3227648 0x4008F1B: _dl_map_object_from_fd (dl-load.c:1258)
+      n2: 3227648 0x400A600: _dl_map_object (dl-load.c:2327)
+       n1: 3207168 0x4003494: openaux (dl-deps.c:64)
+        n1: 3207168 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+         n1: 3207168 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+          n1: 3207168 0x40233BF: dl_main (rtld.c:1970)
+           n1: 3207168 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+            n1: 3207168 0x40215B7: _dl_start_final (rtld.c:507)
+             n1: 3207168 0x40215B7: _dl_start (rtld.c:596)
+              n1: 3207168 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+               n1: 3207168 0x3: ???
+                n1: 3207168 0x1FFEFFFFBE: ???
+                 n1: 3207168 0x1FFEFFFFD6: ???
+                  n1: 3207168 0x1FFEFFFFFE: ???
+                   n0: 3207168 0x1FFF000001: ???
+       n0: 20480 in 1 place, below massif's threshold (1.00%)
+   n1: 2949120 0x4009098: _dl_map_segments (dl-map-segments.h:140)
+    n1: 2949120 0x4009098: _dl_map_object_from_fd (dl-load.c:1258)
+     n2: 2949120 0x400A600: _dl_map_object (dl-load.c:2327)
+      n1: 2932736 0x4003494: openaux (dl-deps.c:64)
+       n1: 2932736 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+        n1: 2932736 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+         n1: 2932736 0x40233BF: dl_main (rtld.c:1970)
+          n1: 2932736 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+           n1: 2932736 0x40215B7: _dl_start_final (rtld.c:507)
+            n1: 2932736 0x40215B7: _dl_start (rtld.c:596)
+             n1: 2932736 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+              n1: 2932736 0x3: ???
+               n1: 2932736 0x1FFEFFFFBE: ???
+                n1: 2932736 0x1FFEFFFFD6: ???
+                 n1: 2932736 0x1FFEFFFFFE: ???
+                  n0: 2932736 0x1FFF000001: ???
+      n0: 16384 in 1 place, below massif's threshold (1.00%)
+   n0: 73728 in 3 places, all below massif's threshold (1.00%)
+ n1: 1847296 0x4A51BD7: __mmap64 (mmap64.c:58)
+  n1: 1847296 0x4A51BD7: mmap (mmap64.c:46)
+   n1: 1847296 0x49D5537: sysmalloc_mmap.constprop.0 (malloc.c:2441)
+    n1: 1847296 0x49D630B: sysmalloc (malloc.c:2594)
+     n1: 1847296 0x49D795C: _int_malloc (malloc.c:4407)
+      n1: 1847296 0x49D82E1: malloc (malloc.c:3321)
+       n3: 1847296 0x10C7EC: tcc_malloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+        n1: 790528 0x116EF8: tccpp_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 790528 0x10D409: tcc_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n0: 790528 0x10A916: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+        n1: 790528 0x116F2B: tccpp_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 790528 0x10D409: tcc_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n0: 790528 0x10A916: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+        n1: 266240 0x116F5E: tccpp_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 266240 0x10D409: tcc_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n0: 266240 0x10A916: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+ n0: 679936 0x0: ???
+ n1: 274432 0x4A4D9DB: brk (brk.c:36)
+  n1: 274432 0x4A4DAA3: __sbrk (sbrk.c:74)
+   n1: 274432 0x4A4DAA3: sbrk (sbrk.c:36)
+    n1: 274432 0x49D5645: __glibc_morecore (morecore.c:29)
+     n1: 274432 0x49D6678: sysmalloc (malloc.c:2727)
+      n2: 274432 0x49D795C: _int_malloc (malloc.c:4407)
+       n1: 139264 0x49D7C09: _int_realloc (malloc.c:4878)
+        n1: 139264 0x49D8988: realloc (malloc.c:3485)
+         n1: 139264 0x10C81C: tcc_realloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n1: 139264 0x10F820: tok_alloc_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n1: 139264 0x113105: next_nomacro1 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 139264 0x111F98: preprocess (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n1: 139264 0x113C19: next_nomacro1 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 139264 0x115D83: next (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 139264 0x125FBE: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 139264 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n1: 139264 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                  n1: 139264 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                   n0: 139264 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+       n1: 135168 0x49D7A48: tcache_init.part.0 (malloc.c:3245)
+        n1: 135168 0x49D988D: tcache_init (malloc.c:3241)
+         n1: 135168 0x49D988D: calloc (malloc.c:3645)
+          n1: 135168 0x10D38E: tcc_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n0: 135168 0x10A916: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=3
+#-----------
+time=17884190
+mem_heap_B=10629120
+mem_heap_extra_B=0
+mem_stacks_B=2248
+heap_tree=empty
+#-----------
+snapshot=4
+#-----------
+time=23444690
+mem_heap_B=10760192
+mem_heap_extra_B=0
+mem_stacks_B=1320
+heap_tree=empty
+#-----------
+snapshot=5
+#-----------
+time=28083188
+mem_heap_B=10760192
+mem_heap_extra_B=0
+mem_stacks_B=1624
+heap_tree=detailed
+n5: 10760192 (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+ n1: 6250496 0x4026CD7: __mmap64 (mmap64.c:58)
+  n3: 6250496 0x4026CD7: mmap (mmap64.c:46)
+   n1: 3227648 0x4008F1B: _dl_map_segment (dl-map-segments.h:29)
+    n1: 3227648 0x4008F1B: _dl_map_segments (dl-map-segments.h:102)
+     n1: 3227648 0x4008F1B: _dl_map_object_from_fd (dl-load.c:1258)
+      n2: 3227648 0x400A600: _dl_map_object (dl-load.c:2327)
+       n1: 3207168 0x4003494: openaux (dl-deps.c:64)
+        n1: 3207168 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+         n1: 3207168 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+          n1: 3207168 0x40233BF: dl_main (rtld.c:1970)
+           n1: 3207168 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+            n1: 3207168 0x40215B7: _dl_start_final (rtld.c:507)
+             n1: 3207168 0x40215B7: _dl_start (rtld.c:596)
+              n1: 3207168 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+               n1: 3207168 0x3: ???
+                n1: 3207168 0x1FFEFFFFBE: ???
+                 n1: 3207168 0x1FFEFFFFD6: ???
+                  n1: 3207168 0x1FFEFFFFFE: ???
+                   n0: 3207168 0x1FFF000001: ???
+       n0: 20480 in 1 place, below massif's threshold (1.00%)
+   n1: 2949120 0x4009098: _dl_map_segments (dl-map-segments.h:140)
+    n1: 2949120 0x4009098: _dl_map_object_from_fd (dl-load.c:1258)
+     n2: 2949120 0x400A600: _dl_map_object (dl-load.c:2327)
+      n1: 2932736 0x4003494: openaux (dl-deps.c:64)
+       n1: 2932736 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+        n1: 2932736 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+         n1: 2932736 0x40233BF: dl_main (rtld.c:1970)
+          n1: 2932736 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+           n1: 2932736 0x40215B7: _dl_start_final (rtld.c:507)
+            n1: 2932736 0x40215B7: _dl_start (rtld.c:596)
+             n1: 2932736 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+              n1: 2932736 0x3: ???
+               n1: 2932736 0x1FFEFFFFBE: ???
+                n1: 2932736 0x1FFEFFFFD6: ???
+                 n1: 2932736 0x1FFEFFFFFE: ???
+                  n0: 2932736 0x1FFF000001: ???
+      n0: 16384 in 1 place, below massif's threshold (1.00%)
+   n0: 73728 in 3 places, all below massif's threshold (1.00%)
+ n1: 3424256 0x4A51BD7: __mmap64 (mmap64.c:58)
+  n1: 3424256 0x4A51BD7: mmap (mmap64.c:46)
+   n1: 3424256 0x49D5537: sysmalloc_mmap.constprop.0 (malloc.c:2441)
+    n1: 3424256 0x49D630B: sysmalloc (malloc.c:2594)
+     n1: 3424256 0x49D795C: _int_malloc (malloc.c:4407)
+      n1: 3424256 0x49D82E1: malloc (malloc.c:3321)
+       n4: 3424256 0x10C7EC: tcc_malloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+        n1: 1576960 0x10F6C9: tal_realloc_impl (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 1576960 0x10F998: tok_str_add2 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n1: 1576960 0x114FCA: macro_subst_tok.isra.0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n1: 1576960 0x115C80: macro_subst (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 1576960 0x1158B6: macro_subst_tok.isra.0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n1: 1576960 0x115C80: macro_subst (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 1576960 0x114667: macro_subst_tok.isra.0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 1576960 0x115C80: macro_subst (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 1576960 0x114667: macro_subst_tok.isra.0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n1: 1576960 0x115C80: macro_subst (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                  n1: 1576960 0x114667: macro_subst_tok.isra.0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                   n1: 1576960 0x115E3E: next (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                    n1: 1576960 0x125FBE: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                     n1: 1576960 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                      n1: 1576960 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                       n1: 1576960 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                        n0: 1576960 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+        n1: 790528 0x116EF8: tccpp_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 790528 0x10D409: tcc_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n0: 790528 0x10A916: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+        n1: 790528 0x116F2B: tccpp_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 790528 0x10D409: tcc_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n0: 790528 0x10A916: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+        n1: 266240 0x116F5E: tccpp_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 266240 0x10D409: tcc_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n0: 266240 0x10A916: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+ n0: 679936 0x0: ???
+ n1: 405504 0x4A4D9DB: brk (brk.c:36)
+  n1: 405504 0x4A4DAA3: __sbrk (sbrk.c:74)
+   n1: 405504 0x4A4DAA3: sbrk (sbrk.c:36)
+    n1: 405504 0x49D5645: __glibc_morecore (morecore.c:29)
+     n1: 405504 0x49D6678: sysmalloc (malloc.c:2727)
+      n3: 405504 0x49D795C: _int_malloc (malloc.c:4407)
+       n1: 139264 0x49D7C09: _int_realloc (malloc.c:4878)
+        n1: 139264 0x49D8988: realloc (malloc.c:3485)
+         n1: 139264 0x10C81C: tcc_realloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n1: 139264 0x10F820: tok_alloc_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n1: 139264 0x113105: next_nomacro1 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 139264 0x111F98: preprocess (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n1: 139264 0x113C19: next_nomacro1 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 139264 0x115D83: next (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 139264 0x125FBE: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 139264 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n1: 139264 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                  n1: 139264 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                   n0: 139264 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+       n1: 135168 0x49D7A48: tcache_init.part.0 (malloc.c:3245)
+        n1: 135168 0x49D988D: tcache_init (malloc.c:3241)
+         n1: 135168 0x49D988D: calloc (malloc.c:3645)
+          n1: 135168 0x10D38E: tcc_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n0: 135168 0x10A916: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+       n1: 131072 0x49D9678: calloc (malloc.c:3679)
+        n1: 131072 0x10CE56: tcc_open_bf (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 131072 0x10D009: tcc_open (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n1: 131072 0x1126A7: preprocess (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n1: 131072 0x113C19: next_nomacro1 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 131072 0x115D83: next (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n1: 131072 0x1262C3: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 131072 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 131072 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 131072 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n0: 131072 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=6
+#-----------
+time=35235702
+mem_heap_B=10899456
+mem_heap_extra_B=0
+mem_stacks_B=1000
+heap_tree=empty
+#-----------
+snapshot=7
+#-----------
+time=39922757
+mem_heap_B=11038720
+mem_heap_extra_B=0
+mem_stacks_B=2840
+heap_tree=empty
+#-----------
+snapshot=8
+#-----------
+time=46674038
+mem_heap_B=11038720
+mem_heap_extra_B=0
+mem_stacks_B=3480
+heap_tree=empty
+#-----------
+snapshot=9
+#-----------
+time=50644716
+mem_heap_B=11218944
+mem_heap_extra_B=0
+mem_stacks_B=2408
+heap_tree=empty
+#-----------
+snapshot=10
+#-----------
+time=56700010
+mem_heap_B=11354112
+mem_heap_extra_B=0
+mem_stacks_B=4208
+heap_tree=empty
+#-----------
+snapshot=11
+#-----------
+time=62137579
+mem_heap_B=11501568
+mem_heap_extra_B=0
+mem_stacks_B=6456
+heap_tree=detailed
+n5: 11501568 (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+ n1: 6250496 0x4026CD7: __mmap64 (mmap64.c:58)
+  n3: 6250496 0x4026CD7: mmap (mmap64.c:46)
+   n1: 3227648 0x4008F1B: _dl_map_segment (dl-map-segments.h:29)
+    n1: 3227648 0x4008F1B: _dl_map_segments (dl-map-segments.h:102)
+     n1: 3227648 0x4008F1B: _dl_map_object_from_fd (dl-load.c:1258)
+      n2: 3227648 0x400A600: _dl_map_object (dl-load.c:2327)
+       n1: 3207168 0x4003494: openaux (dl-deps.c:64)
+        n1: 3207168 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+         n1: 3207168 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+          n1: 3207168 0x40233BF: dl_main (rtld.c:1970)
+           n1: 3207168 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+            n1: 3207168 0x40215B7: _dl_start_final (rtld.c:507)
+             n1: 3207168 0x40215B7: _dl_start (rtld.c:596)
+              n1: 3207168 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+               n1: 3207168 0x3: ???
+                n1: 3207168 0x1FFEFFFFBE: ???
+                 n1: 3207168 0x1FFEFFFFD6: ???
+                  n1: 3207168 0x1FFEFFFFFE: ???
+                   n0: 3207168 0x1FFF000001: ???
+       n0: 20480 in 1 place, below massif's threshold (1.00%)
+   n1: 2949120 0x4009098: _dl_map_segments (dl-map-segments.h:140)
+    n1: 2949120 0x4009098: _dl_map_object_from_fd (dl-load.c:1258)
+     n2: 2949120 0x400A600: _dl_map_object (dl-load.c:2327)
+      n1: 2932736 0x4003494: openaux (dl-deps.c:64)
+       n1: 2932736 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+        n1: 2932736 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+         n1: 2932736 0x40233BF: dl_main (rtld.c:1970)
+          n1: 2932736 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+           n1: 2932736 0x40215B7: _dl_start_final (rtld.c:507)
+            n1: 2932736 0x40215B7: _dl_start (rtld.c:596)
+             n1: 2932736 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+              n1: 2932736 0x3: ???
+               n1: 2932736 0x1FFEFFFFBE: ???
+                n1: 2932736 0x1FFEFFFFD6: ???
+                 n1: 2932736 0x1FFEFFFFFE: ???
+                  n0: 2932736 0x1FFF000001: ???
+      n0: 16384 in 1 place, below massif's threshold (1.00%)
+   n0: 73728 in 3 places, all below massif's threshold (1.00%)
+ n1: 3424256 0x4A51BD7: __mmap64 (mmap64.c:58)
+  n1: 3424256 0x4A51BD7: mmap (mmap64.c:46)
+   n1: 3424256 0x49D5537: sysmalloc_mmap.constprop.0 (malloc.c:2441)
+    n1: 3424256 0x49D630B: sysmalloc (malloc.c:2594)
+     n1: 3424256 0x49D795C: _int_malloc (malloc.c:4407)
+      n1: 3424256 0x49D82E1: malloc (malloc.c:3321)
+       n4: 3424256 0x10C7EC: tcc_malloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+        n1: 1576960 0x10F6C9: tal_realloc_impl (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 1576960 0x10F998: tok_str_add2 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n1: 1576960 0x114FCA: macro_subst_tok.isra.0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n1: 1576960 0x115C80: macro_subst (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 1576960 0x1158B6: macro_subst_tok.isra.0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n1: 1576960 0x115C80: macro_subst (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 1576960 0x114667: macro_subst_tok.isra.0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 1576960 0x115C80: macro_subst (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 1576960 0x114667: macro_subst_tok.isra.0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n1: 1576960 0x115C80: macro_subst (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                  n1: 1576960 0x114667: macro_subst_tok.isra.0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                   n1: 1576960 0x115E3E: next (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                    n1: 1576960 0x125FBE: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                     n1: 1576960 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                      n1: 1576960 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                       n1: 1576960 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                        n0: 1576960 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+        n1: 790528 0x116EF8: tccpp_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 790528 0x10D409: tcc_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n0: 790528 0x10A916: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+        n1: 790528 0x116F2B: tccpp_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 790528 0x10D409: tcc_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n0: 790528 0x10A916: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+        n1: 266240 0x116F5E: tccpp_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 266240 0x10D409: tcc_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n0: 266240 0x10A916: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+ n1: 1146880 0x4A4D9DB: brk (brk.c:36)
+  n1: 1146880 0x4A4DAA3: __sbrk (sbrk.c:74)
+   n1: 1146880 0x4A4DAA3: sbrk (sbrk.c:36)
+    n1: 1146880 0x49D5645: __glibc_morecore (morecore.c:29)
+     n1: 1146880 0x49D6678: sysmalloc (malloc.c:2727)
+      n4: 1146880 0x49D795C: _int_malloc (malloc.c:4407)
+       n1: 606208 0x49D7C09: _int_realloc (malloc.c:4878)
+        n1: 606208 0x49D8988: realloc (malloc.c:3485)
+         n2: 606208 0x10C81C: tcc_realloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n2: 466944 0x1288F4: put_elf_reloca (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n1: 319488 0x11A6B6: init_putv (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 319488 0x1225FC: decl_initializer (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n2: 319488 0x1225FC: decl_initializer (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 180224 0x1225FC: decl_initializer (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 180224 0x122DCC: decl_initializer_alloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 180224 0x125F9B: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n1: 180224 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                  n1: 180224 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                   n1: 180224 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                    n0: 180224 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 139264 0x122DCC: decl_initializer_alloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 139264 0x125F9B: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 139264 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n1: 139264 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                  n1: 139264 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                   n0: 139264 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n1: 147456 0x131540: load (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 147456 0x11AA1A: gv (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n1: 147456 0x11994A: vstore (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 147456 0x11A48D: init_putv (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 147456 0x1225FC: decl_initializer (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 147456 0x1225FC: decl_initializer (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n1: 147456 0x1225FC: decl_initializer (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                  n1: 147456 0x122F29: decl_initializer_alloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                   n1: 147456 0x125F9B: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                    n1: 147456 0x125405: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                     n1: 147456 0x1256F4: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                      n1: 147456 0x125429: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                       n1: 147456 0x124B48: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                        n1: 147456 0x125429: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                         n1: 147456 0x125156: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                          n1: 147456 0x125429: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                           n1: 147456 0x1256F4: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                            n1: 147456 0x125429: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                             n1: 147456 0x124B48: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                              n1: 147456 0x125429: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                               n0: 147456 0x125C15: gen_function (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n1: 139264 0x10F820: tok_alloc_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n1: 139264 0x113105: next_nomacro1 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 139264 0x111F98: preprocess (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n1: 139264 0x113C19: next_nomacro1 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 139264 0x115D83: next (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 139264 0x125FBE: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 139264 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n1: 139264 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                  n1: 139264 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                   n0: 139264 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+       n1: 274432 0x49D82E1: malloc (malloc.c:3321)
+        n1: 274432 0x10C7EC: tcc_malloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 274432 0x118C9F: sym_push2 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n1: 274432 0x11EB85: type_decl (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n2: 274432 0x125E93: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 139264 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n1: 139264 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 139264 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n0: 139264 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 135168 0x125405: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n1: 135168 0x125156: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 135168 0x125429: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 135168 0x1256F4: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 135168 0x125429: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n1: 135168 0x125C15: gen_function (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                  n1: 135168 0x1264E6: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                   n1: 135168 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                    n1: 135168 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                     n1: 135168 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                      n0: 135168 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+       n1: 135168 0x49D7A48: tcache_init.part.0 (malloc.c:3245)
+        n1: 135168 0x49D988D: tcache_init (malloc.c:3241)
+         n1: 135168 0x49D988D: calloc (malloc.c:3645)
+          n1: 135168 0x10D38E: tcc_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n0: 135168 0x10A916: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+       n1: 131072 0x49D9678: calloc (malloc.c:3679)
+        n1: 131072 0x10CE56: tcc_open_bf (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 131072 0x10D009: tcc_open (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n1: 131072 0x1126A7: preprocess (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n1: 131072 0x113C19: next_nomacro1 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 131072 0x115D83: next (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n1: 131072 0x1262C3: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 131072 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 131072 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 131072 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n0: 131072 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+ n0: 679936 0x0: ???
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=12
+#-----------
+time=67284574
+mem_heap_B=11501568
+mem_heap_extra_B=0
+mem_stacks_B=2568
+heap_tree=detailed
+n5: 11501568 (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+ n1: 6250496 0x4026CD7: __mmap64 (mmap64.c:58)
+  n3: 6250496 0x4026CD7: mmap (mmap64.c:46)
+   n1: 3227648 0x4008F1B: _dl_map_segment (dl-map-segments.h:29)
+    n1: 3227648 0x4008F1B: _dl_map_segments (dl-map-segments.h:102)
+     n1: 3227648 0x4008F1B: _dl_map_object_from_fd (dl-load.c:1258)
+      n2: 3227648 0x400A600: _dl_map_object (dl-load.c:2327)
+       n1: 3207168 0x4003494: openaux (dl-deps.c:64)
+        n1: 3207168 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+         n1: 3207168 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+          n1: 3207168 0x40233BF: dl_main (rtld.c:1970)
+           n1: 3207168 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+            n1: 3207168 0x40215B7: _dl_start_final (rtld.c:507)
+             n1: 3207168 0x40215B7: _dl_start (rtld.c:596)
+              n1: 3207168 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+               n1: 3207168 0x3: ???
+                n1: 3207168 0x1FFEFFFFBE: ???
+                 n1: 3207168 0x1FFEFFFFD6: ???
+                  n1: 3207168 0x1FFEFFFFFE: ???
+                   n0: 3207168 0x1FFF000001: ???
+       n0: 20480 in 1 place, below massif's threshold (1.00%)
+   n1: 2949120 0x4009098: _dl_map_segments (dl-map-segments.h:140)
+    n1: 2949120 0x4009098: _dl_map_object_from_fd (dl-load.c:1258)
+     n2: 2949120 0x400A600: _dl_map_object (dl-load.c:2327)
+      n1: 2932736 0x4003494: openaux (dl-deps.c:64)
+       n1: 2932736 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+        n1: 2932736 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+         n1: 2932736 0x40233BF: dl_main (rtld.c:1970)
+          n1: 2932736 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+           n1: 2932736 0x40215B7: _dl_start_final (rtld.c:507)
+            n1: 2932736 0x40215B7: _dl_start (rtld.c:596)
+             n1: 2932736 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+              n1: 2932736 0x3: ???
+               n1: 2932736 0x1FFEFFFFBE: ???
+                n1: 2932736 0x1FFEFFFFD6: ???
+                 n1: 2932736 0x1FFEFFFFFE: ???
+                  n0: 2932736 0x1FFF000001: ???
+      n0: 16384 in 1 place, below massif's threshold (1.00%)
+   n0: 73728 in 3 places, all below massif's threshold (1.00%)
+ n1: 3424256 0x4A51BD7: __mmap64 (mmap64.c:58)
+  n1: 3424256 0x4A51BD7: mmap (mmap64.c:46)
+   n1: 3424256 0x49D5537: sysmalloc_mmap.constprop.0 (malloc.c:2441)
+    n1: 3424256 0x49D630B: sysmalloc (malloc.c:2594)
+     n1: 3424256 0x49D795C: _int_malloc (malloc.c:4407)
+      n1: 3424256 0x49D82E1: malloc (malloc.c:3321)
+       n4: 3424256 0x10C7EC: tcc_malloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+        n1: 1576960 0x10F6C9: tal_realloc_impl (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 1576960 0x10F998: tok_str_add2 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n1: 1576960 0x114FCA: macro_subst_tok.isra.0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n1: 1576960 0x115C80: macro_subst (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 1576960 0x1158B6: macro_subst_tok.isra.0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n1: 1576960 0x115C80: macro_subst (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 1576960 0x114667: macro_subst_tok.isra.0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 1576960 0x115C80: macro_subst (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 1576960 0x114667: macro_subst_tok.isra.0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n1: 1576960 0x115C80: macro_subst (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                  n1: 1576960 0x114667: macro_subst_tok.isra.0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                   n1: 1576960 0x115E3E: next (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                    n1: 1576960 0x125FBE: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                     n1: 1576960 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                      n1: 1576960 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                       n1: 1576960 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                        n0: 1576960 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+        n1: 790528 0x116EF8: tccpp_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 790528 0x10D409: tcc_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n0: 790528 0x10A916: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+        n1: 790528 0x116F2B: tccpp_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 790528 0x10D409: tcc_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n0: 790528 0x10A916: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+        n1: 266240 0x116F5E: tccpp_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 266240 0x10D409: tcc_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n0: 266240 0x10A916: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+ n1: 1146880 0x4A4D9DB: brk (brk.c:36)
+  n1: 1146880 0x4A4DAA3: __sbrk (sbrk.c:74)
+   n1: 1146880 0x4A4DAA3: sbrk (sbrk.c:36)
+    n1: 1146880 0x49D5645: __glibc_morecore (morecore.c:29)
+     n1: 1146880 0x49D6678: sysmalloc (malloc.c:2727)
+      n4: 1146880 0x49D795C: _int_malloc (malloc.c:4407)
+       n1: 606208 0x49D7C09: _int_realloc (malloc.c:4878)
+        n1: 606208 0x49D8988: realloc (malloc.c:3485)
+         n2: 606208 0x10C81C: tcc_realloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n2: 466944 0x1288F4: put_elf_reloca (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n1: 319488 0x11A6B6: init_putv (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 319488 0x1225FC: decl_initializer (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n2: 319488 0x1225FC: decl_initializer (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 180224 0x1225FC: decl_initializer (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 180224 0x122DCC: decl_initializer_alloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 180224 0x125F9B: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n1: 180224 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                  n1: 180224 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                   n1: 180224 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                    n0: 180224 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 139264 0x122DCC: decl_initializer_alloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 139264 0x125F9B: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 139264 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n1: 139264 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                  n1: 139264 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                   n0: 139264 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n1: 147456 0x131540: load (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 147456 0x11AA1A: gv (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n1: 147456 0x11994A: vstore (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 147456 0x11A48D: init_putv (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 147456 0x1225FC: decl_initializer (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 147456 0x1225FC: decl_initializer (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n1: 147456 0x1225FC: decl_initializer (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                  n1: 147456 0x122F29: decl_initializer_alloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                   n1: 147456 0x125F9B: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                    n1: 147456 0x125405: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                     n1: 147456 0x1256F4: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                      n1: 147456 0x125429: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                       n1: 147456 0x124B48: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                        n1: 147456 0x125429: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                         n1: 147456 0x125156: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                          n1: 147456 0x125429: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                           n1: 147456 0x1256F4: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                            n1: 147456 0x125429: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                             n1: 147456 0x124B48: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                              n1: 147456 0x125429: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                               n0: 147456 0x125C15: gen_function (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n1: 139264 0x10F820: tok_alloc_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n1: 139264 0x113105: next_nomacro1 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 139264 0x111F98: preprocess (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n1: 139264 0x113C19: next_nomacro1 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 139264 0x115D83: next (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 139264 0x125FBE: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 139264 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n1: 139264 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                  n1: 139264 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                   n0: 139264 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+       n1: 274432 0x49D82E1: malloc (malloc.c:3321)
+        n1: 274432 0x10C7EC: tcc_malloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 274432 0x118C9F: sym_push2 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n1: 274432 0x11EB85: type_decl (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n2: 274432 0x125E93: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 139264 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n1: 139264 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 139264 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n0: 139264 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 135168 0x125405: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n1: 135168 0x125156: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 135168 0x125429: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 135168 0x1256F4: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 135168 0x125429: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n1: 135168 0x125C15: gen_function (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                  n1: 135168 0x1264E6: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                   n1: 135168 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                    n1: 135168 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                     n1: 135168 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                      n0: 135168 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+       n1: 135168 0x49D7A48: tcache_init.part.0 (malloc.c:3245)
+        n1: 135168 0x49D988D: tcache_init (malloc.c:3241)
+         n1: 135168 0x49D988D: calloc (malloc.c:3645)
+          n1: 135168 0x10D38E: tcc_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n0: 135168 0x10A916: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+       n1: 131072 0x49D9678: calloc (malloc.c:3679)
+        n1: 131072 0x10CE56: tcc_open_bf (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 131072 0x10D009: tcc_open (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n1: 131072 0x1126A7: preprocess (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n1: 131072 0x113C19: next_nomacro1 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 131072 0x115D83: next (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n1: 131072 0x1262C3: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 131072 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 131072 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 131072 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n0: 131072 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+ n0: 679936 0x0: ???
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=13
+#-----------
+time=71424575
+mem_heap_B=11501568
+mem_heap_extra_B=0
+mem_stacks_B=3720
+heap_tree=empty
+#-----------
+snapshot=14
+#-----------
+time=77590532
+mem_heap_B=11771904
+mem_heap_extra_B=0
+mem_stacks_B=6088
+heap_tree=empty
+#-----------
+snapshot=15
+#-----------
+time=83386444
+mem_heap_B=11771904
+mem_heap_extra_B=0
+mem_stacks_B=3032
+heap_tree=empty
+#-----------
+snapshot=16
+#-----------
+time=87526505
+mem_heap_B=11771904
+mem_heap_extra_B=0
+mem_stacks_B=2360
+heap_tree=empty
+#-----------
+snapshot=17
+#-----------
+time=92494584
+mem_heap_B=11771904
+mem_heap_extra_B=0
+mem_stacks_B=4216
+heap_tree=empty
+#-----------
+snapshot=18
+#-----------
+time=97463119
+mem_heap_B=11771904
+mem_heap_extra_B=0
+mem_stacks_B=26392
+heap_tree=empty
+#-----------
+snapshot=19
+#-----------
+time=101603050
+mem_heap_B=11902976
+mem_heap_extra_B=0
+mem_stacks_B=3672
+heap_tree=detailed
+n6: 11902976 (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+ n1: 6250496 0x4026CD7: __mmap64 (mmap64.c:58)
+  n3: 6250496 0x4026CD7: mmap (mmap64.c:46)
+   n1: 3227648 0x4008F1B: _dl_map_segment (dl-map-segments.h:29)
+    n1: 3227648 0x4008F1B: _dl_map_segments (dl-map-segments.h:102)
+     n1: 3227648 0x4008F1B: _dl_map_object_from_fd (dl-load.c:1258)
+      n2: 3227648 0x400A600: _dl_map_object (dl-load.c:2327)
+       n1: 3207168 0x4003494: openaux (dl-deps.c:64)
+        n1: 3207168 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+         n1: 3207168 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+          n1: 3207168 0x40233BF: dl_main (rtld.c:1970)
+           n1: 3207168 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+            n1: 3207168 0x40215B7: _dl_start_final (rtld.c:507)
+             n1: 3207168 0x40215B7: _dl_start (rtld.c:596)
+              n1: 3207168 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+               n1: 3207168 0x3: ???
+                n1: 3207168 0x1FFEFFFFBE: ???
+                 n1: 3207168 0x1FFEFFFFD6: ???
+                  n1: 3207168 0x1FFEFFFFFE: ???
+                   n0: 3207168 0x1FFF000001: ???
+       n0: 20480 in 1 place, below massif's threshold (1.00%)
+   n1: 2949120 0x4009098: _dl_map_segments (dl-map-segments.h:140)
+    n1: 2949120 0x4009098: _dl_map_object_from_fd (dl-load.c:1258)
+     n2: 2949120 0x400A600: _dl_map_object (dl-load.c:2327)
+      n1: 2932736 0x4003494: openaux (dl-deps.c:64)
+       n1: 2932736 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+        n1: 2932736 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+         n1: 2932736 0x40233BF: dl_main (rtld.c:1970)
+          n1: 2932736 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+           n1: 2932736 0x40215B7: _dl_start_final (rtld.c:507)
+            n1: 2932736 0x40215B7: _dl_start (rtld.c:596)
+             n1: 2932736 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+              n1: 2932736 0x3: ???
+               n1: 2932736 0x1FFEFFFFBE: ???
+                n1: 2932736 0x1FFEFFFFD6: ???
+                 n1: 2932736 0x1FFEFFFFFE: ???
+                  n0: 2932736 0x1FFF000001: ???
+      n0: 16384 in 1 place, below massif's threshold (1.00%)
+   n0: 73728 in 3 places, all below massif's threshold (1.00%)
+ n1: 3690496 0x4A51BD7: __mmap64 (mmap64.c:58)
+  n1: 3690496 0x4A51BD7: mmap (mmap64.c:46)
+   n1: 3690496 0x49D5537: sysmalloc_mmap.constprop.0 (malloc.c:2441)
+    n1: 3690496 0x49D630B: sysmalloc (malloc.c:2594)
+     n2: 3690496 0x49D795C: _int_malloc (malloc.c:4407)
+      n1: 3424256 0x49D82E1: malloc (malloc.c:3321)
+       n4: 3424256 0x10C7EC: tcc_malloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+        n1: 1576960 0x10F6C9: tal_realloc_impl (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 1576960 0x10F998: tok_str_add2 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n1: 1576960 0x114FCA: macro_subst_tok.isra.0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n1: 1576960 0x115C80: macro_subst (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 1576960 0x1158B6: macro_subst_tok.isra.0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n1: 1576960 0x115C80: macro_subst (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 1576960 0x114667: macro_subst_tok.isra.0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 1576960 0x115C80: macro_subst (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 1576960 0x114667: macro_subst_tok.isra.0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n1: 1576960 0x115C80: macro_subst (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                  n1: 1576960 0x114667: macro_subst_tok.isra.0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                   n1: 1576960 0x115E3E: next (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                    n1: 1576960 0x125FBE: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                     n1: 1576960 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                      n1: 1576960 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                       n1: 1576960 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                        n0: 1576960 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+        n1: 790528 0x116EF8: tccpp_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 790528 0x10D409: tcc_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n0: 790528 0x10A916: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+        n1: 790528 0x116F2B: tccpp_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 790528 0x10D409: tcc_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n0: 790528 0x10A916: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+        n1: 266240 0x116F5E: tccpp_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 266240 0x10D409: tcc_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n0: 266240 0x10A916: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+      n1: 266240 0x49D7C09: _int_realloc (malloc.c:4878)
+       n1: 266240 0x49D8988: realloc (malloc.c:3485)
+        n2: 266240 0x10C81C: tcc_realloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 266240 0x127373: section_realloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n1: 266240 0x1306B2: o (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n1: 266240 0x1316E7: load (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 266240 0x11AA1A: gv (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n1: 266240 0x11BC88: gv2 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 266240 0x133BBE: gen_opi (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 266240 0x11CC17: gen_op (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 266240 0x120876: expr_cmp (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n1: 266240 0x120922: expr_xor (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                  n1: 266240 0x121018: expr_cond (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                   n1: 266240 0x121AF5: expr_eq (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                    n1: 266240 0x11F44F: unary (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                     n1: 266240 0x1206BC: expr_sum (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                      n1: 266240 0x12078C: expr_cmp (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                       n1: 266240 0x120922: expr_xor (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                        n1: 266240 0x121018: expr_cond (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                         n1: 266240 0x121AF5: expr_eq (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                          n1: 266240 0x11F44F: unary (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                           n1: 266240 0x1206BC: expr_sum (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                            n1: 266240 0x1207EE: expr_cmp (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                             n1: 266240 0x120922: expr_xor (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                              n1: 266240 0x121018: expr_cond (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                               n0: 266240 0x121AF5: expr_eq (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 1015808 0x4A4D9DB: brk (brk.c:36)
+  n1: 1015808 0x4A4DAA3: __sbrk (sbrk.c:74)
+   n1: 1015808 0x4A4DAA3: sbrk (sbrk.c:36)
+    n1: 1015808 0x49D5645: __glibc_morecore (morecore.c:29)
+     n1: 1015808 0x49D6678: sysmalloc (malloc.c:2727)
+      n4: 1015808 0x49D795C: _int_malloc (malloc.c:4407)
+       n1: 475136 0x49D7C09: _int_realloc (malloc.c:4878)
+        n1: 475136 0x49D8988: realloc (malloc.c:3485)
+         n2: 475136 0x10C81C: tcc_realloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n2: 335872 0x1288F4: put_elf_reloca (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n1: 319488 0x11A6B6: init_putv (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 319488 0x1225FC: decl_initializer (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n2: 319488 0x1225FC: decl_initializer (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 180224 0x1225FC: decl_initializer (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 180224 0x122DCC: decl_initializer_alloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 180224 0x125F9B: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n1: 180224 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                  n1: 180224 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                   n1: 180224 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                    n0: 180224 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 139264 0x122DCC: decl_initializer_alloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 139264 0x125F9B: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 139264 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n1: 139264 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                  n1: 139264 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                   n0: 139264 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n0: 16384 in 1 place, below massif's threshold (1.00%)
+          n1: 139264 0x10F820: tok_alloc_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n1: 139264 0x113105: next_nomacro1 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 139264 0x111F98: preprocess (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n1: 139264 0x113C19: next_nomacro1 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 139264 0x115D83: next (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 139264 0x125FBE: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 139264 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n1: 139264 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                  n1: 139264 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                   n0: 139264 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+       n1: 274432 0x49D82E1: malloc (malloc.c:3321)
+        n1: 274432 0x10C7EC: tcc_malloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 274432 0x118C9F: sym_push2 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n1: 274432 0x11EB85: type_decl (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n2: 274432 0x125E93: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 139264 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n1: 139264 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 139264 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n0: 139264 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 135168 0x125405: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n1: 135168 0x125156: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 135168 0x125429: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 135168 0x1256F4: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 135168 0x125429: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n1: 135168 0x125C15: gen_function (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                  n1: 135168 0x1264E6: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                   n1: 135168 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                    n1: 135168 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                     n1: 135168 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                      n0: 135168 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+       n1: 135168 0x49D7A48: tcache_init.part.0 (malloc.c:3245)
+        n1: 135168 0x49D988D: tcache_init (malloc.c:3241)
+         n1: 135168 0x49D988D: calloc (malloc.c:3645)
+          n1: 135168 0x10D38E: tcc_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n0: 135168 0x10A916: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+       n1: 131072 0x49D9678: calloc (malloc.c:3679)
+        n1: 131072 0x10CE56: tcc_open_bf (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 131072 0x10D009: tcc_open (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n1: 131072 0x1126A7: preprocess (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n1: 131072 0x113C19: next_nomacro1 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 131072 0x115D83: next (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n1: 131072 0x1262C3: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 131072 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 131072 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 131072 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n0: 131072 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+ n0: 679936 0x0: ???
+ n1: 266240 0x4A59B1F: mremap (mremap.c:37)
+  n1: 266240 0x49D8A96: mremap_chunk (malloc.c:3097)
+   n1: 266240 0x49D8A96: realloc (malloc.c:3457)
+    n1: 266240 0x10C81C: tcc_realloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+     n1: 266240 0x1288F4: put_elf_reloca (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+      n1: 266240 0x131540: load (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+       n1: 266240 0x11AA1A: gv (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+        n1: 266240 0x11994A: vstore (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 266240 0x11A48D: init_putv (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n1: 266240 0x1225FC: decl_initializer (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n1: 266240 0x1225FC: decl_initializer (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 266240 0x122F29: decl_initializer_alloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n1: 266240 0x125F9B: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 266240 0x125405: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 266240 0x125C15: gen_function (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 266240 0x1264E6: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n1: 266240 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                  n1: 266240 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                   n1: 266240 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                    n0: 266240 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=20
+#-----------
+time=106868901
+mem_heap_B=12165120
+mem_heap_extra_B=0
+mem_stacks_B=27784
+heap_tree=empty
+#-----------
+snapshot=21
+#-----------
+time=114749900
+mem_heap_B=12165120
+mem_heap_extra_B=0
+mem_stacks_B=2184
+heap_tree=empty
+#-----------
+snapshot=22
+#-----------
+time=120379272
+mem_heap_B=12165120
+mem_heap_extra_B=0
+mem_stacks_B=3080
+heap_tree=empty
+#-----------
+snapshot=23
+#-----------
+time=126009305
+mem_heap_B=12165120
+mem_heap_extra_B=0
+mem_stacks_B=3960
+heap_tree=empty
+#-----------
+snapshot=24
+#-----------
+time=130512710
+mem_heap_B=12165120
+mem_heap_extra_B=0
+mem_stacks_B=2944
+heap_tree=empty
+#-----------
+snapshot=25
+#-----------
+time=136141926
+mem_heap_B=12165120
+mem_heap_extra_B=0
+mem_stacks_B=2864
+heap_tree=empty
+#-----------
+snapshot=26
+#-----------
+time=141771262
+mem_heap_B=12165120
+mem_heap_extra_B=0
+mem_stacks_B=5528
+heap_tree=empty
+#-----------
+snapshot=27
+#-----------
+time=147400565
+mem_heap_B=12165120
+mem_heap_extra_B=0
+mem_stacks_B=3496
+heap_tree=empty
+#-----------
+snapshot=28
+#-----------
+time=151903982
+mem_heap_B=12165120
+mem_heap_extra_B=0
+mem_stacks_B=2136
+heap_tree=empty
+#-----------
+snapshot=29
+#-----------
+time=157025574
+mem_heap_B=12427264
+mem_heap_extra_B=0
+mem_stacks_B=6544
+heap_tree=detailed
+n6: 12427264 (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+ n1: 6250496 0x4026CD7: __mmap64 (mmap64.c:58)
+  n3: 6250496 0x4026CD7: mmap (mmap64.c:46)
+   n1: 3227648 0x4008F1B: _dl_map_segment (dl-map-segments.h:29)
+    n1: 3227648 0x4008F1B: _dl_map_segments (dl-map-segments.h:102)
+     n1: 3227648 0x4008F1B: _dl_map_object_from_fd (dl-load.c:1258)
+      n2: 3227648 0x400A600: _dl_map_object (dl-load.c:2327)
+       n1: 3207168 0x4003494: openaux (dl-deps.c:64)
+        n1: 3207168 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+         n1: 3207168 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+          n1: 3207168 0x40233BF: dl_main (rtld.c:1970)
+           n1: 3207168 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+            n1: 3207168 0x40215B7: _dl_start_final (rtld.c:507)
+             n1: 3207168 0x40215B7: _dl_start (rtld.c:596)
+              n1: 3207168 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+               n1: 3207168 0x3: ???
+                n1: 3207168 0x1FFEFFFFBE: ???
+                 n1: 3207168 0x1FFEFFFFD6: ???
+                  n1: 3207168 0x1FFEFFFFFE: ???
+                   n0: 3207168 0x1FFF000001: ???
+       n0: 20480 in 1 place, below massif's threshold (1.00%)
+   n1: 2949120 0x4009098: _dl_map_segments (dl-map-segments.h:140)
+    n1: 2949120 0x4009098: _dl_map_object_from_fd (dl-load.c:1258)
+     n2: 2949120 0x400A600: _dl_map_object (dl-load.c:2327)
+      n1: 2932736 0x4003494: openaux (dl-deps.c:64)
+       n1: 2932736 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+        n1: 2932736 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+         n1: 2932736 0x40233BF: dl_main (rtld.c:1970)
+          n1: 2932736 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+           n1: 2932736 0x40215B7: _dl_start_final (rtld.c:507)
+            n1: 2932736 0x40215B7: _dl_start (rtld.c:596)
+             n1: 2932736 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+              n1: 2932736 0x3: ???
+               n1: 2932736 0x1FFEFFFFBE: ???
+                n1: 2932736 0x1FFEFFFFD6: ???
+                 n1: 2932736 0x1FFEFFFFFE: ???
+                  n0: 2932736 0x1FFF000001: ???
+      n0: 16384 in 1 place, below massif's threshold (1.00%)
+   n0: 73728 in 3 places, all below massif's threshold (1.00%)
+ n1: 3424256 0x4A51BD7: __mmap64 (mmap64.c:58)
+  n1: 3424256 0x4A51BD7: mmap (mmap64.c:46)
+   n1: 3424256 0x49D5537: sysmalloc_mmap.constprop.0 (malloc.c:2441)
+    n1: 3424256 0x49D630B: sysmalloc (malloc.c:2594)
+     n2: 3424256 0x49D795C: _int_malloc (malloc.c:4407)
+      n1: 3424256 0x49D82E1: malloc (malloc.c:3321)
+       n4: 3424256 0x10C7EC: tcc_malloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+        n1: 1576960 0x10F6C9: tal_realloc_impl (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 1576960 0x10F998: tok_str_add2 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n1: 1576960 0x114FCA: macro_subst_tok.isra.0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n1: 1576960 0x115C80: macro_subst (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 1576960 0x1158B6: macro_subst_tok.isra.0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n1: 1576960 0x115C80: macro_subst (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 1576960 0x114667: macro_subst_tok.isra.0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 1576960 0x115C80: macro_subst (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 1576960 0x114667: macro_subst_tok.isra.0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n1: 1576960 0x115C80: macro_subst (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                  n1: 1576960 0x114667: macro_subst_tok.isra.0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                   n1: 1576960 0x115E3E: next (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                    n1: 1576960 0x125FBE: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                     n1: 1576960 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                      n1: 1576960 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                       n1: 1576960 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                        n0: 1576960 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+        n1: 790528 0x116EF8: tccpp_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 790528 0x10D409: tcc_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n0: 790528 0x10A916: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+        n1: 790528 0x116F2B: tccpp_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 790528 0x10D409: tcc_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n0: 790528 0x10A916: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+        n1: 266240 0x116F5E: tccpp_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 266240 0x10D409: tcc_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n0: 266240 0x10A916: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 1056768 0x4A59B1F: mremap (mremap.c:37)
+  n1: 1056768 0x49D8A96: mremap_chunk (malloc.c:3097)
+   n1: 1056768 0x49D8A96: realloc (malloc.c:3457)
+    n2: 1056768 0x10C81C: tcc_realloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+     n1: 528384 0x127373: section_realloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+      n1: 528384 0x1306B2: o (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+       n1: 528384 0x131E30: store (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+        n1: 528384 0x119E7A: vstore (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 528384 0x11A48D: init_putv (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n1: 528384 0x1225FC: decl_initializer (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n1: 528384 0x1225FC: decl_initializer (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 528384 0x1225FC: decl_initializer (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n1: 528384 0x122F29: decl_initializer_alloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 528384 0x125F9B: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 528384 0x125405: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 528384 0x125C15: gen_function (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n1: 528384 0x1264E6: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                  n1: 528384 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                   n1: 528384 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                    n1: 528384 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                     n0: 528384 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+     n2: 528384 0x1288F4: put_elf_reloca (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+      n1: 528384 0x130C62: gen_modrm_impl (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+       n1: 528384 0x1313F7: load (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+        n1: 528384 0x11A9AF: gv (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 528384 0x11C3CF: gen_cast (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n1: 528384 0x11D221: gen_op (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n1: 528384 0x11CEFD: gen_op (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 528384 0x11FA31: unary (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n1: 528384 0x1206BC: expr_sum (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 528384 0x12078C: expr_cmp (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 528384 0x120922: expr_xor (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 528384 0x121018: expr_cond (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n1: 528384 0x121AF5: expr_eq (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                  n1: 528384 0x12550E: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                   n1: 528384 0x125429: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                    n1: 528384 0x125156: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                     n1: 528384 0x125429: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                      n1: 528384 0x125156: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                       n1: 528384 0x125429: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                        n1: 528384 0x1256F4: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                         n1: 528384 0x125429: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                          n1: 528384 0x124B48: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                           n1: 528384 0x125429: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                            n1: 528384 0x1256F4: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                             n1: 528384 0x125429: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                              n1: 528384 0x1256F4: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                               n0: 528384 0x125429: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 1015808 0x4A4D9DB: brk (brk.c:36)
+  n1: 1015808 0x4A4DAA3: __sbrk (sbrk.c:74)
+   n1: 1015808 0x4A4DAA3: sbrk (sbrk.c:36)
+    n1: 1015808 0x49D5645: __glibc_morecore (morecore.c:29)
+     n1: 1015808 0x49D6678: sysmalloc (malloc.c:2727)
+      n4: 1015808 0x49D795C: _int_malloc (malloc.c:4407)
+       n1: 475136 0x49D7C09: _int_realloc (malloc.c:4878)
+        n1: 475136 0x49D8988: realloc (malloc.c:3485)
+         n2: 475136 0x10C81C: tcc_realloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n2: 335872 0x1288F4: put_elf_reloca (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n1: 319488 0x11A6B6: init_putv (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 319488 0x1225FC: decl_initializer (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n2: 319488 0x1225FC: decl_initializer (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 180224 0x1225FC: decl_initializer (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 180224 0x122DCC: decl_initializer_alloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 180224 0x125F9B: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n1: 180224 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                  n1: 180224 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                   n1: 180224 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                    n0: 180224 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 139264 0x122DCC: decl_initializer_alloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 139264 0x125F9B: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 139264 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n1: 139264 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                  n1: 139264 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                   n0: 139264 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n0: 16384 in 1 place, below massif's threshold (1.00%)
+          n1: 139264 0x10F820: tok_alloc_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n1: 139264 0x113105: next_nomacro1 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 139264 0x111F98: preprocess (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n1: 139264 0x113C19: next_nomacro1 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 139264 0x115D83: next (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 139264 0x125FBE: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 139264 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n1: 139264 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                  n1: 139264 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                   n0: 139264 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+       n1: 274432 0x49D82E1: malloc (malloc.c:3321)
+        n1: 274432 0x10C7EC: tcc_malloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 274432 0x118C9F: sym_push2 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n1: 274432 0x11EB85: type_decl (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n2: 274432 0x125E93: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 139264 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n1: 139264 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 139264 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n0: 139264 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 135168 0x125405: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n1: 135168 0x125156: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 135168 0x125429: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 135168 0x1256F4: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 135168 0x125429: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n1: 135168 0x125C15: gen_function (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                  n1: 135168 0x1264E6: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                   n1: 135168 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                    n1: 135168 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                     n1: 135168 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                      n0: 135168 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+       n1: 135168 0x49D7A48: tcache_init.part.0 (malloc.c:3245)
+        n1: 135168 0x49D988D: tcache_init (malloc.c:3241)
+         n1: 135168 0x49D988D: calloc (malloc.c:3645)
+          n1: 135168 0x10D38E: tcc_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n0: 135168 0x10A916: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+       n1: 131072 0x49D9678: calloc (malloc.c:3679)
+        n1: 131072 0x10CE56: tcc_open_bf (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 131072 0x10D009: tcc_open (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n1: 131072 0x1126A7: preprocess (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n1: 131072 0x113C19: next_nomacro1 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 131072 0x115D83: next (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n1: 131072 0x1262C3: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 131072 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 131072 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 131072 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n0: 131072 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+ n0: 679936 0x0: ???
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=30
+#-----------
+time=161381119
+mem_heap_B=12951552
+mem_heap_extra_B=0
+mem_stacks_B=9840
+heap_tree=detailed
+n6: 12951552 (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+ n1: 6250496 0x4026CD7: __mmap64 (mmap64.c:58)
+  n3: 6250496 0x4026CD7: mmap (mmap64.c:46)
+   n1: 3227648 0x4008F1B: _dl_map_segment (dl-map-segments.h:29)
+    n1: 3227648 0x4008F1B: _dl_map_segments (dl-map-segments.h:102)
+     n1: 3227648 0x4008F1B: _dl_map_object_from_fd (dl-load.c:1258)
+      n2: 3227648 0x400A600: _dl_map_object (dl-load.c:2327)
+       n1: 3207168 0x4003494: openaux (dl-deps.c:64)
+        n1: 3207168 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+         n1: 3207168 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+          n1: 3207168 0x40233BF: dl_main (rtld.c:1970)
+           n1: 3207168 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+            n1: 3207168 0x40215B7: _dl_start_final (rtld.c:507)
+             n1: 3207168 0x40215B7: _dl_start (rtld.c:596)
+              n1: 3207168 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+               n1: 3207168 0x3: ???
+                n1: 3207168 0x1FFEFFFFBE: ???
+                 n1: 3207168 0x1FFEFFFFD6: ???
+                  n1: 3207168 0x1FFEFFFFFE: ???
+                   n0: 3207168 0x1FFF000001: ???
+       n0: 20480 in 1 place, below massif's threshold (1.00%)
+   n1: 2949120 0x4009098: _dl_map_segments (dl-map-segments.h:140)
+    n1: 2949120 0x4009098: _dl_map_object_from_fd (dl-load.c:1258)
+     n2: 2949120 0x400A600: _dl_map_object (dl-load.c:2327)
+      n1: 2932736 0x4003494: openaux (dl-deps.c:64)
+       n1: 2932736 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+        n1: 2932736 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+         n1: 2932736 0x40233BF: dl_main (rtld.c:1970)
+          n1: 2932736 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+           n1: 2932736 0x40215B7: _dl_start_final (rtld.c:507)
+            n1: 2932736 0x40215B7: _dl_start (rtld.c:596)
+             n1: 2932736 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+              n1: 2932736 0x3: ???
+               n1: 2932736 0x1FFEFFFFBE: ???
+                n1: 2932736 0x1FFEFFFFD6: ???
+                 n1: 2932736 0x1FFEFFFFFE: ???
+                  n0: 2932736 0x1FFF000001: ???
+      n0: 16384 in 1 place, below massif's threshold (1.00%)
+   n0: 73728 in 3 places, all below massif's threshold (1.00%)
+ n1: 3424256 0x4A51BD7: __mmap64 (mmap64.c:58)
+  n1: 3424256 0x4A51BD7: mmap (mmap64.c:46)
+   n1: 3424256 0x49D5537: sysmalloc_mmap.constprop.0 (malloc.c:2441)
+    n1: 3424256 0x49D630B: sysmalloc (malloc.c:2594)
+     n2: 3424256 0x49D795C: _int_malloc (malloc.c:4407)
+      n1: 3424256 0x49D82E1: malloc (malloc.c:3321)
+       n4: 3424256 0x10C7EC: tcc_malloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+        n1: 1576960 0x10F6C9: tal_realloc_impl (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 1576960 0x10F998: tok_str_add2 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n1: 1576960 0x114FCA: macro_subst_tok.isra.0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n1: 1576960 0x115C80: macro_subst (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 1576960 0x1158B6: macro_subst_tok.isra.0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n1: 1576960 0x115C80: macro_subst (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 1576960 0x114667: macro_subst_tok.isra.0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 1576960 0x115C80: macro_subst (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 1576960 0x114667: macro_subst_tok.isra.0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n1: 1576960 0x115C80: macro_subst (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                  n1: 1576960 0x114667: macro_subst_tok.isra.0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                   n1: 1576960 0x115E3E: next (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                    n1: 1576960 0x125FBE: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                     n1: 1576960 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                      n1: 1576960 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                       n1: 1576960 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                        n0: 1576960 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+        n1: 790528 0x116EF8: tccpp_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 790528 0x10D409: tcc_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n0: 790528 0x10A916: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+        n1: 790528 0x116F2B: tccpp_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 790528 0x10D409: tcc_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n0: 790528 0x10A916: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+        n1: 266240 0x116F5E: tccpp_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 266240 0x10D409: tcc_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n0: 266240 0x10A916: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 1581056 0x4A59B1F: mremap (mremap.c:37)
+  n1: 1581056 0x49D8A96: mremap_chunk (malloc.c:3097)
+   n1: 1581056 0x49D8A96: realloc (malloc.c:3457)
+    n2: 1581056 0x10C81C: tcc_realloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+     n2: 1052672 0x127373: section_realloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+      n1: 1052672 0x13096F: gen_le32 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+       n1: 1052672 0x132A49: gfunc_call (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+        n1: 1052672 0x11F124: unary (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 1052672 0x1206BC: expr_sum (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n1: 1052672 0x12078C: expr_cmp (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n1: 1052672 0x120922: expr_xor (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 1052672 0x121018: expr_cond (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n1: 1052672 0x121AF5: expr_eq (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 1052672 0x11F44F: unary (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 1052672 0x1206BC: expr_sum (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 1052672 0x12078C: expr_cmp (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n1: 1052672 0x120922: expr_xor (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                  n1: 1052672 0x121031: expr_cond (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                   n1: 1052672 0x121AF5: expr_eq (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                    n1: 1052672 0x11F44F: unary (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                     n1: 1052672 0x1206BC: expr_sum (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                      n1: 1052672 0x12078C: expr_cmp (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                       n1: 1052672 0x120922: expr_xor (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                        n1: 1052672 0x121018: expr_cond (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                         n1: 1052672 0x121AF5: expr_eq (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                          n1: 1052672 0x11F44F: unary (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                           n1: 1052672 0x1206BC: expr_sum (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                            n1: 1052672 0x12078C: expr_cmp (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                             n1: 1052672 0x120922: expr_xor (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                              n1: 1052672 0x121018: expr_cond (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                               n0: 1052672 0x121AF5: expr_eq (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+     n2: 528384 0x1288F4: put_elf_reloca (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+      n1: 528384 0x130C62: gen_modrm_impl (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+       n1: 528384 0x1313F7: load (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+        n1: 528384 0x11A9AF: gv (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 528384 0x11C3CF: gen_cast (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n1: 528384 0x11D221: gen_op (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n1: 528384 0x11CEFD: gen_op (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 528384 0x11FA31: unary (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n1: 528384 0x1206BC: expr_sum (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 528384 0x12078C: expr_cmp (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 528384 0x120922: expr_xor (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 528384 0x121018: expr_cond (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n1: 528384 0x121AF5: expr_eq (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                  n1: 528384 0x12550E: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                   n1: 528384 0x125429: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                    n1: 528384 0x125156: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                     n1: 528384 0x125429: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                      n1: 528384 0x125156: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                       n1: 528384 0x125429: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                        n1: 528384 0x1256F4: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                         n1: 528384 0x125429: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                          n1: 528384 0x124B48: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                           n1: 528384 0x125429: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                            n1: 528384 0x1256F4: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                             n1: 528384 0x125429: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                              n1: 528384 0x1256F4: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                               n0: 528384 0x125429: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 1015808 0x4A4D9DB: brk (brk.c:36)
+  n1: 1015808 0x4A4DAA3: __sbrk (sbrk.c:74)
+   n1: 1015808 0x4A4DAA3: sbrk (sbrk.c:36)
+    n1: 1015808 0x49D5645: __glibc_morecore (morecore.c:29)
+     n1: 1015808 0x49D6678: sysmalloc (malloc.c:2727)
+      n4: 1015808 0x49D795C: _int_malloc (malloc.c:4407)
+       n1: 475136 0x49D7C09: _int_realloc (malloc.c:4878)
+        n1: 475136 0x49D8988: realloc (malloc.c:3485)
+         n2: 475136 0x10C81C: tcc_realloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n2: 335872 0x1288F4: put_elf_reloca (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n1: 319488 0x11A6B6: init_putv (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 319488 0x1225FC: decl_initializer (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n2: 319488 0x1225FC: decl_initializer (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 180224 0x1225FC: decl_initializer (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 180224 0x122DCC: decl_initializer_alloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 180224 0x125F9B: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n1: 180224 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                  n1: 180224 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                   n1: 180224 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                    n0: 180224 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 139264 0x122DCC: decl_initializer_alloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 139264 0x125F9B: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 139264 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n1: 139264 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                  n1: 139264 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                   n0: 139264 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n0: 16384 in 1 place, below massif's threshold (1.00%)
+          n1: 139264 0x10F820: tok_alloc_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n1: 139264 0x113105: next_nomacro1 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 139264 0x111F98: preprocess (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n1: 139264 0x113C19: next_nomacro1 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 139264 0x115D83: next (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 139264 0x125FBE: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 139264 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n1: 139264 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                  n1: 139264 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                   n0: 139264 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+       n1: 274432 0x49D82E1: malloc (malloc.c:3321)
+        n1: 274432 0x10C7EC: tcc_malloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 274432 0x118C9F: sym_push2 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n1: 274432 0x11EB85: type_decl (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n2: 274432 0x125E93: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 139264 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n1: 139264 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 139264 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n0: 139264 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 135168 0x125405: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n1: 135168 0x125156: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 135168 0x125429: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 135168 0x1256F4: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 135168 0x125429: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n1: 135168 0x125C15: gen_function (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                  n1: 135168 0x1264E6: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                   n1: 135168 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                    n1: 135168 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                     n1: 135168 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                      n0: 135168 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+       n1: 135168 0x49D7A48: tcache_init.part.0 (malloc.c:3245)
+        n1: 135168 0x49D988D: tcache_init (malloc.c:3241)
+         n1: 135168 0x49D988D: calloc (malloc.c:3645)
+          n1: 135168 0x10D38E: tcc_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n0: 135168 0x10A916: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+       n1: 131072 0x49D9678: calloc (malloc.c:3679)
+        n1: 131072 0x10CE56: tcc_open_bf (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 131072 0x10D009: tcc_open (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n1: 131072 0x1126A7: preprocess (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n1: 131072 0x113C19: next_nomacro1 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 131072 0x115D83: next (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n1: 131072 0x1262C3: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 131072 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 131072 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 131072 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n0: 131072 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+ n0: 679936 0x0: ???
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=31
+#-----------
+time=168682948
+mem_heap_B=12951552
+mem_heap_extra_B=0
+mem_stacks_B=3368
+heap_tree=empty
+#-----------
+snapshot=32
+#-----------
+time=172800208
+mem_heap_B=12951552
+mem_heap_extra_B=0
+mem_stacks_B=4440
+heap_tree=empty
+#-----------
+snapshot=33
+#-----------
+time=178976180
+mem_heap_B=12951552
+mem_heap_extra_B=0
+mem_stacks_B=2424
+heap_tree=empty
+#-----------
+snapshot=34
+#-----------
+time=183093684
+mem_heap_B=12951552
+mem_heap_extra_B=0
+mem_stacks_B=4024
+heap_tree=empty
+#-----------
+snapshot=35
+#-----------
+time=187210961
+mem_heap_B=12951552
+mem_heap_extra_B=0
+mem_stacks_B=4160
+heap_tree=empty
+#-----------
+snapshot=36
+#-----------
+time=191328285
+mem_heap_B=12951552
+mem_heap_extra_B=0
+mem_stacks_B=2312
+heap_tree=empty
+#-----------
+snapshot=37
+#-----------
+time=195445646
+mem_heap_B=12951552
+mem_heap_extra_B=0
+mem_stacks_B=3224
+heap_tree=empty
+#-----------
+snapshot=38
+#-----------
+time=199562904
+mem_heap_B=12951552
+mem_heap_extra_B=0
+mem_stacks_B=2408
+heap_tree=empty
+#-----------
+snapshot=39
+#-----------
+time=205738854
+mem_heap_B=12951552
+mem_heap_extra_B=0
+mem_stacks_B=24488
+heap_tree=empty
+#-----------
+snapshot=40
+#-----------
+time=209856138
+mem_heap_B=12951552
+mem_heap_extra_B=0
+mem_stacks_B=2176
+heap_tree=empty
+#-----------
+snapshot=41
+#-----------
+time=218090680
+mem_heap_B=12951552
+mem_heap_extra_B=0
+mem_stacks_B=2264
+heap_tree=empty
+#-----------
+snapshot=42
+#-----------
+time=224266640
+mem_heap_B=12951552
+mem_heap_extra_B=0
+mem_stacks_B=4344
+heap_tree=empty
+#-----------
+snapshot=43
+#-----------
+time=230442543
+mem_heap_B=12951552
+mem_heap_extra_B=0
+mem_stacks_B=2584
+heap_tree=empty
+#-----------
+snapshot=44
+#-----------
+time=238677070
+mem_heap_B=12951552
+mem_heap_extra_B=0
+mem_stacks_B=42240
+heap_tree=empty
+#-----------
+snapshot=45
+#-----------
+time=244853288
+mem_heap_B=12951552
+mem_heap_extra_B=0
+mem_stacks_B=2184
+heap_tree=empty
+#-----------
+snapshot=46
+#-----------
+time=248970643
+mem_heap_B=12951552
+mem_heap_extra_B=0
+mem_stacks_B=2648
+heap_tree=empty
+#-----------
+snapshot=47
+#-----------
+time=253087899
+mem_heap_B=12951552
+mem_heap_extra_B=0
+mem_stacks_B=3928
+heap_tree=empty
+#-----------
+snapshot=48
+#-----------
+time=258322807
+mem_heap_B=13623296
+mem_heap_extra_B=0
+mem_stacks_B=2928
+heap_tree=detailed
+n6: 13623296 (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+ n1: 6250496 0x4026CD7: __mmap64 (mmap64.c:58)
+  n3: 6250496 0x4026CD7: mmap (mmap64.c:46)
+   n1: 3227648 0x4008F1B: _dl_map_segment (dl-map-segments.h:29)
+    n1: 3227648 0x4008F1B: _dl_map_segments (dl-map-segments.h:102)
+     n1: 3227648 0x4008F1B: _dl_map_object_from_fd (dl-load.c:1258)
+      n2: 3227648 0x400A600: _dl_map_object (dl-load.c:2327)
+       n1: 3207168 0x4003494: openaux (dl-deps.c:64)
+        n1: 3207168 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+         n1: 3207168 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+          n1: 3207168 0x40233BF: dl_main (rtld.c:1970)
+           n1: 3207168 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+            n1: 3207168 0x40215B7: _dl_start_final (rtld.c:507)
+             n1: 3207168 0x40215B7: _dl_start (rtld.c:596)
+              n1: 3207168 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+               n1: 3207168 0x3: ???
+                n1: 3207168 0x1FFEFFFFBE: ???
+                 n1: 3207168 0x1FFEFFFFD6: ???
+                  n1: 3207168 0x1FFEFFFFFE: ???
+                   n0: 3207168 0x1FFF000001: ???
+       n0: 20480 in 1 place, below massif's threshold (1.00%)
+   n1: 2949120 0x4009098: _dl_map_segments (dl-map-segments.h:140)
+    n1: 2949120 0x4009098: _dl_map_object_from_fd (dl-load.c:1258)
+     n2: 2949120 0x400A600: _dl_map_object (dl-load.c:2327)
+      n1: 2932736 0x4003494: openaux (dl-deps.c:64)
+       n1: 2932736 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+        n1: 2932736 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+         n1: 2932736 0x40233BF: dl_main (rtld.c:1970)
+          n1: 2932736 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+           n1: 2932736 0x40215B7: _dl_start_final (rtld.c:507)
+            n1: 2932736 0x40215B7: _dl_start (rtld.c:596)
+             n1: 2932736 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+              n1: 2932736 0x3: ???
+               n1: 2932736 0x1FFEFFFFBE: ???
+                n1: 2932736 0x1FFEFFFFD6: ???
+                 n1: 2932736 0x1FFEFFFFFE: ???
+                  n0: 2932736 0x1FFF000001: ???
+      n0: 16384 in 1 place, below massif's threshold (1.00%)
+   n0: 73728 in 3 places, all below massif's threshold (1.00%)
+ n1: 3424256 0x4A51BD7: __mmap64 (mmap64.c:58)
+  n1: 3424256 0x4A51BD7: mmap (mmap64.c:46)
+   n1: 3424256 0x49D5537: sysmalloc_mmap.constprop.0 (malloc.c:2441)
+    n1: 3424256 0x49D630B: sysmalloc (malloc.c:2594)
+     n2: 3424256 0x49D795C: _int_malloc (malloc.c:4407)
+      n1: 3424256 0x49D82E1: malloc (malloc.c:3321)
+       n4: 3424256 0x10C7EC: tcc_malloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+        n1: 1576960 0x10F6C9: tal_realloc_impl (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 1576960 0x10F998: tok_str_add2 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n1: 1576960 0x114FCA: macro_subst_tok.isra.0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n1: 1576960 0x115C80: macro_subst (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 1576960 0x1158B6: macro_subst_tok.isra.0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n1: 1576960 0x115C80: macro_subst (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 1576960 0x114667: macro_subst_tok.isra.0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 1576960 0x115C80: macro_subst (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 1576960 0x114667: macro_subst_tok.isra.0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n1: 1576960 0x115C80: macro_subst (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                  n1: 1576960 0x114667: macro_subst_tok.isra.0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                   n1: 1576960 0x115E3E: next (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                    n1: 1576960 0x125FBE: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                     n1: 1576960 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                      n1: 1576960 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                       n1: 1576960 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                        n0: 1576960 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+        n1: 790528 0x116EF8: tccpp_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 790528 0x10D409: tcc_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n0: 790528 0x10A916: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+        n1: 790528 0x116F2B: tccpp_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 790528 0x10D409: tcc_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n0: 790528 0x10A916: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+        n1: 266240 0x116F5E: tccpp_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 266240 0x10D409: tcc_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n0: 266240 0x10A916: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 2105344 0x4A59B1F: mremap (mremap.c:37)
+  n1: 2105344 0x49D8A96: mremap_chunk (malloc.c:3097)
+   n1: 2105344 0x49D8A96: realloc (malloc.c:3457)
+    n2: 2105344 0x10C81C: tcc_realloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+     n2: 1052672 0x127373: section_realloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+      n1: 1052672 0x13096F: gen_le32 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+       n1: 1052672 0x132A49: gfunc_call (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+        n1: 1052672 0x11F124: unary (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 1052672 0x1206BC: expr_sum (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n1: 1052672 0x12078C: expr_cmp (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n1: 1052672 0x120922: expr_xor (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 1052672 0x121018: expr_cond (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n1: 1052672 0x121AF5: expr_eq (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 1052672 0x11F44F: unary (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 1052672 0x1206BC: expr_sum (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 1052672 0x12078C: expr_cmp (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n1: 1052672 0x120922: expr_xor (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                  n1: 1052672 0x121031: expr_cond (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                   n1: 1052672 0x121AF5: expr_eq (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                    n1: 1052672 0x11F44F: unary (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                     n1: 1052672 0x1206BC: expr_sum (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                      n1: 1052672 0x12078C: expr_cmp (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                       n1: 1052672 0x120922: expr_xor (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                        n1: 1052672 0x121018: expr_cond (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                         n1: 1052672 0x121AF5: expr_eq (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                          n1: 1052672 0x11F44F: unary (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                           n1: 1052672 0x1206BC: expr_sum (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                            n1: 1052672 0x12078C: expr_cmp (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                             n1: 1052672 0x120922: expr_xor (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                              n1: 1052672 0x121018: expr_cond (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                               n0: 1052672 0x121AF5: expr_eq (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+     n2: 1052672 0x1288F4: put_elf_reloca (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+      n1: 1052672 0x131B9B: gcall_or_jmp (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+       n1: 1052672 0x132A49: gfunc_call (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+        n1: 1052672 0x11F124: unary (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 1052672 0x1206BC: expr_sum (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n1: 1052672 0x12078C: expr_cmp (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n1: 1052672 0x120922: expr_xor (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 1052672 0x121018: expr_cond (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n1: 1052672 0x121AF5: expr_eq (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 1052672 0x12550E: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 1052672 0x125429: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 1052672 0x125C15: gen_function (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n1: 1052672 0x1264E6: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                  n1: 1052672 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                   n1: 1052672 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                    n1: 1052672 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                     n0: 1052672 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+      n0: 0 in 2 places, all below massif's threshold (1.00%)
+ n1: 1163264 0x4A4D9DB: brk (brk.c:36)
+  n1: 1163264 0x4A4DAA3: __sbrk (sbrk.c:74)
+   n1: 1163264 0x4A4DAA3: sbrk (sbrk.c:36)
+    n1: 1163264 0x49D5645: __glibc_morecore (morecore.c:29)
+     n1: 1163264 0x49D6678: sysmalloc (malloc.c:2727)
+      n3: 1163264 0x49D795C: _int_malloc (malloc.c:4407)
+       n1: 622592 0x49D7C09: _int_realloc (malloc.c:4878)
+        n1: 622592 0x49D8988: realloc (malloc.c:3485)
+         n3: 622592 0x10C81C: tcc_realloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n2: 335872 0x1288F4: put_elf_reloca (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n1: 319488 0x11A6B6: init_putv (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 319488 0x1225FC: decl_initializer (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n2: 319488 0x1225FC: decl_initializer (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 180224 0x1225FC: decl_initializer (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 180224 0x122DCC: decl_initializer_alloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 180224 0x125F9B: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n1: 180224 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                  n1: 180224 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                   n1: 180224 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                    n0: 180224 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 139264 0x122DCC: decl_initializer_alloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 139264 0x125F9B: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 139264 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n1: 139264 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                  n1: 139264 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                   n0: 139264 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n0: 16384 in 1 place, below massif's threshold (1.00%)
+          n1: 147456 0x12742B: section_add (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n1: 147456 0x1279E1: put_elf_sym (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 147456 0x118ABF: put_extern_sym2 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n1: 147456 0x1192BA: get_sym_ref (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 147456 0x122FA5: decl_initializer_alloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 147456 0x11FF3D: unary (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 147456 0x1206BC: expr_sum (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n1: 147456 0x12078C: expr_cmp (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                  n1: 147456 0x120922: expr_xor (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                   n1: 147456 0x121018: expr_cond (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                    n1: 147456 0x121AF5: expr_eq (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                     n1: 147456 0x11F93A: unary (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                      n1: 147456 0x1206BC: expr_sum (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                       n1: 147456 0x12078C: expr_cmp (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                        n1: 147456 0x120922: expr_xor (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                         n1: 147456 0x121018: expr_cond (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                          n1: 147456 0x121AF5: expr_eq (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                           n1: 147456 0x12550E: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                            n1: 147456 0x125429: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                             n1: 147456 0x125C15: gen_function (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                              n1: 147456 0x1264E6: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                               n0: 147456 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n1: 139264 0x10F820: tok_alloc_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n1: 139264 0x113105: next_nomacro1 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 139264 0x111F98: preprocess (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n1: 139264 0x113C19: next_nomacro1 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 139264 0x115D83: next (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 139264 0x125FBE: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 139264 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n1: 139264 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                  n1: 139264 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                   n0: 139264 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+       n1: 274432 0x49D82E1: malloc (malloc.c:3321)
+        n1: 274432 0x10C7EC: tcc_malloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 274432 0x118C9F: sym_push2 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n1: 274432 0x11EB85: type_decl (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n2: 274432 0x125E93: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 139264 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n1: 139264 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 139264 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n0: 139264 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n0: 135168 in 1 place, below massif's threshold (1.00%)
+       n0: 266240 in 2 places, all below massif's threshold (1.00%)
+ n0: 679936 0x0: ???
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=49
+#-----------
+time=262440094
+mem_heap_B=13623296
+mem_heap_extra_B=0
+mem_stacks_B=2712
+heap_tree=empty
+#-----------
+snapshot=50
+#-----------
+time=266410795
+mem_heap_B=13623296
+mem_heap_extra_B=0
+mem_stacks_B=3096
+heap_tree=empty
+#-----------
+snapshot=51
+#-----------
+time=270381493
+mem_heap_B=13623296
+mem_heap_extra_B=0
+mem_stacks_B=4656
+heap_tree=empty
+#-----------
+snapshot=52
+#-----------
+time=274352172
+mem_heap_B=13623296
+mem_heap_extra_B=0
+mem_stacks_B=800
+heap_tree=empty
+#-----------
+snapshot=53
+#-----------
+time=274753591
+mem_heap_B=13811712
+mem_heap_extra_B=0
+mem_stacks_B=1224
+heap_tree=peak
+n6: 13811712 (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+ n1: 6250496 0x4026CD7: __mmap64 (mmap64.c:58)
+  n3: 6250496 0x4026CD7: mmap (mmap64.c:46)
+   n1: 3227648 0x4008F1B: _dl_map_segment (dl-map-segments.h:29)
+    n1: 3227648 0x4008F1B: _dl_map_segments (dl-map-segments.h:102)
+     n1: 3227648 0x4008F1B: _dl_map_object_from_fd (dl-load.c:1258)
+      n2: 3227648 0x400A600: _dl_map_object (dl-load.c:2327)
+       n1: 3207168 0x4003494: openaux (dl-deps.c:64)
+        n1: 3207168 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+         n1: 3207168 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+          n1: 3207168 0x40233BF: dl_main (rtld.c:1970)
+           n1: 3207168 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+            n1: 3207168 0x40215B7: _dl_start_final (rtld.c:507)
+             n1: 3207168 0x40215B7: _dl_start (rtld.c:596)
+              n1: 3207168 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+               n1: 3207168 0x3: ???
+                n1: 3207168 0x1FFEFFFFBE: ???
+                 n1: 3207168 0x1FFEFFFFD6: ???
+                  n1: 3207168 0x1FFEFFFFFE: ???
+                   n0: 3207168 0x1FFF000001: ???
+       n0: 20480 in 1 place, below massif's threshold (1.00%)
+   n1: 2949120 0x4009098: _dl_map_segments (dl-map-segments.h:140)
+    n1: 2949120 0x4009098: _dl_map_object_from_fd (dl-load.c:1258)
+     n2: 2949120 0x400A600: _dl_map_object (dl-load.c:2327)
+      n1: 2932736 0x4003494: openaux (dl-deps.c:64)
+       n1: 2932736 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+        n1: 2932736 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+         n1: 2932736 0x40233BF: dl_main (rtld.c:1970)
+          n1: 2932736 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+           n1: 2932736 0x40215B7: _dl_start_final (rtld.c:507)
+            n1: 2932736 0x40215B7: _dl_start (rtld.c:596)
+             n1: 2932736 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+              n1: 2932736 0x3: ???
+               n1: 2932736 0x1FFEFFFFBE: ???
+                n1: 2932736 0x1FFEFFFFD6: ???
+                 n1: 2932736 0x1FFEFFFFFE: ???
+                  n0: 2932736 0x1FFF000001: ???
+      n0: 16384 in 1 place, below massif's threshold (1.00%)
+   n0: 73728 in 3 places, all below massif's threshold (1.00%)
+ n1: 3424256 0x4A51BD7: __mmap64 (mmap64.c:58)
+  n1: 3424256 0x4A51BD7: mmap (mmap64.c:46)
+   n1: 3424256 0x49D5537: sysmalloc_mmap.constprop.0 (malloc.c:2441)
+    n1: 3424256 0x49D630B: sysmalloc (malloc.c:2594)
+     n2: 3424256 0x49D795C: _int_malloc (malloc.c:4407)
+      n1: 3424256 0x49D82E1: malloc (malloc.c:3321)
+       n4: 3424256 0x10C7EC: tcc_malloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+        n1: 1576960 0x10F6C9: tal_realloc_impl (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 1576960 0x10F998: tok_str_add2 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n1: 1576960 0x114FCA: macro_subst_tok.isra.0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n1: 1576960 0x115C80: macro_subst (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 1576960 0x1158B6: macro_subst_tok.isra.0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n1: 1576960 0x115C80: macro_subst (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 1576960 0x114667: macro_subst_tok.isra.0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 1576960 0x115C80: macro_subst (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 1576960 0x114667: macro_subst_tok.isra.0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n1: 1576960 0x115C80: macro_subst (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                  n1: 1576960 0x114667: macro_subst_tok.isra.0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                   n1: 1576960 0x115E3E: next (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                    n1: 1576960 0x125FBE: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                     n1: 1576960 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                      n1: 1576960 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                       n1: 1576960 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                        n0: 1576960 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+        n1: 790528 0x116EF8: tccpp_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 790528 0x10D409: tcc_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n0: 790528 0x10A916: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+        n1: 790528 0x116F2B: tccpp_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 790528 0x10D409: tcc_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n0: 790528 0x10A916: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+        n1: 266240 0x116F5E: tccpp_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 266240 0x10D409: tcc_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n0: 266240 0x10A916: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 2105344 0x4A59B1F: mremap (mremap.c:37)
+  n1: 2105344 0x49D8A96: mremap_chunk (malloc.c:3097)
+   n1: 2105344 0x49D8A96: realloc (malloc.c:3457)
+    n2: 2105344 0x10C81C: tcc_realloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+     n2: 1052672 0x127373: section_realloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+      n1: 1052672 0x13096F: gen_le32 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+       n1: 1052672 0x132A49: gfunc_call (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+        n1: 1052672 0x11F124: unary (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 1052672 0x1206BC: expr_sum (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n1: 1052672 0x12078C: expr_cmp (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n1: 1052672 0x120922: expr_xor (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 1052672 0x121018: expr_cond (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n1: 1052672 0x121AF5: expr_eq (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 1052672 0x11F44F: unary (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 1052672 0x1206BC: expr_sum (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 1052672 0x12078C: expr_cmp (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n1: 1052672 0x120922: expr_xor (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                  n1: 1052672 0x121031: expr_cond (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                   n1: 1052672 0x121AF5: expr_eq (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                    n1: 1052672 0x11F44F: unary (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                     n1: 1052672 0x1206BC: expr_sum (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                      n1: 1052672 0x12078C: expr_cmp (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                       n1: 1052672 0x120922: expr_xor (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                        n1: 1052672 0x121018: expr_cond (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                         n1: 1052672 0x121AF5: expr_eq (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                          n1: 1052672 0x11F44F: unary (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                           n1: 1052672 0x1206BC: expr_sum (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                            n1: 1052672 0x12078C: expr_cmp (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                             n1: 1052672 0x120922: expr_xor (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                              n1: 1052672 0x121018: expr_cond (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                               n0: 1052672 0x121AF5: expr_eq (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+     n2: 1052672 0x1288F4: put_elf_reloca (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+      n1: 1052672 0x131B9B: gcall_or_jmp (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+       n1: 1052672 0x132A49: gfunc_call (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+        n1: 1052672 0x11F124: unary (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 1052672 0x1206BC: expr_sum (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n1: 1052672 0x12078C: expr_cmp (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n1: 1052672 0x120922: expr_xor (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 1052672 0x121018: expr_cond (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n1: 1052672 0x121AF5: expr_eq (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 1052672 0x12550E: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 1052672 0x125429: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 1052672 0x125C15: gen_function (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n1: 1052672 0x1264E6: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                  n1: 1052672 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                   n1: 1052672 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                    n1: 1052672 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                     n0: 1052672 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+      n0: 0 in 2 places, all below massif's threshold (1.00%)
+ n1: 1351680 0x4A4D9DB: brk (brk.c:36)
+  n1: 1351680 0x4A4DAA3: __sbrk (sbrk.c:74)
+   n1: 1351680 0x4A4DAA3: sbrk (sbrk.c:36)
+    n1: 1351680 0x49D5645: __glibc_morecore (morecore.c:29)
+     n1: 1351680 0x49D6678: sysmalloc (malloc.c:2727)
+      n3: 1351680 0x49D795C: _int_malloc (malloc.c:4407)
+       n1: 622592 0x49D7C09: _int_realloc (malloc.c:4878)
+        n1: 622592 0x49D8988: realloc (malloc.c:3485)
+         n3: 622592 0x10C81C: tcc_realloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n2: 335872 0x1288F4: put_elf_reloca (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n1: 319488 0x11A6B6: init_putv (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 319488 0x1225FC: decl_initializer (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n2: 319488 0x1225FC: decl_initializer (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 180224 0x1225FC: decl_initializer (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 180224 0x122DCC: decl_initializer_alloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 180224 0x125F9B: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n1: 180224 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                  n1: 180224 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                   n1: 180224 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                    n0: 180224 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 139264 0x122DCC: decl_initializer_alloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 139264 0x125F9B: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 139264 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n1: 139264 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                  n1: 139264 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                   n0: 139264 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n0: 16384 in 1 place, below massif's threshold (1.00%)
+          n1: 147456 0x12742B: section_add (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n1: 147456 0x1279E1: put_elf_sym (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 147456 0x118ABF: put_extern_sym2 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n1: 147456 0x1192BA: get_sym_ref (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 147456 0x122FA5: decl_initializer_alloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 147456 0x11FF3D: unary (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 147456 0x1206BC: expr_sum (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n1: 147456 0x12078C: expr_cmp (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                  n1: 147456 0x120922: expr_xor (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                   n1: 147456 0x121018: expr_cond (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                    n1: 147456 0x121AF5: expr_eq (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                     n1: 147456 0x11F93A: unary (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                      n1: 147456 0x1206BC: expr_sum (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                       n1: 147456 0x12078C: expr_cmp (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                        n1: 147456 0x120922: expr_xor (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                         n1: 147456 0x121018: expr_cond (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                          n1: 147456 0x121AF5: expr_eq (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                           n1: 147456 0x12550E: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                            n1: 147456 0x125429: block (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                             n1: 147456 0x125C15: gen_function (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                              n1: 147456 0x1264E6: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                               n0: 147456 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n1: 139264 0x10F820: tok_alloc_new (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n1: 139264 0x113105: next_nomacro1 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 139264 0x111F98: preprocess (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n1: 139264 0x113C19: next_nomacro1 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 139264 0x115D83: next (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n1: 139264 0x125FBE: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                n1: 139264 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                 n1: 139264 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                  n1: 139264 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+                   n0: 139264 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+       n1: 462848 0x49D82E1: malloc (malloc.c:3321)
+        n2: 462848 0x10C7EC: tcc_malloc (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+         n1: 274432 0x118C9F: sym_push2 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n1: 274432 0x11EB85: type_decl (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+           n2: 274432 0x125E93: decl0 (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n1: 139264 0x1267E7: tccgen_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+             n1: 139264 0x10C0A1: tcc_compile (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+              n1: 139264 0x10DB52: tcc_add_file_internal (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+               n0: 139264 0x10AA7E: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+            n0: 135168 in 1 place, below massif's threshold (1.00%)
+         n1: 188416 0x12AF80: tcc_output_file (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+          n0: 188416 0x10AB12: main (in /home/livian/tcc_bench/generated/gcc_fortify_0)
+       n0: 266240 in 2 places, all below massif's threshold (1.00%)
+ n0: 679936 0x0: ???
+ n0: 0 in 1 place, below massif's threshold (1.00%)

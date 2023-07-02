@@ -1,0 +1,2387 @@
+desc: --stacks=yes --pages-as-heap=yes --massif-out-file=./reports/clang_tcc_safestack.massif.out
+cmd: generated/clang_tcc_safestack -I/home/livian/tcc_bench/tinycc/include -c testfiles/speedbench.c
+time_unit: i
+#-----------
+snapshot=0
+#-----------
+time=0
+mem_heap_B=24576
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=1
+#-----------
+time=3363903
+mem_heap_B=17379328
+mem_heap_extra_B=0
+mem_stacks_B=1048
+heap_tree=empty
+#-----------
+snapshot=2
+#-----------
+time=6652927
+mem_heap_B=17518592
+mem_heap_extra_B=0
+mem_stacks_B=1752
+heap_tree=empty
+#-----------
+snapshot=3
+#-----------
+time=12068110
+mem_heap_B=19095552
+mem_heap_extra_B=0
+mem_stacks_B=1640
+heap_tree=empty
+#-----------
+snapshot=4
+#-----------
+time=16178410
+mem_heap_B=19095552
+mem_heap_extra_B=0
+mem_stacks_B=1032
+heap_tree=empty
+#-----------
+snapshot=5
+#-----------
+time=21659218
+mem_heap_B=19226624
+mem_heap_extra_B=0
+mem_stacks_B=1128
+heap_tree=empty
+#-----------
+snapshot=6
+#-----------
+time=26627042
+mem_heap_B=19226624
+mem_heap_extra_B=0
+mem_stacks_B=1672
+heap_tree=empty
+#-----------
+snapshot=7
+#-----------
+time=32020449
+mem_heap_B=19365888
+mem_heap_extra_B=0
+mem_stacks_B=1880
+heap_tree=empty
+#-----------
+snapshot=8
+#-----------
+time=36517509
+mem_heap_B=19505152
+mem_heap_extra_B=0
+mem_stacks_B=2792
+heap_tree=empty
+#-----------
+snapshot=9
+#-----------
+time=39302682
+mem_heap_B=19505152
+mem_heap_extra_B=0
+mem_stacks_B=2400
+heap_tree=empty
+#-----------
+snapshot=10
+#-----------
+time=43024580
+mem_heap_B=19505152
+mem_heap_extra_B=0
+mem_stacks_B=2552
+heap_tree=empty
+#-----------
+snapshot=11
+#-----------
+time=45197411
+mem_heap_B=19685376
+mem_heap_extra_B=0
+mem_stacks_B=2728
+heap_tree=detailed
+n6: 19685376 (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+ n1: 8392704 0x4A51A3D: syscall (syscall.S:38)
+  n1: 8392704 0x10E9CA: __safestack_init (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+   n1: 8392704 0x40065BD: _dl_init (dl-init.c:102)
+    n1: 8392704 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+     n1: 8392704 0x3: ???
+      n1: 8392704 0x1FFEFFFFB2: ???
+       n1: 8392704 0x1FFEFFFFD0: ???
+        n1: 8392704 0x1FFEFFFFF8: ???
+         n0: 8392704 0x1FFEFFFFFB: ???
+ n1: 6250496 0x4026CD7: __mmap64 (mmap64.c:58)
+  n3: 6250496 0x4026CD7: mmap (mmap64.c:46)
+   n1: 3227648 0x4008F1B: _dl_map_segment (dl-map-segments.h:29)
+    n1: 3227648 0x4008F1B: _dl_map_segments (dl-map-segments.h:102)
+     n1: 3227648 0x4008F1B: _dl_map_object_from_fd (dl-load.c:1258)
+      n2: 3227648 0x400A600: _dl_map_object (dl-load.c:2327)
+       n1: 3207168 0x4003494: openaux (dl-deps.c:64)
+        n1: 3207168 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+         n1: 3207168 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+          n1: 3207168 0x40233BF: dl_main (rtld.c:1970)
+           n1: 3207168 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+            n1: 3207168 0x40215B7: _dl_start_final (rtld.c:507)
+             n1: 3207168 0x40215B7: _dl_start (rtld.c:596)
+              n1: 3207168 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+               n1: 3207168 0x3: ???
+                n1: 3207168 0x1FFEFFFFB2: ???
+                 n1: 3207168 0x1FFEFFFFD0: ???
+                  n1: 3207168 0x1FFEFFFFF8: ???
+                   n0: 3207168 0x1FFEFFFFFB: ???
+       n0: 20480 in 1 place, below massif's threshold (1.00%)
+   n1: 2949120 0x4009098: _dl_map_segments (dl-map-segments.h:140)
+    n1: 2949120 0x4009098: _dl_map_object_from_fd (dl-load.c:1258)
+     n2: 2949120 0x400A600: _dl_map_object (dl-load.c:2327)
+      n1: 2932736 0x4003494: openaux (dl-deps.c:64)
+       n1: 2932736 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+        n1: 2932736 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+         n1: 2932736 0x40233BF: dl_main (rtld.c:1970)
+          n1: 2932736 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+           n1: 2932736 0x40215B7: _dl_start_final (rtld.c:507)
+            n1: 2932736 0x40215B7: _dl_start (rtld.c:596)
+             n1: 2932736 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+              n1: 2932736 0x3: ???
+               n1: 2932736 0x1FFEFFFFB2: ???
+                n1: 2932736 0x1FFEFFFFD0: ???
+                 n1: 2932736 0x1FFEFFFFF8: ???
+                  n0: 2932736 0x1FFEFFFFFB: ???
+      n0: 16384 in 1 place, below massif's threshold (1.00%)
+   n0: 73728 in 3 places, all below massif's threshold (1.00%)
+ n1: 3424256 0x4A51BD7: __mmap64 (mmap64.c:58)
+  n1: 3424256 0x4A51BD7: mmap (mmap64.c:46)
+   n1: 3424256 0x49D5537: sysmalloc_mmap.constprop.0 (malloc.c:2441)
+    n1: 3424256 0x49D630B: sysmalloc (malloc.c:2594)
+     n1: 3424256 0x49D795C: _int_malloc (malloc.c:4407)
+      n1: 3424256 0x49D82E1: malloc (malloc.c:3321)
+       n4: 3424256 0x1103C8: tcc_malloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 1576960 0x116FFE: tal_realloc_impl (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 1576960 0x1174E3: tok_str_add2 (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n1: 1576960 0x11A7A8: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+           n1: 1576960 0x11E5C7: macro_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+            n1: 1576960 0x11D9DE: macro_arg_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+             n1: 1576960 0x11AACD: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+              n1: 1576960 0x11E5C7: macro_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+               n1: 1576960 0x11B262: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                n1: 1576960 0x11E5C7: macro_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                 n1: 1576960 0x11B262: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                  n1: 1576960 0x11E5C7: macro_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                   n1: 1576960 0x11B262: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                    n1: 1576960 0x11537F: next (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                     n1: 1576960 0x130284: decl0 (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                      n1: 1576960 0x11EE20: tccgen_compile (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                       n1: 1576960 0x110F22: tcc_compile (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                        n1: 1576960 0x111FBF: tcc_add_file_internal (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                         n0: 1576960 0x10FCD9: main (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 790528 0x11B936: tccpp_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 790528 0x11121D: tcc_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n0: 790528 0x10FA2F: main (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 790528 0x11B969: tccpp_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 790528 0x11121D: tcc_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n0: 790528 0x10FA2F: main (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 266240 0x11B9A3: tccpp_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 266240 0x11121D: tcc_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n0: 266240 0x10FA2F: main (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+ n1: 864256 0x4A4D9DB: brk (brk.c:36)
+  n1: 864256 0x4A4DAA3: __sbrk (sbrk.c:74)
+   n1: 864256 0x4A4DAA3: sbrk (sbrk.c:36)
+    n1: 864256 0x49D5645: __glibc_morecore (morecore.c:29)
+     n1: 864256 0x49D6678: sysmalloc (malloc.c:2727)
+      n2: 864256 0x49D795C: _int_malloc (malloc.c:4407)
+       n1: 458752 0x49D7C09: _int_realloc (malloc.c:4878)
+        n1: 458752 0x49D8988: realloc (malloc.c:3485)
+         n2: 458752 0x1104F8: tcc_realloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n1: 319488 0x133FE6: put_elf_reloca (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+           n1: 319488 0x12336B: init_putv (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+            n1: 319488 0x13126D: decl_initializer (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+             n1: 319488 0x131736: decl_initializer (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+              n1: 319488 0x131736: decl_initializer (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+               n0: 319488 in 2 places, all below massif's threshold (1.00%)
+          n0: 139264 in 1 place, below massif's threshold (1.00%)
+       n0: 405504 in 3 places, all below massif's threshold (1.00%)
+ n0: 753664 0x0: ???
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=12
+#-----------
+time=49839108
+mem_heap_B=19685376
+mem_heap_extra_B=0
+mem_stacks_B=2232
+heap_tree=detailed
+n6: 19685376 (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+ n1: 8392704 0x4A51A3D: syscall (syscall.S:38)
+  n1: 8392704 0x10E9CA: __safestack_init (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+   n1: 8392704 0x40065BD: _dl_init (dl-init.c:102)
+    n1: 8392704 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+     n1: 8392704 0x3: ???
+      n1: 8392704 0x1FFEFFFFB2: ???
+       n1: 8392704 0x1FFEFFFFD0: ???
+        n1: 8392704 0x1FFEFFFFF8: ???
+         n0: 8392704 0x1FFEFFFFFB: ???
+ n1: 6250496 0x4026CD7: __mmap64 (mmap64.c:58)
+  n3: 6250496 0x4026CD7: mmap (mmap64.c:46)
+   n1: 3227648 0x4008F1B: _dl_map_segment (dl-map-segments.h:29)
+    n1: 3227648 0x4008F1B: _dl_map_segments (dl-map-segments.h:102)
+     n1: 3227648 0x4008F1B: _dl_map_object_from_fd (dl-load.c:1258)
+      n2: 3227648 0x400A600: _dl_map_object (dl-load.c:2327)
+       n1: 3207168 0x4003494: openaux (dl-deps.c:64)
+        n1: 3207168 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+         n1: 3207168 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+          n1: 3207168 0x40233BF: dl_main (rtld.c:1970)
+           n1: 3207168 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+            n1: 3207168 0x40215B7: _dl_start_final (rtld.c:507)
+             n1: 3207168 0x40215B7: _dl_start (rtld.c:596)
+              n1: 3207168 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+               n1: 3207168 0x3: ???
+                n1: 3207168 0x1FFEFFFFB2: ???
+                 n1: 3207168 0x1FFEFFFFD0: ???
+                  n1: 3207168 0x1FFEFFFFF8: ???
+                   n0: 3207168 0x1FFEFFFFFB: ???
+       n0: 20480 in 1 place, below massif's threshold (1.00%)
+   n1: 2949120 0x4009098: _dl_map_segments (dl-map-segments.h:140)
+    n1: 2949120 0x4009098: _dl_map_object_from_fd (dl-load.c:1258)
+     n2: 2949120 0x400A600: _dl_map_object (dl-load.c:2327)
+      n1: 2932736 0x4003494: openaux (dl-deps.c:64)
+       n1: 2932736 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+        n1: 2932736 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+         n1: 2932736 0x40233BF: dl_main (rtld.c:1970)
+          n1: 2932736 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+           n1: 2932736 0x40215B7: _dl_start_final (rtld.c:507)
+            n1: 2932736 0x40215B7: _dl_start (rtld.c:596)
+             n1: 2932736 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+              n1: 2932736 0x3: ???
+               n1: 2932736 0x1FFEFFFFB2: ???
+                n1: 2932736 0x1FFEFFFFD0: ???
+                 n1: 2932736 0x1FFEFFFFF8: ???
+                  n0: 2932736 0x1FFEFFFFFB: ???
+      n0: 16384 in 1 place, below massif's threshold (1.00%)
+   n0: 73728 in 3 places, all below massif's threshold (1.00%)
+ n1: 3424256 0x4A51BD7: __mmap64 (mmap64.c:58)
+  n1: 3424256 0x4A51BD7: mmap (mmap64.c:46)
+   n1: 3424256 0x49D5537: sysmalloc_mmap.constprop.0 (malloc.c:2441)
+    n1: 3424256 0x49D630B: sysmalloc (malloc.c:2594)
+     n1: 3424256 0x49D795C: _int_malloc (malloc.c:4407)
+      n1: 3424256 0x49D82E1: malloc (malloc.c:3321)
+       n4: 3424256 0x1103C8: tcc_malloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 1576960 0x116FFE: tal_realloc_impl (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 1576960 0x1174E3: tok_str_add2 (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n1: 1576960 0x11A7A8: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+           n1: 1576960 0x11E5C7: macro_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+            n1: 1576960 0x11D9DE: macro_arg_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+             n1: 1576960 0x11AACD: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+              n1: 1576960 0x11E5C7: macro_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+               n1: 1576960 0x11B262: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                n1: 1576960 0x11E5C7: macro_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                 n1: 1576960 0x11B262: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                  n1: 1576960 0x11E5C7: macro_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                   n1: 1576960 0x11B262: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                    n1: 1576960 0x11537F: next (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                     n1: 1576960 0x130284: decl0 (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                      n1: 1576960 0x11EE20: tccgen_compile (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                       n1: 1576960 0x110F22: tcc_compile (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                        n1: 1576960 0x111FBF: tcc_add_file_internal (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                         n0: 1576960 0x10FCD9: main (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 790528 0x11B936: tccpp_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 790528 0x11121D: tcc_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n0: 790528 0x10FA2F: main (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 790528 0x11B969: tccpp_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 790528 0x11121D: tcc_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n0: 790528 0x10FA2F: main (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 266240 0x11B9A3: tccpp_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 266240 0x11121D: tcc_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n0: 266240 0x10FA2F: main (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+ n1: 864256 0x4A4D9DB: brk (brk.c:36)
+  n1: 864256 0x4A4DAA3: __sbrk (sbrk.c:74)
+   n1: 864256 0x4A4DAA3: sbrk (sbrk.c:36)
+    n1: 864256 0x49D5645: __glibc_morecore (morecore.c:29)
+     n1: 864256 0x49D6678: sysmalloc (malloc.c:2727)
+      n2: 864256 0x49D795C: _int_malloc (malloc.c:4407)
+       n1: 458752 0x49D7C09: _int_realloc (malloc.c:4878)
+        n1: 458752 0x49D8988: realloc (malloc.c:3485)
+         n2: 458752 0x1104F8: tcc_realloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n1: 319488 0x133FE6: put_elf_reloca (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+           n1: 319488 0x12336B: init_putv (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+            n1: 319488 0x13126D: decl_initializer (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+             n1: 319488 0x131736: decl_initializer (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+              n1: 319488 0x131736: decl_initializer (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+               n0: 319488 in 2 places, all below massif's threshold (1.00%)
+          n0: 139264 in 1 place, below massif's threshold (1.00%)
+       n0: 405504 in 3 places, all below massif's threshold (1.00%)
+ n0: 753664 0x0: ???
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=13
+#-----------
+time=54481125
+mem_heap_B=19820544
+mem_heap_extra_B=0
+mem_stacks_B=13608
+heap_tree=detailed
+n6: 19820544 (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+ n1: 8392704 0x4A51A3D: syscall (syscall.S:38)
+  n1: 8392704 0x10E9CA: __safestack_init (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+   n1: 8392704 0x40065BD: _dl_init (dl-init.c:102)
+    n1: 8392704 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+     n1: 8392704 0x3: ???
+      n1: 8392704 0x1FFEFFFFB2: ???
+       n1: 8392704 0x1FFEFFFFD0: ???
+        n1: 8392704 0x1FFEFFFFF8: ???
+         n0: 8392704 0x1FFEFFFFFB: ???
+ n1: 6250496 0x4026CD7: __mmap64 (mmap64.c:58)
+  n3: 6250496 0x4026CD7: mmap (mmap64.c:46)
+   n1: 3227648 0x4008F1B: _dl_map_segment (dl-map-segments.h:29)
+    n1: 3227648 0x4008F1B: _dl_map_segments (dl-map-segments.h:102)
+     n1: 3227648 0x4008F1B: _dl_map_object_from_fd (dl-load.c:1258)
+      n2: 3227648 0x400A600: _dl_map_object (dl-load.c:2327)
+       n1: 3207168 0x4003494: openaux (dl-deps.c:64)
+        n1: 3207168 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+         n1: 3207168 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+          n1: 3207168 0x40233BF: dl_main (rtld.c:1970)
+           n1: 3207168 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+            n1: 3207168 0x40215B7: _dl_start_final (rtld.c:507)
+             n1: 3207168 0x40215B7: _dl_start (rtld.c:596)
+              n1: 3207168 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+               n1: 3207168 0x3: ???
+                n1: 3207168 0x1FFEFFFFB2: ???
+                 n1: 3207168 0x1FFEFFFFD0: ???
+                  n1: 3207168 0x1FFEFFFFF8: ???
+                   n0: 3207168 0x1FFEFFFFFB: ???
+       n0: 20480 in 1 place, below massif's threshold (1.00%)
+   n1: 2949120 0x4009098: _dl_map_segments (dl-map-segments.h:140)
+    n1: 2949120 0x4009098: _dl_map_object_from_fd (dl-load.c:1258)
+     n2: 2949120 0x400A600: _dl_map_object (dl-load.c:2327)
+      n1: 2932736 0x4003494: openaux (dl-deps.c:64)
+       n1: 2932736 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+        n1: 2932736 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+         n1: 2932736 0x40233BF: dl_main (rtld.c:1970)
+          n1: 2932736 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+           n1: 2932736 0x40215B7: _dl_start_final (rtld.c:507)
+            n1: 2932736 0x40215B7: _dl_start (rtld.c:596)
+             n1: 2932736 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+              n1: 2932736 0x3: ???
+               n1: 2932736 0x1FFEFFFFB2: ???
+                n1: 2932736 0x1FFEFFFFD0: ???
+                 n1: 2932736 0x1FFEFFFFF8: ???
+                  n0: 2932736 0x1FFEFFFFFB: ???
+      n0: 16384 in 1 place, below massif's threshold (1.00%)
+   n0: 73728 in 3 places, all below massif's threshold (1.00%)
+ n1: 3424256 0x4A51BD7: __mmap64 (mmap64.c:58)
+  n1: 3424256 0x4A51BD7: mmap (mmap64.c:46)
+   n1: 3424256 0x49D5537: sysmalloc_mmap.constprop.0 (malloc.c:2441)
+    n1: 3424256 0x49D630B: sysmalloc (malloc.c:2594)
+     n1: 3424256 0x49D795C: _int_malloc (malloc.c:4407)
+      n1: 3424256 0x49D82E1: malloc (malloc.c:3321)
+       n4: 3424256 0x1103C8: tcc_malloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 1576960 0x116FFE: tal_realloc_impl (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 1576960 0x1174E3: tok_str_add2 (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n1: 1576960 0x11A7A8: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+           n1: 1576960 0x11E5C7: macro_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+            n1: 1576960 0x11D9DE: macro_arg_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+             n1: 1576960 0x11AACD: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+              n1: 1576960 0x11E5C7: macro_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+               n1: 1576960 0x11B262: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                n1: 1576960 0x11E5C7: macro_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                 n1: 1576960 0x11B262: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                  n1: 1576960 0x11E5C7: macro_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                   n1: 1576960 0x11B262: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                    n1: 1576960 0x11537F: next (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                     n1: 1576960 0x130284: decl0 (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                      n1: 1576960 0x11EE20: tccgen_compile (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                       n1: 1576960 0x110F22: tcc_compile (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                        n1: 1576960 0x111FBF: tcc_add_file_internal (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                         n0: 1576960 0x10FCD9: main (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 790528 0x11B936: tccpp_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 790528 0x11121D: tcc_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n0: 790528 0x10FA2F: main (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 790528 0x11B969: tccpp_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 790528 0x11121D: tcc_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n0: 790528 0x10FA2F: main (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 266240 0x11B9A3: tccpp_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 266240 0x11121D: tcc_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n0: 266240 0x10FA2F: main (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+ n1: 999424 0x4A4D9DB: brk (brk.c:36)
+  n1: 999424 0x4A4DAA3: __sbrk (sbrk.c:74)
+   n1: 999424 0x4A4DAA3: sbrk (sbrk.c:36)
+    n1: 999424 0x49D5645: __glibc_morecore (morecore.c:29)
+     n1: 999424 0x49D6678: sysmalloc (malloc.c:2727)
+      n3: 999424 0x49D795C: _int_malloc (malloc.c:4407)
+       n1: 458752 0x49D7C09: _int_realloc (malloc.c:4878)
+        n1: 458752 0x49D8988: realloc (malloc.c:3485)
+         n2: 458752 0x1104F8: tcc_realloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n1: 319488 0x133FE6: put_elf_reloca (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+           n1: 319488 0x12336B: init_putv (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+            n1: 319488 0x13126D: decl_initializer (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+             n1: 319488 0x131736: decl_initializer (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+              n1: 319488 0x131736: decl_initializer (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+               n0: 319488 in 2 places, all below massif's threshold (1.00%)
+          n0: 139264 in 1 place, below massif's threshold (1.00%)
+       n1: 274432 0x49D82E1: malloc (malloc.c:3321)
+        n1: 274432 0x1103C8: tcc_malloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 274432 0x129634: type_decl (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n1: 274432 0x12FD06: decl0 (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+           n0: 274432 in 2 places, all below massif's threshold (1.00%)
+       n0: 266240 in 2 places, all below massif's threshold (1.00%)
+ n0: 753664 0x0: ???
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=14
+#-----------
+time=57730393
+mem_heap_B=19820544
+mem_heap_extra_B=0
+mem_stacks_B=2408
+heap_tree=empty
+#-----------
+snapshot=15
+#-----------
+time=62173659
+mem_heap_B=19968000
+mem_heap_extra_B=0
+mem_stacks_B=3976
+heap_tree=empty
+#-----------
+snapshot=16
+#-----------
+time=66511025
+mem_heap_B=19968000
+mem_heap_extra_B=0
+mem_stacks_B=1752
+heap_tree=empty
+#-----------
+snapshot=17
+#-----------
+time=69402505
+mem_heap_B=19968000
+mem_heap_extra_B=0
+mem_stacks_B=8024
+heap_tree=empty
+#-----------
+snapshot=18
+#-----------
+time=74401870
+mem_heap_B=20369408
+mem_heap_extra_B=0
+mem_stacks_B=8760
+heap_tree=detailed
+n6: 20369408 (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+ n1: 8392704 0x4A51A3D: syscall (syscall.S:38)
+  n1: 8392704 0x10E9CA: __safestack_init (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+   n1: 8392704 0x40065BD: _dl_init (dl-init.c:102)
+    n1: 8392704 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+     n1: 8392704 0x3: ???
+      n1: 8392704 0x1FFEFFFFB2: ???
+       n1: 8392704 0x1FFEFFFFD0: ???
+        n1: 8392704 0x1FFEFFFFF8: ???
+         n0: 8392704 0x1FFEFFFFFB: ???
+ n1: 6250496 0x4026CD7: __mmap64 (mmap64.c:58)
+  n3: 6250496 0x4026CD7: mmap (mmap64.c:46)
+   n1: 3227648 0x4008F1B: _dl_map_segment (dl-map-segments.h:29)
+    n1: 3227648 0x4008F1B: _dl_map_segments (dl-map-segments.h:102)
+     n1: 3227648 0x4008F1B: _dl_map_object_from_fd (dl-load.c:1258)
+      n2: 3227648 0x400A600: _dl_map_object (dl-load.c:2327)
+       n1: 3207168 0x4003494: openaux (dl-deps.c:64)
+        n1: 3207168 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+         n1: 3207168 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+          n1: 3207168 0x40233BF: dl_main (rtld.c:1970)
+           n1: 3207168 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+            n1: 3207168 0x40215B7: _dl_start_final (rtld.c:507)
+             n1: 3207168 0x40215B7: _dl_start (rtld.c:596)
+              n1: 3207168 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+               n1: 3207168 0x3: ???
+                n1: 3207168 0x1FFEFFFFB2: ???
+                 n1: 3207168 0x1FFEFFFFD0: ???
+                  n1: 3207168 0x1FFEFFFFF8: ???
+                   n0: 3207168 0x1FFEFFFFFB: ???
+       n0: 20480 in 1 place, below massif's threshold (1.00%)
+   n1: 2949120 0x4009098: _dl_map_segments (dl-map-segments.h:140)
+    n1: 2949120 0x4009098: _dl_map_object_from_fd (dl-load.c:1258)
+     n2: 2949120 0x400A600: _dl_map_object (dl-load.c:2327)
+      n1: 2932736 0x4003494: openaux (dl-deps.c:64)
+       n1: 2932736 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+        n1: 2932736 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+         n1: 2932736 0x40233BF: dl_main (rtld.c:1970)
+          n1: 2932736 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+           n1: 2932736 0x40215B7: _dl_start_final (rtld.c:507)
+            n1: 2932736 0x40215B7: _dl_start (rtld.c:596)
+             n1: 2932736 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+              n1: 2932736 0x3: ???
+               n1: 2932736 0x1FFEFFFFB2: ???
+                n1: 2932736 0x1FFEFFFFD0: ???
+                 n1: 2932736 0x1FFEFFFFF8: ???
+                  n0: 2932736 0x1FFEFFFFFB: ???
+      n0: 16384 in 1 place, below massif's threshold (1.00%)
+   n0: 73728 in 3 places, all below massif's threshold (1.00%)
+ n1: 3825664 0x4A51BD7: __mmap64 (mmap64.c:58)
+  n1: 3825664 0x4A51BD7: mmap (mmap64.c:46)
+   n1: 3825664 0x49D5537: sysmalloc_mmap.constprop.0 (malloc.c:2441)
+    n1: 3825664 0x49D630B: sysmalloc (malloc.c:2594)
+     n2: 3825664 0x49D795C: _int_malloc (malloc.c:4407)
+      n1: 3424256 0x49D82E1: malloc (malloc.c:3321)
+       n4: 3424256 0x1103C8: tcc_malloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 1576960 0x116FFE: tal_realloc_impl (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 1576960 0x1174E3: tok_str_add2 (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n1: 1576960 0x11A7A8: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+           n1: 1576960 0x11E5C7: macro_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+            n1: 1576960 0x11D9DE: macro_arg_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+             n1: 1576960 0x11AACD: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+              n1: 1576960 0x11E5C7: macro_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+               n1: 1576960 0x11B262: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                n1: 1576960 0x11E5C7: macro_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                 n1: 1576960 0x11B262: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                  n1: 1576960 0x11E5C7: macro_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                   n1: 1576960 0x11B262: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                    n1: 1576960 0x11537F: next (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                     n1: 1576960 0x130284: decl0 (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                      n1: 1576960 0x11EE20: tccgen_compile (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                       n1: 1576960 0x110F22: tcc_compile (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                        n1: 1576960 0x111FBF: tcc_add_file_internal (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                         n0: 1576960 0x10FCD9: main (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 790528 0x11B936: tccpp_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 790528 0x11121D: tcc_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n0: 790528 0x10FA2F: main (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 790528 0x11B969: tccpp_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 790528 0x11121D: tcc_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n0: 790528 0x10FA2F: main (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 266240 0x11B9A3: tccpp_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 266240 0x11121D: tcc_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n0: 266240 0x10FA2F: main (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+      n1: 401408 0x49D7C09: _int_realloc (malloc.c:4878)
+       n1: 401408 0x49D8988: realloc (malloc.c:3485)
+        n2: 401408 0x1104F8: tcc_realloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 266240 0x1339F6: section_realloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n1: 266240 0x13E260: orex (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+           n1: 266240 0x13DCD1: load (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+            n1: 266240 0x120572: gv (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+             n1: 266240 0x123505: gv2 (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+              n1: 266240 0x14268F: gen_opi (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+               n1: 266240 0x1228EC: gen_op (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                n1: 266240 0x12F871: expr_cmpeq (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                 n1: 266240 0x12F7B5: expr_xor (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                  n1: 266240 0x12F455: expr_land (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                   n1: 266240 0x12E6BD: expr_cond (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                    n1: 266240 0x12B665: expr_eq (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                     n1: 266240 0x12B015: gexpr (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                      n1: 266240 0x128417: unary (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                       n1: 266240 0x12F92D: expr_shift (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                        n1: 266240 0x12F839: expr_cmpeq (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                         n1: 266240 0x12F7B5: expr_xor (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                          n1: 266240 0x12F455: expr_land (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                           n1: 266240 0x12E6BD: expr_cond (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                            n1: 266240 0x12B665: expr_eq (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                             n1: 266240 0x12B015: gexpr (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                              n1: 266240 0x128417: unary (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                               n0: 266240 0x12F92D: expr_shift (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n0: 135168 in 1 place, below massif's threshold (1.00%)
+ n1: 1146880 0x4A4D9DB: brk (brk.c:36)
+  n1: 1146880 0x4A4DAA3: __sbrk (sbrk.c:74)
+   n1: 1146880 0x4A4DAA3: sbrk (sbrk.c:36)
+    n1: 1146880 0x49D5645: __glibc_morecore (morecore.c:29)
+     n1: 1146880 0x49D6678: sysmalloc (malloc.c:2727)
+      n3: 1146880 0x49D795C: _int_malloc (malloc.c:4407)
+       n1: 606208 0x49D7C09: _int_realloc (malloc.c:4878)
+        n1: 606208 0x49D8988: realloc (malloc.c:3485)
+         n2: 606208 0x1104F8: tcc_realloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n2: 466944 0x133FE6: put_elf_reloca (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+           n1: 319488 0x12336B: init_putv (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+            n1: 319488 0x13126D: decl_initializer (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+             n1: 319488 0x131736: decl_initializer (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+              n1: 319488 0x131736: decl_initializer (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+               n0: 319488 in 2 places, all below massif's threshold (1.00%)
+           n0: 147456 in 1 place, below massif's threshold (1.00%)
+          n0: 139264 in 1 place, below massif's threshold (1.00%)
+       n1: 274432 0x49D82E1: malloc (malloc.c:3321)
+        n1: 274432 0x1103C8: tcc_malloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 274432 0x129634: type_decl (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n1: 274432 0x12FD06: decl0 (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+           n0: 274432 in 2 places, all below massif's threshold (1.00%)
+       n0: 266240 in 2 places, all below massif's threshold (1.00%)
+ n0: 753664 0x0: ???
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=19
+#-----------
+time=77293254
+mem_heap_B=20238336
+mem_heap_extra_B=0
+mem_stacks_B=3016
+heap_tree=empty
+#-----------
+snapshot=20
+#-----------
+time=82353152
+mem_heap_B=20238336
+mem_heap_extra_B=0
+mem_stacks_B=11304
+heap_tree=empty
+#-----------
+snapshot=21
+#-----------
+time=86690795
+mem_heap_B=20238336
+mem_heap_extra_B=0
+mem_stacks_B=3336
+heap_tree=empty
+#-----------
+snapshot=22
+#-----------
+time=90305643
+mem_heap_B=20238336
+mem_heap_extra_B=0
+mem_stacks_B=3336
+heap_tree=empty
+#-----------
+snapshot=23
+#-----------
+time=95365648
+mem_heap_B=20238336
+mem_heap_extra_B=0
+mem_stacks_B=2632
+heap_tree=empty
+#-----------
+snapshot=24
+#-----------
+time=98257205
+mem_heap_B=20369408
+mem_heap_extra_B=0
+mem_stacks_B=1928
+heap_tree=empty
+#-----------
+snapshot=25
+#-----------
+time=102200401
+mem_heap_B=20631552
+mem_heap_extra_B=0
+mem_stacks_B=2944
+heap_tree=detailed
+n7: 20631552 (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+ n1: 8392704 0x4A51A3D: syscall (syscall.S:38)
+  n1: 8392704 0x10E9CA: __safestack_init (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+   n1: 8392704 0x40065BD: _dl_init (dl-init.c:102)
+    n1: 8392704 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+     n1: 8392704 0x3: ???
+      n1: 8392704 0x1FFEFFFFB2: ???
+       n1: 8392704 0x1FFEFFFFD0: ???
+        n1: 8392704 0x1FFEFFFFF8: ???
+         n0: 8392704 0x1FFEFFFFFB: ???
+ n1: 6250496 0x4026CD7: __mmap64 (mmap64.c:58)
+  n3: 6250496 0x4026CD7: mmap (mmap64.c:46)
+   n1: 3227648 0x4008F1B: _dl_map_segment (dl-map-segments.h:29)
+    n1: 3227648 0x4008F1B: _dl_map_segments (dl-map-segments.h:102)
+     n1: 3227648 0x4008F1B: _dl_map_object_from_fd (dl-load.c:1258)
+      n2: 3227648 0x400A600: _dl_map_object (dl-load.c:2327)
+       n1: 3207168 0x4003494: openaux (dl-deps.c:64)
+        n1: 3207168 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+         n1: 3207168 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+          n1: 3207168 0x40233BF: dl_main (rtld.c:1970)
+           n1: 3207168 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+            n1: 3207168 0x40215B7: _dl_start_final (rtld.c:507)
+             n1: 3207168 0x40215B7: _dl_start (rtld.c:596)
+              n1: 3207168 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+               n1: 3207168 0x3: ???
+                n1: 3207168 0x1FFEFFFFB2: ???
+                 n1: 3207168 0x1FFEFFFFD0: ???
+                  n1: 3207168 0x1FFEFFFFF8: ???
+                   n0: 3207168 0x1FFEFFFFFB: ???
+       n0: 20480 in 1 place, below massif's threshold (1.00%)
+   n1: 2949120 0x4009098: _dl_map_segments (dl-map-segments.h:140)
+    n1: 2949120 0x4009098: _dl_map_object_from_fd (dl-load.c:1258)
+     n2: 2949120 0x400A600: _dl_map_object (dl-load.c:2327)
+      n1: 2932736 0x4003494: openaux (dl-deps.c:64)
+       n1: 2932736 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+        n1: 2932736 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+         n1: 2932736 0x40233BF: dl_main (rtld.c:1970)
+          n1: 2932736 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+           n1: 2932736 0x40215B7: _dl_start_final (rtld.c:507)
+            n1: 2932736 0x40215B7: _dl_start (rtld.c:596)
+             n1: 2932736 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+              n1: 2932736 0x3: ???
+               n1: 2932736 0x1FFEFFFFB2: ???
+                n1: 2932736 0x1FFEFFFFD0: ???
+                 n1: 2932736 0x1FFEFFFFF8: ???
+                  n0: 2932736 0x1FFEFFFFFB: ???
+      n0: 16384 in 1 place, below massif's threshold (1.00%)
+   n0: 73728 in 3 places, all below massif's threshold (1.00%)
+ n1: 3424256 0x4A51BD7: __mmap64 (mmap64.c:58)
+  n1: 3424256 0x4A51BD7: mmap (mmap64.c:46)
+   n1: 3424256 0x49D5537: sysmalloc_mmap.constprop.0 (malloc.c:2441)
+    n1: 3424256 0x49D630B: sysmalloc (malloc.c:2594)
+     n2: 3424256 0x49D795C: _int_malloc (malloc.c:4407)
+      n1: 3424256 0x49D82E1: malloc (malloc.c:3321)
+       n4: 3424256 0x1103C8: tcc_malloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 1576960 0x116FFE: tal_realloc_impl (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 1576960 0x1174E3: tok_str_add2 (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n1: 1576960 0x11A7A8: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+           n1: 1576960 0x11E5C7: macro_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+            n1: 1576960 0x11D9DE: macro_arg_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+             n1: 1576960 0x11AACD: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+              n1: 1576960 0x11E5C7: macro_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+               n1: 1576960 0x11B262: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                n1: 1576960 0x11E5C7: macro_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                 n1: 1576960 0x11B262: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                  n1: 1576960 0x11E5C7: macro_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                   n1: 1576960 0x11B262: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                    n1: 1576960 0x11537F: next (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                     n1: 1576960 0x130284: decl0 (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                      n1: 1576960 0x11EE20: tccgen_compile (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                       n1: 1576960 0x110F22: tcc_compile (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                        n1: 1576960 0x111FBF: tcc_add_file_internal (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                         n0: 1576960 0x10FCD9: main (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 790528 0x11B936: tccpp_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 790528 0x11121D: tcc_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n0: 790528 0x10FA2F: main (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 790528 0x11B969: tccpp_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 790528 0x11121D: tcc_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n0: 790528 0x10FA2F: main (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 266240 0x11B9A3: tccpp_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 266240 0x11121D: tcc_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n0: 266240 0x10FA2F: main (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 1015808 0x4A4D9DB: brk (brk.c:36)
+  n1: 1015808 0x4A4DAA3: __sbrk (sbrk.c:74)
+   n1: 1015808 0x4A4DAA3: sbrk (sbrk.c:36)
+    n1: 1015808 0x49D5645: __glibc_morecore (morecore.c:29)
+     n1: 1015808 0x49D6678: sysmalloc (malloc.c:2727)
+      n3: 1015808 0x49D795C: _int_malloc (malloc.c:4407)
+       n1: 475136 0x49D7C09: _int_realloc (malloc.c:4878)
+        n1: 475136 0x49D8988: realloc (malloc.c:3485)
+         n2: 475136 0x1104F8: tcc_realloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n2: 335872 0x133FE6: put_elf_reloca (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+           n1: 319488 0x12336B: init_putv (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+            n1: 319488 0x13126D: decl_initializer (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+             n1: 319488 0x131736: decl_initializer (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+              n1: 319488 0x131736: decl_initializer (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+               n0: 319488 in 2 places, all below massif's threshold (1.00%)
+           n0: 16384 in 1 place, below massif's threshold (1.00%)
+          n0: 139264 in 1 place, below massif's threshold (1.00%)
+       n1: 274432 0x49D82E1: malloc (malloc.c:3321)
+        n1: 274432 0x1103C8: tcc_malloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 274432 0x129634: type_decl (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n1: 274432 0x12FD06: decl0 (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+           n0: 274432 in 2 places, all below massif's threshold (1.00%)
+       n0: 266240 in 2 places, all below massif's threshold (1.00%)
+ n1: 794624 0x4A59B1F: mremap (mremap.c:37)
+  n1: 794624 0x49D8A96: mremap_chunk (malloc.c:3097)
+   n1: 794624 0x49D8A96: realloc (malloc.c:3457)
+    n2: 794624 0x1104F8: tcc_realloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+     n1: 528384 0x1339F6: section_realloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+      n1: 528384 0x13E2D2: orex (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+       n1: 528384 0x13EA39: store (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 528384 0x1249E1: vstore (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 528384 0x123101: init_putv (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n1: 528384 0x131FFA: decl_initializer (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+           n1: 528384 0x131736: decl_initializer (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+            n1: 528384 0x131736: decl_initializer (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+             n1: 528384 0x131736: decl_initializer (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+              n1: 528384 0x128A7F: decl_initializer_alloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+               n1: 528384 0x130267: decl0 (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                n1: 528384 0x12AEC0: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                 n1: 528384 0x130F8D: gen_function (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                  n1: 528384 0x1303CD: decl0 (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                   n1: 528384 0x11EE20: tccgen_compile (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                    n1: 528384 0x110F22: tcc_compile (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                     n1: 528384 0x111FBF: tcc_add_file_internal (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                      n0: 528384 0x10FCD9: main (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+     n1: 266240 0x133FE6: put_elf_reloca (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+      n1: 266240 0x13DD8D: load (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+       n1: 266240 0x120572: gv (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 266240 0x124725: vstore (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 266240 0x123101: init_putv (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n1: 266240 0x13126D: decl_initializer (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+           n1: 266240 0x131736: decl_initializer (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+            n1: 266240 0x131736: decl_initializer (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+             n1: 266240 0x128A7F: decl_initializer_alloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+              n1: 266240 0x130267: decl0 (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+               n1: 266240 0x12AEC0: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                n1: 266240 0x130F8D: gen_function (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                 n1: 266240 0x1303CD: decl0 (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                  n1: 266240 0x11EE20: tccgen_compile (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                   n1: 266240 0x110F22: tcc_compile (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                    n1: 266240 0x111FBF: tcc_add_file_internal (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                     n0: 266240 0x10FCD9: main (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+ n0: 753664 0x0: ???
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=26
+#-----------
+time=106537807
+mem_heap_B=20631552
+mem_heap_extra_B=0
+mem_stacks_B=2200
+heap_tree=empty
+#-----------
+snapshot=27
+#-----------
+time=112320890
+mem_heap_B=20631552
+mem_heap_extra_B=0
+mem_stacks_B=3312
+heap_tree=empty
+#-----------
+snapshot=28
+#-----------
+time=115212445
+mem_heap_B=20631552
+mem_heap_extra_B=0
+mem_stacks_B=3608
+heap_tree=empty
+#-----------
+snapshot=29
+#-----------
+time=120272728
+mem_heap_B=20631552
+mem_heap_extra_B=0
+mem_stacks_B=2376
+heap_tree=empty
+#-----------
+snapshot=30
+#-----------
+time=126056094
+mem_heap_B=20631552
+mem_heap_extra_B=0
+mem_stacks_B=2600
+heap_tree=empty
+#-----------
+snapshot=31
+#-----------
+time=130393468
+mem_heap_B=20631552
+mem_heap_extra_B=0
+mem_stacks_B=3480
+heap_tree=empty
+#-----------
+snapshot=32
+#-----------
+time=134730971
+mem_heap_B=20631552
+mem_heap_extra_B=0
+mem_stacks_B=3400
+heap_tree=empty
+#-----------
+snapshot=33
+#-----------
+time=137622697
+mem_heap_B=20631552
+mem_heap_extra_B=0
+mem_stacks_B=3112
+heap_tree=empty
+#-----------
+snapshot=34
+#-----------
+time=140514799
+mem_heap_B=20631552
+mem_heap_extra_B=0
+mem_stacks_B=2056
+heap_tree=empty
+#-----------
+snapshot=35
+#-----------
+time=143406487
+mem_heap_B=20631552
+mem_heap_extra_B=0
+mem_stacks_B=4144
+heap_tree=empty
+#-----------
+snapshot=36
+#-----------
+time=147743997
+mem_heap_B=20631552
+mem_heap_extra_B=0
+mem_stacks_B=2328
+heap_tree=detailed
+n7: 20631552 (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+ n1: 8392704 0x4A51A3D: syscall (syscall.S:38)
+  n1: 8392704 0x10E9CA: __safestack_init (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+   n1: 8392704 0x40065BD: _dl_init (dl-init.c:102)
+    n1: 8392704 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+     n1: 8392704 0x3: ???
+      n1: 8392704 0x1FFEFFFFB2: ???
+       n1: 8392704 0x1FFEFFFFD0: ???
+        n1: 8392704 0x1FFEFFFFF8: ???
+         n0: 8392704 0x1FFEFFFFFB: ???
+ n1: 6250496 0x4026CD7: __mmap64 (mmap64.c:58)
+  n3: 6250496 0x4026CD7: mmap (mmap64.c:46)
+   n1: 3227648 0x4008F1B: _dl_map_segment (dl-map-segments.h:29)
+    n1: 3227648 0x4008F1B: _dl_map_segments (dl-map-segments.h:102)
+     n1: 3227648 0x4008F1B: _dl_map_object_from_fd (dl-load.c:1258)
+      n2: 3227648 0x400A600: _dl_map_object (dl-load.c:2327)
+       n1: 3207168 0x4003494: openaux (dl-deps.c:64)
+        n1: 3207168 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+         n1: 3207168 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+          n1: 3207168 0x40233BF: dl_main (rtld.c:1970)
+           n1: 3207168 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+            n1: 3207168 0x40215B7: _dl_start_final (rtld.c:507)
+             n1: 3207168 0x40215B7: _dl_start (rtld.c:596)
+              n1: 3207168 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+               n1: 3207168 0x3: ???
+                n1: 3207168 0x1FFEFFFFB2: ???
+                 n1: 3207168 0x1FFEFFFFD0: ???
+                  n1: 3207168 0x1FFEFFFFF8: ???
+                   n0: 3207168 0x1FFEFFFFFB: ???
+       n0: 20480 in 1 place, below massif's threshold (1.00%)
+   n1: 2949120 0x4009098: _dl_map_segments (dl-map-segments.h:140)
+    n1: 2949120 0x4009098: _dl_map_object_from_fd (dl-load.c:1258)
+     n2: 2949120 0x400A600: _dl_map_object (dl-load.c:2327)
+      n1: 2932736 0x4003494: openaux (dl-deps.c:64)
+       n1: 2932736 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+        n1: 2932736 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+         n1: 2932736 0x40233BF: dl_main (rtld.c:1970)
+          n1: 2932736 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+           n1: 2932736 0x40215B7: _dl_start_final (rtld.c:507)
+            n1: 2932736 0x40215B7: _dl_start (rtld.c:596)
+             n1: 2932736 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+              n1: 2932736 0x3: ???
+               n1: 2932736 0x1FFEFFFFB2: ???
+                n1: 2932736 0x1FFEFFFFD0: ???
+                 n1: 2932736 0x1FFEFFFFF8: ???
+                  n0: 2932736 0x1FFEFFFFFB: ???
+      n0: 16384 in 1 place, below massif's threshold (1.00%)
+   n0: 73728 in 3 places, all below massif's threshold (1.00%)
+ n1: 3424256 0x4A51BD7: __mmap64 (mmap64.c:58)
+  n1: 3424256 0x4A51BD7: mmap (mmap64.c:46)
+   n1: 3424256 0x49D5537: sysmalloc_mmap.constprop.0 (malloc.c:2441)
+    n1: 3424256 0x49D630B: sysmalloc (malloc.c:2594)
+     n2: 3424256 0x49D795C: _int_malloc (malloc.c:4407)
+      n1: 3424256 0x49D82E1: malloc (malloc.c:3321)
+       n4: 3424256 0x1103C8: tcc_malloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 1576960 0x116FFE: tal_realloc_impl (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 1576960 0x1174E3: tok_str_add2 (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n1: 1576960 0x11A7A8: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+           n1: 1576960 0x11E5C7: macro_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+            n1: 1576960 0x11D9DE: macro_arg_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+             n1: 1576960 0x11AACD: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+              n1: 1576960 0x11E5C7: macro_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+               n1: 1576960 0x11B262: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                n1: 1576960 0x11E5C7: macro_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                 n1: 1576960 0x11B262: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                  n1: 1576960 0x11E5C7: macro_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                   n1: 1576960 0x11B262: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                    n1: 1576960 0x11537F: next (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                     n1: 1576960 0x130284: decl0 (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                      n1: 1576960 0x11EE20: tccgen_compile (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                       n1: 1576960 0x110F22: tcc_compile (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                        n1: 1576960 0x111FBF: tcc_add_file_internal (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                         n0: 1576960 0x10FCD9: main (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 790528 0x11B936: tccpp_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 790528 0x11121D: tcc_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n0: 790528 0x10FA2F: main (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 790528 0x11B969: tccpp_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 790528 0x11121D: tcc_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n0: 790528 0x10FA2F: main (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 266240 0x11B9A3: tccpp_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 266240 0x11121D: tcc_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n0: 266240 0x10FA2F: main (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 1015808 0x4A4D9DB: brk (brk.c:36)
+  n1: 1015808 0x4A4DAA3: __sbrk (sbrk.c:74)
+   n1: 1015808 0x4A4DAA3: sbrk (sbrk.c:36)
+    n1: 1015808 0x49D5645: __glibc_morecore (morecore.c:29)
+     n1: 1015808 0x49D6678: sysmalloc (malloc.c:2727)
+      n3: 1015808 0x49D795C: _int_malloc (malloc.c:4407)
+       n1: 475136 0x49D7C09: _int_realloc (malloc.c:4878)
+        n1: 475136 0x49D8988: realloc (malloc.c:3485)
+         n2: 475136 0x1104F8: tcc_realloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n2: 335872 0x133FE6: put_elf_reloca (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+           n1: 319488 0x12336B: init_putv (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+            n1: 319488 0x13126D: decl_initializer (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+             n1: 319488 0x131736: decl_initializer (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+              n1: 319488 0x131736: decl_initializer (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+               n0: 319488 in 2 places, all below massif's threshold (1.00%)
+           n0: 16384 in 1 place, below massif's threshold (1.00%)
+          n0: 139264 in 1 place, below massif's threshold (1.00%)
+       n1: 274432 0x49D82E1: malloc (malloc.c:3321)
+        n1: 274432 0x1103C8: tcc_malloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 274432 0x129634: type_decl (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n1: 274432 0x12FD06: decl0 (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+           n0: 274432 in 2 places, all below massif's threshold (1.00%)
+       n0: 266240 in 2 places, all below massif's threshold (1.00%)
+ n1: 794624 0x4A59B1F: mremap (mremap.c:37)
+  n1: 794624 0x49D8A96: mremap_chunk (malloc.c:3097)
+   n1: 794624 0x49D8A96: realloc (malloc.c:3457)
+    n2: 794624 0x1104F8: tcc_realloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+     n1: 528384 0x1339F6: section_realloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+      n1: 528384 0x13E2D2: orex (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+       n1: 528384 0x13EA39: store (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 528384 0x1249E1: vstore (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 528384 0x123101: init_putv (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n1: 528384 0x131FFA: decl_initializer (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+           n1: 528384 0x131736: decl_initializer (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+            n1: 528384 0x131736: decl_initializer (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+             n1: 528384 0x131736: decl_initializer (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+              n1: 528384 0x128A7F: decl_initializer_alloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+               n1: 528384 0x130267: decl0 (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                n1: 528384 0x12AEC0: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                 n1: 528384 0x130F8D: gen_function (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                  n1: 528384 0x1303CD: decl0 (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                   n1: 528384 0x11EE20: tccgen_compile (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                    n1: 528384 0x110F22: tcc_compile (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                     n1: 528384 0x111FBF: tcc_add_file_internal (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                      n0: 528384 0x10FCD9: main (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+     n1: 266240 0x133FE6: put_elf_reloca (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+      n1: 266240 0x13DD8D: load (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+       n1: 266240 0x120572: gv (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 266240 0x124725: vstore (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 266240 0x123101: init_putv (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n1: 266240 0x13126D: decl_initializer (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+           n1: 266240 0x131736: decl_initializer (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+            n1: 266240 0x131736: decl_initializer (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+             n1: 266240 0x128A7F: decl_initializer_alloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+              n1: 266240 0x130267: decl0 (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+               n1: 266240 0x12AEC0: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                n1: 266240 0x130F8D: gen_function (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                 n1: 266240 0x1303CD: decl0 (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                  n1: 266240 0x11EE20: tccgen_compile (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                   n1: 266240 0x110F22: tcc_compile (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                    n1: 266240 0x111FBF: tcc_add_file_internal (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                     n0: 266240 0x10FCD9: main (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+ n0: 753664 0x0: ???
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=37
+#-----------
+time=150635718
+mem_heap_B=20631552
+mem_heap_extra_B=0
+mem_stacks_B=5080
+heap_tree=empty
+#-----------
+snapshot=38
+#-----------
+time=154317859
+mem_heap_B=20893696
+mem_heap_extra_B=0
+mem_stacks_B=6152
+heap_tree=empty
+#-----------
+snapshot=39
+#-----------
+time=157158748
+mem_heap_B=21417984
+mem_heap_extra_B=0
+mem_stacks_B=6496
+heap_tree=detailed
+n7: 21417984 (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+ n1: 8392704 0x4A51A3D: syscall (syscall.S:38)
+  n1: 8392704 0x10E9CA: __safestack_init (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+   n1: 8392704 0x40065BD: _dl_init (dl-init.c:102)
+    n1: 8392704 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+     n1: 8392704 0x3: ???
+      n1: 8392704 0x1FFEFFFFB2: ???
+       n1: 8392704 0x1FFEFFFFD0: ???
+        n1: 8392704 0x1FFEFFFFF8: ???
+         n0: 8392704 0x1FFEFFFFFB: ???
+ n1: 6250496 0x4026CD7: __mmap64 (mmap64.c:58)
+  n3: 6250496 0x4026CD7: mmap (mmap64.c:46)
+   n1: 3227648 0x4008F1B: _dl_map_segment (dl-map-segments.h:29)
+    n1: 3227648 0x4008F1B: _dl_map_segments (dl-map-segments.h:102)
+     n1: 3227648 0x4008F1B: _dl_map_object_from_fd (dl-load.c:1258)
+      n2: 3227648 0x400A600: _dl_map_object (dl-load.c:2327)
+       n1: 3207168 0x4003494: openaux (dl-deps.c:64)
+        n1: 3207168 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+         n1: 3207168 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+          n1: 3207168 0x40233BF: dl_main (rtld.c:1970)
+           n1: 3207168 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+            n1: 3207168 0x40215B7: _dl_start_final (rtld.c:507)
+             n1: 3207168 0x40215B7: _dl_start (rtld.c:596)
+              n1: 3207168 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+               n1: 3207168 0x3: ???
+                n1: 3207168 0x1FFEFFFFB2: ???
+                 n1: 3207168 0x1FFEFFFFD0: ???
+                  n1: 3207168 0x1FFEFFFFF8: ???
+                   n0: 3207168 0x1FFEFFFFFB: ???
+       n0: 20480 in 1 place, below massif's threshold (1.00%)
+   n1: 2949120 0x4009098: _dl_map_segments (dl-map-segments.h:140)
+    n1: 2949120 0x4009098: _dl_map_object_from_fd (dl-load.c:1258)
+     n2: 2949120 0x400A600: _dl_map_object (dl-load.c:2327)
+      n1: 2932736 0x4003494: openaux (dl-deps.c:64)
+       n1: 2932736 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+        n1: 2932736 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+         n1: 2932736 0x40233BF: dl_main (rtld.c:1970)
+          n1: 2932736 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+           n1: 2932736 0x40215B7: _dl_start_final (rtld.c:507)
+            n1: 2932736 0x40215B7: _dl_start (rtld.c:596)
+             n1: 2932736 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+              n1: 2932736 0x3: ???
+               n1: 2932736 0x1FFEFFFFB2: ???
+                n1: 2932736 0x1FFEFFFFD0: ???
+                 n1: 2932736 0x1FFEFFFFF8: ???
+                  n0: 2932736 0x1FFEFFFFFB: ???
+      n0: 16384 in 1 place, below massif's threshold (1.00%)
+   n0: 73728 in 3 places, all below massif's threshold (1.00%)
+ n1: 3424256 0x4A51BD7: __mmap64 (mmap64.c:58)
+  n1: 3424256 0x4A51BD7: mmap (mmap64.c:46)
+   n1: 3424256 0x49D5537: sysmalloc_mmap.constprop.0 (malloc.c:2441)
+    n1: 3424256 0x49D630B: sysmalloc (malloc.c:2594)
+     n2: 3424256 0x49D795C: _int_malloc (malloc.c:4407)
+      n1: 3424256 0x49D82E1: malloc (malloc.c:3321)
+       n4: 3424256 0x1103C8: tcc_malloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 1576960 0x116FFE: tal_realloc_impl (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 1576960 0x1174E3: tok_str_add2 (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n1: 1576960 0x11A7A8: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+           n1: 1576960 0x11E5C7: macro_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+            n1: 1576960 0x11D9DE: macro_arg_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+             n1: 1576960 0x11AACD: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+              n1: 1576960 0x11E5C7: macro_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+               n1: 1576960 0x11B262: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                n1: 1576960 0x11E5C7: macro_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                 n1: 1576960 0x11B262: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                  n1: 1576960 0x11E5C7: macro_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                   n1: 1576960 0x11B262: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                    n1: 1576960 0x11537F: next (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                     n1: 1576960 0x130284: decl0 (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                      n1: 1576960 0x11EE20: tccgen_compile (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                       n1: 1576960 0x110F22: tcc_compile (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                        n1: 1576960 0x111FBF: tcc_add_file_internal (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                         n0: 1576960 0x10FCD9: main (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 790528 0x11B936: tccpp_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 790528 0x11121D: tcc_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n0: 790528 0x10FA2F: main (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 790528 0x11B969: tccpp_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 790528 0x11121D: tcc_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n0: 790528 0x10FA2F: main (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 266240 0x11B9A3: tccpp_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 266240 0x11121D: tcc_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n0: 266240 0x10FA2F: main (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 1581056 0x4A59B1F: mremap (mremap.c:37)
+  n1: 1581056 0x49D8A96: mremap_chunk (malloc.c:3097)
+   n1: 1581056 0x49D8A96: realloc (malloc.c:3457)
+    n2: 1581056 0x1104F8: tcc_realloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+     n2: 1052672 0x1339F6: section_realloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+      n1: 1052672 0x13D12B: gen_le32 (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+       n1: 1052672 0x1402B2: gfunc_call (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 1052672 0x126EC0: unary (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 1052672 0x12F92D: expr_shift (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n1: 1052672 0x12F839: expr_cmpeq (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+           n1: 1052672 0x12F7B5: expr_xor (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+            n1: 1052672 0x12F455: expr_land (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+             n1: 1052672 0x12E6BD: expr_cond (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+              n1: 1052672 0x12B665: expr_eq (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+               n1: 1052672 0x12B015: gexpr (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                n1: 1052672 0x128417: unary (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                 n1: 1052672 0x12F92D: expr_shift (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                  n1: 1052672 0x12F839: expr_cmpeq (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                   n1: 1052672 0x12F7B5: expr_xor (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                    n1: 1052672 0x12F470: expr_land (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                     n1: 1052672 0x12E6BD: expr_cond (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                      n1: 1052672 0x12B665: expr_eq (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                       n1: 1052672 0x12B015: gexpr (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                        n1: 1052672 0x128417: unary (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                         n1: 1052672 0x12F92D: expr_shift (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                          n1: 1052672 0x12F839: expr_cmpeq (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                           n1: 1052672 0x12F7B5: expr_xor (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                            n1: 1052672 0x12F455: expr_land (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                             n1: 1052672 0x12E6BD: expr_cond (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                              n1: 1052672 0x12B665: expr_eq (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                               n0: 1052672 0x12B015: gexpr (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+     n2: 528384 0x133FE6: put_elf_reloca (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+      n1: 528384 0x1450F1: gen_modrm_impl (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+       n1: 528384 0x13DE27: load (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 528384 0x1208E9: gv (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 528384 0x121DE1: gen_cast (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n1: 528384 0x1227B7: gen_op (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+           n1: 528384 0x122B0C: gen_op (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+            n1: 528384 0x126C96: unary (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+             n1: 528384 0x12F92D: expr_shift (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+              n1: 528384 0x12F839: expr_cmpeq (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+               n1: 528384 0x12F7B5: expr_xor (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                n1: 528384 0x12F455: expr_land (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                 n1: 528384 0x12E6BD: expr_cond (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                  n1: 528384 0x12B665: expr_eq (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                   n1: 528384 0x12B015: gexpr (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                    n1: 528384 0x12A793: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                     n1: 528384 0x12AF13: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                      n1: 528384 0x12A58D: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                       n1: 528384 0x12AF13: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                        n1: 528384 0x12A58D: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                         n1: 528384 0x12AF13: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                          n1: 528384 0x12A2CF: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                           n1: 528384 0x12AF13: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                            n1: 528384 0x12A516: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                             n1: 528384 0x12AF13: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                              n1: 528384 0x12A2CF: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                               n0: 528384 0x12AF13: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 1015808 0x4A4D9DB: brk (brk.c:36)
+  n1: 1015808 0x4A4DAA3: __sbrk (sbrk.c:74)
+   n1: 1015808 0x4A4DAA3: sbrk (sbrk.c:36)
+    n1: 1015808 0x49D5645: __glibc_morecore (morecore.c:29)
+     n1: 1015808 0x49D6678: sysmalloc (malloc.c:2727)
+      n3: 1015808 0x49D795C: _int_malloc (malloc.c:4407)
+       n1: 475136 0x49D7C09: _int_realloc (malloc.c:4878)
+        n1: 475136 0x49D8988: realloc (malloc.c:3485)
+         n2: 475136 0x1104F8: tcc_realloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n2: 335872 0x133FE6: put_elf_reloca (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+           n1: 319488 0x12336B: init_putv (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+            n1: 319488 0x13126D: decl_initializer (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+             n1: 319488 0x131736: decl_initializer (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+              n1: 319488 0x131736: decl_initializer (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+               n0: 319488 in 2 places, all below massif's threshold (1.00%)
+           n0: 16384 in 1 place, below massif's threshold (1.00%)
+          n0: 139264 in 1 place, below massif's threshold (1.00%)
+       n1: 274432 0x49D82E1: malloc (malloc.c:3321)
+        n1: 274432 0x1103C8: tcc_malloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 274432 0x129634: type_decl (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n1: 274432 0x12FD06: decl0 (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+           n0: 274432 in 2 places, all below massif's threshold (1.00%)
+       n0: 266240 in 2 places, all below massif's threshold (1.00%)
+ n0: 753664 0x0: ???
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=40
+#-----------
+time=162942083
+mem_heap_B=21417984
+mem_heap_extra_B=0
+mem_stacks_B=2824
+heap_tree=empty
+#-----------
+snapshot=41
+#-----------
+time=165833830
+mem_heap_B=21417984
+mem_heap_extra_B=0
+mem_stacks_B=3688
+heap_tree=empty
+#-----------
+snapshot=42
+#-----------
+time=171617203
+mem_heap_B=21417984
+mem_heap_extra_B=0
+mem_stacks_B=12216
+heap_tree=detailed
+n7: 21417984 (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+ n1: 8392704 0x4A51A3D: syscall (syscall.S:38)
+  n1: 8392704 0x10E9CA: __safestack_init (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+   n1: 8392704 0x40065BD: _dl_init (dl-init.c:102)
+    n1: 8392704 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+     n1: 8392704 0x3: ???
+      n1: 8392704 0x1FFEFFFFB2: ???
+       n1: 8392704 0x1FFEFFFFD0: ???
+        n1: 8392704 0x1FFEFFFFF8: ???
+         n0: 8392704 0x1FFEFFFFFB: ???
+ n1: 6250496 0x4026CD7: __mmap64 (mmap64.c:58)
+  n3: 6250496 0x4026CD7: mmap (mmap64.c:46)
+   n1: 3227648 0x4008F1B: _dl_map_segment (dl-map-segments.h:29)
+    n1: 3227648 0x4008F1B: _dl_map_segments (dl-map-segments.h:102)
+     n1: 3227648 0x4008F1B: _dl_map_object_from_fd (dl-load.c:1258)
+      n2: 3227648 0x400A600: _dl_map_object (dl-load.c:2327)
+       n1: 3207168 0x4003494: openaux (dl-deps.c:64)
+        n1: 3207168 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+         n1: 3207168 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+          n1: 3207168 0x40233BF: dl_main (rtld.c:1970)
+           n1: 3207168 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+            n1: 3207168 0x40215B7: _dl_start_final (rtld.c:507)
+             n1: 3207168 0x40215B7: _dl_start (rtld.c:596)
+              n1: 3207168 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+               n1: 3207168 0x3: ???
+                n1: 3207168 0x1FFEFFFFB2: ???
+                 n1: 3207168 0x1FFEFFFFD0: ???
+                  n1: 3207168 0x1FFEFFFFF8: ???
+                   n0: 3207168 0x1FFEFFFFFB: ???
+       n0: 20480 in 1 place, below massif's threshold (1.00%)
+   n1: 2949120 0x4009098: _dl_map_segments (dl-map-segments.h:140)
+    n1: 2949120 0x4009098: _dl_map_object_from_fd (dl-load.c:1258)
+     n2: 2949120 0x400A600: _dl_map_object (dl-load.c:2327)
+      n1: 2932736 0x4003494: openaux (dl-deps.c:64)
+       n1: 2932736 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+        n1: 2932736 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+         n1: 2932736 0x40233BF: dl_main (rtld.c:1970)
+          n1: 2932736 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+           n1: 2932736 0x40215B7: _dl_start_final (rtld.c:507)
+            n1: 2932736 0x40215B7: _dl_start (rtld.c:596)
+             n1: 2932736 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+              n1: 2932736 0x3: ???
+               n1: 2932736 0x1FFEFFFFB2: ???
+                n1: 2932736 0x1FFEFFFFD0: ???
+                 n1: 2932736 0x1FFEFFFFF8: ???
+                  n0: 2932736 0x1FFEFFFFFB: ???
+      n0: 16384 in 1 place, below massif's threshold (1.00%)
+   n0: 73728 in 3 places, all below massif's threshold (1.00%)
+ n1: 3424256 0x4A51BD7: __mmap64 (mmap64.c:58)
+  n1: 3424256 0x4A51BD7: mmap (mmap64.c:46)
+   n1: 3424256 0x49D5537: sysmalloc_mmap.constprop.0 (malloc.c:2441)
+    n1: 3424256 0x49D630B: sysmalloc (malloc.c:2594)
+     n2: 3424256 0x49D795C: _int_malloc (malloc.c:4407)
+      n1: 3424256 0x49D82E1: malloc (malloc.c:3321)
+       n4: 3424256 0x1103C8: tcc_malloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 1576960 0x116FFE: tal_realloc_impl (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 1576960 0x1174E3: tok_str_add2 (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n1: 1576960 0x11A7A8: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+           n1: 1576960 0x11E5C7: macro_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+            n1: 1576960 0x11D9DE: macro_arg_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+             n1: 1576960 0x11AACD: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+              n1: 1576960 0x11E5C7: macro_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+               n1: 1576960 0x11B262: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                n1: 1576960 0x11E5C7: macro_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                 n1: 1576960 0x11B262: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                  n1: 1576960 0x11E5C7: macro_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                   n1: 1576960 0x11B262: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                    n1: 1576960 0x11537F: next (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                     n1: 1576960 0x130284: decl0 (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                      n1: 1576960 0x11EE20: tccgen_compile (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                       n1: 1576960 0x110F22: tcc_compile (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                        n1: 1576960 0x111FBF: tcc_add_file_internal (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                         n0: 1576960 0x10FCD9: main (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 790528 0x11B936: tccpp_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 790528 0x11121D: tcc_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n0: 790528 0x10FA2F: main (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 790528 0x11B969: tccpp_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 790528 0x11121D: tcc_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n0: 790528 0x10FA2F: main (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 266240 0x11B9A3: tccpp_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 266240 0x11121D: tcc_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n0: 266240 0x10FA2F: main (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 1581056 0x4A59B1F: mremap (mremap.c:37)
+  n1: 1581056 0x49D8A96: mremap_chunk (malloc.c:3097)
+   n1: 1581056 0x49D8A96: realloc (malloc.c:3457)
+    n2: 1581056 0x1104F8: tcc_realloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+     n2: 1052672 0x1339F6: section_realloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+      n1: 1052672 0x13D12B: gen_le32 (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+       n1: 1052672 0x1402B2: gfunc_call (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 1052672 0x126EC0: unary (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 1052672 0x12F92D: expr_shift (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n1: 1052672 0x12F839: expr_cmpeq (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+           n1: 1052672 0x12F7B5: expr_xor (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+            n1: 1052672 0x12F455: expr_land (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+             n1: 1052672 0x12E6BD: expr_cond (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+              n1: 1052672 0x12B665: expr_eq (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+               n1: 1052672 0x12B015: gexpr (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                n1: 1052672 0x128417: unary (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                 n1: 1052672 0x12F92D: expr_shift (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                  n1: 1052672 0x12F839: expr_cmpeq (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                   n1: 1052672 0x12F7B5: expr_xor (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                    n1: 1052672 0x12F470: expr_land (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                     n1: 1052672 0x12E6BD: expr_cond (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                      n1: 1052672 0x12B665: expr_eq (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                       n1: 1052672 0x12B015: gexpr (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                        n1: 1052672 0x128417: unary (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                         n1: 1052672 0x12F92D: expr_shift (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                          n1: 1052672 0x12F839: expr_cmpeq (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                           n1: 1052672 0x12F7B5: expr_xor (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                            n1: 1052672 0x12F455: expr_land (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                             n1: 1052672 0x12E6BD: expr_cond (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                              n1: 1052672 0x12B665: expr_eq (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                               n0: 1052672 0x12B015: gexpr (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+     n2: 528384 0x133FE6: put_elf_reloca (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+      n1: 528384 0x1450F1: gen_modrm_impl (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+       n1: 528384 0x13DE27: load (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 528384 0x1208E9: gv (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 528384 0x121DE1: gen_cast (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n1: 528384 0x1227B7: gen_op (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+           n1: 528384 0x122B0C: gen_op (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+            n1: 528384 0x126C96: unary (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+             n1: 528384 0x12F92D: expr_shift (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+              n1: 528384 0x12F839: expr_cmpeq (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+               n1: 528384 0x12F7B5: expr_xor (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                n1: 528384 0x12F455: expr_land (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                 n1: 528384 0x12E6BD: expr_cond (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                  n1: 528384 0x12B665: expr_eq (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                   n1: 528384 0x12B015: gexpr (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                    n1: 528384 0x12A793: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                     n1: 528384 0x12AF13: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                      n1: 528384 0x12A58D: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                       n1: 528384 0x12AF13: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                        n1: 528384 0x12A58D: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                         n1: 528384 0x12AF13: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                          n1: 528384 0x12A2CF: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                           n1: 528384 0x12AF13: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                            n1: 528384 0x12A516: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                             n1: 528384 0x12AF13: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                              n1: 528384 0x12A2CF: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                               n0: 528384 0x12AF13: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 1015808 0x4A4D9DB: brk (brk.c:36)
+  n1: 1015808 0x4A4DAA3: __sbrk (sbrk.c:74)
+   n1: 1015808 0x4A4DAA3: sbrk (sbrk.c:36)
+    n1: 1015808 0x49D5645: __glibc_morecore (morecore.c:29)
+     n1: 1015808 0x49D6678: sysmalloc (malloc.c:2727)
+      n3: 1015808 0x49D795C: _int_malloc (malloc.c:4407)
+       n1: 475136 0x49D7C09: _int_realloc (malloc.c:4878)
+        n1: 475136 0x49D8988: realloc (malloc.c:3485)
+         n2: 475136 0x1104F8: tcc_realloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n2: 335872 0x133FE6: put_elf_reloca (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+           n1: 319488 0x12336B: init_putv (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+            n1: 319488 0x13126D: decl_initializer (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+             n1: 319488 0x131736: decl_initializer (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+              n1: 319488 0x131736: decl_initializer (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+               n0: 319488 in 2 places, all below massif's threshold (1.00%)
+           n0: 16384 in 1 place, below massif's threshold (1.00%)
+          n0: 139264 in 1 place, below massif's threshold (1.00%)
+       n1: 274432 0x49D82E1: malloc (malloc.c:3321)
+        n1: 274432 0x1103C8: tcc_malloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 274432 0x129634: type_decl (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n1: 274432 0x12FD06: decl0 (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+           n0: 274432 in 2 places, all below massif's threshold (1.00%)
+       n0: 266240 in 2 places, all below massif's threshold (1.00%)
+ n0: 753664 0x0: ???
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=43
+#-----------
+time=175954701
+mem_heap_B=21417984
+mem_heap_extra_B=0
+mem_stacks_B=1160
+heap_tree=empty
+#-----------
+snapshot=44
+#-----------
+time=181738086
+mem_heap_B=21417984
+mem_heap_extra_B=0
+mem_stacks_B=3304
+heap_tree=empty
+#-----------
+snapshot=45
+#-----------
+time=184629748
+mem_heap_B=21417984
+mem_heap_extra_B=0
+mem_stacks_B=2328
+heap_tree=empty
+#-----------
+snapshot=46
+#-----------
+time=187521535
+mem_heap_B=21417984
+mem_heap_extra_B=0
+mem_stacks_B=12744
+heap_tree=empty
+#-----------
+snapshot=47
+#-----------
+time=190413217
+mem_heap_B=21417984
+mem_heap_extra_B=0
+mem_stacks_B=3192
+heap_tree=empty
+#-----------
+snapshot=48
+#-----------
+time=196196609
+mem_heap_B=21417984
+mem_heap_extra_B=0
+mem_stacks_B=3968
+heap_tree=empty
+#-----------
+snapshot=49
+#-----------
+time=200534265
+mem_heap_B=21417984
+mem_heap_extra_B=0
+mem_stacks_B=15944
+heap_tree=detailed
+n7: 21417984 (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+ n1: 8392704 0x4A51A3D: syscall (syscall.S:38)
+  n1: 8392704 0x10E9CA: __safestack_init (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+   n1: 8392704 0x40065BD: _dl_init (dl-init.c:102)
+    n1: 8392704 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+     n1: 8392704 0x3: ???
+      n1: 8392704 0x1FFEFFFFB2: ???
+       n1: 8392704 0x1FFEFFFFD0: ???
+        n1: 8392704 0x1FFEFFFFF8: ???
+         n0: 8392704 0x1FFEFFFFFB: ???
+ n1: 6250496 0x4026CD7: __mmap64 (mmap64.c:58)
+  n3: 6250496 0x4026CD7: mmap (mmap64.c:46)
+   n1: 3227648 0x4008F1B: _dl_map_segment (dl-map-segments.h:29)
+    n1: 3227648 0x4008F1B: _dl_map_segments (dl-map-segments.h:102)
+     n1: 3227648 0x4008F1B: _dl_map_object_from_fd (dl-load.c:1258)
+      n2: 3227648 0x400A600: _dl_map_object (dl-load.c:2327)
+       n1: 3207168 0x4003494: openaux (dl-deps.c:64)
+        n1: 3207168 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+         n1: 3207168 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+          n1: 3207168 0x40233BF: dl_main (rtld.c:1970)
+           n1: 3207168 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+            n1: 3207168 0x40215B7: _dl_start_final (rtld.c:507)
+             n1: 3207168 0x40215B7: _dl_start (rtld.c:596)
+              n1: 3207168 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+               n1: 3207168 0x3: ???
+                n1: 3207168 0x1FFEFFFFB2: ???
+                 n1: 3207168 0x1FFEFFFFD0: ???
+                  n1: 3207168 0x1FFEFFFFF8: ???
+                   n0: 3207168 0x1FFEFFFFFB: ???
+       n0: 20480 in 1 place, below massif's threshold (1.00%)
+   n1: 2949120 0x4009098: _dl_map_segments (dl-map-segments.h:140)
+    n1: 2949120 0x4009098: _dl_map_object_from_fd (dl-load.c:1258)
+     n2: 2949120 0x400A600: _dl_map_object (dl-load.c:2327)
+      n1: 2932736 0x4003494: openaux (dl-deps.c:64)
+       n1: 2932736 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+        n1: 2932736 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+         n1: 2932736 0x40233BF: dl_main (rtld.c:1970)
+          n1: 2932736 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+           n1: 2932736 0x40215B7: _dl_start_final (rtld.c:507)
+            n1: 2932736 0x40215B7: _dl_start (rtld.c:596)
+             n1: 2932736 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+              n1: 2932736 0x3: ???
+               n1: 2932736 0x1FFEFFFFB2: ???
+                n1: 2932736 0x1FFEFFFFD0: ???
+                 n1: 2932736 0x1FFEFFFFF8: ???
+                  n0: 2932736 0x1FFEFFFFFB: ???
+      n0: 16384 in 1 place, below massif's threshold (1.00%)
+   n0: 73728 in 3 places, all below massif's threshold (1.00%)
+ n1: 3424256 0x4A51BD7: __mmap64 (mmap64.c:58)
+  n1: 3424256 0x4A51BD7: mmap (mmap64.c:46)
+   n1: 3424256 0x49D5537: sysmalloc_mmap.constprop.0 (malloc.c:2441)
+    n1: 3424256 0x49D630B: sysmalloc (malloc.c:2594)
+     n2: 3424256 0x49D795C: _int_malloc (malloc.c:4407)
+      n1: 3424256 0x49D82E1: malloc (malloc.c:3321)
+       n4: 3424256 0x1103C8: tcc_malloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 1576960 0x116FFE: tal_realloc_impl (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 1576960 0x1174E3: tok_str_add2 (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n1: 1576960 0x11A7A8: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+           n1: 1576960 0x11E5C7: macro_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+            n1: 1576960 0x11D9DE: macro_arg_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+             n1: 1576960 0x11AACD: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+              n1: 1576960 0x11E5C7: macro_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+               n1: 1576960 0x11B262: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                n1: 1576960 0x11E5C7: macro_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                 n1: 1576960 0x11B262: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                  n1: 1576960 0x11E5C7: macro_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                   n1: 1576960 0x11B262: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                    n1: 1576960 0x11537F: next (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                     n1: 1576960 0x130284: decl0 (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                      n1: 1576960 0x11EE20: tccgen_compile (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                       n1: 1576960 0x110F22: tcc_compile (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                        n1: 1576960 0x111FBF: tcc_add_file_internal (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                         n0: 1576960 0x10FCD9: main (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 790528 0x11B936: tccpp_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 790528 0x11121D: tcc_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n0: 790528 0x10FA2F: main (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 790528 0x11B969: tccpp_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 790528 0x11121D: tcc_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n0: 790528 0x10FA2F: main (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 266240 0x11B9A3: tccpp_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 266240 0x11121D: tcc_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n0: 266240 0x10FA2F: main (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 1581056 0x4A59B1F: mremap (mremap.c:37)
+  n1: 1581056 0x49D8A96: mremap_chunk (malloc.c:3097)
+   n1: 1581056 0x49D8A96: realloc (malloc.c:3457)
+    n2: 1581056 0x1104F8: tcc_realloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+     n2: 1052672 0x1339F6: section_realloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+      n1: 1052672 0x13D12B: gen_le32 (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+       n1: 1052672 0x1402B2: gfunc_call (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 1052672 0x126EC0: unary (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 1052672 0x12F92D: expr_shift (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n1: 1052672 0x12F839: expr_cmpeq (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+           n1: 1052672 0x12F7B5: expr_xor (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+            n1: 1052672 0x12F455: expr_land (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+             n1: 1052672 0x12E6BD: expr_cond (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+              n1: 1052672 0x12B665: expr_eq (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+               n1: 1052672 0x12B015: gexpr (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                n1: 1052672 0x128417: unary (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                 n1: 1052672 0x12F92D: expr_shift (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                  n1: 1052672 0x12F839: expr_cmpeq (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                   n1: 1052672 0x12F7B5: expr_xor (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                    n1: 1052672 0x12F470: expr_land (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                     n1: 1052672 0x12E6BD: expr_cond (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                      n1: 1052672 0x12B665: expr_eq (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                       n1: 1052672 0x12B015: gexpr (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                        n1: 1052672 0x128417: unary (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                         n1: 1052672 0x12F92D: expr_shift (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                          n1: 1052672 0x12F839: expr_cmpeq (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                           n1: 1052672 0x12F7B5: expr_xor (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                            n1: 1052672 0x12F455: expr_land (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                             n1: 1052672 0x12E6BD: expr_cond (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                              n1: 1052672 0x12B665: expr_eq (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                               n0: 1052672 0x12B015: gexpr (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+     n2: 528384 0x133FE6: put_elf_reloca (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+      n1: 528384 0x1450F1: gen_modrm_impl (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+       n1: 528384 0x13DE27: load (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 528384 0x1208E9: gv (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 528384 0x121DE1: gen_cast (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n1: 528384 0x1227B7: gen_op (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+           n1: 528384 0x122B0C: gen_op (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+            n1: 528384 0x126C96: unary (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+             n1: 528384 0x12F92D: expr_shift (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+              n1: 528384 0x12F839: expr_cmpeq (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+               n1: 528384 0x12F7B5: expr_xor (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                n1: 528384 0x12F455: expr_land (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                 n1: 528384 0x12E6BD: expr_cond (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                  n1: 528384 0x12B665: expr_eq (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                   n1: 528384 0x12B015: gexpr (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                    n1: 528384 0x12A793: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                     n1: 528384 0x12AF13: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                      n1: 528384 0x12A58D: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                       n1: 528384 0x12AF13: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                        n1: 528384 0x12A58D: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                         n1: 528384 0x12AF13: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                          n1: 528384 0x12A2CF: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                           n1: 528384 0x12AF13: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                            n1: 528384 0x12A516: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                             n1: 528384 0x12AF13: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                              n1: 528384 0x12A2CF: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                               n0: 528384 0x12AF13: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 1015808 0x4A4D9DB: brk (brk.c:36)
+  n1: 1015808 0x4A4DAA3: __sbrk (sbrk.c:74)
+   n1: 1015808 0x4A4DAA3: sbrk (sbrk.c:36)
+    n1: 1015808 0x49D5645: __glibc_morecore (morecore.c:29)
+     n1: 1015808 0x49D6678: sysmalloc (malloc.c:2727)
+      n3: 1015808 0x49D795C: _int_malloc (malloc.c:4407)
+       n1: 475136 0x49D7C09: _int_realloc (malloc.c:4878)
+        n1: 475136 0x49D8988: realloc (malloc.c:3485)
+         n2: 475136 0x1104F8: tcc_realloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n2: 335872 0x133FE6: put_elf_reloca (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+           n1: 319488 0x12336B: init_putv (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+            n1: 319488 0x13126D: decl_initializer (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+             n1: 319488 0x131736: decl_initializer (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+              n1: 319488 0x131736: decl_initializer (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+               n0: 319488 in 2 places, all below massif's threshold (1.00%)
+           n0: 16384 in 1 place, below massif's threshold (1.00%)
+          n0: 139264 in 1 place, below massif's threshold (1.00%)
+       n1: 274432 0x49D82E1: malloc (malloc.c:3321)
+        n1: 274432 0x1103C8: tcc_malloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 274432 0x129634: type_decl (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n1: 274432 0x12FD06: decl0 (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+           n0: 274432 in 2 places, all below massif's threshold (1.00%)
+       n0: 266240 in 2 places, all below massif's threshold (1.00%)
+ n0: 753664 0x0: ???
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=50
+#-----------
+time=202707129
+mem_heap_B=21417984
+mem_heap_extra_B=0
+mem_stacks_B=872
+heap_tree=empty
+#-----------
+snapshot=51
+#-----------
+time=204879969
+mem_heap_B=21417984
+mem_heap_extra_B=0
+mem_stacks_B=2376
+heap_tree=empty
+#-----------
+snapshot=52
+#-----------
+time=207052820
+mem_heap_B=21417984
+mem_heap_extra_B=0
+mem_stacks_B=3912
+heap_tree=empty
+#-----------
+snapshot=53
+#-----------
+time=209225673
+mem_heap_B=21417984
+mem_heap_extra_B=0
+mem_stacks_B=2136
+heap_tree=empty
+#-----------
+snapshot=54
+#-----------
+time=211398522
+mem_heap_B=21417984
+mem_heap_extra_B=0
+mem_stacks_B=10464
+heap_tree=empty
+#-----------
+snapshot=55
+#-----------
+time=213571362
+mem_heap_B=21417984
+mem_heap_extra_B=0
+mem_stacks_B=3048
+heap_tree=empty
+#-----------
+snapshot=56
+#-----------
+time=215744214
+mem_heap_B=21417984
+mem_heap_extra_B=0
+mem_stacks_B=15496
+heap_tree=empty
+#-----------
+snapshot=57
+#-----------
+time=217917063
+mem_heap_B=21417984
+mem_heap_extra_B=0
+mem_stacks_B=1144
+heap_tree=empty
+#-----------
+snapshot=58
+#-----------
+time=220089894
+mem_heap_B=21417984
+mem_heap_extra_B=0
+mem_stacks_B=13736
+heap_tree=empty
+#-----------
+snapshot=59
+#-----------
+time=222262740
+mem_heap_B=21417984
+mem_heap_extra_B=0
+mem_stacks_B=7816
+heap_tree=detailed
+n7: 21417984 (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+ n1: 8392704 0x4A51A3D: syscall (syscall.S:38)
+  n1: 8392704 0x10E9CA: __safestack_init (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+   n1: 8392704 0x40065BD: _dl_init (dl-init.c:102)
+    n1: 8392704 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+     n1: 8392704 0x3: ???
+      n1: 8392704 0x1FFEFFFFB2: ???
+       n1: 8392704 0x1FFEFFFFD0: ???
+        n1: 8392704 0x1FFEFFFFF8: ???
+         n0: 8392704 0x1FFEFFFFFB: ???
+ n1: 6250496 0x4026CD7: __mmap64 (mmap64.c:58)
+  n3: 6250496 0x4026CD7: mmap (mmap64.c:46)
+   n1: 3227648 0x4008F1B: _dl_map_segment (dl-map-segments.h:29)
+    n1: 3227648 0x4008F1B: _dl_map_segments (dl-map-segments.h:102)
+     n1: 3227648 0x4008F1B: _dl_map_object_from_fd (dl-load.c:1258)
+      n2: 3227648 0x400A600: _dl_map_object (dl-load.c:2327)
+       n1: 3207168 0x4003494: openaux (dl-deps.c:64)
+        n1: 3207168 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+         n1: 3207168 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+          n1: 3207168 0x40233BF: dl_main (rtld.c:1970)
+           n1: 3207168 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+            n1: 3207168 0x40215B7: _dl_start_final (rtld.c:507)
+             n1: 3207168 0x40215B7: _dl_start (rtld.c:596)
+              n1: 3207168 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+               n1: 3207168 0x3: ???
+                n1: 3207168 0x1FFEFFFFB2: ???
+                 n1: 3207168 0x1FFEFFFFD0: ???
+                  n1: 3207168 0x1FFEFFFFF8: ???
+                   n0: 3207168 0x1FFEFFFFFB: ???
+       n0: 20480 in 1 place, below massif's threshold (1.00%)
+   n1: 2949120 0x4009098: _dl_map_segments (dl-map-segments.h:140)
+    n1: 2949120 0x4009098: _dl_map_object_from_fd (dl-load.c:1258)
+     n2: 2949120 0x400A600: _dl_map_object (dl-load.c:2327)
+      n1: 2932736 0x4003494: openaux (dl-deps.c:64)
+       n1: 2932736 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+        n1: 2932736 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+         n1: 2932736 0x40233BF: dl_main (rtld.c:1970)
+          n1: 2932736 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+           n1: 2932736 0x40215B7: _dl_start_final (rtld.c:507)
+            n1: 2932736 0x40215B7: _dl_start (rtld.c:596)
+             n1: 2932736 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+              n1: 2932736 0x3: ???
+               n1: 2932736 0x1FFEFFFFB2: ???
+                n1: 2932736 0x1FFEFFFFD0: ???
+                 n1: 2932736 0x1FFEFFFFF8: ???
+                  n0: 2932736 0x1FFEFFFFFB: ???
+      n0: 16384 in 1 place, below massif's threshold (1.00%)
+   n0: 73728 in 3 places, all below massif's threshold (1.00%)
+ n1: 3424256 0x4A51BD7: __mmap64 (mmap64.c:58)
+  n1: 3424256 0x4A51BD7: mmap (mmap64.c:46)
+   n1: 3424256 0x49D5537: sysmalloc_mmap.constprop.0 (malloc.c:2441)
+    n1: 3424256 0x49D630B: sysmalloc (malloc.c:2594)
+     n2: 3424256 0x49D795C: _int_malloc (malloc.c:4407)
+      n1: 3424256 0x49D82E1: malloc (malloc.c:3321)
+       n4: 3424256 0x1103C8: tcc_malloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 1576960 0x116FFE: tal_realloc_impl (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 1576960 0x1174E3: tok_str_add2 (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n1: 1576960 0x11A7A8: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+           n1: 1576960 0x11E5C7: macro_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+            n1: 1576960 0x11D9DE: macro_arg_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+             n1: 1576960 0x11AACD: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+              n1: 1576960 0x11E5C7: macro_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+               n1: 1576960 0x11B262: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                n1: 1576960 0x11E5C7: macro_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                 n1: 1576960 0x11B262: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                  n1: 1576960 0x11E5C7: macro_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                   n1: 1576960 0x11B262: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                    n1: 1576960 0x11537F: next (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                     n1: 1576960 0x130284: decl0 (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                      n1: 1576960 0x11EE20: tccgen_compile (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                       n1: 1576960 0x110F22: tcc_compile (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                        n1: 1576960 0x111FBF: tcc_add_file_internal (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                         n0: 1576960 0x10FCD9: main (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 790528 0x11B936: tccpp_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 790528 0x11121D: tcc_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n0: 790528 0x10FA2F: main (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 790528 0x11B969: tccpp_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 790528 0x11121D: tcc_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n0: 790528 0x10FA2F: main (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 266240 0x11B9A3: tccpp_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 266240 0x11121D: tcc_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n0: 266240 0x10FA2F: main (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 1581056 0x4A59B1F: mremap (mremap.c:37)
+  n1: 1581056 0x49D8A96: mremap_chunk (malloc.c:3097)
+   n1: 1581056 0x49D8A96: realloc (malloc.c:3457)
+    n2: 1581056 0x1104F8: tcc_realloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+     n2: 1052672 0x1339F6: section_realloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+      n1: 1052672 0x13D12B: gen_le32 (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+       n1: 1052672 0x1402B2: gfunc_call (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 1052672 0x126EC0: unary (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 1052672 0x12F92D: expr_shift (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n1: 1052672 0x12F839: expr_cmpeq (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+           n1: 1052672 0x12F7B5: expr_xor (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+            n1: 1052672 0x12F455: expr_land (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+             n1: 1052672 0x12E6BD: expr_cond (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+              n1: 1052672 0x12B665: expr_eq (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+               n1: 1052672 0x12B015: gexpr (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                n1: 1052672 0x128417: unary (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                 n1: 1052672 0x12F92D: expr_shift (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                  n1: 1052672 0x12F839: expr_cmpeq (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                   n1: 1052672 0x12F7B5: expr_xor (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                    n1: 1052672 0x12F470: expr_land (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                     n1: 1052672 0x12E6BD: expr_cond (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                      n1: 1052672 0x12B665: expr_eq (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                       n1: 1052672 0x12B015: gexpr (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                        n1: 1052672 0x128417: unary (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                         n1: 1052672 0x12F92D: expr_shift (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                          n1: 1052672 0x12F839: expr_cmpeq (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                           n1: 1052672 0x12F7B5: expr_xor (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                            n1: 1052672 0x12F455: expr_land (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                             n1: 1052672 0x12E6BD: expr_cond (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                              n1: 1052672 0x12B665: expr_eq (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                               n0: 1052672 0x12B015: gexpr (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+     n2: 528384 0x133FE6: put_elf_reloca (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+      n1: 528384 0x1450F1: gen_modrm_impl (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+       n1: 528384 0x13DE27: load (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 528384 0x1208E9: gv (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 528384 0x121DE1: gen_cast (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n1: 528384 0x1227B7: gen_op (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+           n1: 528384 0x122B0C: gen_op (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+            n1: 528384 0x126C96: unary (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+             n1: 528384 0x12F92D: expr_shift (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+              n1: 528384 0x12F839: expr_cmpeq (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+               n1: 528384 0x12F7B5: expr_xor (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                n1: 528384 0x12F455: expr_land (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                 n1: 528384 0x12E6BD: expr_cond (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                  n1: 528384 0x12B665: expr_eq (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                   n1: 528384 0x12B015: gexpr (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                    n1: 528384 0x12A793: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                     n1: 528384 0x12AF13: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                      n1: 528384 0x12A58D: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                       n1: 528384 0x12AF13: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                        n1: 528384 0x12A58D: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                         n1: 528384 0x12AF13: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                          n1: 528384 0x12A2CF: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                           n1: 528384 0x12AF13: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                            n1: 528384 0x12A516: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                             n1: 528384 0x12AF13: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                              n1: 528384 0x12A2CF: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                               n0: 528384 0x12AF13: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 1015808 0x4A4D9DB: brk (brk.c:36)
+  n1: 1015808 0x4A4DAA3: __sbrk (sbrk.c:74)
+   n1: 1015808 0x4A4DAA3: sbrk (sbrk.c:36)
+    n1: 1015808 0x49D5645: __glibc_morecore (morecore.c:29)
+     n1: 1015808 0x49D6678: sysmalloc (malloc.c:2727)
+      n3: 1015808 0x49D795C: _int_malloc (malloc.c:4407)
+       n1: 475136 0x49D7C09: _int_realloc (malloc.c:4878)
+        n1: 475136 0x49D8988: realloc (malloc.c:3485)
+         n2: 475136 0x1104F8: tcc_realloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n2: 335872 0x133FE6: put_elf_reloca (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+           n1: 319488 0x12336B: init_putv (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+            n1: 319488 0x13126D: decl_initializer (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+             n1: 319488 0x131736: decl_initializer (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+              n1: 319488 0x131736: decl_initializer (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+               n0: 319488 in 2 places, all below massif's threshold (1.00%)
+           n0: 16384 in 1 place, below massif's threshold (1.00%)
+          n0: 139264 in 1 place, below massif's threshold (1.00%)
+       n1: 274432 0x49D82E1: malloc (malloc.c:3321)
+        n1: 274432 0x1103C8: tcc_malloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 274432 0x129634: type_decl (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n1: 274432 0x12FD06: decl0 (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+           n0: 274432 in 2 places, all below massif's threshold (1.00%)
+       n0: 266240 in 2 places, all below massif's threshold (1.00%)
+ n0: 753664 0x0: ???
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=60
+#-----------
+time=224435597
+mem_heap_B=21417984
+mem_heap_extra_B=0
+mem_stacks_B=3096
+heap_tree=empty
+#-----------
+snapshot=61
+#-----------
+time=226608452
+mem_heap_B=21417984
+mem_heap_extra_B=0
+mem_stacks_B=3704
+heap_tree=empty
+#-----------
+snapshot=62
+#-----------
+time=228781289
+mem_heap_B=21417984
+mem_heap_extra_B=0
+mem_stacks_B=2376
+heap_tree=empty
+#-----------
+snapshot=63
+#-----------
+time=230954137
+mem_heap_B=21417984
+mem_heap_extra_B=0
+mem_stacks_B=3688
+heap_tree=empty
+#-----------
+snapshot=64
+#-----------
+time=233126975
+mem_heap_B=21417984
+mem_heap_extra_B=0
+mem_stacks_B=1856
+heap_tree=empty
+#-----------
+snapshot=65
+#-----------
+time=235299815
+mem_heap_B=21417984
+mem_heap_extra_B=0
+mem_stacks_B=2552
+heap_tree=empty
+#-----------
+snapshot=66
+#-----------
+time=237472655
+mem_heap_B=21417984
+mem_heap_extra_B=0
+mem_stacks_B=1224
+heap_tree=empty
+#-----------
+snapshot=67
+#-----------
+time=239645511
+mem_heap_B=21417984
+mem_heap_extra_B=0
+mem_stacks_B=2472
+heap_tree=empty
+#-----------
+snapshot=68
+#-----------
+time=241818347
+mem_heap_B=21417984
+mem_heap_extra_B=0
+mem_stacks_B=4728
+heap_tree=empty
+#-----------
+snapshot=69
+#-----------
+time=243991183
+mem_heap_B=21417984
+mem_heap_extra_B=0
+mem_stacks_B=3528
+heap_tree=detailed
+n7: 21417984 (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+ n1: 8392704 0x4A51A3D: syscall (syscall.S:38)
+  n1: 8392704 0x10E9CA: __safestack_init (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+   n1: 8392704 0x40065BD: _dl_init (dl-init.c:102)
+    n1: 8392704 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+     n1: 8392704 0x3: ???
+      n1: 8392704 0x1FFEFFFFB2: ???
+       n1: 8392704 0x1FFEFFFFD0: ???
+        n1: 8392704 0x1FFEFFFFF8: ???
+         n0: 8392704 0x1FFEFFFFFB: ???
+ n1: 6250496 0x4026CD7: __mmap64 (mmap64.c:58)
+  n3: 6250496 0x4026CD7: mmap (mmap64.c:46)
+   n1: 3227648 0x4008F1B: _dl_map_segment (dl-map-segments.h:29)
+    n1: 3227648 0x4008F1B: _dl_map_segments (dl-map-segments.h:102)
+     n1: 3227648 0x4008F1B: _dl_map_object_from_fd (dl-load.c:1258)
+      n2: 3227648 0x400A600: _dl_map_object (dl-load.c:2327)
+       n1: 3207168 0x4003494: openaux (dl-deps.c:64)
+        n1: 3207168 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+         n1: 3207168 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+          n1: 3207168 0x40233BF: dl_main (rtld.c:1970)
+           n1: 3207168 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+            n1: 3207168 0x40215B7: _dl_start_final (rtld.c:507)
+             n1: 3207168 0x40215B7: _dl_start (rtld.c:596)
+              n1: 3207168 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+               n1: 3207168 0x3: ???
+                n1: 3207168 0x1FFEFFFFB2: ???
+                 n1: 3207168 0x1FFEFFFFD0: ???
+                  n1: 3207168 0x1FFEFFFFF8: ???
+                   n0: 3207168 0x1FFEFFFFFB: ???
+       n0: 20480 in 1 place, below massif's threshold (1.00%)
+   n1: 2949120 0x4009098: _dl_map_segments (dl-map-segments.h:140)
+    n1: 2949120 0x4009098: _dl_map_object_from_fd (dl-load.c:1258)
+     n2: 2949120 0x400A600: _dl_map_object (dl-load.c:2327)
+      n1: 2932736 0x4003494: openaux (dl-deps.c:64)
+       n1: 2932736 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+        n1: 2932736 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+         n1: 2932736 0x40233BF: dl_main (rtld.c:1970)
+          n1: 2932736 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+           n1: 2932736 0x40215B7: _dl_start_final (rtld.c:507)
+            n1: 2932736 0x40215B7: _dl_start (rtld.c:596)
+             n1: 2932736 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+              n1: 2932736 0x3: ???
+               n1: 2932736 0x1FFEFFFFB2: ???
+                n1: 2932736 0x1FFEFFFFD0: ???
+                 n1: 2932736 0x1FFEFFFFF8: ???
+                  n0: 2932736 0x1FFEFFFFFB: ???
+      n0: 16384 in 1 place, below massif's threshold (1.00%)
+   n0: 73728 in 3 places, all below massif's threshold (1.00%)
+ n1: 3424256 0x4A51BD7: __mmap64 (mmap64.c:58)
+  n1: 3424256 0x4A51BD7: mmap (mmap64.c:46)
+   n1: 3424256 0x49D5537: sysmalloc_mmap.constprop.0 (malloc.c:2441)
+    n1: 3424256 0x49D630B: sysmalloc (malloc.c:2594)
+     n2: 3424256 0x49D795C: _int_malloc (malloc.c:4407)
+      n1: 3424256 0x49D82E1: malloc (malloc.c:3321)
+       n4: 3424256 0x1103C8: tcc_malloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 1576960 0x116FFE: tal_realloc_impl (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 1576960 0x1174E3: tok_str_add2 (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n1: 1576960 0x11A7A8: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+           n1: 1576960 0x11E5C7: macro_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+            n1: 1576960 0x11D9DE: macro_arg_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+             n1: 1576960 0x11AACD: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+              n1: 1576960 0x11E5C7: macro_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+               n1: 1576960 0x11B262: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                n1: 1576960 0x11E5C7: macro_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                 n1: 1576960 0x11B262: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                  n1: 1576960 0x11E5C7: macro_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                   n1: 1576960 0x11B262: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                    n1: 1576960 0x11537F: next (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                     n1: 1576960 0x130284: decl0 (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                      n1: 1576960 0x11EE20: tccgen_compile (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                       n1: 1576960 0x110F22: tcc_compile (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                        n1: 1576960 0x111FBF: tcc_add_file_internal (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                         n0: 1576960 0x10FCD9: main (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 790528 0x11B936: tccpp_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 790528 0x11121D: tcc_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n0: 790528 0x10FA2F: main (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 790528 0x11B969: tccpp_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 790528 0x11121D: tcc_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n0: 790528 0x10FA2F: main (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 266240 0x11B9A3: tccpp_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 266240 0x11121D: tcc_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n0: 266240 0x10FA2F: main (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 1581056 0x4A59B1F: mremap (mremap.c:37)
+  n1: 1581056 0x49D8A96: mremap_chunk (malloc.c:3097)
+   n1: 1581056 0x49D8A96: realloc (malloc.c:3457)
+    n2: 1581056 0x1104F8: tcc_realloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+     n2: 1052672 0x1339F6: section_realloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+      n1: 1052672 0x13D12B: gen_le32 (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+       n1: 1052672 0x1402B2: gfunc_call (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 1052672 0x126EC0: unary (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 1052672 0x12F92D: expr_shift (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n1: 1052672 0x12F839: expr_cmpeq (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+           n1: 1052672 0x12F7B5: expr_xor (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+            n1: 1052672 0x12F455: expr_land (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+             n1: 1052672 0x12E6BD: expr_cond (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+              n1: 1052672 0x12B665: expr_eq (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+               n1: 1052672 0x12B015: gexpr (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                n1: 1052672 0x128417: unary (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                 n1: 1052672 0x12F92D: expr_shift (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                  n1: 1052672 0x12F839: expr_cmpeq (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                   n1: 1052672 0x12F7B5: expr_xor (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                    n1: 1052672 0x12F470: expr_land (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                     n1: 1052672 0x12E6BD: expr_cond (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                      n1: 1052672 0x12B665: expr_eq (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                       n1: 1052672 0x12B015: gexpr (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                        n1: 1052672 0x128417: unary (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                         n1: 1052672 0x12F92D: expr_shift (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                          n1: 1052672 0x12F839: expr_cmpeq (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                           n1: 1052672 0x12F7B5: expr_xor (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                            n1: 1052672 0x12F455: expr_land (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                             n1: 1052672 0x12E6BD: expr_cond (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                              n1: 1052672 0x12B665: expr_eq (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                               n0: 1052672 0x12B015: gexpr (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+     n2: 528384 0x133FE6: put_elf_reloca (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+      n1: 528384 0x1450F1: gen_modrm_impl (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+       n1: 528384 0x13DE27: load (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 528384 0x1208E9: gv (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 528384 0x121DE1: gen_cast (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n1: 528384 0x1227B7: gen_op (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+           n1: 528384 0x122B0C: gen_op (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+            n1: 528384 0x126C96: unary (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+             n1: 528384 0x12F92D: expr_shift (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+              n1: 528384 0x12F839: expr_cmpeq (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+               n1: 528384 0x12F7B5: expr_xor (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                n1: 528384 0x12F455: expr_land (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                 n1: 528384 0x12E6BD: expr_cond (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                  n1: 528384 0x12B665: expr_eq (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                   n1: 528384 0x12B015: gexpr (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                    n1: 528384 0x12A793: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                     n1: 528384 0x12AF13: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                      n1: 528384 0x12A58D: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                       n1: 528384 0x12AF13: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                        n1: 528384 0x12A58D: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                         n1: 528384 0x12AF13: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                          n1: 528384 0x12A2CF: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                           n1: 528384 0x12AF13: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                            n1: 528384 0x12A516: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                             n1: 528384 0x12AF13: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                              n1: 528384 0x12A2CF: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                               n0: 528384 0x12AF13: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 1015808 0x4A4D9DB: brk (brk.c:36)
+  n1: 1015808 0x4A4DAA3: __sbrk (sbrk.c:74)
+   n1: 1015808 0x4A4DAA3: sbrk (sbrk.c:36)
+    n1: 1015808 0x49D5645: __glibc_morecore (morecore.c:29)
+     n1: 1015808 0x49D6678: sysmalloc (malloc.c:2727)
+      n3: 1015808 0x49D795C: _int_malloc (malloc.c:4407)
+       n1: 475136 0x49D7C09: _int_realloc (malloc.c:4878)
+        n1: 475136 0x49D8988: realloc (malloc.c:3485)
+         n2: 475136 0x1104F8: tcc_realloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n2: 335872 0x133FE6: put_elf_reloca (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+           n1: 319488 0x12336B: init_putv (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+            n1: 319488 0x13126D: decl_initializer (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+             n1: 319488 0x131736: decl_initializer (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+              n1: 319488 0x131736: decl_initializer (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+               n0: 319488 in 2 places, all below massif's threshold (1.00%)
+           n0: 16384 in 1 place, below massif's threshold (1.00%)
+          n0: 139264 in 1 place, below massif's threshold (1.00%)
+       n1: 274432 0x49D82E1: malloc (malloc.c:3321)
+        n1: 274432 0x1103C8: tcc_malloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 274432 0x129634: type_decl (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n1: 274432 0x12FD06: decl0 (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+           n0: 274432 in 2 places, all below massif's threshold (1.00%)
+       n0: 266240 in 2 places, all below massif's threshold (1.00%)
+ n0: 753664 0x0: ???
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=70
+#-----------
+time=246164014
+mem_heap_B=21417984
+mem_heap_extra_B=0
+mem_stacks_B=1368
+heap_tree=empty
+#-----------
+snapshot=71
+#-----------
+time=248336852
+mem_heap_B=21417984
+mem_heap_extra_B=0
+mem_stacks_B=1864
+heap_tree=empty
+#-----------
+snapshot=72
+#-----------
+time=250509689
+mem_heap_B=21417984
+mem_heap_extra_B=0
+mem_stacks_B=1912
+heap_tree=empty
+#-----------
+snapshot=73
+#-----------
+time=251903039
+mem_heap_B=22089728
+mem_heap_extra_B=0
+mem_stacks_B=2064
+heap_tree=peak
+n7: 22089728 (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+ n1: 8392704 0x4A51A3D: syscall (syscall.S:38)
+  n1: 8392704 0x10E9CA: __safestack_init (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+   n1: 8392704 0x40065BD: _dl_init (dl-init.c:102)
+    n1: 8392704 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+     n1: 8392704 0x3: ???
+      n1: 8392704 0x1FFEFFFFB2: ???
+       n1: 8392704 0x1FFEFFFFD0: ???
+        n1: 8392704 0x1FFEFFFFF8: ???
+         n0: 8392704 0x1FFEFFFFFB: ???
+ n1: 6250496 0x4026CD7: __mmap64 (mmap64.c:58)
+  n3: 6250496 0x4026CD7: mmap (mmap64.c:46)
+   n1: 3227648 0x4008F1B: _dl_map_segment (dl-map-segments.h:29)
+    n1: 3227648 0x4008F1B: _dl_map_segments (dl-map-segments.h:102)
+     n1: 3227648 0x4008F1B: _dl_map_object_from_fd (dl-load.c:1258)
+      n2: 3227648 0x400A600: _dl_map_object (dl-load.c:2327)
+       n1: 3207168 0x4003494: openaux (dl-deps.c:64)
+        n1: 3207168 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+         n1: 3207168 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+          n1: 3207168 0x40233BF: dl_main (rtld.c:1970)
+           n1: 3207168 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+            n1: 3207168 0x40215B7: _dl_start_final (rtld.c:507)
+             n1: 3207168 0x40215B7: _dl_start (rtld.c:596)
+              n1: 3207168 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+               n1: 3207168 0x3: ???
+                n1: 3207168 0x1FFEFFFFB2: ???
+                 n1: 3207168 0x1FFEFFFFD0: ???
+                  n1: 3207168 0x1FFEFFFFF8: ???
+                   n0: 3207168 0x1FFEFFFFFB: ???
+       n0: 20480 in 1 place, below massif's threshold (1.00%)
+   n1: 2949120 0x4009098: _dl_map_segments (dl-map-segments.h:140)
+    n1: 2949120 0x4009098: _dl_map_object_from_fd (dl-load.c:1258)
+     n2: 2949120 0x400A600: _dl_map_object (dl-load.c:2327)
+      n1: 2932736 0x4003494: openaux (dl-deps.c:64)
+       n1: 2932736 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+        n1: 2932736 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+         n1: 2932736 0x40233BF: dl_main (rtld.c:1970)
+          n1: 2932736 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+           n1: 2932736 0x40215B7: _dl_start_final (rtld.c:507)
+            n1: 2932736 0x40215B7: _dl_start (rtld.c:596)
+             n1: 2932736 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+              n1: 2932736 0x3: ???
+               n1: 2932736 0x1FFEFFFFB2: ???
+                n1: 2932736 0x1FFEFFFFD0: ???
+                 n1: 2932736 0x1FFEFFFFF8: ???
+                  n0: 2932736 0x1FFEFFFFFB: ???
+      n0: 16384 in 1 place, below massif's threshold (1.00%)
+   n0: 73728 in 3 places, all below massif's threshold (1.00%)
+ n1: 3424256 0x4A51BD7: __mmap64 (mmap64.c:58)
+  n1: 3424256 0x4A51BD7: mmap (mmap64.c:46)
+   n1: 3424256 0x49D5537: sysmalloc_mmap.constprop.0 (malloc.c:2441)
+    n1: 3424256 0x49D630B: sysmalloc (malloc.c:2594)
+     n2: 3424256 0x49D795C: _int_malloc (malloc.c:4407)
+      n1: 3424256 0x49D82E1: malloc (malloc.c:3321)
+       n4: 3424256 0x1103C8: tcc_malloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 1576960 0x116FFE: tal_realloc_impl (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 1576960 0x1174E3: tok_str_add2 (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n1: 1576960 0x11A7A8: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+           n1: 1576960 0x11E5C7: macro_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+            n1: 1576960 0x11D9DE: macro_arg_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+             n1: 1576960 0x11AACD: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+              n1: 1576960 0x11E5C7: macro_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+               n1: 1576960 0x11B262: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                n1: 1576960 0x11E5C7: macro_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                 n1: 1576960 0x11B262: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                  n1: 1576960 0x11E5C7: macro_subst (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                   n1: 1576960 0x11B262: macro_subst_tok (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                    n1: 1576960 0x11537F: next (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                     n1: 1576960 0x130284: decl0 (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                      n1: 1576960 0x11EE20: tccgen_compile (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                       n1: 1576960 0x110F22: tcc_compile (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                        n1: 1576960 0x111FBF: tcc_add_file_internal (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                         n0: 1576960 0x10FCD9: main (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 790528 0x11B936: tccpp_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 790528 0x11121D: tcc_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n0: 790528 0x10FA2F: main (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 790528 0x11B969: tccpp_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 790528 0x11121D: tcc_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n0: 790528 0x10FA2F: main (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 266240 0x11B9A3: tccpp_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 266240 0x11121D: tcc_new (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n0: 266240 0x10FA2F: main (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 2105344 0x4A59B1F: mremap (mremap.c:37)
+  n1: 2105344 0x49D8A96: mremap_chunk (malloc.c:3097)
+   n1: 2105344 0x49D8A96: realloc (malloc.c:3457)
+    n2: 2105344 0x1104F8: tcc_realloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+     n2: 1052672 0x1339F6: section_realloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+      n1: 1052672 0x13D12B: gen_le32 (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+       n1: 1052672 0x1402B2: gfunc_call (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 1052672 0x126EC0: unary (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 1052672 0x12F92D: expr_shift (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n1: 1052672 0x12F839: expr_cmpeq (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+           n1: 1052672 0x12F7B5: expr_xor (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+            n1: 1052672 0x12F455: expr_land (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+             n1: 1052672 0x12E6BD: expr_cond (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+              n1: 1052672 0x12B665: expr_eq (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+               n1: 1052672 0x12B015: gexpr (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                n1: 1052672 0x128417: unary (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                 n1: 1052672 0x12F92D: expr_shift (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                  n1: 1052672 0x12F839: expr_cmpeq (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                   n1: 1052672 0x12F7B5: expr_xor (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                    n1: 1052672 0x12F470: expr_land (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                     n1: 1052672 0x12E6BD: expr_cond (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                      n1: 1052672 0x12B665: expr_eq (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                       n1: 1052672 0x12B015: gexpr (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                        n1: 1052672 0x128417: unary (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                         n1: 1052672 0x12F92D: expr_shift (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                          n1: 1052672 0x12F839: expr_cmpeq (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                           n1: 1052672 0x12F7B5: expr_xor (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                            n1: 1052672 0x12F455: expr_land (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                             n1: 1052672 0x12E6BD: expr_cond (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                              n1: 1052672 0x12B665: expr_eq (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                               n0: 1052672 0x12B015: gexpr (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+     n2: 1052672 0x133FE6: put_elf_reloca (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+      n1: 1052672 0x1406EC: gcall_or_jmp (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+       n1: 1052672 0x1402B2: gfunc_call (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+        n1: 1052672 0x126EC0: unary (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 1052672 0x12F92D: expr_shift (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n1: 1052672 0x12F839: expr_cmpeq (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+           n1: 1052672 0x12F7B5: expr_xor (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+            n1: 1052672 0x12F455: expr_land (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+             n1: 1052672 0x12E6BD: expr_cond (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+              n1: 1052672 0x12B665: expr_eq (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+               n1: 1052672 0x12B015: gexpr (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                n1: 1052672 0x12A793: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                 n1: 1052672 0x12AF13: block (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                  n1: 1052672 0x130F8D: gen_function (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                   n1: 1052672 0x1303CD: decl0 (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                    n1: 1052672 0x11EE20: tccgen_compile (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                     n1: 1052672 0x110F22: tcc_compile (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                      n1: 1052672 0x111FBF: tcc_add_file_internal (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+                       n0: 1052672 0x10FCD9: main (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+      n0: 0 in 2 places, all below massif's threshold (1.00%)
+ n1: 1163264 0x4A4D9DB: brk (brk.c:36)
+  n1: 1163264 0x4A4DAA3: __sbrk (sbrk.c:74)
+   n1: 1163264 0x4A4DAA3: sbrk (sbrk.c:36)
+    n1: 1163264 0x49D5645: __glibc_morecore (morecore.c:29)
+     n1: 1163264 0x49D6678: sysmalloc (malloc.c:2727)
+      n3: 1163264 0x49D795C: _int_malloc (malloc.c:4407)
+       n1: 622592 0x49D7C09: _int_realloc (malloc.c:4878)
+        n1: 622592 0x49D8988: realloc (malloc.c:3485)
+         n2: 622592 0x1104F8: tcc_realloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n2: 335872 0x133FE6: put_elf_reloca (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+           n1: 319488 0x12336B: init_putv (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+            n1: 319488 0x13126D: decl_initializer (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+             n1: 319488 0x131736: decl_initializer (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+              n1: 319488 0x131736: decl_initializer (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+               n0: 319488 in 2 places, all below massif's threshold (1.00%)
+           n0: 16384 in 1 place, below massif's threshold (1.00%)
+          n0: 286720 in 2 places, all below massif's threshold (1.00%)
+       n1: 274432 0x49D82E1: malloc (malloc.c:3321)
+        n1: 274432 0x1103C8: tcc_malloc (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+         n1: 274432 0x129634: type_decl (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+          n1: 274432 0x12FD06: decl0 (in /home/livian/tcc_bench/generated/clang_tcc_safestack)
+           n0: 274432 in 2 places, all below massif's threshold (1.00%)
+       n0: 266240 in 2 places, all below massif's threshold (1.00%)
+ n0: 753664 0x0: ???
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=74
+#-----------
+time=254075916
+mem_heap_B=22089728
+mem_heap_extra_B=0
+mem_stacks_B=2424
+heap_tree=empty
+#-----------
+snapshot=75
+#-----------
+time=256248751
+mem_heap_B=22089728
+mem_heap_extra_B=0
+mem_stacks_B=2128
+heap_tree=empty
+#-----------
+snapshot=76
+#-----------
+time=258421624
+mem_heap_B=22089728
+mem_heap_extra_B=0
+mem_stacks_B=1272
+heap_tree=empty
+#-----------
+snapshot=77
+#-----------
+time=260594472
+mem_heap_B=22089728
+mem_heap_extra_B=0
+mem_stacks_B=1208
+heap_tree=empty
+#-----------
+snapshot=78
+#-----------
+time=262767303
+mem_heap_B=22089728
+mem_heap_extra_B=0
+mem_stacks_B=2152
+heap_tree=empty
+#-----------
+snapshot=79
+#-----------
+time=264940164
+mem_heap_B=22089728
+mem_heap_extra_B=0
+mem_stacks_B=1752
+heap_tree=empty
+#-----------
+snapshot=80
+#-----------
+time=267364680
+mem_heap_B=22220800
+mem_heap_extra_B=0
+mem_stacks_B=616
+heap_tree=empty

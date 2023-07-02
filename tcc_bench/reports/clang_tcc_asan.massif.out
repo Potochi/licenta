@@ -1,0 +1,1974 @@
+desc: --stacks=yes --pages-as-heap=yes --massif-out-file=./reports/clang_tcc_asan.massif.out
+cmd: generated/clang_tcc_asan -I/home/livian/tcc_bench/tinycc/include -c testfiles/speedbench.c
+time_unit: i
+#-----------
+snapshot=0
+#-----------
+time=0
+mem_heap_B=212992
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=1
+#-----------
+time=71622
+mem_heap_B=18833408
+mem_heap_extra_B=0
+mem_stacks_B=1360
+heap_tree=empty
+#-----------
+snapshot=2
+#-----------
+time=160527
+mem_heap_B=18833408
+mem_heap_extra_B=0
+mem_stacks_B=1368
+heap_tree=empty
+#-----------
+snapshot=3
+#-----------
+time=287428
+mem_heap_B=18825216
+mem_heap_extra_B=0
+mem_stacks_B=648
+heap_tree=empty
+#-----------
+snapshot=4
+#-----------
+time=377746
+mem_heap_B=18841600
+mem_heap_extra_B=0
+mem_stacks_B=4440
+heap_tree=empty
+#-----------
+snapshot=5
+#-----------
+time=449073
+mem_heap_B=18841600
+mem_heap_extra_B=0
+mem_stacks_B=4440
+heap_tree=empty
+#-----------
+snapshot=6
+#-----------
+time=548463
+mem_heap_B=22560768
+mem_heap_extra_B=0
+mem_stacks_B=1176
+heap_tree=detailed
+n4: 22560768 (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+ n0: 12300288 0x0: ???
+ n1: 6496256 0x4026CD7: __mmap64 (mmap64.c:58)
+  n3: 6496256 0x4026CD7: mmap (mmap64.c:46)
+   n1: 3358720 0x4008F1B: _dl_map_segment (dl-map-segments.h:29)
+    n1: 3358720 0x4008F1B: _dl_map_segments (dl-map-segments.h:102)
+     n1: 3358720 0x4008F1B: _dl_map_object_from_fd (dl-load.c:1258)
+      n2: 3358720 0x400A600: _dl_map_object (dl-load.c:2327)
+       n1: 3338240 0x4003494: openaux (dl-deps.c:64)
+        n1: 3338240 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+         n1: 3338240 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+          n1: 3338240 0x40233BF: dl_main (rtld.c:1970)
+           n1: 3338240 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+            n1: 3338240 0x40215B7: _dl_start_final (rtld.c:507)
+             n1: 3338240 0x40215B7: _dl_start (rtld.c:596)
+              n1: 3338240 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+               n1: 3338240 0x3: ???
+                n1: 3338240 0x1FFEFFFFBE: ???
+                 n1: 3338240 0x1FFEFFFFD7: ???
+                  n1: 3338240 0x1FFEFFFFFF: ???
+                   n0: 3338240 0x1FFF000002: ???
+       n0: 20480 in 1 place, below massif's threshold (1.00%)
+   n1: 3067904 0x4009098: _dl_map_segments (dl-map-segments.h:140)
+    n1: 3067904 0x4009098: _dl_map_object_from_fd (dl-load.c:1258)
+     n2: 3067904 0x400A600: _dl_map_object (dl-load.c:2327)
+      n1: 3051520 0x4003494: openaux (dl-deps.c:64)
+       n1: 3051520 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+        n1: 3051520 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+         n1: 3051520 0x40233BF: dl_main (rtld.c:1970)
+          n1: 3051520 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+           n1: 3051520 0x40215B7: _dl_start_final (rtld.c:507)
+            n1: 3051520 0x40215B7: _dl_start (rtld.c:596)
+             n1: 3051520 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+              n1: 3051520 0x3: ???
+               n1: 3051520 0x1FFEFFFFBE: ???
+                n1: 3051520 0x1FFEFFFFD7: ???
+                 n1: 3051520 0x1FFEFFFFFF: ???
+                  n0: 3051520 0x1FFF000002: ???
+      n0: 16384 in 1 place, below massif's threshold (1.00%)
+   n0: 69632 in 3 places, all below massif's threshold (1.00%)
+ n1: 3764224 0x1D8471: __sanitizer::internal_mmap(void*, unsigned long, int, int, int, unsigned long long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+  n2: 3764224 0x1D9CC8: __sanitizer::MmapOrDie(unsigned long, char const*, bool) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+   n1: 3727360 0x1AB637: InitializeCommonInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+    n1: 3727360 0x1AAEB9: __asan::InitializeAsanInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+     n1: 3727360 0x1C8687: __asan::AsanInitInternal() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+      n1: 3727360 0x40065BD: _dl_init (dl-init.c:102)
+       n1: 3727360 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+        n1: 3727360 0x3: ???
+         n1: 3727360 0x1FFEFFFFBE: ???
+          n1: 3727360 0x1FFEFFFFD7: ???
+           n1: 3727360 0x1FFEFFFFFF: ???
+            n0: 3727360 0x1FFF000002: ???
+   n0: 36864 in 2 places, all below massif's threshold (1.00%)
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=7
+#-----------
+time=589383
+mem_heap_B=22560768
+mem_heap_extra_B=0
+mem_stacks_B=1352
+heap_tree=empty
+#-----------
+snapshot=8
+#-----------
+time=950099
+mem_heap_B=22560768
+mem_heap_extra_B=0
+mem_stacks_B=1424
+heap_tree=empty
+#-----------
+snapshot=9
+#-----------
+time=1312479
+mem_heap_B=22560768
+mem_heap_extra_B=0
+mem_stacks_B=1424
+heap_tree=empty
+#-----------
+snapshot=10
+#-----------
+time=1386605
+mem_heap_B=24662016
+mem_heap_extra_B=0
+mem_stacks_B=2088
+heap_tree=empty
+#-----------
+snapshot=11
+#-----------
+time=1456878
+mem_heap_B=24662016
+mem_heap_extra_B=0
+mem_stacks_B=2088
+heap_tree=empty
+#-----------
+snapshot=12
+#-----------
+time=1526958
+mem_heap_B=24662016
+mem_heap_extra_B=0
+mem_stacks_B=2088
+heap_tree=empty
+#-----------
+snapshot=13
+#-----------
+time=1597231
+mem_heap_B=24662016
+mem_heap_extra_B=0
+mem_stacks_B=2088
+heap_tree=empty
+#-----------
+snapshot=14
+#-----------
+time=1704437
+mem_heap_B=25714688
+mem_heap_extra_B=0
+mem_stacks_B=1160
+heap_tree=empty
+#-----------
+snapshot=15
+#-----------
+time=1774710
+mem_heap_B=25714688
+mem_heap_extra_B=0
+mem_stacks_B=1160
+heap_tree=empty
+#-----------
+snapshot=16
+#-----------
+time=1880023
+mem_heap_B=25714688
+mem_heap_extra_B=0
+mem_stacks_B=1160
+heap_tree=empty
+#-----------
+snapshot=17
+#-----------
+time=1985336
+mem_heap_B=25714688
+mem_heap_extra_B=0
+mem_stacks_B=1160
+heap_tree=detailed
+n4: 25714688 (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+ n0: 12300288 0x0: ???
+ n2: 6918144 0x1D8471: __sanitizer::internal_mmap(void*, unsigned long, int, int, int, unsigned long long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+  n2: 3772416 0x1D9CC8: __sanitizer::MmapOrDie(unsigned long, char const*, bool) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+   n1: 3727360 0x1AB637: InitializeCommonInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+    n1: 3727360 0x1AAEB9: __asan::InitializeAsanInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+     n1: 3727360 0x1C8687: __asan::AsanInitInternal() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+      n1: 3727360 0x40065BD: _dl_init (dl-init.c:102)
+       n1: 3727360 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+        n1: 3727360 0x3: ???
+         n1: 3727360 0x1FFEFFFFBE: ???
+          n1: 3727360 0x1FFEFFFFD7: ???
+           n1: 3727360 0x1FFEFFFFFF: ???
+            n0: 3727360 0x1FFF000002: ???
+   n0: 45056 in 4 places, all below massif's threshold (1.00%)
+  n1: 3145728 0x1D9E7D: __sanitizer::MmapOrDieOnFatalError(unsigned long, char const*) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+   n1: 3145728 0x1D9F29: __sanitizer::MmapAlignedOrDieOnFatalError(unsigned long, unsigned long, char const*) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+    n1: 3145728 0x1CE729: __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::PopulateFreeList(__sanitizer::AllocatorStats*, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::SizeClassInfo*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+     n1: 3145728 0x1CE64B: __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::AllocateBatch(__sanitizer::AllocatorStats*, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+      n2: 3145728 0x1CE324: __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >::Refill(__sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >::PerClass*, __sanitizer::SizeClassAllocator32<__sanitizer::AP32>*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+       n1: 2097152 0x1CE01A: __sanitizer::CombinedAllocator<__sanitizer::SizeClassAllocator32<__sanitizer::AP32>, __sanitizer::LargeMmapAllocatorPtrArrayStatic>::Allocate(__sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+        n1: 2097152 0x1CD89B: __sanitizer::InternalAlloc(unsigned long, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+         n2: 2097152 0x1BF32F: __sanitizer::DlSymAllocator<DlsymAlloc>::Allocate(unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+          n1: 1048576 0x4004CC9: malloc (rtld-malloc.h:56)
+           n1: 1048576 0x4004CC9: _dl_exception_create_format (dl-exception.c:157)
+            n1: 1048576 0x400C3DB: _dl_lookup_symbol_x (dl-lookup.c:877)
+             n1: 1048576 0x4AC8AE3: do_sym (dl-sym.c:146)
+              n1: 1048576 0x4AC8AE3: _dl_sym (dl-sym.c:195)
+               n1: 1048576 0x49E37B7: dlsym_doit (dlsym.c:40)
+                n1: 1048576 0x4AC7C27: _dl_catch_exception (dl-error-skeleton.c:208)
+                 n1: 1048576 0x4AC7CF2: _dl_catch_error (dl-error-skeleton.c:227)
+                  n1: 1048576 0x49E31AD: _dlerror_run (dlerror.c:138)
+                   n1: 1048576 0x49E3833: dlsym_implementation (dlsym.c:54)
+                    n1: 1048576 0x49E3833: dlsym@@GLIBC_2.34 (dlsym.c:68)
+                     n1: 1048576 0x1CD6B3: __interception::InterceptFunction(char const*, unsigned long*, unsigned long, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                      n1: 1048576 0x1ACCE7: InitializeCommonInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                       n1: 1048576 0x1AAEB9: __asan::InitializeAsanInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                        n1: 1048576 0x1C8687: __asan::AsanInitInternal() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                         n1: 1048576 0x40065BD: _dl_init (dl-init.c:102)
+                          n1: 1048576 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+                           n1: 1048576 0x3: ???
+                            n1: 1048576 0x1FFEFFFFBE: ???
+                             n1: 1048576 0x1FFEFFFFD7: ???
+                              n1: 1048576 0x1FFEFFFFFF: ???
+                               n0: 1048576 0x1FFF000002: ???
+          n1: 1048576 0x49E31DA: _dlerror_run (dlerror.c:168)
+           n1: 1048576 0x49E3833: dlsym_implementation (dlsym.c:54)
+            n1: 1048576 0x49E3833: dlsym@@GLIBC_2.34 (dlsym.c:68)
+             n1: 1048576 0x1CD6B3: __interception::InterceptFunction(char const*, unsigned long*, unsigned long, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+              n1: 1048576 0x1ACCE7: InitializeCommonInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+               n1: 1048576 0x1AAEB9: __asan::InitializeAsanInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                n1: 1048576 0x1C8687: __asan::AsanInitInternal() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                 n1: 1048576 0x40065BD: _dl_init (dl-init.c:102)
+                  n1: 1048576 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+                   n1: 1048576 0x3: ???
+                    n1: 1048576 0x1FFEFFFFBE: ???
+                     n1: 1048576 0x1FFEFFFFD7: ???
+                      n1: 1048576 0x1FFEFFFFFF: ???
+                       n0: 1048576 0x1FFF000002: ???
+       n1: 1048576 0x1CED10: __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::PopulateFreeList(__sanitizer::AllocatorStats*, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::SizeClassInfo*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+        n1: 1048576 0x1CE64B: __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::AllocateBatch(__sanitizer::AllocatorStats*, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+         n1: 1048576 0x1CE324: __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >::Refill(__sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >::PerClass*, __sanitizer::SizeClassAllocator32<__sanitizer::AP32>*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+          n1: 1048576 0x1CE01A: __sanitizer::CombinedAllocator<__sanitizer::SizeClassAllocator32<__sanitizer::AP32>, __sanitizer::LargeMmapAllocatorPtrArrayStatic>::Allocate(__sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+           n1: 1048576 0x1CD89B: __sanitizer::InternalAlloc(unsigned long, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+            n1: 1048576 0x1BF32F: __sanitizer::DlSymAllocator<DlsymAlloc>::Allocate(unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+             n1: 1048576 0x4004CC9: malloc (rtld-malloc.h:56)
+              n1: 1048576 0x4004CC9: _dl_exception_create_format (dl-exception.c:157)
+               n1: 1048576 0x400C3DB: _dl_lookup_symbol_x (dl-lookup.c:877)
+                n1: 1048576 0x4AC8AE3: do_sym (dl-sym.c:146)
+                 n1: 1048576 0x4AC8AE3: _dl_sym (dl-sym.c:195)
+                  n1: 1048576 0x49E37B7: dlsym_doit (dlsym.c:40)
+                   n1: 1048576 0x4AC7C27: _dl_catch_exception (dl-error-skeleton.c:208)
+                    n1: 1048576 0x4AC7CF2: _dl_catch_error (dl-error-skeleton.c:227)
+                     n1: 1048576 0x49E31AD: _dlerror_run (dlerror.c:138)
+                      n1: 1048576 0x49E3833: dlsym_implementation (dlsym.c:54)
+                       n1: 1048576 0x49E3833: dlsym@@GLIBC_2.34 (dlsym.c:68)
+                        n1: 1048576 0x1CD6B3: __interception::InterceptFunction(char const*, unsigned long*, unsigned long, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                         n1: 1048576 0x1ACCE7: InitializeCommonInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                          n1: 1048576 0x1AAEB9: __asan::InitializeAsanInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                           n1: 1048576 0x1C8687: __asan::AsanInitInternal() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                            n1: 1048576 0x40065BD: _dl_init (dl-init.c:102)
+                             n1: 1048576 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+                              n1: 1048576 0x3: ???
+                               n1: 1048576 0x1FFEFFFFBE: ???
+                                n1: 1048576 0x1FFEFFFFD7: ???
+                                 n0: 1048576 0x1FFEFFFFFF: ???
+ n1: 6496256 0x4026CD7: __mmap64 (mmap64.c:58)
+  n3: 6496256 0x4026CD7: mmap (mmap64.c:46)
+   n1: 3358720 0x4008F1B: _dl_map_segment (dl-map-segments.h:29)
+    n1: 3358720 0x4008F1B: _dl_map_segments (dl-map-segments.h:102)
+     n1: 3358720 0x4008F1B: _dl_map_object_from_fd (dl-load.c:1258)
+      n2: 3358720 0x400A600: _dl_map_object (dl-load.c:2327)
+       n1: 3338240 0x4003494: openaux (dl-deps.c:64)
+        n1: 3338240 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+         n1: 3338240 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+          n1: 3338240 0x40233BF: dl_main (rtld.c:1970)
+           n1: 3338240 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+            n1: 3338240 0x40215B7: _dl_start_final (rtld.c:507)
+             n1: 3338240 0x40215B7: _dl_start (rtld.c:596)
+              n1: 3338240 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+               n1: 3338240 0x3: ???
+                n1: 3338240 0x1FFEFFFFBE: ???
+                 n1: 3338240 0x1FFEFFFFD7: ???
+                  n1: 3338240 0x1FFEFFFFFF: ???
+                   n0: 3338240 0x1FFF000002: ???
+       n0: 20480 in 1 place, below massif's threshold (1.00%)
+   n1: 3067904 0x4009098: _dl_map_segments (dl-map-segments.h:140)
+    n1: 3067904 0x4009098: _dl_map_object_from_fd (dl-load.c:1258)
+     n2: 3067904 0x400A600: _dl_map_object (dl-load.c:2327)
+      n1: 3051520 0x4003494: openaux (dl-deps.c:64)
+       n1: 3051520 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+        n1: 3051520 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+         n1: 3051520 0x40233BF: dl_main (rtld.c:1970)
+          n1: 3051520 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+           n1: 3051520 0x40215B7: _dl_start_final (rtld.c:507)
+            n1: 3051520 0x40215B7: _dl_start (rtld.c:596)
+             n1: 3051520 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+              n1: 3051520 0x3: ???
+               n1: 3051520 0x1FFEFFFFBE: ???
+                n1: 3051520 0x1FFEFFFFD7: ???
+                 n1: 3051520 0x1FFEFFFFFF: ???
+                  n0: 3051520 0x1FFF000002: ???
+      n0: 16384 in 1 place, below massif's threshold (1.00%)
+   n0: 69632 in 3 places, all below massif's threshold (1.00%)
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=18
+#-----------
+time=2090649
+mem_heap_B=25714688
+mem_heap_extra_B=0
+mem_stacks_B=1160
+heap_tree=empty
+#-----------
+snapshot=19
+#-----------
+time=2160729
+mem_heap_B=25714688
+mem_heap_extra_B=0
+mem_stacks_B=1160
+heap_tree=empty
+#-----------
+snapshot=20
+#-----------
+time=2254394
+mem_heap_B=25714688
+mem_heap_extra_B=0
+mem_stacks_B=2584
+heap_tree=empty
+#-----------
+snapshot=21
+#-----------
+time=2334623
+mem_heap_B=25714688
+mem_heap_extra_B=0
+mem_stacks_B=184
+heap_tree=empty
+#-----------
+snapshot=22
+#-----------
+time=2444225
+mem_heap_B=25714688
+mem_heap_extra_B=0
+mem_stacks_B=176
+heap_tree=empty
+#-----------
+snapshot=23
+#-----------
+time=2550412
+mem_heap_B=27811840
+mem_heap_extra_B=0
+mem_stacks_B=2224
+heap_tree=peak
+n4: 27811840 (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+ n0: 12300288 0x0: ???
+ n2: 9015296 0x1D8471: __sanitizer::internal_mmap(void*, unsigned long, int, int, int, unsigned long long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+  n1: 5242880 0x1D9E7D: __sanitizer::MmapOrDieOnFatalError(unsigned long, char const*) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+   n1: 5242880 0x1D9F29: __sanitizer::MmapAlignedOrDieOnFatalError(unsigned long, unsigned long, char const*) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+    n1: 5242880 0x1CE729: __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::PopulateFreeList(__sanitizer::AllocatorStats*, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::SizeClassInfo*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+     n1: 5242880 0x1CE64B: __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::AllocateBatch(__sanitizer::AllocatorStats*, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+      n2: 5242880 0x1CE324: __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >::Refill(__sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >::PerClass*, __sanitizer::SizeClassAllocator32<__sanitizer::AP32>*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+       n1: 4194304 0x1CE01A: __sanitizer::CombinedAllocator<__sanitizer::SizeClassAllocator32<__sanitizer::AP32>, __sanitizer::LargeMmapAllocatorPtrArrayStatic>::Allocate(__sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+        n1: 4194304 0x1CD89B: __sanitizer::InternalAlloc(unsigned long, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+         n2: 4194304 0x1BF32F: __sanitizer::DlSymAllocator<DlsymAlloc>::Allocate(unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+          n1: 3145728 0x4004CC9: malloc (rtld-malloc.h:56)
+           n1: 3145728 0x4004CC9: _dl_exception_create_format (dl-exception.c:157)
+            n1: 3145728 0x400C3DB: _dl_lookup_symbol_x (dl-lookup.c:877)
+             n1: 3145728 0x4AC8AE3: do_sym (dl-sym.c:146)
+              n1: 3145728 0x4AC8AE3: _dl_sym (dl-sym.c:195)
+               n1: 3145728 0x49E37B7: dlsym_doit (dlsym.c:40)
+                n1: 3145728 0x4AC7C27: _dl_catch_exception (dl-error-skeleton.c:208)
+                 n1: 3145728 0x4AC7CF2: _dl_catch_error (dl-error-skeleton.c:227)
+                  n1: 3145728 0x49E31AD: _dlerror_run (dlerror.c:138)
+                   n1: 3145728 0x49E3833: dlsym_implementation (dlsym.c:54)
+                    n1: 3145728 0x49E3833: dlsym@@GLIBC_2.34 (dlsym.c:68)
+                     n2: 3145728 0x1CD6B3: __interception::InterceptFunction(char const*, unsigned long*, unsigned long, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                      n1: 2097152 0x1AF9F5: InitializeCommonInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                       n1: 2097152 0x1AAEB9: __asan::InitializeAsanInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                        n1: 2097152 0x1C8687: __asan::AsanInitInternal() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                         n1: 2097152 0x40065BD: _dl_init (dl-init.c:102)
+                          n1: 2097152 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+                           n1: 2097152 0x3: ???
+                            n1: 2097152 0x1FFEFFFFBE: ???
+                             n1: 2097152 0x1FFEFFFFD7: ???
+                              n1: 2097152 0x1FFEFFFFFF: ???
+                               n0: 2097152 0x1FFF000002: ???
+                      n1: 1048576 0x1ACCE7: InitializeCommonInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                       n1: 1048576 0x1AAEB9: __asan::InitializeAsanInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                        n1: 1048576 0x1C8687: __asan::AsanInitInternal() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                         n1: 1048576 0x40065BD: _dl_init (dl-init.c:102)
+                          n1: 1048576 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+                           n1: 1048576 0x3: ???
+                            n1: 1048576 0x1FFEFFFFBE: ???
+                             n1: 1048576 0x1FFEFFFFD7: ???
+                              n1: 1048576 0x1FFEFFFFFF: ???
+                               n0: 1048576 0x1FFF000002: ???
+          n1: 1048576 0x49E31DA: _dlerror_run (dlerror.c:168)
+           n1: 1048576 0x49E3833: dlsym_implementation (dlsym.c:54)
+            n1: 1048576 0x49E3833: dlsym@@GLIBC_2.34 (dlsym.c:68)
+             n1: 1048576 0x1CD6B3: __interception::InterceptFunction(char const*, unsigned long*, unsigned long, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+              n1: 1048576 0x1ACCE7: InitializeCommonInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+               n1: 1048576 0x1AAEB9: __asan::InitializeAsanInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                n1: 1048576 0x1C8687: __asan::AsanInitInternal() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                 n1: 1048576 0x40065BD: _dl_init (dl-init.c:102)
+                  n1: 1048576 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+                   n1: 1048576 0x3: ???
+                    n1: 1048576 0x1FFEFFFFBE: ???
+                     n1: 1048576 0x1FFEFFFFD7: ???
+                      n1: 1048576 0x1FFEFFFFFF: ???
+                       n0: 1048576 0x1FFF000002: ???
+       n1: 1048576 0x1CED10: __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::PopulateFreeList(__sanitizer::AllocatorStats*, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::SizeClassInfo*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+        n1: 1048576 0x1CE64B: __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::AllocateBatch(__sanitizer::AllocatorStats*, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+         n1: 1048576 0x1CE324: __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >::Refill(__sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >::PerClass*, __sanitizer::SizeClassAllocator32<__sanitizer::AP32>*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+          n1: 1048576 0x1CE01A: __sanitizer::CombinedAllocator<__sanitizer::SizeClassAllocator32<__sanitizer::AP32>, __sanitizer::LargeMmapAllocatorPtrArrayStatic>::Allocate(__sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+           n1: 1048576 0x1CD89B: __sanitizer::InternalAlloc(unsigned long, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+            n1: 1048576 0x1BF32F: __sanitizer::DlSymAllocator<DlsymAlloc>::Allocate(unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+             n1: 1048576 0x4004CC9: malloc (rtld-malloc.h:56)
+              n1: 1048576 0x4004CC9: _dl_exception_create_format (dl-exception.c:157)
+               n1: 1048576 0x400C3DB: _dl_lookup_symbol_x (dl-lookup.c:877)
+                n1: 1048576 0x4AC8AE3: do_sym (dl-sym.c:146)
+                 n1: 1048576 0x4AC8AE3: _dl_sym (dl-sym.c:195)
+                  n1: 1048576 0x49E37B7: dlsym_doit (dlsym.c:40)
+                   n1: 1048576 0x4AC7C27: _dl_catch_exception (dl-error-skeleton.c:208)
+                    n1: 1048576 0x4AC7CF2: _dl_catch_error (dl-error-skeleton.c:227)
+                     n1: 1048576 0x49E31AD: _dlerror_run (dlerror.c:138)
+                      n1: 1048576 0x49E3833: dlsym_implementation (dlsym.c:54)
+                       n1: 1048576 0x49E3833: dlsym@@GLIBC_2.34 (dlsym.c:68)
+                        n1: 1048576 0x1CD6B3: __interception::InterceptFunction(char const*, unsigned long*, unsigned long, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                         n1: 1048576 0x1ACCE7: InitializeCommonInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                          n1: 1048576 0x1AAEB9: __asan::InitializeAsanInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                           n1: 1048576 0x1C8687: __asan::AsanInitInternal() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                            n1: 1048576 0x40065BD: _dl_init (dl-init.c:102)
+                             n1: 1048576 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+                              n1: 1048576 0x3: ???
+                               n1: 1048576 0x1FFEFFFFBE: ???
+                                n1: 1048576 0x1FFEFFFFD7: ???
+                                 n0: 1048576 0x1FFEFFFFFF: ???
+  n2: 3772416 0x1D9CC8: __sanitizer::MmapOrDie(unsigned long, char const*, bool) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+   n1: 3727360 0x1AB637: InitializeCommonInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+    n1: 3727360 0x1AAEB9: __asan::InitializeAsanInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+     n1: 3727360 0x1C8687: __asan::AsanInitInternal() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+      n1: 3727360 0x40065BD: _dl_init (dl-init.c:102)
+       n1: 3727360 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+        n1: 3727360 0x3: ???
+         n1: 3727360 0x1FFEFFFFBE: ???
+          n1: 3727360 0x1FFEFFFFD7: ???
+           n1: 3727360 0x1FFEFFFFFF: ???
+            n0: 3727360 0x1FFF000002: ???
+   n0: 45056 in 4 places, all below massif's threshold (1.00%)
+ n1: 6496256 0x4026CD7: __mmap64 (mmap64.c:58)
+  n3: 6496256 0x4026CD7: mmap (mmap64.c:46)
+   n1: 3358720 0x4008F1B: _dl_map_segment (dl-map-segments.h:29)
+    n1: 3358720 0x4008F1B: _dl_map_segments (dl-map-segments.h:102)
+     n1: 3358720 0x4008F1B: _dl_map_object_from_fd (dl-load.c:1258)
+      n2: 3358720 0x400A600: _dl_map_object (dl-load.c:2327)
+       n1: 3338240 0x4003494: openaux (dl-deps.c:64)
+        n1: 3338240 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+         n1: 3338240 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+          n1: 3338240 0x40233BF: dl_main (rtld.c:1970)
+           n1: 3338240 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+            n1: 3338240 0x40215B7: _dl_start_final (rtld.c:507)
+             n1: 3338240 0x40215B7: _dl_start (rtld.c:596)
+              n1: 3338240 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+               n1: 3338240 0x3: ???
+                n1: 3338240 0x1FFEFFFFBE: ???
+                 n1: 3338240 0x1FFEFFFFD7: ???
+                  n1: 3338240 0x1FFEFFFFFF: ???
+                   n0: 3338240 0x1FFF000002: ???
+       n0: 20480 in 1 place, below massif's threshold (1.00%)
+   n1: 3067904 0x4009098: _dl_map_segments (dl-map-segments.h:140)
+    n1: 3067904 0x4009098: _dl_map_object_from_fd (dl-load.c:1258)
+     n2: 3067904 0x400A600: _dl_map_object (dl-load.c:2327)
+      n1: 3051520 0x4003494: openaux (dl-deps.c:64)
+       n1: 3051520 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+        n1: 3051520 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+         n1: 3051520 0x40233BF: dl_main (rtld.c:1970)
+          n1: 3051520 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+           n1: 3051520 0x40215B7: _dl_start_final (rtld.c:507)
+            n1: 3051520 0x40215B7: _dl_start (rtld.c:596)
+             n1: 3051520 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+              n1: 3051520 0x3: ???
+               n1: 3051520 0x1FFEFFFFBE: ???
+                n1: 3051520 0x1FFEFFFFD7: ???
+                 n1: 3051520 0x1FFEFFFFFF: ???
+                  n0: 3051520 0x1FFF000002: ???
+      n0: 16384 in 1 place, below massif's threshold (1.00%)
+   n0: 69632 in 3 places, all below massif's threshold (1.00%)
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=24
+#-----------
+time=2629703
+mem_heap_B=26763264
+mem_heap_extra_B=0
+mem_stacks_B=2088
+heap_tree=empty
+#-----------
+snapshot=25
+#-----------
+time=2699783
+mem_heap_B=26763264
+mem_heap_extra_B=0
+mem_stacks_B=2088
+heap_tree=empty
+#-----------
+snapshot=26
+#-----------
+time=2770056
+mem_heap_B=26763264
+mem_heap_extra_B=0
+mem_stacks_B=2088
+heap_tree=empty
+#-----------
+snapshot=27
+#-----------
+time=2861443
+mem_heap_B=26763264
+mem_heap_extra_B=0
+mem_stacks_B=1432
+heap_tree=detailed
+n4: 26763264 (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+ n0: 12300288 0x0: ???
+ n2: 7966720 0x1D8471: __sanitizer::internal_mmap(void*, unsigned long, int, int, int, unsigned long long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+  n1: 4194304 0x1D9E7D: __sanitizer::MmapOrDieOnFatalError(unsigned long, char const*) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+   n1: 4194304 0x1D9F29: __sanitizer::MmapAlignedOrDieOnFatalError(unsigned long, unsigned long, char const*) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+    n1: 4194304 0x1CE729: __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::PopulateFreeList(__sanitizer::AllocatorStats*, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::SizeClassInfo*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+     n1: 4194304 0x1CE64B: __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::AllocateBatch(__sanitizer::AllocatorStats*, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+      n2: 4194304 0x1CE324: __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >::Refill(__sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >::PerClass*, __sanitizer::SizeClassAllocator32<__sanitizer::AP32>*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+       n1: 3145728 0x1CE01A: __sanitizer::CombinedAllocator<__sanitizer::SizeClassAllocator32<__sanitizer::AP32>, __sanitizer::LargeMmapAllocatorPtrArrayStatic>::Allocate(__sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+        n1: 3145728 0x1CD89B: __sanitizer::InternalAlloc(unsigned long, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+         n2: 3145728 0x1BF32F: __sanitizer::DlSymAllocator<DlsymAlloc>::Allocate(unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+          n1: 2097152 0x4004CC9: malloc (rtld-malloc.h:56)
+           n1: 2097152 0x4004CC9: _dl_exception_create_format (dl-exception.c:157)
+            n1: 2097152 0x400C3DB: _dl_lookup_symbol_x (dl-lookup.c:877)
+             n1: 2097152 0x4AC8AE3: do_sym (dl-sym.c:146)
+              n1: 2097152 0x4AC8AE3: _dl_sym (dl-sym.c:195)
+               n1: 2097152 0x49E37B7: dlsym_doit (dlsym.c:40)
+                n1: 2097152 0x4AC7C27: _dl_catch_exception (dl-error-skeleton.c:208)
+                 n1: 2097152 0x4AC7CF2: _dl_catch_error (dl-error-skeleton.c:227)
+                  n1: 2097152 0x49E31AD: _dlerror_run (dlerror.c:138)
+                   n1: 2097152 0x49E3833: dlsym_implementation (dlsym.c:54)
+                    n1: 2097152 0x49E3833: dlsym@@GLIBC_2.34 (dlsym.c:68)
+                     n2: 2097152 0x1CD6B3: __interception::InterceptFunction(char const*, unsigned long*, unsigned long, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                      n1: 1048576 0x1ACCE7: InitializeCommonInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                       n1: 1048576 0x1AAEB9: __asan::InitializeAsanInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                        n1: 1048576 0x1C8687: __asan::AsanInitInternal() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                         n1: 1048576 0x40065BD: _dl_init (dl-init.c:102)
+                          n1: 1048576 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+                           n1: 1048576 0x3: ???
+                            n1: 1048576 0x1FFEFFFFBE: ???
+                             n1: 1048576 0x1FFEFFFFD7: ???
+                              n1: 1048576 0x1FFEFFFFFF: ???
+                               n0: 1048576 0x1FFF000002: ???
+                      n1: 1048576 0x1AF9F5: InitializeCommonInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                       n1: 1048576 0x1AAEB9: __asan::InitializeAsanInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                        n1: 1048576 0x1C8687: __asan::AsanInitInternal() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                         n1: 1048576 0x40065BD: _dl_init (dl-init.c:102)
+                          n1: 1048576 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+                           n1: 1048576 0x3: ???
+                            n1: 1048576 0x1FFEFFFFBE: ???
+                             n1: 1048576 0x1FFEFFFFD7: ???
+                              n1: 1048576 0x1FFEFFFFFF: ???
+                               n0: 1048576 0x1FFF000002: ???
+          n1: 1048576 0x49E31DA: _dlerror_run (dlerror.c:168)
+           n1: 1048576 0x49E3833: dlsym_implementation (dlsym.c:54)
+            n1: 1048576 0x49E3833: dlsym@@GLIBC_2.34 (dlsym.c:68)
+             n1: 1048576 0x1CD6B3: __interception::InterceptFunction(char const*, unsigned long*, unsigned long, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+              n1: 1048576 0x1ACCE7: InitializeCommonInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+               n1: 1048576 0x1AAEB9: __asan::InitializeAsanInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                n1: 1048576 0x1C8687: __asan::AsanInitInternal() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                 n1: 1048576 0x40065BD: _dl_init (dl-init.c:102)
+                  n1: 1048576 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+                   n1: 1048576 0x3: ???
+                    n1: 1048576 0x1FFEFFFFBE: ???
+                     n1: 1048576 0x1FFEFFFFD7: ???
+                      n1: 1048576 0x1FFEFFFFFF: ???
+                       n0: 1048576 0x1FFF000002: ???
+       n1: 1048576 0x1CED10: __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::PopulateFreeList(__sanitizer::AllocatorStats*, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::SizeClassInfo*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+        n1: 1048576 0x1CE64B: __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::AllocateBatch(__sanitizer::AllocatorStats*, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+         n1: 1048576 0x1CE324: __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >::Refill(__sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >::PerClass*, __sanitizer::SizeClassAllocator32<__sanitizer::AP32>*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+          n1: 1048576 0x1CE01A: __sanitizer::CombinedAllocator<__sanitizer::SizeClassAllocator32<__sanitizer::AP32>, __sanitizer::LargeMmapAllocatorPtrArrayStatic>::Allocate(__sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+           n1: 1048576 0x1CD89B: __sanitizer::InternalAlloc(unsigned long, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+            n1: 1048576 0x1BF32F: __sanitizer::DlSymAllocator<DlsymAlloc>::Allocate(unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+             n1: 1048576 0x4004CC9: malloc (rtld-malloc.h:56)
+              n1: 1048576 0x4004CC9: _dl_exception_create_format (dl-exception.c:157)
+               n1: 1048576 0x400C3DB: _dl_lookup_symbol_x (dl-lookup.c:877)
+                n1: 1048576 0x4AC8AE3: do_sym (dl-sym.c:146)
+                 n1: 1048576 0x4AC8AE3: _dl_sym (dl-sym.c:195)
+                  n1: 1048576 0x49E37B7: dlsym_doit (dlsym.c:40)
+                   n1: 1048576 0x4AC7C27: _dl_catch_exception (dl-error-skeleton.c:208)
+                    n1: 1048576 0x4AC7CF2: _dl_catch_error (dl-error-skeleton.c:227)
+                     n1: 1048576 0x49E31AD: _dlerror_run (dlerror.c:138)
+                      n1: 1048576 0x49E3833: dlsym_implementation (dlsym.c:54)
+                       n1: 1048576 0x49E3833: dlsym@@GLIBC_2.34 (dlsym.c:68)
+                        n1: 1048576 0x1CD6B3: __interception::InterceptFunction(char const*, unsigned long*, unsigned long, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                         n1: 1048576 0x1ACCE7: InitializeCommonInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                          n1: 1048576 0x1AAEB9: __asan::InitializeAsanInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                           n1: 1048576 0x1C8687: __asan::AsanInitInternal() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                            n1: 1048576 0x40065BD: _dl_init (dl-init.c:102)
+                             n1: 1048576 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+                              n1: 1048576 0x3: ???
+                               n1: 1048576 0x1FFEFFFFBE: ???
+                                n1: 1048576 0x1FFEFFFFD7: ???
+                                 n0: 1048576 0x1FFEFFFFFF: ???
+  n2: 3772416 0x1D9CC8: __sanitizer::MmapOrDie(unsigned long, char const*, bool) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+   n1: 3727360 0x1AB637: InitializeCommonInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+    n1: 3727360 0x1AAEB9: __asan::InitializeAsanInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+     n1: 3727360 0x1C8687: __asan::AsanInitInternal() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+      n1: 3727360 0x40065BD: _dl_init (dl-init.c:102)
+       n1: 3727360 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+        n1: 3727360 0x3: ???
+         n1: 3727360 0x1FFEFFFFBE: ???
+          n1: 3727360 0x1FFEFFFFD7: ???
+           n1: 3727360 0x1FFEFFFFFF: ???
+            n0: 3727360 0x1FFF000002: ???
+   n0: 45056 in 4 places, all below massif's threshold (1.00%)
+ n1: 6496256 0x4026CD7: __mmap64 (mmap64.c:58)
+  n3: 6496256 0x4026CD7: mmap (mmap64.c:46)
+   n1: 3358720 0x4008F1B: _dl_map_segment (dl-map-segments.h:29)
+    n1: 3358720 0x4008F1B: _dl_map_segments (dl-map-segments.h:102)
+     n1: 3358720 0x4008F1B: _dl_map_object_from_fd (dl-load.c:1258)
+      n2: 3358720 0x400A600: _dl_map_object (dl-load.c:2327)
+       n1: 3338240 0x4003494: openaux (dl-deps.c:64)
+        n1: 3338240 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+         n1: 3338240 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+          n1: 3338240 0x40233BF: dl_main (rtld.c:1970)
+           n1: 3338240 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+            n1: 3338240 0x40215B7: _dl_start_final (rtld.c:507)
+             n1: 3338240 0x40215B7: _dl_start (rtld.c:596)
+              n1: 3338240 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+               n1: 3338240 0x3: ???
+                n1: 3338240 0x1FFEFFFFBE: ???
+                 n1: 3338240 0x1FFEFFFFD7: ???
+                  n1: 3338240 0x1FFEFFFFFF: ???
+                   n0: 3338240 0x1FFF000002: ???
+       n0: 20480 in 1 place, below massif's threshold (1.00%)
+   n1: 3067904 0x4009098: _dl_map_segments (dl-map-segments.h:140)
+    n1: 3067904 0x4009098: _dl_map_object_from_fd (dl-load.c:1258)
+     n2: 3067904 0x400A600: _dl_map_object (dl-load.c:2327)
+      n1: 3051520 0x4003494: openaux (dl-deps.c:64)
+       n1: 3051520 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+        n1: 3051520 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+         n1: 3051520 0x40233BF: dl_main (rtld.c:1970)
+          n1: 3051520 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+           n1: 3051520 0x40215B7: _dl_start_final (rtld.c:507)
+            n1: 3051520 0x40215B7: _dl_start (rtld.c:596)
+             n1: 3051520 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+              n1: 3051520 0x3: ???
+               n1: 3051520 0x1FFEFFFFBE: ???
+                n1: 3051520 0x1FFEFFFFD7: ???
+                 n1: 3051520 0x1FFEFFFFFF: ???
+                  n0: 3051520 0x1FFF000002: ???
+      n0: 16384 in 1 place, below massif's threshold (1.00%)
+   n0: 69632 in 3 places, all below massif's threshold (1.00%)
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=28
+#-----------
+time=2952835
+mem_heap_B=26767360
+mem_heap_extra_B=0
+mem_stacks_B=1528
+heap_tree=empty
+#-----------
+snapshot=29
+#-----------
+time=3021308
+mem_heap_B=26767360
+mem_heap_extra_B=0
+mem_stacks_B=1400
+heap_tree=empty
+#-----------
+snapshot=30
+#-----------
+time=3135371
+mem_heap_B=26775552
+mem_heap_extra_B=0
+mem_stacks_B=424
+heap_tree=empty
+#-----------
+snapshot=31
+#-----------
+time=3181017
+mem_heap_B=26767360
+mem_heap_extra_B=0
+mem_stacks_B=976
+heap_tree=empty
+#-----------
+snapshot=32
+#-----------
+time=3273664
+mem_heap_B=26832896
+mem_heap_extra_B=0
+mem_stacks_B=1024
+heap_tree=empty
+#-----------
+snapshot=33
+#-----------
+time=3368239
+mem_heap_B=26832896
+mem_heap_extra_B=0
+mem_stacks_B=1024
+heap_tree=empty
+#-----------
+snapshot=34
+#-----------
+time=3461321
+mem_heap_B=26832896
+mem_heap_extra_B=0
+mem_stacks_B=1040
+heap_tree=empty
+#-----------
+snapshot=35
+#-----------
+time=3574705
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1200
+heap_tree=empty
+#-----------
+snapshot=36
+#-----------
+time=3669952
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1200
+heap_tree=detailed
+n4: 26845184 (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+ n0: 12300288 0x0: ???
+ n2: 8048640 0x1D8471: __sanitizer::internal_mmap(void*, unsigned long, int, int, int, unsigned long long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+  n1: 4194304 0x1D9E7D: __sanitizer::MmapOrDieOnFatalError(unsigned long, char const*) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+   n1: 4194304 0x1D9F29: __sanitizer::MmapAlignedOrDieOnFatalError(unsigned long, unsigned long, char const*) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+    n1: 4194304 0x1CE729: __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::PopulateFreeList(__sanitizer::AllocatorStats*, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::SizeClassInfo*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+     n1: 4194304 0x1CE64B: __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::AllocateBatch(__sanitizer::AllocatorStats*, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+      n2: 4194304 0x1CE324: __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >::Refill(__sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >::PerClass*, __sanitizer::SizeClassAllocator32<__sanitizer::AP32>*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+       n1: 3145728 0x1CE01A: __sanitizer::CombinedAllocator<__sanitizer::SizeClassAllocator32<__sanitizer::AP32>, __sanitizer::LargeMmapAllocatorPtrArrayStatic>::Allocate(__sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+        n1: 3145728 0x1CD89B: __sanitizer::InternalAlloc(unsigned long, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+         n2: 3145728 0x1BF32F: __sanitizer::DlSymAllocator<DlsymAlloc>::Allocate(unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+          n1: 2097152 0x4004CC9: malloc (rtld-malloc.h:56)
+           n1: 2097152 0x4004CC9: _dl_exception_create_format (dl-exception.c:157)
+            n1: 2097152 0x400C3DB: _dl_lookup_symbol_x (dl-lookup.c:877)
+             n1: 2097152 0x4AC8AE3: do_sym (dl-sym.c:146)
+              n1: 2097152 0x4AC8AE3: _dl_sym (dl-sym.c:195)
+               n1: 2097152 0x49E37B7: dlsym_doit (dlsym.c:40)
+                n1: 2097152 0x4AC7C27: _dl_catch_exception (dl-error-skeleton.c:208)
+                 n1: 2097152 0x4AC7CF2: _dl_catch_error (dl-error-skeleton.c:227)
+                  n1: 2097152 0x49E31AD: _dlerror_run (dlerror.c:138)
+                   n1: 2097152 0x49E3833: dlsym_implementation (dlsym.c:54)
+                    n1: 2097152 0x49E3833: dlsym@@GLIBC_2.34 (dlsym.c:68)
+                     n2: 2097152 0x1CD6B3: __interception::InterceptFunction(char const*, unsigned long*, unsigned long, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                      n1: 1048576 0x1ACCE7: InitializeCommonInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                       n1: 1048576 0x1AAEB9: __asan::InitializeAsanInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                        n1: 1048576 0x1C8687: __asan::AsanInitInternal() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                         n1: 1048576 0x40065BD: _dl_init (dl-init.c:102)
+                          n1: 1048576 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+                           n1: 1048576 0x3: ???
+                            n1: 1048576 0x1FFEFFFFBE: ???
+                             n1: 1048576 0x1FFEFFFFD7: ???
+                              n1: 1048576 0x1FFEFFFFFF: ???
+                               n0: 1048576 0x1FFF000002: ???
+                      n1: 1048576 0x1AF9F5: InitializeCommonInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                       n1: 1048576 0x1AAEB9: __asan::InitializeAsanInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                        n1: 1048576 0x1C8687: __asan::AsanInitInternal() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                         n1: 1048576 0x40065BD: _dl_init (dl-init.c:102)
+                          n1: 1048576 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+                           n1: 1048576 0x3: ???
+                            n1: 1048576 0x1FFEFFFFBE: ???
+                             n1: 1048576 0x1FFEFFFFD7: ???
+                              n1: 1048576 0x1FFEFFFFFF: ???
+                               n0: 1048576 0x1FFF000002: ???
+          n1: 1048576 0x49E31DA: _dlerror_run (dlerror.c:168)
+           n1: 1048576 0x49E3833: dlsym_implementation (dlsym.c:54)
+            n1: 1048576 0x49E3833: dlsym@@GLIBC_2.34 (dlsym.c:68)
+             n1: 1048576 0x1CD6B3: __interception::InterceptFunction(char const*, unsigned long*, unsigned long, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+              n1: 1048576 0x1ACCE7: InitializeCommonInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+               n1: 1048576 0x1AAEB9: __asan::InitializeAsanInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                n1: 1048576 0x1C8687: __asan::AsanInitInternal() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                 n1: 1048576 0x40065BD: _dl_init (dl-init.c:102)
+                  n1: 1048576 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+                   n1: 1048576 0x3: ???
+                    n1: 1048576 0x1FFEFFFFBE: ???
+                     n1: 1048576 0x1FFEFFFFD7: ???
+                      n1: 1048576 0x1FFEFFFFFF: ???
+                       n0: 1048576 0x1FFF000002: ???
+       n1: 1048576 0x1CED10: __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::PopulateFreeList(__sanitizer::AllocatorStats*, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::SizeClassInfo*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+        n1: 1048576 0x1CE64B: __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::AllocateBatch(__sanitizer::AllocatorStats*, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+         n1: 1048576 0x1CE324: __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >::Refill(__sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >::PerClass*, __sanitizer::SizeClassAllocator32<__sanitizer::AP32>*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+          n1: 1048576 0x1CE01A: __sanitizer::CombinedAllocator<__sanitizer::SizeClassAllocator32<__sanitizer::AP32>, __sanitizer::LargeMmapAllocatorPtrArrayStatic>::Allocate(__sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+           n1: 1048576 0x1CD89B: __sanitizer::InternalAlloc(unsigned long, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+            n1: 1048576 0x1BF32F: __sanitizer::DlSymAllocator<DlsymAlloc>::Allocate(unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+             n1: 1048576 0x4004CC9: malloc (rtld-malloc.h:56)
+              n1: 1048576 0x4004CC9: _dl_exception_create_format (dl-exception.c:157)
+               n1: 1048576 0x400C3DB: _dl_lookup_symbol_x (dl-lookup.c:877)
+                n1: 1048576 0x4AC8AE3: do_sym (dl-sym.c:146)
+                 n1: 1048576 0x4AC8AE3: _dl_sym (dl-sym.c:195)
+                  n1: 1048576 0x49E37B7: dlsym_doit (dlsym.c:40)
+                   n1: 1048576 0x4AC7C27: _dl_catch_exception (dl-error-skeleton.c:208)
+                    n1: 1048576 0x4AC7CF2: _dl_catch_error (dl-error-skeleton.c:227)
+                     n1: 1048576 0x49E31AD: _dlerror_run (dlerror.c:138)
+                      n1: 1048576 0x49E3833: dlsym_implementation (dlsym.c:54)
+                       n1: 1048576 0x49E3833: dlsym@@GLIBC_2.34 (dlsym.c:68)
+                        n1: 1048576 0x1CD6B3: __interception::InterceptFunction(char const*, unsigned long*, unsigned long, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                         n1: 1048576 0x1ACCE7: InitializeCommonInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                          n1: 1048576 0x1AAEB9: __asan::InitializeAsanInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                           n1: 1048576 0x1C8687: __asan::AsanInitInternal() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                            n1: 1048576 0x40065BD: _dl_init (dl-init.c:102)
+                             n1: 1048576 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+                              n1: 1048576 0x3: ???
+                               n1: 1048576 0x1FFEFFFFBE: ???
+                                n1: 1048576 0x1FFEFFFFD7: ???
+                                 n0: 1048576 0x1FFEFFFFFF: ???
+  n2: 3854336 0x1D9CC8: __sanitizer::MmapOrDie(unsigned long, char const*, bool) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+   n1: 3727360 0x1AB637: InitializeCommonInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+    n1: 3727360 0x1AAEB9: __asan::InitializeAsanInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+     n1: 3727360 0x1C8687: __asan::AsanInitInternal() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+      n1: 3727360 0x40065BD: _dl_init (dl-init.c:102)
+       n1: 3727360 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+        n1: 3727360 0x3: ???
+         n1: 3727360 0x1FFEFFFFBE: ???
+          n1: 3727360 0x1FFEFFFFD7: ???
+           n1: 3727360 0x1FFEFFFFFF: ???
+            n0: 3727360 0x1FFF000002: ???
+   n0: 126976 in 7 places, all below massif's threshold (1.00%)
+ n1: 6496256 0x4026CD7: __mmap64 (mmap64.c:58)
+  n3: 6496256 0x4026CD7: mmap (mmap64.c:46)
+   n1: 3358720 0x4008F1B: _dl_map_segment (dl-map-segments.h:29)
+    n1: 3358720 0x4008F1B: _dl_map_segments (dl-map-segments.h:102)
+     n1: 3358720 0x4008F1B: _dl_map_object_from_fd (dl-load.c:1258)
+      n2: 3358720 0x400A600: _dl_map_object (dl-load.c:2327)
+       n1: 3338240 0x4003494: openaux (dl-deps.c:64)
+        n1: 3338240 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+         n1: 3338240 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+          n1: 3338240 0x40233BF: dl_main (rtld.c:1970)
+           n1: 3338240 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+            n1: 3338240 0x40215B7: _dl_start_final (rtld.c:507)
+             n1: 3338240 0x40215B7: _dl_start (rtld.c:596)
+              n1: 3338240 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+               n1: 3338240 0x3: ???
+                n1: 3338240 0x1FFEFFFFBE: ???
+                 n1: 3338240 0x1FFEFFFFD7: ???
+                  n1: 3338240 0x1FFEFFFFFF: ???
+                   n0: 3338240 0x1FFF000002: ???
+       n0: 20480 in 1 place, below massif's threshold (1.00%)
+   n1: 3067904 0x4009098: _dl_map_segments (dl-map-segments.h:140)
+    n1: 3067904 0x4009098: _dl_map_object_from_fd (dl-load.c:1258)
+     n2: 3067904 0x400A600: _dl_map_object (dl-load.c:2327)
+      n1: 3051520 0x4003494: openaux (dl-deps.c:64)
+       n1: 3051520 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+        n1: 3051520 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+         n1: 3051520 0x40233BF: dl_main (rtld.c:1970)
+          n1: 3051520 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+           n1: 3051520 0x40215B7: _dl_start_final (rtld.c:507)
+            n1: 3051520 0x40215B7: _dl_start (rtld.c:596)
+             n1: 3051520 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+              n1: 3051520 0x3: ???
+               n1: 3051520 0x1FFEFFFFBE: ???
+                n1: 3051520 0x1FFEFFFFD7: ???
+                 n1: 3051520 0x1FFEFFFFFF: ???
+                  n0: 3051520 0x1FFF000002: ???
+      n0: 16384 in 1 place, below massif's threshold (1.00%)
+   n0: 69632 in 3 places, all below massif's threshold (1.00%)
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=37
+#-----------
+time=3765093
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1200
+heap_tree=empty
+#-----------
+snapshot=38
+#-----------
+time=3860130
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1200
+heap_tree=empty
+#-----------
+snapshot=39
+#-----------
+time=3955061
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1200
+heap_tree=empty
+#-----------
+snapshot=40
+#-----------
+time=4001230
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1144
+heap_tree=empty
+#-----------
+snapshot=41
+#-----------
+time=4090962
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1200
+heap_tree=empty
+#-----------
+snapshot=42
+#-----------
+time=4185538
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1200
+heap_tree=empty
+#-----------
+snapshot=43
+#-----------
+time=4280012
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1200
+heap_tree=empty
+#-----------
+snapshot=44
+#-----------
+time=4371808
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1200
+heap_tree=empty
+#-----------
+snapshot=45
+#-----------
+time=4466112
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1200
+heap_tree=detailed
+n4: 26845184 (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+ n0: 12300288 0x0: ???
+ n2: 8048640 0x1D8471: __sanitizer::internal_mmap(void*, unsigned long, int, int, int, unsigned long long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+  n1: 4194304 0x1D9E7D: __sanitizer::MmapOrDieOnFatalError(unsigned long, char const*) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+   n1: 4194304 0x1D9F29: __sanitizer::MmapAlignedOrDieOnFatalError(unsigned long, unsigned long, char const*) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+    n1: 4194304 0x1CE729: __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::PopulateFreeList(__sanitizer::AllocatorStats*, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::SizeClassInfo*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+     n1: 4194304 0x1CE64B: __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::AllocateBatch(__sanitizer::AllocatorStats*, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+      n2: 4194304 0x1CE324: __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >::Refill(__sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >::PerClass*, __sanitizer::SizeClassAllocator32<__sanitizer::AP32>*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+       n1: 3145728 0x1CE01A: __sanitizer::CombinedAllocator<__sanitizer::SizeClassAllocator32<__sanitizer::AP32>, __sanitizer::LargeMmapAllocatorPtrArrayStatic>::Allocate(__sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+        n1: 3145728 0x1CD89B: __sanitizer::InternalAlloc(unsigned long, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+         n2: 3145728 0x1BF32F: __sanitizer::DlSymAllocator<DlsymAlloc>::Allocate(unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+          n1: 2097152 0x4004CC9: malloc (rtld-malloc.h:56)
+           n1: 2097152 0x4004CC9: _dl_exception_create_format (dl-exception.c:157)
+            n1: 2097152 0x400C3DB: _dl_lookup_symbol_x (dl-lookup.c:877)
+             n1: 2097152 0x4AC8AE3: do_sym (dl-sym.c:146)
+              n1: 2097152 0x4AC8AE3: _dl_sym (dl-sym.c:195)
+               n1: 2097152 0x49E37B7: dlsym_doit (dlsym.c:40)
+                n1: 2097152 0x4AC7C27: _dl_catch_exception (dl-error-skeleton.c:208)
+                 n1: 2097152 0x4AC7CF2: _dl_catch_error (dl-error-skeleton.c:227)
+                  n1: 2097152 0x49E31AD: _dlerror_run (dlerror.c:138)
+                   n1: 2097152 0x49E3833: dlsym_implementation (dlsym.c:54)
+                    n1: 2097152 0x49E3833: dlsym@@GLIBC_2.34 (dlsym.c:68)
+                     n2: 2097152 0x1CD6B3: __interception::InterceptFunction(char const*, unsigned long*, unsigned long, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                      n1: 1048576 0x1ACCE7: InitializeCommonInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                       n1: 1048576 0x1AAEB9: __asan::InitializeAsanInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                        n1: 1048576 0x1C8687: __asan::AsanInitInternal() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                         n1: 1048576 0x40065BD: _dl_init (dl-init.c:102)
+                          n1: 1048576 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+                           n1: 1048576 0x3: ???
+                            n1: 1048576 0x1FFEFFFFBE: ???
+                             n1: 1048576 0x1FFEFFFFD7: ???
+                              n1: 1048576 0x1FFEFFFFFF: ???
+                               n0: 1048576 0x1FFF000002: ???
+                      n1: 1048576 0x1AF9F5: InitializeCommonInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                       n1: 1048576 0x1AAEB9: __asan::InitializeAsanInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                        n1: 1048576 0x1C8687: __asan::AsanInitInternal() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                         n1: 1048576 0x40065BD: _dl_init (dl-init.c:102)
+                          n1: 1048576 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+                           n1: 1048576 0x3: ???
+                            n1: 1048576 0x1FFEFFFFBE: ???
+                             n1: 1048576 0x1FFEFFFFD7: ???
+                              n1: 1048576 0x1FFEFFFFFF: ???
+                               n0: 1048576 0x1FFF000002: ???
+          n1: 1048576 0x49E31DA: _dlerror_run (dlerror.c:168)
+           n1: 1048576 0x49E3833: dlsym_implementation (dlsym.c:54)
+            n1: 1048576 0x49E3833: dlsym@@GLIBC_2.34 (dlsym.c:68)
+             n1: 1048576 0x1CD6B3: __interception::InterceptFunction(char const*, unsigned long*, unsigned long, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+              n1: 1048576 0x1ACCE7: InitializeCommonInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+               n1: 1048576 0x1AAEB9: __asan::InitializeAsanInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                n1: 1048576 0x1C8687: __asan::AsanInitInternal() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                 n1: 1048576 0x40065BD: _dl_init (dl-init.c:102)
+                  n1: 1048576 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+                   n1: 1048576 0x3: ???
+                    n1: 1048576 0x1FFEFFFFBE: ???
+                     n1: 1048576 0x1FFEFFFFD7: ???
+                      n1: 1048576 0x1FFEFFFFFF: ???
+                       n0: 1048576 0x1FFF000002: ???
+       n1: 1048576 0x1CED10: __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::PopulateFreeList(__sanitizer::AllocatorStats*, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::SizeClassInfo*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+        n1: 1048576 0x1CE64B: __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::AllocateBatch(__sanitizer::AllocatorStats*, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+         n1: 1048576 0x1CE324: __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >::Refill(__sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >::PerClass*, __sanitizer::SizeClassAllocator32<__sanitizer::AP32>*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+          n1: 1048576 0x1CE01A: __sanitizer::CombinedAllocator<__sanitizer::SizeClassAllocator32<__sanitizer::AP32>, __sanitizer::LargeMmapAllocatorPtrArrayStatic>::Allocate(__sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+           n1: 1048576 0x1CD89B: __sanitizer::InternalAlloc(unsigned long, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+            n1: 1048576 0x1BF32F: __sanitizer::DlSymAllocator<DlsymAlloc>::Allocate(unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+             n1: 1048576 0x4004CC9: malloc (rtld-malloc.h:56)
+              n1: 1048576 0x4004CC9: _dl_exception_create_format (dl-exception.c:157)
+               n1: 1048576 0x400C3DB: _dl_lookup_symbol_x (dl-lookup.c:877)
+                n1: 1048576 0x4AC8AE3: do_sym (dl-sym.c:146)
+                 n1: 1048576 0x4AC8AE3: _dl_sym (dl-sym.c:195)
+                  n1: 1048576 0x49E37B7: dlsym_doit (dlsym.c:40)
+                   n1: 1048576 0x4AC7C27: _dl_catch_exception (dl-error-skeleton.c:208)
+                    n1: 1048576 0x4AC7CF2: _dl_catch_error (dl-error-skeleton.c:227)
+                     n1: 1048576 0x49E31AD: _dlerror_run (dlerror.c:138)
+                      n1: 1048576 0x49E3833: dlsym_implementation (dlsym.c:54)
+                       n1: 1048576 0x49E3833: dlsym@@GLIBC_2.34 (dlsym.c:68)
+                        n1: 1048576 0x1CD6B3: __interception::InterceptFunction(char const*, unsigned long*, unsigned long, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                         n1: 1048576 0x1ACCE7: InitializeCommonInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                          n1: 1048576 0x1AAEB9: __asan::InitializeAsanInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                           n1: 1048576 0x1C8687: __asan::AsanInitInternal() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                            n1: 1048576 0x40065BD: _dl_init (dl-init.c:102)
+                             n1: 1048576 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+                              n1: 1048576 0x3: ???
+                               n1: 1048576 0x1FFEFFFFBE: ???
+                                n1: 1048576 0x1FFEFFFFD7: ???
+                                 n0: 1048576 0x1FFEFFFFFF: ???
+  n2: 3854336 0x1D9CC8: __sanitizer::MmapOrDie(unsigned long, char const*, bool) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+   n1: 3727360 0x1AB637: InitializeCommonInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+    n1: 3727360 0x1AAEB9: __asan::InitializeAsanInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+     n1: 3727360 0x1C8687: __asan::AsanInitInternal() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+      n1: 3727360 0x40065BD: _dl_init (dl-init.c:102)
+       n1: 3727360 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+        n1: 3727360 0x3: ???
+         n1: 3727360 0x1FFEFFFFBE: ???
+          n1: 3727360 0x1FFEFFFFD7: ???
+           n1: 3727360 0x1FFEFFFFFF: ???
+            n0: 3727360 0x1FFF000002: ???
+   n0: 126976 in 7 places, all below massif's threshold (1.00%)
+ n1: 6496256 0x4026CD7: __mmap64 (mmap64.c:58)
+  n3: 6496256 0x4026CD7: mmap (mmap64.c:46)
+   n1: 3358720 0x4008F1B: _dl_map_segment (dl-map-segments.h:29)
+    n1: 3358720 0x4008F1B: _dl_map_segments (dl-map-segments.h:102)
+     n1: 3358720 0x4008F1B: _dl_map_object_from_fd (dl-load.c:1258)
+      n2: 3358720 0x400A600: _dl_map_object (dl-load.c:2327)
+       n1: 3338240 0x4003494: openaux (dl-deps.c:64)
+        n1: 3338240 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+         n1: 3338240 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+          n1: 3338240 0x40233BF: dl_main (rtld.c:1970)
+           n1: 3338240 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+            n1: 3338240 0x40215B7: _dl_start_final (rtld.c:507)
+             n1: 3338240 0x40215B7: _dl_start (rtld.c:596)
+              n1: 3338240 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+               n1: 3338240 0x3: ???
+                n1: 3338240 0x1FFEFFFFBE: ???
+                 n1: 3338240 0x1FFEFFFFD7: ???
+                  n1: 3338240 0x1FFEFFFFFF: ???
+                   n0: 3338240 0x1FFF000002: ???
+       n0: 20480 in 1 place, below massif's threshold (1.00%)
+   n1: 3067904 0x4009098: _dl_map_segments (dl-map-segments.h:140)
+    n1: 3067904 0x4009098: _dl_map_object_from_fd (dl-load.c:1258)
+     n2: 3067904 0x400A600: _dl_map_object (dl-load.c:2327)
+      n1: 3051520 0x4003494: openaux (dl-deps.c:64)
+       n1: 3051520 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+        n1: 3051520 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+         n1: 3051520 0x40233BF: dl_main (rtld.c:1970)
+          n1: 3051520 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+           n1: 3051520 0x40215B7: _dl_start_final (rtld.c:507)
+            n1: 3051520 0x40215B7: _dl_start (rtld.c:596)
+             n1: 3051520 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+              n1: 3051520 0x3: ???
+               n1: 3051520 0x1FFEFFFFBE: ???
+                n1: 3051520 0x1FFEFFFFD7: ???
+                 n1: 3051520 0x1FFEFFFFFF: ???
+                  n0: 3051520 0x1FFF000002: ???
+      n0: 16384 in 1 place, below massif's threshold (1.00%)
+   n0: 69632 in 3 places, all below massif's threshold (1.00%)
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=46
+#-----------
+time=4560319
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1200
+heap_tree=empty
+#-----------
+snapshot=47
+#-----------
+time=4651852
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1200
+heap_tree=empty
+#-----------
+snapshot=48
+#-----------
+time=4743339
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1200
+heap_tree=empty
+#-----------
+snapshot=49
+#-----------
+time=4837611
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1200
+heap_tree=empty
+#-----------
+snapshot=50
+#-----------
+time=4931761
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1200
+heap_tree=empty
+#-----------
+snapshot=51
+#-----------
+time=5025785
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1200
+heap_tree=empty
+#-----------
+snapshot=52
+#-----------
+time=5119708
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1200
+heap_tree=empty
+#-----------
+snapshot=53
+#-----------
+time=5213512
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1200
+heap_tree=empty
+#-----------
+snapshot=54
+#-----------
+time=5304385
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1200
+heap_tree=empty
+#-----------
+snapshot=55
+#-----------
+time=5397261
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1200
+heap_tree=detailed
+n4: 26845184 (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+ n0: 12300288 0x0: ???
+ n2: 8048640 0x1D8471: __sanitizer::internal_mmap(void*, unsigned long, int, int, int, unsigned long long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+  n1: 4194304 0x1D9E7D: __sanitizer::MmapOrDieOnFatalError(unsigned long, char const*) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+   n1: 4194304 0x1D9F29: __sanitizer::MmapAlignedOrDieOnFatalError(unsigned long, unsigned long, char const*) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+    n1: 4194304 0x1CE729: __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::PopulateFreeList(__sanitizer::AllocatorStats*, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::SizeClassInfo*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+     n1: 4194304 0x1CE64B: __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::AllocateBatch(__sanitizer::AllocatorStats*, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+      n2: 4194304 0x1CE324: __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >::Refill(__sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >::PerClass*, __sanitizer::SizeClassAllocator32<__sanitizer::AP32>*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+       n1: 3145728 0x1CE01A: __sanitizer::CombinedAllocator<__sanitizer::SizeClassAllocator32<__sanitizer::AP32>, __sanitizer::LargeMmapAllocatorPtrArrayStatic>::Allocate(__sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+        n1: 3145728 0x1CD89B: __sanitizer::InternalAlloc(unsigned long, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+         n2: 3145728 0x1BF32F: __sanitizer::DlSymAllocator<DlsymAlloc>::Allocate(unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+          n1: 2097152 0x4004CC9: malloc (rtld-malloc.h:56)
+           n1: 2097152 0x4004CC9: _dl_exception_create_format (dl-exception.c:157)
+            n1: 2097152 0x400C3DB: _dl_lookup_symbol_x (dl-lookup.c:877)
+             n1: 2097152 0x4AC8AE3: do_sym (dl-sym.c:146)
+              n1: 2097152 0x4AC8AE3: _dl_sym (dl-sym.c:195)
+               n1: 2097152 0x49E37B7: dlsym_doit (dlsym.c:40)
+                n1: 2097152 0x4AC7C27: _dl_catch_exception (dl-error-skeleton.c:208)
+                 n1: 2097152 0x4AC7CF2: _dl_catch_error (dl-error-skeleton.c:227)
+                  n1: 2097152 0x49E31AD: _dlerror_run (dlerror.c:138)
+                   n1: 2097152 0x49E3833: dlsym_implementation (dlsym.c:54)
+                    n1: 2097152 0x49E3833: dlsym@@GLIBC_2.34 (dlsym.c:68)
+                     n2: 2097152 0x1CD6B3: __interception::InterceptFunction(char const*, unsigned long*, unsigned long, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                      n1: 1048576 0x1ACCE7: InitializeCommonInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                       n1: 1048576 0x1AAEB9: __asan::InitializeAsanInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                        n1: 1048576 0x1C8687: __asan::AsanInitInternal() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                         n1: 1048576 0x40065BD: _dl_init (dl-init.c:102)
+                          n1: 1048576 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+                           n1: 1048576 0x3: ???
+                            n1: 1048576 0x1FFEFFFFBE: ???
+                             n1: 1048576 0x1FFEFFFFD7: ???
+                              n1: 1048576 0x1FFEFFFFFF: ???
+                               n0: 1048576 0x1FFF000002: ???
+                      n1: 1048576 0x1AF9F5: InitializeCommonInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                       n1: 1048576 0x1AAEB9: __asan::InitializeAsanInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                        n1: 1048576 0x1C8687: __asan::AsanInitInternal() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                         n1: 1048576 0x40065BD: _dl_init (dl-init.c:102)
+                          n1: 1048576 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+                           n1: 1048576 0x3: ???
+                            n1: 1048576 0x1FFEFFFFBE: ???
+                             n1: 1048576 0x1FFEFFFFD7: ???
+                              n1: 1048576 0x1FFEFFFFFF: ???
+                               n0: 1048576 0x1FFF000002: ???
+          n1: 1048576 0x49E31DA: _dlerror_run (dlerror.c:168)
+           n1: 1048576 0x49E3833: dlsym_implementation (dlsym.c:54)
+            n1: 1048576 0x49E3833: dlsym@@GLIBC_2.34 (dlsym.c:68)
+             n1: 1048576 0x1CD6B3: __interception::InterceptFunction(char const*, unsigned long*, unsigned long, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+              n1: 1048576 0x1ACCE7: InitializeCommonInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+               n1: 1048576 0x1AAEB9: __asan::InitializeAsanInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                n1: 1048576 0x1C8687: __asan::AsanInitInternal() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                 n1: 1048576 0x40065BD: _dl_init (dl-init.c:102)
+                  n1: 1048576 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+                   n1: 1048576 0x3: ???
+                    n1: 1048576 0x1FFEFFFFBE: ???
+                     n1: 1048576 0x1FFEFFFFD7: ???
+                      n1: 1048576 0x1FFEFFFFFF: ???
+                       n0: 1048576 0x1FFF000002: ???
+       n1: 1048576 0x1CED10: __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::PopulateFreeList(__sanitizer::AllocatorStats*, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::SizeClassInfo*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+        n1: 1048576 0x1CE64B: __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::AllocateBatch(__sanitizer::AllocatorStats*, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+         n1: 1048576 0x1CE324: __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >::Refill(__sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >::PerClass*, __sanitizer::SizeClassAllocator32<__sanitizer::AP32>*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+          n1: 1048576 0x1CE01A: __sanitizer::CombinedAllocator<__sanitizer::SizeClassAllocator32<__sanitizer::AP32>, __sanitizer::LargeMmapAllocatorPtrArrayStatic>::Allocate(__sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+           n1: 1048576 0x1CD89B: __sanitizer::InternalAlloc(unsigned long, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+            n1: 1048576 0x1BF32F: __sanitizer::DlSymAllocator<DlsymAlloc>::Allocate(unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+             n1: 1048576 0x4004CC9: malloc (rtld-malloc.h:56)
+              n1: 1048576 0x4004CC9: _dl_exception_create_format (dl-exception.c:157)
+               n1: 1048576 0x400C3DB: _dl_lookup_symbol_x (dl-lookup.c:877)
+                n1: 1048576 0x4AC8AE3: do_sym (dl-sym.c:146)
+                 n1: 1048576 0x4AC8AE3: _dl_sym (dl-sym.c:195)
+                  n1: 1048576 0x49E37B7: dlsym_doit (dlsym.c:40)
+                   n1: 1048576 0x4AC7C27: _dl_catch_exception (dl-error-skeleton.c:208)
+                    n1: 1048576 0x4AC7CF2: _dl_catch_error (dl-error-skeleton.c:227)
+                     n1: 1048576 0x49E31AD: _dlerror_run (dlerror.c:138)
+                      n1: 1048576 0x49E3833: dlsym_implementation (dlsym.c:54)
+                       n1: 1048576 0x49E3833: dlsym@@GLIBC_2.34 (dlsym.c:68)
+                        n1: 1048576 0x1CD6B3: __interception::InterceptFunction(char const*, unsigned long*, unsigned long, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                         n1: 1048576 0x1ACCE7: InitializeCommonInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                          n1: 1048576 0x1AAEB9: __asan::InitializeAsanInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                           n1: 1048576 0x1C8687: __asan::AsanInitInternal() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                            n1: 1048576 0x40065BD: _dl_init (dl-init.c:102)
+                             n1: 1048576 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+                              n1: 1048576 0x3: ???
+                               n1: 1048576 0x1FFEFFFFBE: ???
+                                n1: 1048576 0x1FFEFFFFD7: ???
+                                 n0: 1048576 0x1FFEFFFFFF: ???
+  n2: 3854336 0x1D9CC8: __sanitizer::MmapOrDie(unsigned long, char const*, bool) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+   n1: 3727360 0x1AB637: InitializeCommonInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+    n1: 3727360 0x1AAEB9: __asan::InitializeAsanInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+     n1: 3727360 0x1C8687: __asan::AsanInitInternal() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+      n1: 3727360 0x40065BD: _dl_init (dl-init.c:102)
+       n1: 3727360 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+        n1: 3727360 0x3: ???
+         n1: 3727360 0x1FFEFFFFBE: ???
+          n1: 3727360 0x1FFEFFFFD7: ???
+           n1: 3727360 0x1FFEFFFFFF: ???
+            n0: 3727360 0x1FFF000002: ???
+   n0: 126976 in 7 places, all below massif's threshold (1.00%)
+ n1: 6496256 0x4026CD7: __mmap64 (mmap64.c:58)
+  n3: 6496256 0x4026CD7: mmap (mmap64.c:46)
+   n1: 3358720 0x4008F1B: _dl_map_segment (dl-map-segments.h:29)
+    n1: 3358720 0x4008F1B: _dl_map_segments (dl-map-segments.h:102)
+     n1: 3358720 0x4008F1B: _dl_map_object_from_fd (dl-load.c:1258)
+      n2: 3358720 0x400A600: _dl_map_object (dl-load.c:2327)
+       n1: 3338240 0x4003494: openaux (dl-deps.c:64)
+        n1: 3338240 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+         n1: 3338240 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+          n1: 3338240 0x40233BF: dl_main (rtld.c:1970)
+           n1: 3338240 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+            n1: 3338240 0x40215B7: _dl_start_final (rtld.c:507)
+             n1: 3338240 0x40215B7: _dl_start (rtld.c:596)
+              n1: 3338240 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+               n1: 3338240 0x3: ???
+                n1: 3338240 0x1FFEFFFFBE: ???
+                 n1: 3338240 0x1FFEFFFFD7: ???
+                  n1: 3338240 0x1FFEFFFFFF: ???
+                   n0: 3338240 0x1FFF000002: ???
+       n0: 20480 in 1 place, below massif's threshold (1.00%)
+   n1: 3067904 0x4009098: _dl_map_segments (dl-map-segments.h:140)
+    n1: 3067904 0x4009098: _dl_map_object_from_fd (dl-load.c:1258)
+     n2: 3067904 0x400A600: _dl_map_object (dl-load.c:2327)
+      n1: 3051520 0x4003494: openaux (dl-deps.c:64)
+       n1: 3051520 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+        n1: 3051520 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+         n1: 3051520 0x40233BF: dl_main (rtld.c:1970)
+          n1: 3051520 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+           n1: 3051520 0x40215B7: _dl_start_final (rtld.c:507)
+            n1: 3051520 0x40215B7: _dl_start (rtld.c:596)
+             n1: 3051520 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+              n1: 3051520 0x3: ???
+               n1: 3051520 0x1FFEFFFFBE: ???
+                n1: 3051520 0x1FFEFFFFD7: ???
+                 n1: 3051520 0x1FFEFFFFFF: ???
+                  n0: 3051520 0x1FFF000002: ???
+      n0: 16384 in 1 place, below massif's threshold (1.00%)
+   n0: 69632 in 3 places, all below massif's threshold (1.00%)
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=56
+#-----------
+time=5490062
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1200
+heap_tree=empty
+#-----------
+snapshot=57
+#-----------
+time=5582760
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1200
+heap_tree=empty
+#-----------
+snapshot=58
+#-----------
+time=5675377
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1200
+heap_tree=empty
+#-----------
+snapshot=59
+#-----------
+time=5767897
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1200
+heap_tree=empty
+#-----------
+snapshot=60
+#-----------
+time=5860509
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1200
+heap_tree=empty
+#-----------
+snapshot=61
+#-----------
+time=5953030
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1200
+heap_tree=empty
+#-----------
+snapshot=62
+#-----------
+time=6045456
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1200
+heap_tree=empty
+#-----------
+snapshot=63
+#-----------
+time=6158926
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1200
+heap_tree=empty
+#-----------
+snapshot=64
+#-----------
+time=6250868
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1200
+heap_tree=empty
+#-----------
+snapshot=65
+#-----------
+time=6342714
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1200
+heap_tree=detailed
+n4: 26845184 (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+ n0: 12300288 0x0: ???
+ n2: 8048640 0x1D8471: __sanitizer::internal_mmap(void*, unsigned long, int, int, int, unsigned long long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+  n1: 4194304 0x1D9E7D: __sanitizer::MmapOrDieOnFatalError(unsigned long, char const*) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+   n1: 4194304 0x1D9F29: __sanitizer::MmapAlignedOrDieOnFatalError(unsigned long, unsigned long, char const*) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+    n1: 4194304 0x1CE729: __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::PopulateFreeList(__sanitizer::AllocatorStats*, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::SizeClassInfo*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+     n1: 4194304 0x1CE64B: __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::AllocateBatch(__sanitizer::AllocatorStats*, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+      n2: 4194304 0x1CE324: __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >::Refill(__sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >::PerClass*, __sanitizer::SizeClassAllocator32<__sanitizer::AP32>*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+       n1: 3145728 0x1CE01A: __sanitizer::CombinedAllocator<__sanitizer::SizeClassAllocator32<__sanitizer::AP32>, __sanitizer::LargeMmapAllocatorPtrArrayStatic>::Allocate(__sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+        n1: 3145728 0x1CD89B: __sanitizer::InternalAlloc(unsigned long, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+         n2: 3145728 0x1BF32F: __sanitizer::DlSymAllocator<DlsymAlloc>::Allocate(unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+          n1: 2097152 0x4004CC9: malloc (rtld-malloc.h:56)
+           n1: 2097152 0x4004CC9: _dl_exception_create_format (dl-exception.c:157)
+            n1: 2097152 0x400C3DB: _dl_lookup_symbol_x (dl-lookup.c:877)
+             n1: 2097152 0x4AC8AE3: do_sym (dl-sym.c:146)
+              n1: 2097152 0x4AC8AE3: _dl_sym (dl-sym.c:195)
+               n1: 2097152 0x49E37B7: dlsym_doit (dlsym.c:40)
+                n1: 2097152 0x4AC7C27: _dl_catch_exception (dl-error-skeleton.c:208)
+                 n1: 2097152 0x4AC7CF2: _dl_catch_error (dl-error-skeleton.c:227)
+                  n1: 2097152 0x49E31AD: _dlerror_run (dlerror.c:138)
+                   n1: 2097152 0x49E3833: dlsym_implementation (dlsym.c:54)
+                    n1: 2097152 0x49E3833: dlsym@@GLIBC_2.34 (dlsym.c:68)
+                     n2: 2097152 0x1CD6B3: __interception::InterceptFunction(char const*, unsigned long*, unsigned long, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                      n1: 1048576 0x1ACCE7: InitializeCommonInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                       n1: 1048576 0x1AAEB9: __asan::InitializeAsanInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                        n1: 1048576 0x1C8687: __asan::AsanInitInternal() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                         n1: 1048576 0x40065BD: _dl_init (dl-init.c:102)
+                          n1: 1048576 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+                           n1: 1048576 0x3: ???
+                            n1: 1048576 0x1FFEFFFFBE: ???
+                             n1: 1048576 0x1FFEFFFFD7: ???
+                              n1: 1048576 0x1FFEFFFFFF: ???
+                               n0: 1048576 0x1FFF000002: ???
+                      n1: 1048576 0x1AF9F5: InitializeCommonInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                       n1: 1048576 0x1AAEB9: __asan::InitializeAsanInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                        n1: 1048576 0x1C8687: __asan::AsanInitInternal() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                         n1: 1048576 0x40065BD: _dl_init (dl-init.c:102)
+                          n1: 1048576 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+                           n1: 1048576 0x3: ???
+                            n1: 1048576 0x1FFEFFFFBE: ???
+                             n1: 1048576 0x1FFEFFFFD7: ???
+                              n1: 1048576 0x1FFEFFFFFF: ???
+                               n0: 1048576 0x1FFF000002: ???
+          n1: 1048576 0x49E31DA: _dlerror_run (dlerror.c:168)
+           n1: 1048576 0x49E3833: dlsym_implementation (dlsym.c:54)
+            n1: 1048576 0x49E3833: dlsym@@GLIBC_2.34 (dlsym.c:68)
+             n1: 1048576 0x1CD6B3: __interception::InterceptFunction(char const*, unsigned long*, unsigned long, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+              n1: 1048576 0x1ACCE7: InitializeCommonInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+               n1: 1048576 0x1AAEB9: __asan::InitializeAsanInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                n1: 1048576 0x1C8687: __asan::AsanInitInternal() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                 n1: 1048576 0x40065BD: _dl_init (dl-init.c:102)
+                  n1: 1048576 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+                   n1: 1048576 0x3: ???
+                    n1: 1048576 0x1FFEFFFFBE: ???
+                     n1: 1048576 0x1FFEFFFFD7: ???
+                      n1: 1048576 0x1FFEFFFFFF: ???
+                       n0: 1048576 0x1FFF000002: ???
+       n1: 1048576 0x1CED10: __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::PopulateFreeList(__sanitizer::AllocatorStats*, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::SizeClassInfo*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+        n1: 1048576 0x1CE64B: __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::AllocateBatch(__sanitizer::AllocatorStats*, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+         n1: 1048576 0x1CE324: __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >::Refill(__sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >::PerClass*, __sanitizer::SizeClassAllocator32<__sanitizer::AP32>*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+          n1: 1048576 0x1CE01A: __sanitizer::CombinedAllocator<__sanitizer::SizeClassAllocator32<__sanitizer::AP32>, __sanitizer::LargeMmapAllocatorPtrArrayStatic>::Allocate(__sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+           n1: 1048576 0x1CD89B: __sanitizer::InternalAlloc(unsigned long, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+            n1: 1048576 0x1BF32F: __sanitizer::DlSymAllocator<DlsymAlloc>::Allocate(unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+             n1: 1048576 0x4004CC9: malloc (rtld-malloc.h:56)
+              n1: 1048576 0x4004CC9: _dl_exception_create_format (dl-exception.c:157)
+               n1: 1048576 0x400C3DB: _dl_lookup_symbol_x (dl-lookup.c:877)
+                n1: 1048576 0x4AC8AE3: do_sym (dl-sym.c:146)
+                 n1: 1048576 0x4AC8AE3: _dl_sym (dl-sym.c:195)
+                  n1: 1048576 0x49E37B7: dlsym_doit (dlsym.c:40)
+                   n1: 1048576 0x4AC7C27: _dl_catch_exception (dl-error-skeleton.c:208)
+                    n1: 1048576 0x4AC7CF2: _dl_catch_error (dl-error-skeleton.c:227)
+                     n1: 1048576 0x49E31AD: _dlerror_run (dlerror.c:138)
+                      n1: 1048576 0x49E3833: dlsym_implementation (dlsym.c:54)
+                       n1: 1048576 0x49E3833: dlsym@@GLIBC_2.34 (dlsym.c:68)
+                        n1: 1048576 0x1CD6B3: __interception::InterceptFunction(char const*, unsigned long*, unsigned long, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                         n1: 1048576 0x1ACCE7: InitializeCommonInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                          n1: 1048576 0x1AAEB9: __asan::InitializeAsanInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                           n1: 1048576 0x1C8687: __asan::AsanInitInternal() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                            n1: 1048576 0x40065BD: _dl_init (dl-init.c:102)
+                             n1: 1048576 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+                              n1: 1048576 0x3: ???
+                               n1: 1048576 0x1FFEFFFFBE: ???
+                                n1: 1048576 0x1FFEFFFFD7: ???
+                                 n0: 1048576 0x1FFEFFFFFF: ???
+  n2: 3854336 0x1D9CC8: __sanitizer::MmapOrDie(unsigned long, char const*, bool) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+   n1: 3727360 0x1AB637: InitializeCommonInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+    n1: 3727360 0x1AAEB9: __asan::InitializeAsanInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+     n1: 3727360 0x1C8687: __asan::AsanInitInternal() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+      n1: 3727360 0x40065BD: _dl_init (dl-init.c:102)
+       n1: 3727360 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+        n1: 3727360 0x3: ???
+         n1: 3727360 0x1FFEFFFFBE: ???
+          n1: 3727360 0x1FFEFFFFD7: ???
+           n1: 3727360 0x1FFEFFFFFF: ???
+            n0: 3727360 0x1FFF000002: ???
+   n0: 126976 in 7 places, all below massif's threshold (1.00%)
+ n1: 6496256 0x4026CD7: __mmap64 (mmap64.c:58)
+  n3: 6496256 0x4026CD7: mmap (mmap64.c:46)
+   n1: 3358720 0x4008F1B: _dl_map_segment (dl-map-segments.h:29)
+    n1: 3358720 0x4008F1B: _dl_map_segments (dl-map-segments.h:102)
+     n1: 3358720 0x4008F1B: _dl_map_object_from_fd (dl-load.c:1258)
+      n2: 3358720 0x400A600: _dl_map_object (dl-load.c:2327)
+       n1: 3338240 0x4003494: openaux (dl-deps.c:64)
+        n1: 3338240 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+         n1: 3338240 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+          n1: 3338240 0x40233BF: dl_main (rtld.c:1970)
+           n1: 3338240 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+            n1: 3338240 0x40215B7: _dl_start_final (rtld.c:507)
+             n1: 3338240 0x40215B7: _dl_start (rtld.c:596)
+              n1: 3338240 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+               n1: 3338240 0x3: ???
+                n1: 3338240 0x1FFEFFFFBE: ???
+                 n1: 3338240 0x1FFEFFFFD7: ???
+                  n1: 3338240 0x1FFEFFFFFF: ???
+                   n0: 3338240 0x1FFF000002: ???
+       n0: 20480 in 1 place, below massif's threshold (1.00%)
+   n1: 3067904 0x4009098: _dl_map_segments (dl-map-segments.h:140)
+    n1: 3067904 0x4009098: _dl_map_object_from_fd (dl-load.c:1258)
+     n2: 3067904 0x400A600: _dl_map_object (dl-load.c:2327)
+      n1: 3051520 0x4003494: openaux (dl-deps.c:64)
+       n1: 3051520 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+        n1: 3051520 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+         n1: 3051520 0x40233BF: dl_main (rtld.c:1970)
+          n1: 3051520 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+           n1: 3051520 0x40215B7: _dl_start_final (rtld.c:507)
+            n1: 3051520 0x40215B7: _dl_start (rtld.c:596)
+             n1: 3051520 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+              n1: 3051520 0x3: ???
+               n1: 3051520 0x1FFEFFFFBE: ???
+                n1: 3051520 0x1FFEFFFFD7: ???
+                 n1: 3051520 0x1FFEFFFFFF: ???
+                  n0: 3051520 0x1FFF000002: ???
+      n0: 16384 in 1 place, below massif's threshold (1.00%)
+   n0: 69632 in 3 places, all below massif's threshold (1.00%)
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=66
+#-----------
+time=6455381
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1200
+heap_tree=empty
+#-----------
+snapshot=67
+#-----------
+time=6546953
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1200
+heap_tree=empty
+#-----------
+snapshot=68
+#-----------
+time=6636376
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1200
+heap_tree=empty
+#-----------
+snapshot=69
+#-----------
+time=6725747
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1200
+heap_tree=empty
+#-----------
+snapshot=70
+#-----------
+time=6817309
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1200
+heap_tree=empty
+#-----------
+snapshot=71
+#-----------
+time=6908776
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1200
+heap_tree=empty
+#-----------
+snapshot=72
+#-----------
+time=7000144
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1200
+heap_tree=empty
+#-----------
+snapshot=73
+#-----------
+time=7091416
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1200
+heap_tree=empty
+#-----------
+snapshot=74
+#-----------
+time=7180283
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1200
+heap_tree=empty
+#-----------
+snapshot=75
+#-----------
+time=7269204
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1200
+heap_tree=detailed
+n4: 26845184 (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+ n0: 12300288 0x0: ???
+ n2: 8048640 0x1D8471: __sanitizer::internal_mmap(void*, unsigned long, int, int, int, unsigned long long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+  n1: 4194304 0x1D9E7D: __sanitizer::MmapOrDieOnFatalError(unsigned long, char const*) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+   n1: 4194304 0x1D9F29: __sanitizer::MmapAlignedOrDieOnFatalError(unsigned long, unsigned long, char const*) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+    n1: 4194304 0x1CE729: __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::PopulateFreeList(__sanitizer::AllocatorStats*, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::SizeClassInfo*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+     n1: 4194304 0x1CE64B: __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::AllocateBatch(__sanitizer::AllocatorStats*, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+      n2: 4194304 0x1CE324: __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >::Refill(__sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >::PerClass*, __sanitizer::SizeClassAllocator32<__sanitizer::AP32>*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+       n1: 3145728 0x1CE01A: __sanitizer::CombinedAllocator<__sanitizer::SizeClassAllocator32<__sanitizer::AP32>, __sanitizer::LargeMmapAllocatorPtrArrayStatic>::Allocate(__sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+        n1: 3145728 0x1CD89B: __sanitizer::InternalAlloc(unsigned long, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+         n2: 3145728 0x1BF32F: __sanitizer::DlSymAllocator<DlsymAlloc>::Allocate(unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+          n1: 2097152 0x4004CC9: malloc (rtld-malloc.h:56)
+           n1: 2097152 0x4004CC9: _dl_exception_create_format (dl-exception.c:157)
+            n1: 2097152 0x400C3DB: _dl_lookup_symbol_x (dl-lookup.c:877)
+             n1: 2097152 0x4AC8AE3: do_sym (dl-sym.c:146)
+              n1: 2097152 0x4AC8AE3: _dl_sym (dl-sym.c:195)
+               n1: 2097152 0x49E37B7: dlsym_doit (dlsym.c:40)
+                n1: 2097152 0x4AC7C27: _dl_catch_exception (dl-error-skeleton.c:208)
+                 n1: 2097152 0x4AC7CF2: _dl_catch_error (dl-error-skeleton.c:227)
+                  n1: 2097152 0x49E31AD: _dlerror_run (dlerror.c:138)
+                   n1: 2097152 0x49E3833: dlsym_implementation (dlsym.c:54)
+                    n1: 2097152 0x49E3833: dlsym@@GLIBC_2.34 (dlsym.c:68)
+                     n2: 2097152 0x1CD6B3: __interception::InterceptFunction(char const*, unsigned long*, unsigned long, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                      n1: 1048576 0x1ACCE7: InitializeCommonInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                       n1: 1048576 0x1AAEB9: __asan::InitializeAsanInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                        n1: 1048576 0x1C8687: __asan::AsanInitInternal() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                         n1: 1048576 0x40065BD: _dl_init (dl-init.c:102)
+                          n1: 1048576 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+                           n1: 1048576 0x3: ???
+                            n1: 1048576 0x1FFEFFFFBE: ???
+                             n1: 1048576 0x1FFEFFFFD7: ???
+                              n1: 1048576 0x1FFEFFFFFF: ???
+                               n0: 1048576 0x1FFF000002: ???
+                      n1: 1048576 0x1AF9F5: InitializeCommonInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                       n1: 1048576 0x1AAEB9: __asan::InitializeAsanInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                        n1: 1048576 0x1C8687: __asan::AsanInitInternal() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                         n1: 1048576 0x40065BD: _dl_init (dl-init.c:102)
+                          n1: 1048576 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+                           n1: 1048576 0x3: ???
+                            n1: 1048576 0x1FFEFFFFBE: ???
+                             n1: 1048576 0x1FFEFFFFD7: ???
+                              n1: 1048576 0x1FFEFFFFFF: ???
+                               n0: 1048576 0x1FFF000002: ???
+          n1: 1048576 0x49E31DA: _dlerror_run (dlerror.c:168)
+           n1: 1048576 0x49E3833: dlsym_implementation (dlsym.c:54)
+            n1: 1048576 0x49E3833: dlsym@@GLIBC_2.34 (dlsym.c:68)
+             n1: 1048576 0x1CD6B3: __interception::InterceptFunction(char const*, unsigned long*, unsigned long, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+              n1: 1048576 0x1ACCE7: InitializeCommonInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+               n1: 1048576 0x1AAEB9: __asan::InitializeAsanInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                n1: 1048576 0x1C8687: __asan::AsanInitInternal() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                 n1: 1048576 0x40065BD: _dl_init (dl-init.c:102)
+                  n1: 1048576 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+                   n1: 1048576 0x3: ???
+                    n1: 1048576 0x1FFEFFFFBE: ???
+                     n1: 1048576 0x1FFEFFFFD7: ???
+                      n1: 1048576 0x1FFEFFFFFF: ???
+                       n0: 1048576 0x1FFF000002: ???
+       n1: 1048576 0x1CED10: __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::PopulateFreeList(__sanitizer::AllocatorStats*, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::SizeClassInfo*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+        n1: 1048576 0x1CE64B: __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::AllocateBatch(__sanitizer::AllocatorStats*, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+         n1: 1048576 0x1CE324: __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >::Refill(__sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >::PerClass*, __sanitizer::SizeClassAllocator32<__sanitizer::AP32>*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+          n1: 1048576 0x1CE01A: __sanitizer::CombinedAllocator<__sanitizer::SizeClassAllocator32<__sanitizer::AP32>, __sanitizer::LargeMmapAllocatorPtrArrayStatic>::Allocate(__sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+           n1: 1048576 0x1CD89B: __sanitizer::InternalAlloc(unsigned long, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+            n1: 1048576 0x1BF32F: __sanitizer::DlSymAllocator<DlsymAlloc>::Allocate(unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+             n1: 1048576 0x4004CC9: malloc (rtld-malloc.h:56)
+              n1: 1048576 0x4004CC9: _dl_exception_create_format (dl-exception.c:157)
+               n1: 1048576 0x400C3DB: _dl_lookup_symbol_x (dl-lookup.c:877)
+                n1: 1048576 0x4AC8AE3: do_sym (dl-sym.c:146)
+                 n1: 1048576 0x4AC8AE3: _dl_sym (dl-sym.c:195)
+                  n1: 1048576 0x49E37B7: dlsym_doit (dlsym.c:40)
+                   n1: 1048576 0x4AC7C27: _dl_catch_exception (dl-error-skeleton.c:208)
+                    n1: 1048576 0x4AC7CF2: _dl_catch_error (dl-error-skeleton.c:227)
+                     n1: 1048576 0x49E31AD: _dlerror_run (dlerror.c:138)
+                      n1: 1048576 0x49E3833: dlsym_implementation (dlsym.c:54)
+                       n1: 1048576 0x49E3833: dlsym@@GLIBC_2.34 (dlsym.c:68)
+                        n1: 1048576 0x1CD6B3: __interception::InterceptFunction(char const*, unsigned long*, unsigned long, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                         n1: 1048576 0x1ACCE7: InitializeCommonInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                          n1: 1048576 0x1AAEB9: __asan::InitializeAsanInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                           n1: 1048576 0x1C8687: __asan::AsanInitInternal() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                            n1: 1048576 0x40065BD: _dl_init (dl-init.c:102)
+                             n1: 1048576 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+                              n1: 1048576 0x3: ???
+                               n1: 1048576 0x1FFEFFFFBE: ???
+                                n1: 1048576 0x1FFEFFFFD7: ???
+                                 n0: 1048576 0x1FFEFFFFFF: ???
+  n2: 3854336 0x1D9CC8: __sanitizer::MmapOrDie(unsigned long, char const*, bool) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+   n1: 3727360 0x1AB637: InitializeCommonInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+    n1: 3727360 0x1AAEB9: __asan::InitializeAsanInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+     n1: 3727360 0x1C8687: __asan::AsanInitInternal() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+      n1: 3727360 0x40065BD: _dl_init (dl-init.c:102)
+       n1: 3727360 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+        n1: 3727360 0x3: ???
+         n1: 3727360 0x1FFEFFFFBE: ???
+          n1: 3727360 0x1FFEFFFFD7: ???
+           n1: 3727360 0x1FFEFFFFFF: ???
+            n0: 3727360 0x1FFF000002: ???
+   n0: 126976 in 7 places, all below massif's threshold (1.00%)
+ n1: 6496256 0x4026CD7: __mmap64 (mmap64.c:58)
+  n3: 6496256 0x4026CD7: mmap (mmap64.c:46)
+   n1: 3358720 0x4008F1B: _dl_map_segment (dl-map-segments.h:29)
+    n1: 3358720 0x4008F1B: _dl_map_segments (dl-map-segments.h:102)
+     n1: 3358720 0x4008F1B: _dl_map_object_from_fd (dl-load.c:1258)
+      n2: 3358720 0x400A600: _dl_map_object (dl-load.c:2327)
+       n1: 3338240 0x4003494: openaux (dl-deps.c:64)
+        n1: 3338240 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+         n1: 3338240 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+          n1: 3338240 0x40233BF: dl_main (rtld.c:1970)
+           n1: 3338240 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+            n1: 3338240 0x40215B7: _dl_start_final (rtld.c:507)
+             n1: 3338240 0x40215B7: _dl_start (rtld.c:596)
+              n1: 3338240 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+               n1: 3338240 0x3: ???
+                n1: 3338240 0x1FFEFFFFBE: ???
+                 n1: 3338240 0x1FFEFFFFD7: ???
+                  n1: 3338240 0x1FFEFFFFFF: ???
+                   n0: 3338240 0x1FFF000002: ???
+       n0: 20480 in 1 place, below massif's threshold (1.00%)
+   n1: 3067904 0x4009098: _dl_map_segments (dl-map-segments.h:140)
+    n1: 3067904 0x4009098: _dl_map_object_from_fd (dl-load.c:1258)
+     n2: 3067904 0x400A600: _dl_map_object (dl-load.c:2327)
+      n1: 3051520 0x4003494: openaux (dl-deps.c:64)
+       n1: 3051520 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+        n1: 3051520 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+         n1: 3051520 0x40233BF: dl_main (rtld.c:1970)
+          n1: 3051520 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+           n1: 3051520 0x40215B7: _dl_start_final (rtld.c:507)
+            n1: 3051520 0x40215B7: _dl_start (rtld.c:596)
+             n1: 3051520 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+              n1: 3051520 0x3: ???
+               n1: 3051520 0x1FFEFFFFBE: ???
+                n1: 3051520 0x1FFEFFFFD7: ???
+                 n1: 3051520 0x1FFEFFFFFF: ???
+                  n0: 3051520 0x1FFF000002: ???
+      n0: 16384 in 1 place, below massif's threshold (1.00%)
+   n0: 69632 in 3 places, all below massif's threshold (1.00%)
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=76
+#-----------
+time=7358080
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1200
+heap_tree=empty
+#-----------
+snapshot=77
+#-----------
+time=7446917
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1200
+heap_tree=empty
+#-----------
+snapshot=78
+#-----------
+time=7535703
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1200
+heap_tree=empty
+#-----------
+snapshot=79
+#-----------
+time=7627320
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1200
+heap_tree=empty
+#-----------
+snapshot=80
+#-----------
+time=7715958
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1200
+heap_tree=empty
+#-----------
+snapshot=81
+#-----------
+time=7804552
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1200
+heap_tree=empty
+#-----------
+snapshot=82
+#-----------
+time=7893098
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1200
+heap_tree=empty
+#-----------
+snapshot=83
+#-----------
+time=7981598
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1200
+heap_tree=empty
+#-----------
+snapshot=84
+#-----------
+time=8070060
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1200
+heap_tree=empty
+#-----------
+snapshot=85
+#-----------
+time=8158488
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1200
+heap_tree=detailed
+n4: 26845184 (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+ n0: 12300288 0x0: ???
+ n2: 8048640 0x1D8471: __sanitizer::internal_mmap(void*, unsigned long, int, int, int, unsigned long long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+  n1: 4194304 0x1D9E7D: __sanitizer::MmapOrDieOnFatalError(unsigned long, char const*) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+   n1: 4194304 0x1D9F29: __sanitizer::MmapAlignedOrDieOnFatalError(unsigned long, unsigned long, char const*) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+    n1: 4194304 0x1CE729: __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::PopulateFreeList(__sanitizer::AllocatorStats*, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::SizeClassInfo*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+     n1: 4194304 0x1CE64B: __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::AllocateBatch(__sanitizer::AllocatorStats*, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+      n2: 4194304 0x1CE324: __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >::Refill(__sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >::PerClass*, __sanitizer::SizeClassAllocator32<__sanitizer::AP32>*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+       n1: 3145728 0x1CE01A: __sanitizer::CombinedAllocator<__sanitizer::SizeClassAllocator32<__sanitizer::AP32>, __sanitizer::LargeMmapAllocatorPtrArrayStatic>::Allocate(__sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+        n1: 3145728 0x1CD89B: __sanitizer::InternalAlloc(unsigned long, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+         n2: 3145728 0x1BF32F: __sanitizer::DlSymAllocator<DlsymAlloc>::Allocate(unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+          n1: 2097152 0x4004CC9: malloc (rtld-malloc.h:56)
+           n1: 2097152 0x4004CC9: _dl_exception_create_format (dl-exception.c:157)
+            n1: 2097152 0x400C3DB: _dl_lookup_symbol_x (dl-lookup.c:877)
+             n1: 2097152 0x4AC8AE3: do_sym (dl-sym.c:146)
+              n1: 2097152 0x4AC8AE3: _dl_sym (dl-sym.c:195)
+               n1: 2097152 0x49E37B7: dlsym_doit (dlsym.c:40)
+                n1: 2097152 0x4AC7C27: _dl_catch_exception (dl-error-skeleton.c:208)
+                 n1: 2097152 0x4AC7CF2: _dl_catch_error (dl-error-skeleton.c:227)
+                  n1: 2097152 0x49E31AD: _dlerror_run (dlerror.c:138)
+                   n1: 2097152 0x49E3833: dlsym_implementation (dlsym.c:54)
+                    n1: 2097152 0x49E3833: dlsym@@GLIBC_2.34 (dlsym.c:68)
+                     n2: 2097152 0x1CD6B3: __interception::InterceptFunction(char const*, unsigned long*, unsigned long, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                      n1: 1048576 0x1ACCE7: InitializeCommonInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                       n1: 1048576 0x1AAEB9: __asan::InitializeAsanInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                        n1: 1048576 0x1C8687: __asan::AsanInitInternal() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                         n1: 1048576 0x40065BD: _dl_init (dl-init.c:102)
+                          n1: 1048576 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+                           n1: 1048576 0x3: ???
+                            n1: 1048576 0x1FFEFFFFBE: ???
+                             n1: 1048576 0x1FFEFFFFD7: ???
+                              n1: 1048576 0x1FFEFFFFFF: ???
+                               n0: 1048576 0x1FFF000002: ???
+                      n1: 1048576 0x1AF9F5: InitializeCommonInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                       n1: 1048576 0x1AAEB9: __asan::InitializeAsanInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                        n1: 1048576 0x1C8687: __asan::AsanInitInternal() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                         n1: 1048576 0x40065BD: _dl_init (dl-init.c:102)
+                          n1: 1048576 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+                           n1: 1048576 0x3: ???
+                            n1: 1048576 0x1FFEFFFFBE: ???
+                             n1: 1048576 0x1FFEFFFFD7: ???
+                              n1: 1048576 0x1FFEFFFFFF: ???
+                               n0: 1048576 0x1FFF000002: ???
+          n1: 1048576 0x49E31DA: _dlerror_run (dlerror.c:168)
+           n1: 1048576 0x49E3833: dlsym_implementation (dlsym.c:54)
+            n1: 1048576 0x49E3833: dlsym@@GLIBC_2.34 (dlsym.c:68)
+             n1: 1048576 0x1CD6B3: __interception::InterceptFunction(char const*, unsigned long*, unsigned long, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+              n1: 1048576 0x1ACCE7: InitializeCommonInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+               n1: 1048576 0x1AAEB9: __asan::InitializeAsanInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                n1: 1048576 0x1C8687: __asan::AsanInitInternal() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                 n1: 1048576 0x40065BD: _dl_init (dl-init.c:102)
+                  n1: 1048576 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+                   n1: 1048576 0x3: ???
+                    n1: 1048576 0x1FFEFFFFBE: ???
+                     n1: 1048576 0x1FFEFFFFD7: ???
+                      n1: 1048576 0x1FFEFFFFFF: ???
+                       n0: 1048576 0x1FFF000002: ???
+       n1: 1048576 0x1CED10: __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::PopulateFreeList(__sanitizer::AllocatorStats*, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::SizeClassInfo*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+        n1: 1048576 0x1CE64B: __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::AllocateBatch(__sanitizer::AllocatorStats*, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+         n1: 1048576 0x1CE324: __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >::Refill(__sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >::PerClass*, __sanitizer::SizeClassAllocator32<__sanitizer::AP32>*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+          n1: 1048576 0x1CE01A: __sanitizer::CombinedAllocator<__sanitizer::SizeClassAllocator32<__sanitizer::AP32>, __sanitizer::LargeMmapAllocatorPtrArrayStatic>::Allocate(__sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+           n1: 1048576 0x1CD89B: __sanitizer::InternalAlloc(unsigned long, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+            n1: 1048576 0x1BF32F: __sanitizer::DlSymAllocator<DlsymAlloc>::Allocate(unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+             n1: 1048576 0x4004CC9: malloc (rtld-malloc.h:56)
+              n1: 1048576 0x4004CC9: _dl_exception_create_format (dl-exception.c:157)
+               n1: 1048576 0x400C3DB: _dl_lookup_symbol_x (dl-lookup.c:877)
+                n1: 1048576 0x4AC8AE3: do_sym (dl-sym.c:146)
+                 n1: 1048576 0x4AC8AE3: _dl_sym (dl-sym.c:195)
+                  n1: 1048576 0x49E37B7: dlsym_doit (dlsym.c:40)
+                   n1: 1048576 0x4AC7C27: _dl_catch_exception (dl-error-skeleton.c:208)
+                    n1: 1048576 0x4AC7CF2: _dl_catch_error (dl-error-skeleton.c:227)
+                     n1: 1048576 0x49E31AD: _dlerror_run (dlerror.c:138)
+                      n1: 1048576 0x49E3833: dlsym_implementation (dlsym.c:54)
+                       n1: 1048576 0x49E3833: dlsym@@GLIBC_2.34 (dlsym.c:68)
+                        n1: 1048576 0x1CD6B3: __interception::InterceptFunction(char const*, unsigned long*, unsigned long, unsigned long) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                         n1: 1048576 0x1ACCE7: InitializeCommonInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                          n1: 1048576 0x1AAEB9: __asan::InitializeAsanInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                           n1: 1048576 0x1C8687: __asan::AsanInitInternal() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+                            n1: 1048576 0x40065BD: _dl_init (dl-init.c:102)
+                             n1: 1048576 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+                              n1: 1048576 0x3: ???
+                               n1: 1048576 0x1FFEFFFFBE: ???
+                                n1: 1048576 0x1FFEFFFFD7: ???
+                                 n0: 1048576 0x1FFEFFFFFF: ???
+  n2: 3854336 0x1D9CC8: __sanitizer::MmapOrDie(unsigned long, char const*, bool) (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+   n1: 3727360 0x1AB637: InitializeCommonInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+    n1: 3727360 0x1AAEB9: __asan::InitializeAsanInterceptors() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+     n1: 3727360 0x1C8687: __asan::AsanInitInternal() (in /home/livian/tcc_bench/generated/clang_tcc_asan)
+      n1: 3727360 0x40065BD: _dl_init (dl-init.c:102)
+       n1: 3727360 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+        n1: 3727360 0x3: ???
+         n1: 3727360 0x1FFEFFFFBE: ???
+          n1: 3727360 0x1FFEFFFFD7: ???
+           n1: 3727360 0x1FFEFFFFFF: ???
+            n0: 3727360 0x1FFF000002: ???
+   n0: 126976 in 7 places, all below massif's threshold (1.00%)
+ n1: 6496256 0x4026CD7: __mmap64 (mmap64.c:58)
+  n3: 6496256 0x4026CD7: mmap (mmap64.c:46)
+   n1: 3358720 0x4008F1B: _dl_map_segment (dl-map-segments.h:29)
+    n1: 3358720 0x4008F1B: _dl_map_segments (dl-map-segments.h:102)
+     n1: 3358720 0x4008F1B: _dl_map_object_from_fd (dl-load.c:1258)
+      n2: 3358720 0x400A600: _dl_map_object (dl-load.c:2327)
+       n1: 3338240 0x4003494: openaux (dl-deps.c:64)
+        n1: 3338240 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+         n1: 3338240 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+          n1: 3338240 0x40233BF: dl_main (rtld.c:1970)
+           n1: 3338240 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+            n1: 3338240 0x40215B7: _dl_start_final (rtld.c:507)
+             n1: 3338240 0x40215B7: _dl_start (rtld.c:596)
+              n1: 3338240 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+               n1: 3338240 0x3: ???
+                n1: 3338240 0x1FFEFFFFBE: ???
+                 n1: 3338240 0x1FFEFFFFD7: ???
+                  n1: 3338240 0x1FFEFFFFFF: ???
+                   n0: 3338240 0x1FFF000002: ???
+       n0: 20480 in 1 place, below massif's threshold (1.00%)
+   n1: 3067904 0x4009098: _dl_map_segments (dl-map-segments.h:140)
+    n1: 3067904 0x4009098: _dl_map_object_from_fd (dl-load.c:1258)
+     n2: 3067904 0x400A600: _dl_map_object (dl-load.c:2327)
+      n1: 3051520 0x4003494: openaux (dl-deps.c:64)
+       n1: 3051520 0x401D369: _dl_catch_exception (dl-error-skeleton.c:208)
+        n1: 3051520 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+         n1: 3051520 0x40233BF: dl_main (rtld.c:1970)
+          n1: 3051520 0x401F85B: _dl_sysdep_start (dl-sysdep.c:256)
+           n1: 3051520 0x40215B7: _dl_start_final (rtld.c:507)
+            n1: 3051520 0x40215B7: _dl_start (rtld.c:596)
+             n1: 3051520 0x40202B7: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+              n1: 3051520 0x3: ???
+               n1: 3051520 0x1FFEFFFFBE: ???
+                n1: 3051520 0x1FFEFFFFD7: ???
+                 n1: 3051520 0x1FFEFFFFFF: ???
+                  n0: 3051520 0x1FFF000002: ???
+      n0: 16384 in 1 place, below massif's threshold (1.00%)
+   n0: 69632 in 3 places, all below massif's threshold (1.00%)
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=86
+#-----------
+time=8247540
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1200
+heap_tree=empty
+#-----------
+snapshot=87
+#-----------
+time=8336474
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1200
+heap_tree=empty
+#-----------
+snapshot=88
+#-----------
+time=8423554
+mem_heap_B=26845184
+mem_heap_extra_B=0
+mem_stacks_B=1200
+heap_tree=empty
